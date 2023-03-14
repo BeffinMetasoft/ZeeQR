@@ -1,10 +1,12 @@
 import React from 'react'
-import CreateCrad from '../components/createCard/CreateCrad'
+import CreateCard from '../components/createCard/CreateCard'
+import Navbar from '../components/navbar/Navbar'
 
 function CreateCardPage() {
   return (
     <div>
-        <CreateCrad/>
+      <Navbar/>
+        <CreateCard/>
     </div>
   )
 }
