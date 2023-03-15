@@ -14,7 +14,13 @@ router.put('/updateCard/:id', verifyJwt, updateCard)
 router.delete('/removeCard/:id', verifyJwt, removeCard)
 
 //book card routes
-router.post('/createCard', upload.single('image'), createCard)
+router.post('/createCard', verifyJwt,upload.fields([
+    {name:'backgroundImage',maxCount:1},
+    {name:'profileImage',maxCount:1},
+    {name:'companyLogo',maxCount:1},
+    {name:'websiteImage',maxCount:1},
+    {name:'hightlightPhotos',maxCount:4},
+]), createCard)
 router.get('/getcreatedCard', verifyJwt, getCard)
 router.get('/getcreatedSingleCard/:id', getSingleCard)
 

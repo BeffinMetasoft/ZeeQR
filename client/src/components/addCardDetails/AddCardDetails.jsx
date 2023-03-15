@@ -4,9 +4,9 @@ import { createCard } from '../../api/UserRequest';
 function AddCardDetails() {
 
     const initialValues = {
-        backgroundImage: '', profileImage: '', companyLogo: "", name: "", companyName: "", companyDesignation: "", phone: "",
+         name: "", companyName: "", companyDesignation: "", phone: "",
         about: "", facebook: "", instagram: "", twitter: "", skype: "", linkedIn: "", youtube: "", email: "", address: "",
-        country: "", state: "", websiteName: "", websiteUrl: "", websiteImage: "", hightlightPhotos: ""
+        country: "", state: "", websiteName: "", websiteUrl: ""
     }
     const [userData, setUserData] = useState(initialValues)
     const [error, setError] = useState({});
@@ -14,7 +14,7 @@ function AddCardDetails() {
     const [profileImage,setProfileImage]= useState('')
     const [companyLogo,setCompanyLogo]= useState('')
     const [websiteImage,setWebsiteImage]= useState('')
-    const [hightlightPhotos,setHightlightPhotos]= useState('')
+    const [hightlightPhotos,setHightlightPhotos]= useState([])
 
     const allData = {
         ...userData
@@ -39,11 +39,18 @@ function AddCardDetails() {
             console.log(profileImage, "qwerty");
             console.log(companyLogo, "qwerty");
             console.log(websiteImage, "qwerty");
-            console.log(hightlightPhotos, "qwerty");
+            console.log(hightlightPhotos, "7777");
 
             const datas = new FormData();
-            const file = backgroundImage
-            datas.append('image', file)
+            // const file = backgroundImage
+            datas.append('backgroundImage', backgroundImage)
+            datas.append('profileImage', profileImage)
+            datas.append('companyLogo', companyLogo)
+            datas.append('websiteImage', websiteImage)
+            for(let i=0;i<hightlightPhotos.length;i++){
+                datas.append('hightlightPhotos', hightlightPhotos[i])
+            }
+        
 
             for (const keys in userData) {
                 datas.append(`${keys}`, `${userData[keys]}`)
@@ -54,6 +61,9 @@ function AddCardDetails() {
             try {
                 const { data } = await createCard(datas)
                 console.log(data, 'result');
+                if(data.success){
+                    alert('successfull uploaded')
+                }
                
             } catch (error) {
                 console.log(error);
@@ -125,7 +135,7 @@ function AddCardDetails() {
     return (
         <div >
             <div className='flex justify-center pt-5 py-5'>
-                <form className='w-3/6' onSubmit={handleSubmit} >
+                <form className='w-3/6' onSubmit={handleSubmit}  >
                     {/* <input type="file"  name="companyLogo" onChange={(e)=>setBackgroundImage(e.target.files[0])} /> */}
                     {/* <input type="file"  name="backgroundImage" onChange={handleChange} /> */}
                     <h1 className='my-3'>Images</h1>
@@ -252,7 +262,7 @@ function AddCardDetails() {
                     <h1 className='my-3'>Highlight</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="hightlightPhotos" id="hightlightPhotos" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required onChange={(e)=>setHightlightPhotos(e.target.files[0])} />
+                            <input type="file" multiple name="hightlightPhotos" id="hightlightPhotos" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required onChange={(e)=>setHightlightPhotos(e.target.files)} />
                             <label for="hightlightPhotos" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Hightlight Photos</label>
                             <p className='text-red-500'>{error.hightlightPhotos}</p>
                         </div>

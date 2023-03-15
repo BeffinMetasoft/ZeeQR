@@ -6,26 +6,27 @@ const validateEmail = function (email) {
 };
 
 const CardSchema = mongoose.Schema({
-    cardModel: {
-        type: String,
-        required: [true, "CardModel is required"]
-    },
-    logoURL: {
-        type: String,
-        required: [true, "LogoURL is required"]
-    },
-   
+
+
     companyName: {
         type: String,
         required: [true, "Name is required"]
+    },
+    companyDesignation: {
+        type: String,
+        required: [true, "Designation is required"]
     },
     name: {
         type: String,
         required: [true, "Name is required"]
     },
-  email: {
+    about: {
         type: String,
-      //  validate: [validateEmail, 'Please fill a valid email address'],
+        required: [true, "About is required"]
+    },
+    email: {
+        type: String,
+        //  validate: [validateEmail, 'Please fill a valid email address'],
         required: [true, "Email is required"],
     },
     phone: {
@@ -37,39 +38,46 @@ const CardSchema = mongoose.Schema({
         type: String,
         required: [true, "WebsiteUrl is required"]
     },
-    shippingDetails: {
-        name: {
-            type: String,
-            required: [true, "Name is required"]
-        },
-        address: {
-            type: String,
-            required: [true, "Address is required"]
-        },
-        zipCode: {
-            type: String,
-            required: [true, "ZipCode is required"]
-        },
-        state: {
-            type: String,
-            required: [true, "State is required"]
-        },
-        country: {
-            type: String,
-            required: [true, "Country is required"]
-        },
-        landmark: {
-            type: String,
-            required: [true, "Landmark is required"]
-        },
-    },
-    paymentMethod: {
+    websiteName: {
         type: String,
-        required: [true, "PaymentMethod is required"]
+        required: [true, "WebsiteName is required"]
     },
+    address: {
+        type: String,
+        required: [true, "Address is required"]
+    },
+    state: {
+        type: String,
+        required: [true, "State is required"]
+    },
+    country: {
+        type: String,
+        required: [true, "Country is required"]
+    },
+    backgroundImage:{
+        type:String,
+        required: [true, " backgroundImage is required"]
+    },
+    profileImage:{
+        type:String,
+        required: [true, "profileImage is required"]
+    },
+    companyLogo:{
+        type:String,
+        required: [true, "companyLogo is required"]
+    },
+    websiteImage:{
+        type:String,
+        required: [true, "websiteImage is required"]
+    },
+    highlightPhotos:{
+        type:Array,
+        default:[]
+    },
+    
     status: {
         type: String,
-        default:"Processing"
+        default: "Processing"
     },
     userID: {
         type: String,
@@ -87,16 +95,22 @@ const CardSchema = mongoose.Schema({
     },
     twitter: {
         type: String
-       
+
     },
     linkedin: {
         type: String
     },
-    
-   
-   
+    skype:{
+        type:String
+    },
+    youtube:{
+        type:String
+    }
+
+
+
 })
 mongoose.set('strictQuery', false);
 
-const Card = mongoose.model('Card',CardSchema)
-module.exports= Card
+const Card = mongoose.model('Card', CardSchema)
+module.exports = Card
