@@ -188,7 +188,7 @@ const createCard = async (req, res, next) => {
   console.log("newCard", newCard);
   try {
     await newCard.save();
-    res.status(200).json(newCard);
+    res.status(200).json({ success: true,newCard});
   } catch (error) {
     console.log(error);
     next(error);
@@ -197,7 +197,7 @@ const createCard = async (req, res, next) => {
 
 const getCard = async (req, res, next) => {
   try {
-    const card = await CardModel.find({ userID: req.user._id });
+    const card = await CardModel.find({ userID: req.user._id }).sort({date:-1});
 
     res.status(200).json({ success: true, card, message: "Booked Card" });
   } catch (error) {

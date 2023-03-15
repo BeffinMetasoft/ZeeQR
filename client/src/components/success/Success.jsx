@@ -5,7 +5,7 @@ import Card from '../cards/Card';
 
 function Success() {
   const location = useLocation()
-    const cardDetails = location.state?.data
+    const cardDetails = location.state?.details
     console.log(cardDetails, 'update');
   return (
     <div>

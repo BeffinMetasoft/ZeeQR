@@ -105,7 +105,11 @@ const CardSchema = mongoose.Schema({
     },
     youtube:{
         type:String
-    }
+    },
+    ddate:{
+        type:Date,
+        default:Date.now
+    },
 
 
 

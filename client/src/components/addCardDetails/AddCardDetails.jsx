@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { createCard } from '../../api/UserRequest';
 
 function AddCardDetails() {
@@ -15,6 +16,8 @@ function AddCardDetails() {
     const [companyLogo,setCompanyLogo]= useState('')
     const [websiteImage,setWebsiteImage]= useState('')
     const [hightlightPhotos,setHightlightPhotos]= useState([])
+    const navigate = useNavigate()
+
 
     const allData = {
         ...userData
@@ -62,7 +65,9 @@ function AddCardDetails() {
                 const { data } = await createCard(datas)
                 console.log(data, 'result');
                 if(data.success){
-                    alert('successfull uploaded')
+                    // alert('successfull uploaded')
+                   const details = data.newCard
+                    navigate('/order-success',{ state: {details} })
                 }
                
             } catch (error) {
