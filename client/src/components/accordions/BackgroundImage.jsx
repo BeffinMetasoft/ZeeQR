@@ -4,8 +4,10 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { FiCamera } from "react-icons/fi";
 
-export default function SimpleAccordion() {
+
+export default function BackgroundImage() {
   return (
     <div>
 
@@ -14,16 +16,19 @@ export default function SimpleAccordion() {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
           id="panel2a-header"
-          
+
         >
-          <Typography  >Accordion 2</Typography>
-          
+          <Typography  >Background  Image</Typography>
+
         </AccordionSummary>
         <hr />
         <AccordionDetails >
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+            <div>
+            <label className=' cursor-pointer  flex gap-3 text-sm' htmlFor="img-upload"><FiCamera size={26} /> Upload Your Background Image </label>
+            <input type="file" id="img-upload" name='image' className='hidden' />
+            </div>
+            
           </Typography>
         </AccordionDetails>
       </Accordion>

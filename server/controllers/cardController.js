@@ -113,48 +113,50 @@ const removeCard = async (req, res, next) => {
 //create card Controller
 
 const createCard = async (req, res, next) => {
-  const file = req.file;
-  const imageName = generateFileName();
-  await uploadFile(file.buffer, imageName, file.mimetype);
+  console.log(req.file,'qwer');
+  console.log(req.body);
+  // const file = req.file;
+  // const imageName = generateFileName();
+  // await uploadFile(file.buffer, imageName, file.mimetype);
  
-  const CardData = {
-    cardModel: req.body.cardModel,
-    logoURL: S3Url+imageName,
-    companyName: req.body.companyName,
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    websiteUrl: req.body.websiteUrl,
-    facebook:req.body.facebook,
-  instagram:req.body.instagram,
-  twitter:req.body.twitter,
-  linkedin:req.body.linkedin,
-    shippingDetails: {
-      name: req.body.shippingName,
-      address: req.body.shippingAddress,
-      zipCode: req.body.zipcode,
-      state: req.body.state,
-      country: req.body.country,
-      landmark: req.body.landmark,
-    },
-    paymentMethod: req.body.paymentMethod,
-    userID: req.user._id,
-  };
+  // const CardData = {
+  //   cardModel: req.body.cardModel,
+  //   logoURL: S3Url+imageName,
+  //   companyName: req.body.companyName,
+  //   name: req.body.name,
+  //   email: req.body.email,
+  //   phone: req.body.phone,
+  //   websiteUrl: req.body.websiteUrl,
+  //   facebook:req.body.facebook,
+  // instagram:req.body.instagram,
+  // twitter:req.body.twitter,
+  // linkedin:req.body.linkedin,
+  //   shippingDetails: {
+  //     name: req.body.shippingName,
+  //     address: req.body.shippingAddress,
+  //     zipCode: req.body.zipcode,
+  //     state: req.body.state,
+  //     country: req.body.country,
+  //     landmark: req.body.landmark,
+  //   },
+  //   paymentMethod: req.body.paymentMethod,
+  //   userID: req.user._id,
+  // };
 
-  const newCard = new CardModel(CardData);
-  newCard._id = mongoose.Types.ObjectId();
-  const URL = QRBase + newCard._id;
-  console.log("URL", URL);
-  const QRCode = await generateQR(URL);
-  newCard.QRCode = QRCode;
-  console.log("newCard", newCard);
-  try {
-    await newCard.save();
-    res.status(200).json(newCard);
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
+  // const newCard = new CardModel(CardData);
+  // newCard._id = mongoose.Types.ObjectId();
+  // const URL = QRBase + newCard._id;
+  // console.log("URL", URL);
+  // const QRCode = await generateQR(URL);
+  // newCard.QRCode = QRCode;
+  // console.log("newCard", newCard);
+  // try {
+  //   await newCard.save();
+  //   res.status(200).json(newCard);
+  // } catch (error) {
+  //   console.log(error);
+  //   next(error);
+  // }
 };
 
 const getCard = async (req, res, next) => {

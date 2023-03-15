@@ -1,14 +1,15 @@
 import React from 'react'
-import SimpleAccordion from './SimpleAccordion'
+import SimpleAccordion from '../accordions/BackgroundImage'
 import mob from '../../assests/mobile.png'
+import CardDetailsView from './CardDetailsView'
 
 function CreateCard() {
   return (
-    <div className='flex '>
-      <div className='w-7/12 bg-gray-100 flex justify-end max-h-screen overflow-auto scrollbar-hide'>
+    <div className='md:flex '>
+      <div className='md:w-7/12 bg-gray-100 flex justify-end h-screen overflow-auto scrollbar-hide'>
         <div className='w-9/12  mt-20 ' >
 
-          <h1 className='text-6xl mx-5 font-semibold '>Create your <b>ZeeQR </b> Business card profile </h1>
+          <h1 className='text-6xl mx-5 pr-10 font-semibold '>Create your <b>ZeeQR </b> Business card profile </h1>
           <h3 className='text-xl my-7'>Customize your details</h3>
           <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptas reprehenderit eligendi laudantium labore tempora diet velit deleniti quasi incidunt?</p>
           <div className='mt-10  text-xs flex gap-3'>
@@ -43,11 +44,14 @@ function CreateCard() {
 
         </div>
       </div>
-      <div className='w-5/12 bg-gray-100 '>
+      <div className='md:w-5/12 bg-gray-100 '>
         <div className='flex justify-center'>
-          <div className='w-3/5 mt-20  pt-10 pl-5 pb-5 pr-20' style={{ backgroundImage: `url(${mob})`, backgroundRepeat: "no-repeat", backgroundSize: "contain" }}>
-            <div className='h-[500px]   w-full text-white rounded-xl '>
-<h1>qwertyui</h1>
+          <div className='w-3/5 h-screen mt-10  pt-5   ' style={{ backgroundImage: `url(${mob})`, backgroundRepeat: "no-repeat", backgroundSize: "contain" }}>
+              <div className='mx-[21px] rounded-[33px]'>
+            <div className='  w-full  text-white h-[628px] overflow-auto scrollbar-hide rounded-[33px] '>
+
+              <CardDetailsView card={'hi'}/>
+              </div>
             </div>
             {/* <img className='w-2/5' src={mob} alt=""  /> */}
           </div>

@@ -14,9 +14,9 @@ router.put('/updateCard/:id', verifyJwt, updateCard)
 router.delete('/removeCard/:id', verifyJwt, removeCard)
 
 //book card routes
-router.post('/createCard', verifyJwt, upload.single('image'), createCard)
+router.post('/createCard', upload.single('image'), createCard)
 router.get('/getcreatedCard', verifyJwt, getCard)
-router.get('/getcreatedSingleCard/:id', verifyJwt, getSingleCard)
+router.get('/getcreatedSingleCard/:id', getSingleCard)
 
 //admin routes
 router.get('/getAllCard', verifyJwt, getAllCard)
