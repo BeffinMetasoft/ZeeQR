@@ -16,7 +16,7 @@ function Success() {
                 <GrDeliver size={80}/>
                 </div>
                 <div>
-                <h1 className='text-4xl text-center pt-2 font-bold uppercase'>Your smart card is on the way</h1>
+                <h1 className='text-4xl text-center pt-2 font-bold uppercase'>Your smart card is on the way qqw</h1>
                 <p className='text-center text-xl mt-2'>Your smart card will reach you within 5-6 working days.</p>
                 <p className='text-center text-xl mt-2 mb-5'>We will send the confirmation mail and traking id to your email address. </p>
                 <div className='flex justify-center m-10 gap-3 py-5'>
