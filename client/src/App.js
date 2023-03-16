@@ -12,23 +12,31 @@ import BookedCardsPage from './pages/BookedCardsPage';
 import CardDetailsViewPage from './pages/CardDetailsViewPage';
 import Error404Page from './pages/Error404Page';
 import CreateCardPage from './pages/CreateCardPage';
+import UserLoginProtect from './auth/UserLoginProtect';
+import UserRouteProtect from './auth/UserRouteProtect';
 
 function App() {
   return (
     <Router>
       <Routes> 
         <Route path='/' element={<LandingPage/>} />
+        <Route path='/detail-view/:id' element={<CardDetailsViewPage/>} />
+
+        <Route element={<UserLoginProtect/>}>
         <Route path='/signup' element={<SignupPage/>} />
         <Route path='/login' element={<LoginPage/>} />
+        </Route>
+
+        <Route element={<UserRouteProtect/>}>
         <Route path='/home' element={<HomePage/>} />
         <Route path='/update-details' element={<UpdateDetailsPage/>} />
         <Route path='/order-success' element={<SuccessPage/>} />
         <Route path='/profile' element={<ProfilePage/>} />
         <Route path='/saved-cards' element={<SavedCardsPage/>} />
         <Route path='/booked-cards' element={<BookedCardsPage/>} />
-        <Route path='/detail-view/:id' element={<CardDetailsViewPage/>} />
         <Route path='/error-404' element={<Error404Page/>} />
         <Route path='/create-card' element={<CreateCardPage/>} />
+        </Route>
       </Routes>
     </Router>
   );
