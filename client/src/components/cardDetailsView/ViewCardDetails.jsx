@@ -7,6 +7,10 @@ import insta from '../../assests/img/ig_icon.svg'
 import fb from '../../assests/img/fb_icon.svg'
 import twitter from '../../assests/img/twt_icon.svg'
 import whatsapp from '../../assests/img/wha_icon.svg'
+import phn from '../../assests/img/phone_icon.svg'
+import mail from '../../assests/img/mail_icon.svg'
+import loc from '../../assests/img/loc_icon.svg'
+import { BsQrCodeScan } from 'react-icons/bs'
 
 function ViewCardDetails({ card }) {
 
@@ -32,6 +36,8 @@ function ViewCardDetails({ card }) {
     return (
         <div>
             <section className="previewWrap">
+            <span className='  fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full bg-black text-white p-2 my-6' onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
+
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
                 </div>
@@ -78,12 +84,12 @@ function ViewCardDetails({ card }) {
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">
-                        <Link to={`tel:${card.phone}`} ><img src="./assets/img/phone_icon.svg" alt='' />{card.phone}</Link>
+                        <Link to={`tel:${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
-                        }} ><img src="./assets/img/mail_icon.svg" alt='' />{card.email}</Link>
-                        <Link><img src="./assets/img/loc_icon.svg" alt='' />{card.address}</Link>
+                        }} ><img src={mail} alt='' />{card.email}</Link>
+                        <Link><img src={loc} alt='' />{card.address}</Link>
                     </div>
                     <h2>Website/Portfolio</h2>
                     <div className="otherLinks">
@@ -116,6 +122,35 @@ function ViewCardDetails({ card }) {
                     <img src="./assets/img/footer_logo.svg" alt='' />
                 </div>
             </section>
+
+            {qrModal ? (
+                        <>
+                            <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none" >
+                                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                                    {/*content*/}
+                                    <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-transparent outline-none focus:outline-none">
+
+                                        {/*body*/}
+                                        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none" id="modal" onClick={() => setQrModal(false)} >
+
+                                            <img src={card.QRCode} alt="" />
+                                            <button className="cursor-pointer absolute top-0 right-0 mt-8   mr-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onClick={() => setQrModal(false)} >
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" />
+                                                    <line x1="18" y1="6" x2="6" y2="18" />
+                                                    <line x1="6" y1="6" x2="18" y2="18" />
+                                                </svg>
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                        </>
+
+                    ) : null}
         </div>
     )
 }
