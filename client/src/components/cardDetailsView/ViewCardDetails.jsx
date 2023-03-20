@@ -11,6 +11,8 @@ import phn from '../../assests/img/phone_icon.svg'
 import mail from '../../assests/img/mail_icon.svg'
 import loc from '../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
+// import Contacts from 'react-native-contacts';
+// import ContactsModule from './ContactModule'
 
 function ViewCardDetails({ card }) {
 
@@ -28,15 +30,40 @@ function ViewCardDetails({ card }) {
         }
     }
 
-    const handleAddToContact = (phone,name)=>{
-        const url = `tel:${phone};name=${encodeURIComponent(name)}`;
-        window.location.href = url
-    }
+    // const handleAddToContacts = (phone,name)=>{
+    //     const url = `tel:${phone};name=${encodeURIComponent(name)}`;
+    //     window.location.href = url
+    // }
+
+    const handleAddToContacts = (phone, name) => {
+        const contact = navigator.contacts.create();
+        contact.displayName = name;
+        contact.phoneNumbers = [{ value: phone, type: "mobile" }];
+        contact.save();
+    };
+
+    // const handleAddToContacts = (phone, name) => {
+    //     const newContact = {
+    //       givenName: name,
+    //       phoneNumbers: [{
+    //         label: "mobile",
+    //         number: phone
+    //       }]
+    //     };
+      
+    //     ContactsModule.createContact(newContact, (error) => {
+    //       if (error) {
+    //         console.error(error);
+    //       } else {
+    //         console.log("Contact added successfully");
+    //       }
+    //     });
+    //   };
 
     return (
         <div>
             <section className="previewWrap">
-            <span className='  fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full bg-black text-white p-2 my-6' onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
+                <span className='  fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full bg-black text-white p-2 my-6' onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
@@ -59,7 +86,7 @@ function ViewCardDetails({ card }) {
                         <img src={card.companyLogo} alt='' />
                     </div>
                     <div className="buttons">
-                        <Link className="addTo" onClick={()=>handleAddToContact('45464564564','hai')} >Add to contacts</Link>
+                        <Link className="addTo" to={`${card.vCard}`}  target="_blank" >Add to contacts</Link>
                         <Link onClick={handleShare} ><img src="./assets/img/share_icon.svg" alt='' />Share it </Link>
                     </div>
                     <h2>About</h2>
@@ -78,7 +105,7 @@ function ViewCardDetails({ card }) {
                         <Link to={`${card.twitter}`} target="_blank">
                             <img src={twitter} alt='' />
                         </Link>
-                        <Link target="_blank">
+                        <Link to={`https://wa.me/+${card.phone}?text=Hi%2C`} target="_blank">
                             <img src={whatsapp} alt='' />
                         </Link>
                     </div>
@@ -111,10 +138,10 @@ function ViewCardDetails({ card }) {
                         {card.highlightPhotos.map((img) => (
                             // <figure>
                             <img className='h-28 w-40  shadow-xl ' src={img} alt="" />
-                        // </figure>
+                            // </figure>
                         ))}
 
-                        
+
                     </div>
                 </div>
                 <div className="footer">
@@ -124,33 +151,33 @@ function ViewCardDetails({ card }) {
             </section>
 
             {qrModal ? (
-                        <>
-                            <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none" >
-                                <div className="relative w-auto my-6 mx-auto max-w-3xl">
-                                    {/*content*/}
-                                    <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-transparent outline-none focus:outline-none">
+                <>
+                    <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none" >
+                        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                            {/*content*/}
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-transparent outline-none focus:outline-none">
 
-                                        {/*body*/}
-                                        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none" id="modal" onClick={() => setQrModal(false)} >
+                                {/*body*/}
+                                <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none" id="modal" onClick={() => setQrModal(false)} >
 
-                                            <img src={card.QRCode} alt="" />
-                                            <button className="cursor-pointer absolute top-0 right-0 mt-8   mr-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onClick={() => setQrModal(false)} >
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                                    <path stroke="none" d="M0 0h24v24H0z" />
-                                                    <line x1="18" y1="6" x2="6" y2="18" />
-                                                    <line x1="6" y1="6" x2="18" y2="18" />
-                                                </svg>
-                                            </button>
+                                    <img src={card.QRCode} alt="" />
+                                    <button className="cursor-pointer absolute top-0 right-0 mt-8   mr-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onClick={() => setQrModal(false)} >
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" />
+                                            <line x1="18" y1="6" x2="6" y2="18" />
+                                            <line x1="6" y1="6" x2="18" y2="18" />
+                                        </svg>
+                                    </button>
 
-                                        </div>
-
-                                    </div>
                                 </div>
-                            </div>
-                            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-                        </>
 
-                    ) : null}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                </>
+
+            ) : null}
         </div>
     )
 }

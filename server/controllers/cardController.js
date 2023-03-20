@@ -6,7 +6,10 @@ const mongoose = require("mongoose");
 const { uploadFile } = require("../helpers/s3");
 const { generateQR } = require("../helpers/qrCodeGenerator");
 const crypto = require("crypto");
-require("dotenv").config();
+// require("dotenv").config();
+// const vCard = require('vfc');
+const vCardsJS = require('vcards-js')
+const fs = require('fs')
 
 const S3Url = process.env.AWS_BUCKET_URL
 const QRBase = process.env.QR_CODE_BASE_URL
@@ -120,7 +123,7 @@ const createCard = async (req, res, next) => {
   const companyLogo = req.files?.companyLogo[0]
   const websiteImage = req.files?.websiteImage[0]
   const hightlightPhotos = req.files?.hightlightPhotos
- 
+
 
   const backgroundImageName = generateFileName();
   await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype);
@@ -130,21 +133,20 @@ const createCard = async (req, res, next) => {
   await uploadFile(companyLogo.buffer, companyLogoName, companyLogo.mimetype);
   const websiteImageName = generateFileName();
   await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype);
- const  hightlightPhotosName1 = generateFileName()
- const  hightlightPhotosName2 = generateFileName()
- const  hightlightPhotosName3 = generateFileName()
- const  hightlightPhotosName4 = generateFileName()
-  const hightlightPhotosName =[
-    hightlightPhotosName1,
-    hightlightPhotosName2,
-    hightlightPhotosName3,
-    hightlightPhotosName4,
-  ]
+  const array = []
+ 
   for (let i = 0; i < hightlightPhotos.length; i++) {
-   
-    await uploadFile(hightlightPhotos[i].buffer, hightlightPhotosName[i], hightlightPhotos[i].mimetype);
+    const hightlightPhotosName = generateFileName()
+    array.push( hightlightPhotosName)
+
+    await uploadFile(hightlightPhotos[i].buffer, array[i], hightlightPhotos[i].mimetype);
   }
-  console.log(hightlightPhotosName,'12345678');
+  // console.log(array, '12345678');
+
+  const photoNameArray=[]
+  for(let i=0;i<array.length;i++){
+    photoNameArray.push(S3Url + array[i])
+  }
 
   const CardData = {
 
@@ -161,34 +163,53 @@ const createCard = async (req, res, next) => {
     skype: req.body.skype,
     youtube: req.body.youtube,
     address: req.body.address,
-    state: req.body.state, 
+    state: req.body.state,
     country: req.body.country,
-    websiteUrl:req.body.websiteUrl,
-    websiteName:req.body.websiteName,
+    websiteUrl: req.body.websiteUrl,
+    websiteName: req.body.websiteName,
     backgroundImage: S3Url + backgroundImageName,
-    profileImage:S3Url + profileImageName,
-    companyLogo:S3Url + companyLogoName,
-    websiteImage:S3Url + websiteImageName,
-    highlightPhotos:[
-      S3Url +hightlightPhotosName1,
-      S3Url +hightlightPhotosName2,
-      S3Url +hightlightPhotosName3,
-      S3Url +hightlightPhotosName4,
-    ],
-    
+    profileImage: S3Url + profileImageName,
+    companyLogo: S3Url + companyLogoName,
+    websiteImage: S3Url + websiteImageName,
+    highlightPhotos: photoNameArray,
+
     userID: req.user._id,
   };
+
+
+  // Create a new vCard object and set contact information
+const card =  vCardsJS();
+card.firstName = CardData.name;
+// card.lastName = 'Doe';
+card.organization = CardData.companyName;
+card.title = CardData.companyDesignation;
+card.email = CardData.email;
+card.workPhone = CardData.phone;
+card.photo.attachFromUrl(CardData.profileImage,'JPEG')
+
+
+// Generate vCard string and save to file
+const vcardString = card.getFormattedString()
+
+
+// Save file to database and get download link
+const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
+// console.log(vcardString,'1234567891234567');
+
+// Save the downloadLink to your database along with any other relevant information
+CardData.vCard=downloadLink
+
 
   const newCard = new CardModel(CardData);
   newCard._id = mongoose.Types.ObjectId();
   const URL = QRBase + newCard._id;
-  console.log("URL", URL);
+  // console.log("URL", URL);
   const QRCode = await generateQR(URL);
   newCard.QRCode = QRCode;
-  console.log("newCard", newCard);
+  // console.log("newCard", newCard);
   try {
     await newCard.save();
-    res.status(200).json({ success: true,newCard});
+    res.status(200).json({ success: true, newCard });
   } catch (error) {
     console.log(error);
     next(error);
@@ -197,7 +218,7 @@ const createCard = async (req, res, next) => {
 
 const getCard = async (req, res, next) => {
   try {
-    const card = await CardModel.find({ userID: req.user._id }).sort({date:-1});
+    const card = await CardModel.find({ userID: req.user._id }).sort({ date: -1 });
 
     res.status(200).json({ success: true, card, message: "Booked Card" });
   } catch (error) {

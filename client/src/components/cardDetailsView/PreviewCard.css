@@ -30,6 +30,7 @@ button {
 
 .previewContainer {
     max-width: 380px;
+    padding: 0 15px;
     margin: 0 auto;
     position: relative;
     z-index: 5

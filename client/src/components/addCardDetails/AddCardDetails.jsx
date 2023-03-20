@@ -22,7 +22,7 @@ function AddCardDetails() {
     const [hightlightPhotos, setHightlightPhotos] = useState([])
     const navigate = useNavigate()
 
-    const [loader,showLoader,hideLoder] =UseSpinner()
+    const [loader, showLoader, hideLoder] = UseSpinner()
 
 
     const allData = {
@@ -50,8 +50,8 @@ function AddCardDetails() {
             // console.log(websiteImage, "qwerty");
             // console.log(hightlightPhotos, "7777");
 
-                showLoader()
-               
+            showLoader()
+
 
 
             const datas = new FormData();
@@ -73,7 +73,7 @@ function AddCardDetails() {
             try {
                 const { data } = await createCard(datas)
                 console.log(data, 'result');
-                
+
                 if (data.success) {
                     hideLoder()
                     const details = data.newCard
@@ -82,7 +82,13 @@ function AddCardDetails() {
             } catch (error) {
                 console.log(error);
                 hideLoder()
-                toast(error.response.data.message.message)
+                toast(error.message)
+                if (error.response.data.message.message) {
+                    toast(error.response.data.message.message)
+                }
+
+              
+
             }
         }
     }
@@ -154,7 +160,7 @@ function AddCardDetails() {
 
 
         <div >
-           
+
             <div className='flex justify-center pt-5 py-5'>
                 <form className='w-3/6' onSubmit={handleSubmit}  >
                     {/* <input type="file"  name="companyLogo" onChange={(e)=>setBackgroundImage(e.target.files[0])} /> */}
@@ -294,7 +300,7 @@ function AddCardDetails() {
                 <ToastContainer />
                 {loader}
             </div>
-            
+
         </div>
 
     )
