@@ -219,10 +219,6 @@ button {
     background: url("../../assests/img/more_icon.svg") no-repeat right center
 }
 
-.previewContainer .contactOptions a img {
-    width: 25px
-}
-
 .previewContainer .otherLinks {
     margin-bottom: 40px
 }
@@ -267,7 +263,16 @@ button {
     justify-content: space-between;
     margin-bottom: 20px
 }
-
+.previewContainer .photoGrid img{
+    object-fit: cover;
+}
+.qr-code {
+    right: 7px;
+    background: black;
+    border: none;
+    padding: 12px;
+    border-radius: 5px !important;
+}
 .previewContainer .photoGrid figure {
     min-width: calc(50% - 11px);
     height: 164px;
