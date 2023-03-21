@@ -54,6 +54,10 @@ const CardSchema = mongoose.Schema({
         type: String,
         required: [true, "Country is required"]
     },
+    locationUrl: {
+        type: String,
+        required: [true, "locationUrl is required"]
+    },
     backgroundImage:{
         type:String,
         required: [true, " backgroundImage is required"]
@@ -64,7 +68,6 @@ const CardSchema = mongoose.Schema({
     },
     companyLogo:{
         type:String,
-        required: [true, "companyLogo is required"]
     },
     websiteImage:{
         type:String,

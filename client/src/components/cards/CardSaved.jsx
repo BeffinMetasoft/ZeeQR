@@ -1,17 +1,20 @@
 import './AlertCSS.css';
 import React from 'react'
 import logo from '../../assests/zeeqr.png'
-import QR from '../../assests/QR_code.png'
 import { FaRegEdit } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { deleteSavedCard } from '../../api/UserRequest';
+import { useNavigate } from 'react-router-dom';
 
 
 function CardSaved({card,setDeletes}) {
-    const handleEdit=(id)=>{
-        console.log(id,'edit');
+
+    const navigate = useNavigate()
+
+    const handleEdit=(cardId)=>{
+        navigate('/edit-bookedCard', { state: { cardId }})
     }
     const handleDelete=(id)=>{
         confirmAlert({
@@ -50,7 +53,7 @@ function CardSaved({card,setDeletes}) {
 
                         </div>
                         <div className="flex justify-end">
-                            <img className="w-28 " src={QR} alt='' />
+                            <img className="w-28 " src={card.QRCode} alt='' />
 
                         </div>
                         <div className="flex justify-start gap-x-2">
@@ -65,7 +68,7 @@ function CardSaved({card,setDeletes}) {
                 </div>
             </div>
             <div className='flex justify-around mt-3'>
-                <p>1/03/2023</p>
+                <p>{card.date}</p>
                 <div className='flex items-center' >
                 <button className='mx-2' onClick={()=>handleEdit(card._id)} >Edit</button>
                 <FaRegEdit/>

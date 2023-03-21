@@ -16,9 +16,9 @@ function CardDetailsViewPage() {
 
         const getDetails = async () => {
             try {
-                console.log(params.id, '11111111111');
+                // console.log(params.id, '11111111111');
                 const { data } = await cardProfile(params.id)
-                console.log(data, 'dataaaaaaaaaaa');
+                // console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     setPre(false)
                     setCard(data.card)

@@ -115,37 +115,42 @@ const removeCard = async (req, res, next) => {
 //create card Controller
 
 const createCard = async (req, res, next) => {
-  console.log(req.files.hightlightPhotos, 'qwer');
-  console.log(req.body);
+  // console.log(req.files.hightlightPhotos, 'qwer');
+  // console.log(req.body);
   const backgroundImage = req.files?.backgroundImage[0]
   const profileImage = req.files?.profileImage[0]
-  const companyLogo = req.files?.companyLogo[0]
+  const companyLogo =req.files?.companyLogo ? req.files?.companyLogo[0] : ''
   const websiteImage = req.files?.websiteImage[0]
-  const hightlightPhotos = req.files?.hightlightPhotos
+  const hightlightPhotos =req.files?.hightlightPhotos ? req.files?.hightlightPhotos : ''
 
 
   const backgroundImageName = generateFileName();
   await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype);
   const profileImageName = generateFileName();
   await uploadFile(profileImage.buffer, profileImageName, profileImage.mimetype);
-  const companyLogoName = generateFileName();
-  await uploadFile(companyLogo.buffer, companyLogoName, companyLogo.mimetype);
+  const companyLogoName =companyLogo ? generateFileName() : ''
+  companyLogo ? await uploadFile(companyLogo.buffer, companyLogoName, companyLogo.mimetype) : ''
   const websiteImageName = generateFileName();
   await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype);
   const array = []
-
-  for (let i = 0; i < hightlightPhotos.length; i++) {
-    const hightlightPhotosName = generateFileName()
-    array.push(hightlightPhotosName)
-
-    await uploadFile(hightlightPhotos[i].buffer, array[i], hightlightPhotos[i].mimetype);
-  }
-  // console.log(array, '12345678');
-
   const photoNameArray = []
-  for (let i = 0; i < array.length; i++) {
-    photoNameArray.push(S3Url + array[i])
+
+  if (hightlightPhotos) {
+    for (let i = 0; i < hightlightPhotos.length; i++) {
+      const hightlightPhotosName = generateFileName()
+      array.push(hightlightPhotosName)
+  
+      await uploadFile(hightlightPhotos[i].buffer, array[i], hightlightPhotos[i].mimetype);
+    }
+    // console.log(array, '12345678');
+  
+    
+    for (let i = 0; i < array.length; i++) {
+      photoNameArray.push(S3Url + array[i])
+    }
   }
+
+  
 
   const CardData = {
 
@@ -166,11 +171,12 @@ const createCard = async (req, res, next) => {
     country: req.body.country,
     websiteUrl: req.body.websiteUrl,
     websiteName: req.body.websiteName,
+    locationUrl:req.body.locationUrl,
     backgroundImage: S3Url + backgroundImageName,
     profileImage: S3Url + profileImageName,
-    companyLogo: S3Url + companyLogoName,
+    companyLogo: companyLogo ? S3Url + companyLogoName : '',
     websiteImage: S3Url + websiteImageName,
-    highlightPhotos: photoNameArray,
+    highlightPhotos: photoNameArray ,
 
     userID: req.user._id,
   };
@@ -187,7 +193,7 @@ const createCard = async (req, res, next) => {
 
 
   // Set the image URL
-  const imageUrl = 'https://www.shutterstock.com/image-photo/old-brick-black-color-wall-260nw-1605128917.jpg';
+  const imageUrl = CardData.profileImage;
   card.photo.attachFromUrl(imageUrl)
 
   // card.photo.embedFromString(imageUrl, 'image/png');
@@ -217,14 +223,14 @@ const createCard = async (req, res, next) => {
   // console.log("URL", URL);
   const QRCode = await generateQR(URL);
   newCard.QRCode = QRCode;
-  console.log("newCard", newCard);
-  // try {
-  //   await newCard.save();
-  //   res.status(200).json({ success: true, newCard });
-  // } catch (error) {
-  //   console.log(error);
-  //   next(error);
-  // }
+  // console.log("newCard", newCard);
+  try {
+    await newCard.save();
+    res.status(200).json({ success: true, newCard });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
 };
 
 const getCard = async (req, res, next) => {
@@ -239,25 +245,96 @@ const getCard = async (req, res, next) => {
 };
 
 const deletBookedCard = async (req, res, next) => {
-  console.log(req.params.id);
+  // console.log(req.params.id);
   try {
-    const card = await CardModel.findByIdAndUpdate({_id:req.params.id},{ $set: { status: "delete" }})
+    const card = await CardModel.findByIdAndUpdate({ _id: req.params.id }, { $set: { status: "delete" } })
     if (card) {
-      
-      res.status(200).json({ success: true,message:"deleted" })
+
+      res.status(200).json({ success: true, message: "deleted" })
     }
   } catch (error) {
     console.log(error);
     next(error);
   }
 }
-const EditBookedCard =async(req,res,next)=>{
+const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
+  // console.log(cardId);
+  // console.log(req.files)
+  // console.log(req.body, '++++');
+
+  const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
+  const pfImage = req.files?.pfImage ? req.files?.pfImage[0] : ''
+  const companyLg = req.files?.companyLg ? req.files?.companyLg[0] : ''
+  const wbImage = req.files?.wbImage ? req.files?.wbImage[0] : ''
+  const hgPhotos = req.files?.hgPhotos ? req.files?.hgPhotos : ''
+
+
+  const bgImageName = bgImage ? generateFileName() : ''
+  bgImage ? await uploadFile(bgImage.buffer, bgImageName, bgImage.mimetype) : ''
+  const pfImageName = pfImage ? generateFileName() : ''
+  pfImage ? await uploadFile(pfImage.buffer, pfImageName, pfImage.mimetype) : ''
+  const companyLgName = companyLg ? generateFileName() : ''
+  companyLg ? await uploadFile(companyLg.buffer, companyLgName, companyLg.mimetype) : ''
+  const wbImageName = wbImage ? generateFileName() : ''
+  wbImage ? await uploadFile(wbImage.buffer, wbImageName, wbImage.mimetype) : ''
+  const array = []
+  const photoNameArray = []
+  if (hgPhotos) {
+    for (let i = 0; i < hgPhotos.length; i++) {
+      const hgPhotosName = generateFileName()
+      array.push(hgPhotosName)
+
+      await uploadFile(hgPhotos[i].buffer, array[i], hgPhotos[i].mimetype);
+    }
+    // console.log(array, '12345678');
+
+
+    for (let i = 0; i < array.length; i++) {
+      photoNameArray.push(S3Url + array[i])
+    }
+
+  }
+
+
+
+
   try {
     const savedcard = await CardModel.findById(cardId);
-    console.log(savedcard);
+    const CardData = {
+
+      companyName: req.body.companyName,
+      companyDesignation: req.body.companyDesignation,
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      about: req.body.about,
+      facebook: req.body.facebook,
+      instagram: req.body.instagram,
+      twitter: req.body.twitter,
+      linkedin: req.body.linkedIn,
+      skype: req.body.skype,
+      youtube: req.body.youtube,
+      address: req.body.address,
+      state: req.body.state,
+      country: req.body.country,
+      websiteUrl: req.body.websiteUrl,
+      websiteName: req.body.websiteName,
+      locationUrl:req.body.locationUrl,
+
+      backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
+      profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,
+      companyLogo: companyLg ? S3Url + companyLgName : req.body.companyLogo,
+      websiteImage: wbImage ? S3Url + wbImageName : req.body.websiteImage,
+      highlightPhotos: hgPhotos ? photoNameArray : saveCard.highlightPhotos,
+
+      userID: req.user._id,
+    };
+    // console.log(savedcard);
     if (savedcard.userID == req.user._id) {
-      await savedcard.update(req.body);
+      console.log('ij');
+      await savedcard.updateOne(CardData);
+
       res.status(200).json({ success: true, message: "card updated" });
     } else {
       res.status(403).json("Action forbidden");
@@ -326,7 +403,7 @@ module.exports = {
   getCard,
   getSingleCard,
   deletBookedCard,
-  EditBookedCard,
+  editBookedCard,
 
   getAllCard,
   updateCardStatus,

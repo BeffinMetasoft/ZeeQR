@@ -32,7 +32,7 @@ function ViewCardDetails({ card }) {
         }
     }
 
-   
+
 
     return (
         <div>
@@ -56,9 +56,11 @@ function ViewCardDetails({ card }) {
                             <p>{card.companyDesignation}</p>
                         </div>
                     </div>
-                    <div className="companyLogo">
-                        <img src={card.companyLogo} alt='' />
-                    </div>
+                    {card.companyLogo ?
+                        <div className="companyLogo">
+                            <img src={card.companyLogo} alt='' />
+                        </div> : ''
+                    }
                     <div className="buttons">
                         <Link className="addTo" to={`${card.vCard}`}  >Add to contacts</Link>
                         <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
@@ -90,7 +92,7 @@ function ViewCardDetails({ card }) {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
                         }} ><img src={mail} alt='' />{card.email}</Link>
-                        <Link><img src={loc} alt='' />{card.address}</Link>
+                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link>
                     </div>
                     <h2>Website/Portfolio</h2>
                     <div className="otherLinks">
@@ -107,16 +109,20 @@ function ViewCardDetails({ card }) {
                             <figcaption>My works & vides</figcaption>
                         </Link> */}
                     </div>
-                    <h2>Photos of Highlight</h2>
-                    <div className="photoGrid">
-                        {card.highlightPhotos.map((img) => (
-                            // <figure>
-                            <img className='h-28 w-40  shadow-xl ' src={img} alt="" />
-                            // </figure>
-                        ))}
+                    {card.highlightPhotos.length === 0 ? '' :
+                        <div>
+                            <h2>Photos of Highlight</h2>
+                            <div className="photoGrid">
+                                {card.highlightPhotos.map((img) => (
+                                    // <figure>
+                                    <img className='h-28 w-40  shadow-xl ' src={img} alt="" />
+                                    // </figure>
+                                ))}
+                            </div>
+                        </div>
 
+                    }
 
-                    </div>
                 </div>
                 <div className="footer flex flex-col items-center">
                     <p>Powered by <Link to={"https://zeeqr.info"} target="_blank">Zeeqr</Link></p>

@@ -73,8 +73,8 @@ function Login() {
                 <div className='grid grid-cols-1 md:grid-cols-2 m-auto h-[550px] shadow-lg shadow-gray-600 sm:max-w-[900px]'>
                     <div className=' w-full text-center h-[550px] hidden md:block' style={{ backgroundImage: `url(${landingImg})` }}>
                         <img src={banner} alt="" srcset="" />
-                        <h1 className='text-5xl m-5 pt-40 z-100 font-bold  text-slate-200'>ZeeQR</h1>
-                        <p className='text-slate-100 font-bold'>Makes Your Business card Simple...</p>
+                        {/* <h1 className='text-5xl m-5 pt-40 z-100 font-bold  text-slate-200'>ZeeQR</h1>
+                        <p className='text-slate-100 font-bold'>Makes Your Business card Simple...</p> */}
                     </div>
                     <div className='p-4  flex flex-col justify-around items-center w-96'>
                         <form onSubmit={handleSubmit} className='w-3/4 mt-4 '>

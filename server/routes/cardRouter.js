@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { saveCard, getSavedCard, getSingleSavedCard, getCard, getSingleCard, getAllCard, createCard, updateCard, removeCard, updateCardStatus, deletBookedCard, EditBookedCard } = require('../controllers/cardController')
+const { saveCard, getSavedCard, getSingleSavedCard, getCard, getSingleCard, getAllCard, createCard, updateCard, removeCard, updateCardStatus, deletBookedCard,  editBookedCard } = require('../controllers/cardController')
 const { verifyJwt } = require('../middleware/verify_jwt')
 const multer = require('multer')
 const storage = multer.memoryStorage()
@@ -23,8 +23,15 @@ router.post('/createCard', verifyJwt,upload.fields([
 ]), createCard)
 router.get('/getcreatedCard', verifyJwt, getCard)
 router.post('/removeBookedCard/:id',verifyJwt,deletBookedCard)
-router.get('/EditBookedCard/:id',verifyJwt,EditBookedCard)
-router.get('/getcreatedSingleCard/:id', getSingleCard)
+router.post('/editBookedCard/:id',verifyJwt,upload.fields([
+    {name:'bgImage',maxCount:1},
+    {name:'pfImage',maxCount:1},
+    {name:'companyLg',maxCount:1},
+    {name:'wbImage',maxCount:1},
+    {name:'hgPhotos',maxCount:4},
+]),editBookedCard)
+router.get('/getSingleCard/:id',verifyJwt, getSingleCard)
+router.get('/profileView/:id', getSingleCard)
 
 //admin routes
 router.get('/getAllCard', verifyJwt, getAllCard)
