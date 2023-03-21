@@ -6,10 +6,9 @@ const mongoose = require("mongoose");
 const { uploadFile } = require("../helpers/s3");
 const { generateQR } = require("../helpers/qrCodeGenerator");
 const crypto = require("crypto");
-// require("dotenv").config();
-// const vCard = require('vfc');
+
 const vCardsJS = require('vcards-js')
-const fs = require('fs')
+const fs = require('fs');
 
 const S3Url = process.env.AWS_BUCKET_URL
 const QRBase = process.env.QR_CODE_BASE_URL
@@ -134,17 +133,17 @@ const createCard = async (req, res, next) => {
   const websiteImageName = generateFileName();
   await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype);
   const array = []
- 
+
   for (let i = 0; i < hightlightPhotos.length; i++) {
     const hightlightPhotosName = generateFileName()
-    array.push( hightlightPhotosName)
+    array.push(hightlightPhotosName)
 
     await uploadFile(hightlightPhotos[i].buffer, array[i], hightlightPhotos[i].mimetype);
   }
   // console.log(array, '12345678');
 
-  const photoNameArray=[]
-  for(let i=0;i<array.length;i++){
+  const photoNameArray = []
+  for (let i = 0; i < array.length; i++) {
     photoNameArray.push(S3Url + array[i])
   }
 
@@ -178,26 +177,38 @@ const createCard = async (req, res, next) => {
 
 
   // Create a new vCard object and set contact information
-const card =  vCardsJS();
-card.firstName = CardData.name;
-// card.lastName = 'Doe';
-card.organization = CardData.companyName;
-card.title = CardData.companyDesignation;
-card.email = CardData.email;
-card.workPhone = CardData.phone;
-card.photo.attachFromUrl(CardData.profileImage,'JPEG')
+  const card = vCardsJS();
+  card.firstName = CardData.name;
+  // card.lastName = 'Doe';
+  card.organization = CardData.companyName;
+  card.title = CardData.companyDesignation;
+  card.email = CardData.email;
+  card.workPhone = CardData.phone;
 
 
-// Generate vCard string and save to file
-const vcardString = card.getFormattedString()
+  // Set the image URL
+  const imageUrl = 'https://www.shutterstock.com/image-photo/old-brick-black-color-wall-260nw-1605128917.jpg';
+  card.photo.attachFromUrl(imageUrl)
+
+  // card.photo.embedFromString(imageUrl, 'image/png');
+
+  // // Download the image and convert it to a base64-encoded string 
+  // const imageBuffer =  imageUrl
+  // const imageBase64 = imageBuffer.toString('base64');
+
+  // // Attach the image as a base64-encoded string to the vCard
+  // card.photo.attachFromUrl(imageBase64, 'JPEG', { encoding: 'b' });
+
+  // Generate vCard string and save to file
+  const vcardString = card.getFormattedString()
 
 
-// Save file to database and get download link
-const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
-// console.log(vcardString,'1234567891234567');
+  // Save file to database and get download link
+  const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
+  console.log(vcardString, '1234567891234567');
 
-// Save the downloadLink to your database along with any other relevant information
-CardData.vCard=downloadLink
+  // Save the downloadLink to your database along with any other relevant information
+  CardData.vCard = downloadLink
 
 
   const newCard = new CardModel(CardData);
@@ -206,14 +217,14 @@ CardData.vCard=downloadLink
   // console.log("URL", URL);
   const QRCode = await generateQR(URL);
   newCard.QRCode = QRCode;
-  // console.log("newCard", newCard);
-  try {
-    await newCard.save();
-    res.status(200).json({ success: true, newCard });
-  } catch (error) {
-    console.log(error);
-    next(error);
-  }
+  console.log("newCard", newCard);
+  // try {
+  //   await newCard.save();
+  //   res.status(200).json({ success: true, newCard });
+  // } catch (error) {
+  //   console.log(error);
+  //   next(error);
+  // }
 };
 
 const getCard = async (req, res, next) => {
@@ -226,6 +237,36 @@ const getCard = async (req, res, next) => {
     next(error);
   }
 };
+
+const deletBookedCard = async (req, res, next) => {
+  console.log(req.params.id);
+  try {
+    const card = await CardModel.findByIdAndUpdate({_id:req.params.id},{ $set: { status: "delete" }})
+    if (card) {
+      
+      res.status(200).json({ success: true,message:"deleted" })
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+}
+const EditBookedCard =async(req,res,next)=>{
+  const cardId = req.params.id;
+  try {
+    const savedcard = await CardModel.findById(cardId);
+    console.log(savedcard);
+    if (savedcard.userID == req.user._id) {
+      await savedcard.update(req.body);
+      res.status(200).json({ success: true, message: "card updated" });
+    } else {
+      res.status(403).json("Action forbidden");
+    }
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+}
 
 const getSingleCard = async (req, res, next) => {
   try {
@@ -284,6 +325,8 @@ module.exports = {
   createCard,
   getCard,
   getSingleCard,
+  deletBookedCard,
+  EditBookedCard,
 
   getAllCard,
   updateCardStatus,

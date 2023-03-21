@@ -1,4 +1,7 @@
 import axios from '../api/Axios'
+// import UseAxiosPrivate from '../hooks/UseAxiosPrivate'
+
+// const axiosPrivate = UseAxiosPrivate()
 
 export const userSignup = (signupData) => axios.post('/signup',signupData)
 
@@ -18,6 +21,6 @@ export const userDetails = () => axios.get('/profile')
 
 export const userDetailsUpdate = (profile) => axios.put('/update',profile)
 
-export const deleteSavedCard = (cardId) => axios.delete(`/removeCard/${cardId}`)
+export const deleteSavedCard = (cardId) => axios.post(`/removeBookedCard/${cardId}`)
 
 export const userLogout = (refToken) => axios.post('/logout',{refToken})

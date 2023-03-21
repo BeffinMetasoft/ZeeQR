@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './PreviewCard.css'
 import logo from '../../assests/img/zeeqr-logo-white.svg'
+import ftLogo from '../../assests/img/footer_logo.svg'
+import share from '../../assests/img/share_icon.svg'
 import linkedin from '../../assests/img/in_icon.svg'
 import insta from '../../assests/img/ig_icon.svg'
 import fb from '../../assests/img/fb_icon.svg'
@@ -30,35 +32,7 @@ function ViewCardDetails({ card }) {
         }
     }
 
-    // const handleAddToContacts = (phone,name)=>{
-    //     const url = `tel:${phone};name=${encodeURIComponent(name)}`;
-    //     window.location.href = url
-    // }
-
-    const handleAddToContacts = (phone, name) => {
-        const contact = navigator.contacts.create();
-        contact.displayName = name;
-        contact.phoneNumbers = [{ value: phone, type: "mobile" }];
-        contact.save();
-    };
-
-    // const handleAddToContacts = (phone, name) => {
-    //     const newContact = {
-    //       givenName: name,
-    //       phoneNumbers: [{
-    //         label: "mobile",
-    //         number: phone
-    //       }]
-    //     };
-      
-    //     ContactsModule.createContact(newContact, (error) => {
-    //       if (error) {
-    //         console.error(error);
-    //       } else {
-    //         console.log("Contact added successfully");
-    //       }
-    //     });
-    //   };
+   
 
     return (
         <div>
@@ -71,7 +45,7 @@ function ViewCardDetails({ card }) {
                 <div className="previewContainer">
                     <div className="header">
                         <img src={logo} alt="logo zeeqr" />
-                        <Link className="btn" to={"https://zeeqr.info"} target="_blank">Get your card</Link>
+                        <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link>
                     </div>
                     <div className="userDetails">
                         <figure>
@@ -86,8 +60,8 @@ function ViewCardDetails({ card }) {
                         <img src={card.companyLogo} alt='' />
                     </div>
                     <div className="buttons">
-                        <Link className="addTo" to={`${card.vCard}`}  target="_blank" >Add to contacts</Link>
-                        <Link onClick={handleShare} ><img src="./assets/img/share_icon.svg" alt='' />Share it </Link>
+                        <Link className="addTo" to={`${card.vCard}`}  >Add to contacts</Link>
+                        <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
                     </div>
                     <h2>About</h2>
                     <div className="about">{card.about}</div>
@@ -144,9 +118,9 @@ function ViewCardDetails({ card }) {
 
                     </div>
                 </div>
-                <div className="footer">
+                <div className="footer flex flex-col items-center">
                     <p>Powered by <Link to={"https://zeeqr.info"} target="_blank">Zeeqr</Link></p>
-                    <img src="./assets/img/footer_logo.svg" alt='' />
+                    <img className='w-18' src={ftLogo} alt='' />
                 </div>
             </section>
 

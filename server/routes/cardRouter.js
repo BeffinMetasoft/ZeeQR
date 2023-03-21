@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { saveCard, getSavedCard, getSingleSavedCard, getCard, getSingleCard, getAllCard, createCard, updateCard, removeCard, updateCardStatus } = require('../controllers/cardController')
+const { saveCard, getSavedCard, getSingleSavedCard, getCard, getSingleCard, getAllCard, createCard, updateCard, removeCard, updateCardStatus, deletBookedCard, EditBookedCard } = require('../controllers/cardController')
 const { verifyJwt } = require('../middleware/verify_jwt')
 const multer = require('multer')
 const storage = multer.memoryStorage()
@@ -22,6 +22,8 @@ router.post('/createCard', verifyJwt,upload.fields([
     {name:'hightlightPhotos',maxCount:4},
 ]), createCard)
 router.get('/getcreatedCard', verifyJwt, getCard)
+router.post('/removeBookedCard/:id',verifyJwt,deletBookedCard)
+router.get('/EditBookedCard/:id',verifyJwt,EditBookedCard)
 router.get('/getcreatedSingleCard/:id', getSingleCard)
 
 //admin routes
