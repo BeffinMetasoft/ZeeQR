@@ -37,7 +37,7 @@ function ViewCardDetails({ card }) {
     return (
         <div>
             <section className="previewWrap">
-                <span className='  fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full bg-black text-white p-2 my-6' onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
+                <span className='qr-code fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full bg-black text-white p-2 my-6' onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
