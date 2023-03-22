@@ -162,7 +162,8 @@ function CardDetailsView({ card }) {
                             <h1 className='font-bold text-2xl mb-1'>Photos of Highlight</h1>
                             <div className='grid grid-cols-2 mt-3 gap-3'>
                                 {card.highlightPhotos.map((img) => (
-                                    <img src={img} className="mb-4" alt="ZeeQR Photos of Highlight" />
+
+                                    <img className='h-28 w-40  shadow-xl ' src={img} alt="" />
                                 ))}
 
                             </div>
