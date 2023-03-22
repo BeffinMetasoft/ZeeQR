@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './PreviewCard.css'
-import logo from '../../assests/img/zeeqr-logo-white.svg'
+// import logo from '../../assests/img/zeeqr-logo-white.svg'
 import ftLogo from '../../assests/img/footer_logo.svg'
 import share from '../../assests/img/share_icon.svg'
 import linkedin from '../../assests/img/in_icon.svg'
@@ -31,6 +31,7 @@ function ViewCardDetails({ card }) {
                 .catch((error) => console.log('Error sharing', error));
         }
     }
+    
 
 
 
@@ -44,8 +45,8 @@ function ViewCardDetails({ card }) {
                 </div>
                 <div className="previewContainer">
                     <div className="header">
-                        <img src={logo} alt="logo zeeqr" />
-                        <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link>
+                        {/* <img src={logo} alt="logo zeeqr" /> */}
+                        {/* <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link> */}
                     </div>
                     <div className="userDetails">
                         <figure>
@@ -69,25 +70,35 @@ function ViewCardDetails({ card }) {
                     <div className="about">{card.about}</div>
                     <h2>Social media links</h2>
                     <div className="social-links">
+                        {card.linkedin ? 
                         <Link to={`${card.linkedin}`} target="_blank">
                             <img src={linkedin} alt='' />
                         </Link>
+                        :""}
+                        {card.instagram ? 
                         <Link to={`${card.instagram}`} target="_blank">
                             <img src={insta} alt='' />
                         </Link>
+                        :''}
+                        {card.facebook ?
                         <Link to={`${card.facebook}`} target="_blank">
                             <img src={fb} alt='' />
                         </Link>
+                         :""}
+                         {card.twitter ? 
                         <Link to={`${card.twitter}`} target="_blank">
                             <img src={twitter} alt='' />
                         </Link>
+                        : ''}
+                        {card.phone ? 
                         <Link to={`https://wa.me/+${card.phone}?text=Hi%2C`} target="_blank">
                             <img src={whatsapp} alt='' />
                         </Link>
+                        : ""}
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">
-                        <Link to={`tel:${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
+                        <Link to={`tel:+${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
@@ -125,7 +136,7 @@ function ViewCardDetails({ card }) {
 
                 </div>
                 <div className="footer flex flex-col items-center">
-                    <p>Powered by <Link to={"https://zeeqr.info"} target="_blank">Zeeqr</Link></p>
+                    <p>Powered by <Link to={"https://zeeqr.co/"} target="_blank">Zeeqr</Link></p>
                     <img className='w-18' src={ftLogo} alt='' />
                 </div>
             </section>

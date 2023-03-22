@@ -1,4 +1,4 @@
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const { S3Client, PutObjectCommand, DeleteObjectCommand } = require("@aws-sdk/client-s3");
 require("dotenv").config();
 
 const bucketName = process.env.AWS_BUCKET_NAME
@@ -26,9 +26,19 @@ function uploadFile(fileBuffer, fileName, mimetype) {
     return s3Client.send(new PutObjectCommand(uploadParams));
 }
 
+function deleteFile(fileName){
+    const deleteParams ={
+        Bucket:bucketName,
+        Key:fileName
+    }
+
+    return s3Client.send(new DeleteObjectCommand(deleteParams))
+}
+
 
 module.exports = {
-    uploadFile
+    uploadFile,
+    deleteFile
 }
 
 

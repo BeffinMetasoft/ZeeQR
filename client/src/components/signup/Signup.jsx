@@ -66,9 +66,7 @@ function Signup() {
         } 
         if (!data.phone) {
             error.phone = " phone number required"
-        } else if (data.phone.length !== 10) {
-            error.phone = "number should be 10 digits"
-        }
+        } 
         if (!data.password) {
             error.password = "password required"
         } else if (data.password.length < 6) {
