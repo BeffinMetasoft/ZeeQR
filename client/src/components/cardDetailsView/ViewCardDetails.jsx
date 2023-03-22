@@ -126,7 +126,7 @@ function ViewCardDetails({ card }) {
                             <div className="photoGrid">
                                 {card.highlightPhotos.map((img) => (
                                     // <figure>
-                                    <img className='h-28 w-40  shadow-xl ' src={img} alt="" />
+                                    <img className='mb-4' src={img} alt="" />
                                     // </figure>
                                 ))}
                             </div>
