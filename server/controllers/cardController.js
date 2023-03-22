@@ -190,6 +190,7 @@ const createCard = async (req, res, next) => {
   card.title = CardData.companyDesignation;
   card.email = CardData.email;
   card.workPhone = CardData.phone;
+  card.url = CardData.websiteUrl
 
 
   // Set the image URL
@@ -330,6 +331,37 @@ const editBookedCard = async (req, res, next) => {
 
       userID: req.user._id,
     };
+
+    // Create a new vCard object and set contact information
+  const card = vCardsJS();
+  card.firstName = CardData.name;
+  // card.lastName = 'Doe';
+  card.organization = CardData.companyName;
+  card.title = CardData.companyDesignation;
+  card.email = CardData.email;
+  card.workPhone = CardData.phone;
+  card.url = CardData.websiteUrl
+
+
+  // Set the image URL
+  const imageUrl = CardData.profileImage;
+  card.photo.attachFromUrl(imageUrl)
+
+  
+
+  // Generate vCard string and save to file
+  const vcardString = card.getFormattedString()
+
+
+  // Save file to database and get download link
+  const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
+  console.log(vcardString, '1234567891234567');
+
+  // Save the downloadLink to your database along with any other relevant information
+  CardData.vCard = downloadLink
+
+
+
     // console.log(savedcard);
     if (savedcard.userID == req.user._id) {
       console.log('ij');

@@ -147,7 +147,7 @@ button {
 }
 
 .previewContainer .buttons a.addTo {
-    background: #ff5c00;
+    background: black;
     color: #fff
 }
 
@@ -168,7 +168,7 @@ button {
     height: 3.3px;
     right: 0%;
     top: 18px;
-    background: #ff5c00
+    background: black
 }
 
 .previewContainer .about {
@@ -260,6 +260,7 @@ button {
 .previewContainer .photoGrid {
     display: flex;
     flex-wrap: wrap;
+    gap: 5px;
     justify-content: space-between;
     margin-bottom: 20px
 }
