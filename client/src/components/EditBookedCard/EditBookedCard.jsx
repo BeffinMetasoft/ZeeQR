@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import {  getSigleCardData, UpdateBookedCard } from '../../api/UserRequest';
+import { getSigleCardData, UpdateBookedCard } from '../../api/UserRequest';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UseSpinner from '../../hooks/UseSpinner';
@@ -55,7 +55,7 @@ function EditBookedCard({ cardId }) {
     const handleChange = (e) => {
         const { name, value } = e.target
         setUserData({ ...userData, [name]: value })
-        console.log(userData,"qwerty");
+        console.log(userData, "qwerty");
 
     }
     const handleBg = (e) => {
@@ -89,7 +89,7 @@ function EditBookedCard({ cardId }) {
         const errors = validateForm(allData)
         console.log(Object.keys(errors).length);
         setError(errors)
-        
+
         if (Object.keys(errors).length === 0) {
 
             showLoader()
@@ -108,7 +108,7 @@ function EditBookedCard({ cardId }) {
             }
 
             try {
-                const { data } = await UpdateBookedCard(cardId,datas)
+                const { data } = await UpdateBookedCard(cardId, datas)
                 console.log(data, 'result');
 
                 if (data.success) {
@@ -214,20 +214,20 @@ function EditBookedCard({ cardId }) {
                     <h1 className='my-3'>Images</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="backgroundImage" id='backgroundImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleBg} />
+                            <input type="file" name="backgroundImage" id='backgroundImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleBg} />
                             <img className='w-28' src={showBg ? showBg : userData.backgroundImage} alt="" />
                             {/* <input type="file" name="backgroundImage" id='backgroundImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required onChange={handleImageChange} /> */}
                             <label htmlFor="backgroundImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload Background Image</label>
                             <p className='text-red-500'>{error.backgroundImage}</p>
                         </div>
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="profileImage" id='profileImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handlePf} />
+                            <input type="file" name="profileImage" id='profileImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handlePf} />
                             <img className='w-28' src={showPf ? showPf : userData.profileImage} alt="" />
                             <label htmlFor="profileImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload profile Picture</label>
                             <p className='text-red-500'>{error.profileImage}</p>
                         </div>
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="companyLogo" id='companyLogo' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleLg} />
+                            <input type="file" name="companyLogo" id='companyLogo' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleLg} />
                             <img className='w-28' src={showLg ? showLg : userData.companyLogo} alt="" />
                             <label htmlFor="companyLogo" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload your logo</label>
                             <p className='text-red-500'>{error.companyLogo}</p>
@@ -265,6 +265,10 @@ function EditBookedCard({ cardId }) {
                     </div>
                     <h1 className='my-3'>social media</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
+                        <div className="relative z-0 mb-6 w-full group">
+                            <input type="number" name="whatsappNumber" id="whatsappNumber" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleChange} value={userData["whatsappNumber"] || ""} />
+                            <label htmlFor="whatsappNumber" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Whatsapp Number</label>
+                        </div>
                         <div className="relative z-0 mb-6 w-full group">
                             <input type="text" name="facebook" id="floating_facebook" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleChange} value={userData["facebook"] || ""} />
                             <label htmlFor="floating_facebook" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Facebook</label>
@@ -326,7 +330,7 @@ function EditBookedCard({ cardId }) {
                     <h1 className='my-3'>website</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="websiteImage" id='websiteImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleWb} />
+                            <input type="file" name="websiteImage" id='websiteImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleWb} />
                             <img className='w-28' src={showWb ? showWb : userData.websiteImage} alt="" />
                             <label htmlFor="websiteImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload website Image</label>
                             <p className='text-red-500'>{error.websiteImage}</p>

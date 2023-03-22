@@ -90,8 +90,8 @@ function ViewCardDetails({ card }) {
                             <img src={twitter} alt='' />
                         </Link>
                         : ''}
-                        {card.phone ? 
-                        <Link to={`https://wa.me/+${card.phone}?text=Hi%2C`} target="_blank">
+                        {card.whatsappNumber ? 
+                        <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
                             <img src={whatsapp} alt='' />
                         </Link>
                         : ""}

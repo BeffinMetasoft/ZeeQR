@@ -90,6 +90,9 @@ const CardSchema = mongoose.Schema({
         type: String,
         required: [true, "QRCode is required"]
     },
+    whatsappNumber: {
+        type: Number
+    },
     facebook: {
         type: String
     },
