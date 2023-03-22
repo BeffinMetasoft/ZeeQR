@@ -308,7 +308,11 @@ button {
 .footer p {
     font-size: 14px;
     line-height: 15px;
-    color: #fff;
+    background: linear-gradient(90deg, #DBB24B 0%, #DED099 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
     margin-bottom: 5px
 }
 
