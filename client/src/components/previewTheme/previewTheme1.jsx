@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './PreviewCard.css'
-// import logo from '../../assests/img/zeeqr-logo-white.svg'
+import './PreviewTheme1.css'
+import logo from '../../assests/img/zeeqr-logo-white.svg'
 import ftLogo from '../../assests/img/footer_logo.svg'
 import share from '../../assests/img/share_icon.svg'
 import linkedin from '../../assests/img/in_icon.svg'
@@ -13,13 +13,13 @@ import phn from '../../assests/img/phone_icon.svg'
 import mail from '../../assests/img/mail_icon.svg'
 import loc from '../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
-import phonelogo11 from '../../assests/phone11.png'
-import phonelogo12 from '../../assests/mail12.png'
-import phonelogo13 from '../../assests/loaction13.png'
+import phonelogo from '../../assests/cell1.png'
+import phonelogo1 from '../../assests/mail2.png'
+import phonelogo2 from '../../assests/mail3.png'
 // import Contacts from 'react-native-contacts';
 // import ContactsModule from './ContactModule'
 
-function ViewCardDetails({ card }) {
+function PreviewTheme1({ card }) {
 
     const [qrModal, setQrModal] = useState(false)
 
@@ -46,10 +46,10 @@ function ViewCardDetails({ card }) {
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
                 </div>
-                <div className="previewContainer">
+                <div className="previewContainer2">
                     <div className="header">
-                        {/* <img src={logo} alt="logo zeeqr" /> */}
-                        {/* <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link> */}
+                        <img src={logo} alt="logo zeeqr" />
+                        <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link>
                     </div>
                     <div className="userDetails">
                         <figure>
@@ -101,12 +101,12 @@ function ViewCardDetails({ card }) {
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">
-                        <Link to={`tel:+${card.phone}`} ><img src={phonelogo11} alt='' />{card.phone}</Link>
+                        <Link to={`tel:+${card.phone}`} ><img src={phonelogo} alt='' />{card.phone}</Link>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
-                        }} ><img src={phonelogo12} alt='' />{card.email}</Link>
-                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={phonelogo13} alt='' />{card.address}</Link>
+                        }} ><img src={phonelogo1} alt='' style={{color:"white"}}/>{card.email}</Link>
+                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={phonelogo2} alt='' />{card.address}</Link>
                     </div>
                     <h2>Website/Portfolio</h2>
                     <div className="otherLinks">
@@ -114,6 +114,10 @@ function ViewCardDetails({ card }) {
                             <figure><img src={card.websiteImage} alt='' /></figure>
                             <figcaption> {card.websiteName}</figcaption>
                         </Link>
+
+
+                        
+                        
                         {/* <Link >
                             <figure><img src="https://metasoftit.com/wp-content/uploads/2020/08/service4.jpg" alt='' /></figure>
                             <figcaption>Work testimonials</figcaption>
@@ -126,16 +130,24 @@ function ViewCardDetails({ card }) {
                     {card.highlightPhotos.length === 0 ? '' :
                         <div>
                             <h2>Photos of Highlight</h2>
+                            
                             <div className="photoGrid">
                                 {card.highlightPhotos.map((img) => (
                                     // <figure>
-                                    <img className='mb-4' src={img} alt="" />
+                                    <img className='mb-6' src={img} alt="" />
                                     // </figure>
                                 ))}
                             </div>
+                           
                         </div>
 
                     }
+                    <video width="auto" height="auto" autoplay>
+  <source src='https://youtu.be/J_tBA-Cjjy4' type="video/ogg"/>
+
+</video>
+<h2>Video of Highlight</h2>
+<iframe width="400" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
                 </div>
                 <div className="footer flex flex-col items-center">
@@ -176,4 +188,4 @@ function ViewCardDetails({ card }) {
     )
 }
 
-export default ViewCardDetails
+export default PreviewTheme1

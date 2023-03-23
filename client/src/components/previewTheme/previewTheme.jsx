@@ -13,6 +13,9 @@ import phn from '../../assests/img/phone_icon.svg'
 import mail from '../../assests/img/mail_icon.svg'
 import loc from '../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
+import phonelogo11 from '../../assests/phone11.png'
+import phonelogo12 from '../../assests/mail12.png'
+import phonelogo13 from '../../assests/loaction13.png'
 // import Contacts from 'react-native-contacts';
 // import ContactsModule from './ContactModule'
 
@@ -98,12 +101,12 @@ function PreviewTheme({ card }) {
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">
-                        <Link to={`tel:+${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
+                        <Link to={`tel:+${card.phone}`} ><img src={phonelogo11} alt='' />{card.phone}</Link>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
-                        }} ><img src={mail} alt='' />{card.email}</Link>
-                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link>
+                        }} ><img src={phonelogo12} alt='' style={{color:"white"}}/>{card.email}</Link>
+                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={phonelogo13} alt='' />{card.address}</Link>
                     </div>
                     <h2>Website/Portfolio</h2>
                     <div className="otherLinks">
@@ -144,7 +147,7 @@ function PreviewTheme({ card }) {
 
 </video>
 <h2>Video of Highlight</h2>
-<iframe width="400" height="315" src="https://www.youtube.com/embed/J_tBA-Cjjy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="400" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
                 </div>
                 <div className="footer flex flex-col items-center">

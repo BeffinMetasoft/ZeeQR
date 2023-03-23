@@ -9,12 +9,13 @@ import SuccessPage from './pages/SuccessPage';
 import ProfilePage from './pages/ProfilePage';
 import SavedCardsPage from './pages/SavedCardsPage';
 import BookedCardsPage from './pages/BookedCardsPage';
-import CardDetailsViewPage from './pages/CardDetailsViewPage';
 import Error404Page from './pages/Error404Page';
 import CreateCardPage from './pages/CreateCardPage';
 import UserLoginProtect from './auth/UserLoginProtect';
 import UserRouteProtect from './auth/UserRouteProtect';
 import UpdateBookedCardPage from './pages/UpdateBookedCardPage';
+import CardDetailsViewPage from './pages/CardDetailsViewPage';
+import CardDetailsViewPage1 from './pages/CardDetailsViewPage1';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Routes> 
         <Route path='/' element={<LandingPage/>} />
         <Route path='/profile-view/:id' element={<CardDetailsViewPage/>} />
+        <Route path='/profile-view1/:id' element={<CardDetailsViewPage1/>} />
 
         <Route element={<UserLoginProtect/>}>
         <Route path='/signup' element={<SignupPage/>} />

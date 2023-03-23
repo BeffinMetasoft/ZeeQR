@@ -10,7 +10,9 @@ button {
 
 .previewWrap {
     position: relative;
-    height: 100%
+    height: 100%;
+    
+    
 }
 
 .previewWrap .bannerImage {
@@ -33,7 +35,9 @@ button {
     padding: 0 15px;
     margin: 0 auto;
     position: relative;
+    background-color: #000;
     z-index: 5
+    
 }
 
 .previewContainer .header {
@@ -150,7 +154,7 @@ button {
 .previewContainer .buttons a.addTo {
     background:#FF5C00;
 
-    color: #fff
+    color: #c7c1c1
 }
 
 .previewContainer h2 {
@@ -178,7 +182,8 @@ button {
     font-size: 13px;
     line-height: 22px;
     font-weight: 500;
-    color: #424242
+    color:#AFAFAF;
+
 }
 
 .previewContainer .social-links {
@@ -213,7 +218,7 @@ button {
     display: flex;
     align-items: center;
     min-height: 34px;
-    color: #000;
+    color:white;
     text-decoration: none;
     cursor: pointer;
     gap: 10px;
@@ -256,7 +261,7 @@ button {
     width: calc(100% - 180px);
     font-size: 15px;
     line-height: 20px;
-    color: #1e1e1e;
+    color: #1e1e1e
 }
 
 .previewContainer .photoGrid {
@@ -271,9 +276,11 @@ button {
 }
  .photoGrid {
   
-    display: grid;
+    display:flex;
     grid-template-columns: 50% 50%;
   grid-gap: 1rem;
+  display: flex;
+  color: #EFEFEF;
 
 }
 .qr-code {
@@ -283,15 +290,18 @@ button {
     padding: 12px;
     border-radius: 5px !important;
 }
- 
+.previewContainer .photoGrid figure {
+    min-width: calc(50% - 11px);
+    height: 164px;
+    display: block;
+    margin-bottom: 22px
+}
 
 .previewContainer .photoGrid figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-    object-fit: cover;
-    grid-template-columns: 10rem 10rem 10rem;
-  grid-gap: 1rem;
+    object-fit: cover
 }
 
 .previewContainer .companyLogo {
@@ -321,4 +331,5 @@ button {
     text-decoration: none;
     color: #fff
 }
+
 

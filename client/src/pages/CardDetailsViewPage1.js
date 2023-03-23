@@ -5,8 +5,9 @@ import { cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr.png'
 import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import PreviewTheme from '../components/previewTheme/previewTheme'
+import PreviewTheme1 from '../components/previewTheme/previewTheme1'
 
-function CardDetailsViewPage() {
+function CardDetailsViewPage1() {
     const params = useParams()
     const [card, setCard] = useState('')
     // const navigate = useNavigate()
@@ -41,8 +42,9 @@ function CardDetailsViewPage() {
                 (
                     card ?
                         // <CardDetailsView card={card} />
-                        <PreviewTheme card={card} />
-                       
+                        // <ViewCardDetails card={card} />
+                        // <PreviewTheme card={card} />
+                        <PreviewTheme1 card={card} />
                         :
                         <div className='text-center' >
                             <div className='w-full flex justify-center'>
@@ -58,4 +60,4 @@ function CardDetailsViewPage() {
     )
 }
 
-export default CardDetailsViewPage
+export default CardDetailsViewPage1
