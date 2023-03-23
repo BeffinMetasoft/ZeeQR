@@ -30,7 +30,7 @@ function CardDetailsViewPage() {
                         link.rel = "icon";
                         document.getElementsByTagName("head")[0].appendChild(link);
                     }
-                    link.href = "https://stackoverflow.com/favicon.ico";
+                    link.href = data.card.faviconImage
                 }
             } catch (error) {
 
