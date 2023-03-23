@@ -31,6 +31,13 @@ function CardDetailsViewPage() {
                         document.getElementsByTagName("head")[0].appendChild(link);
                     }
                     link.href = data.card.faviconImage
+                    let linkAppple = document.querySelector("link[rel~='apple-touch-icon']");
+                    if (!linkAppple) {
+                        linkAppple = document.createElement("link");
+                        linkAppple.rel = "apple-touch-icon";
+                        document.getElementsByTagName("head")[0].appendChild(linkAppple);
+                    }
+                    linkAppple.href = data.card.faviconImage
                 }
             } catch (error) {
 
