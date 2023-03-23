@@ -178,6 +178,7 @@ const createCard = async (req, res, next) => {
     companyLogo: companyLogo ? S3Url + companyLogoName : '',
     websiteImage: S3Url + websiteImageName,
     highlightPhotos: photoNameArray ,
+    colorCode:req.body.colorCode,
 
     userID: req.user._id,
   };
@@ -190,7 +191,7 @@ const createCard = async (req, res, next) => {
   card.organization = CardData.companyName;
   card.title = CardData.companyDesignation;
   card.email = CardData.email;
-  card.workPhone = CardData.phone;
+  card.workPhone = '+' + CardData.phone;
   card.url = CardData.websiteUrl
 
 
@@ -263,7 +264,7 @@ const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
   // console.log(cardId);
   // console.log(req.files)
-  // console.log(req.body, '++++');
+  console.log(req.body, '++++');
 
   const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
   const pfImage = req.files?.pfImage ? req.files?.pfImage[0] : ''
@@ -324,6 +325,7 @@ const editBookedCard = async (req, res, next) => {
       websiteUrl: req.body.websiteUrl,
       websiteName: req.body.websiteName,
       locationUrl:req.body.locationUrl,
+      colorCode:req.body.colorCode,
 
       backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
       profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,
@@ -341,7 +343,7 @@ const editBookedCard = async (req, res, next) => {
   card.organization = CardData.companyName;
   card.title = CardData.companyDesignation;
   card.email = CardData.email;
-  card.workPhone = CardData.phone;
+  card.workPhone = '+' + CardData.phone;
   card.url = CardData.websiteUrl
 
 
@@ -357,7 +359,7 @@ const editBookedCard = async (req, res, next) => {
 
   // Save file to database and get download link
   const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
-  console.log(vcardString, '1234567891234567');
+  // console.log(vcardString, '1234567891234567');
 
   // Save the downloadLink to your database along with any other relevant information
   CardData.vCard = downloadLink

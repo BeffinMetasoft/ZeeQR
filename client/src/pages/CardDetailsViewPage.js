@@ -22,6 +22,15 @@ function CardDetailsViewPage() {
                 if (data.success) {
                     setPre(false)
                     setCard(data.card)
+                    document.title = data.card.name
+
+                    let link = document.querySelector("link[rel~='icon']");
+                    if (!link) {
+                        link = document.createElement("link");
+                        link.rel = "icon";
+                        document.getElementsByTagName("head")[0].appendChild(link);
+                    }
+                    link.href = "https://stackoverflow.com/favicon.ico";
                 }
             } catch (error) {
 
@@ -33,8 +42,8 @@ function CardDetailsViewPage() {
     return (
         <div>
             {pre ?
-            <div className='w-full h-screen flex items-center justify-center'>
-                <img  src={logo} alt="" />
+                <div className='w-full h-screen flex items-center justify-center'>
+                    <img src={logo} alt="" />
                 </div>
                 :
                 (

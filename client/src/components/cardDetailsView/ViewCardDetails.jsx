@@ -16,6 +16,8 @@ import { BsQrCodeScan } from 'react-icons/bs'
 // import Contacts from 'react-native-contacts';
 // import ContactsModule from './ContactModule'
 
+
+
 function ViewCardDetails({ card }) {
 
     const [qrModal, setQrModal] = useState(false)
@@ -31,14 +33,15 @@ function ViewCardDetails({ card }) {
                 .catch((error) => console.log('Error sharing', error));
         }
     }
-    
+
+
 
 
 
     return (
         <div>
             <section className="previewWrap">
-                <span className='qr-code fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full bg-black text-white p-2 my-6' onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
+                <span className='qr-code fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{backgroundColor:`${card.colorCode}`}} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
@@ -48,7 +51,7 @@ function ViewCardDetails({ card }) {
                         {/* <img src={logo} alt="logo zeeqr" /> */}
                         {/* <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link> */}
                     </div>
-                    <div className="userDetails">
+                    <div className='userDetails ' style={{backgroundColor:`${card.colorCode}`}} >
                         <figure>
                             <img src={card.profileImage} alt='' />
                         </figure>
@@ -58,45 +61,54 @@ function ViewCardDetails({ card }) {
                         </div>
                     </div>
                     {card.companyLogo ?
-                        <div className="companyLogo">
+                        <div className="companyLogo ">
                             <img src={card.companyLogo} alt='' />
                         </div> : ''
                     }
                     <div className="buttons">
-                        <Link className="addTo" to={`${card.vCard}`}  >Add to contacts</Link>
+                        <Link className='addTo' to={`${card.vCard}`} style={{backgroundColor:`${card.colorCode}`}} >Add to contacts</Link>
                         <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
                     </div>
-                    <h2>About</h2>
-                    <div className="about">{card.about}</div>
-                    <h2>Social media links</h2>
-                    <div className="social-links">
-                        {card.linkedin ? 
-                        <Link to={`${card.linkedin}`} target="_blank">
-                            <img src={linkedin} alt='' />
-                        </Link>
-                        :""}
-                        {card.instagram ? 
-                        <Link to={`${card.instagram}`} target="_blank">
-                            <img src={insta} alt='' />
-                        </Link>
-                        :''}
-                        {card.facebook ?
-                        <Link to={`${card.facebook}`} target="_blank">
-                            <img src={fb} alt='' />
-                        </Link>
-                         :""}
-                         {card.twitter ? 
-                        <Link to={`${card.twitter}`} target="_blank">
-                            <img src={twitter} alt='' />
-                        </Link>
-                        : ''}
-                        {card.whatsappNumber ? 
-                        <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
-                            <img src={whatsapp} alt='' />
-                        </Link>
-                        : ""}
+                    <div className='flex'>
+                        <h2>About </h2>
+                        <p  style={{borderBottom:`3px solid ${card.colorCode}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
                     </div>
-                    <h2>Contact Info</h2>
+                    <div className="about ">{card.about}</div>
+                    <div className='flex'>
+                        <h2>Social media links</h2>
+                        <p  style={{borderBottom:`3px solid ${card.colorCode}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                    </div>
+                    <div className="social-links">
+                        {card.linkedin ?
+                            <Link to={`${card.linkedin}`} target="_blank">
+                                <img src={linkedin} alt='' />
+                            </Link>
+                            : ""}
+                        {card.instagram ?
+                            <Link to={`${card.instagram}`} target="_blank">
+                                <img src={insta} alt='' />
+                            </Link>
+                            : ''}
+                        {card.facebook ?
+                            <Link to={`${card.facebook}`} target="_blank">
+                                <img src={fb} alt='' />
+                            </Link>
+                            : ""}
+                        {card.twitter ?
+                            <Link to={`${card.twitter}`} target="_blank">
+                                <img src={twitter} alt='' />
+                            </Link>
+                            : ''}
+                        {card.whatsappNumber ?
+                            <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
+                                <img src={whatsapp} alt='' />
+                            </Link>
+                            : ""}
+                    </div>
+                    <div className='flex'>
+                        <h2>Contact Info</h2>
+                        <p  style={{borderBottom:`3px solid ${card.colorCode}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                    </div>
                     <div className="contactOptions">
                         <Link to={`tel:+${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
                         <Link onClick={(e) => {
@@ -105,7 +117,10 @@ function ViewCardDetails({ card }) {
                         }} ><img src={mail} alt='' />{card.email}</Link>
                         <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link>
                     </div>
-                    <h2>Website/Portfolio</h2>
+                    <div className='flex'>
+                        <h2>Website</h2>
+                        <p  style={{borderBottom:`3px solid ${card.colorCode}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                    </div>
                     <div className="otherLinks">
                         <Link to={`${card.websiteUrl}`} target="_blank" >
                             <figure><img src={card.websiteImage} alt='' /></figure>
@@ -122,7 +137,10 @@ function ViewCardDetails({ card }) {
                     </div>
                     {card.highlightPhotos.length === 0 ? '' :
                         <div>
-                            <h2>Photos of Highlight</h2>
+                            <div className='flex'>
+                                <h2>Gallery</h2>
+                                <p  style={{borderBottom:`3px solid ${card.colorCode}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                            </div>
                             <div className="photoGrid">
                                 {card.highlightPhotos.map((img) => (
                                     // <figure>

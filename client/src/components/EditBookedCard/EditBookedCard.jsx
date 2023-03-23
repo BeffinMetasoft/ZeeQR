@@ -4,8 +4,7 @@ import { getSigleCardData, UpdateBookedCard } from '../../api/UserRequest';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UseSpinner from '../../hooks/UseSpinner';
-// const MAX_IMAGE_SIZE = 1024 * 1024; // 1MB
-
+import { SketchPicker } from 'react-color'
 
 function EditBookedCard({ cardId }) {
     useEffect(() => {
@@ -43,6 +42,8 @@ function EditBookedCard({ cardId }) {
     const [showLg, setShowLg] = useState('')
     const [showWb, setShowWb] = useState('')
     const [showHg, setShowHg] = useState([])
+
+    const [currentColor, setCurrentColor] = useState('')
 
 
     const [loader, showLoader, hideLoder] = UseSpinner()
@@ -89,6 +90,7 @@ function EditBookedCard({ cardId }) {
         const errors = validateForm(allData)
         console.log(Object.keys(errors).length);
         setError(errors)
+        userData.colorCode = currentColor
 
         if (Object.keys(errors).length === 0) {
 
@@ -106,6 +108,8 @@ function EditBookedCard({ cardId }) {
             for (const keys in userData) {
                 datas.append(`${keys}`, `${userData[keys]}`)
             }
+
+            // datas.append('colorCode', currentColor)
 
             try {
                 const { data } = await UpdateBookedCard(cardId, datas)
@@ -201,6 +205,12 @@ function EditBookedCard({ cardId }) {
     //     }
     //     setBackgroundImage(file)
     // };
+
+    const handleChangeColor = (color) => {
+        setCurrentColor(color.hex)
+        console.log(color.hex);
+
+    }
 
 
 
@@ -370,6 +380,14 @@ function EditBookedCard({ cardId }) {
                             <label htmlFor="hightlightPhotos" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Hightlight Photos</label>
                             <p className='text-red-500'>{error.hightlightPhotos}</p>
                         </div>
+                    </div>
+                    <div className='mb-5'>
+                        <SketchPicker
+                            color={currentColor}
+                            onChangeComplete={handleChangeColor}
+                        />
+                        <p>{currentColor ? currentColor : userData.colorCode}</p>
+
                     </div>
 
                     <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>

@@ -115,6 +115,9 @@ const CardSchema = mongoose.Schema({
     vCard:{
         type:String
     },
+    colorCode:{
+        type:String
+    },
     date:{
         type:Date,
         default:Date.now()

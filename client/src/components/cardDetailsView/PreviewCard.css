@@ -77,7 +77,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1e1e1e;
+    /* background: #1e1e1e; */
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -144,11 +144,11 @@ button {
     line-height: 20px;
     gap: 17px;
     color: #000;
-    background: #e6e6e6
+    /* background: #e6e6e6 */
 }
 
 .previewContainer .buttons a.addTo {
-    background: black;
+    /* background: black; */
     color: #fff
 }
 
@@ -156,13 +156,13 @@ button {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
-    padding-right: 30px;
+    padding-right: 10px;
     position: relative;
     display: inline-block;
     margin-bottom: 16px
 }
 
-.previewContainer h2:after {
+/* .previewContainer h2:after {
     position: absolute;
     content: "";
     width: 22.03px;
@@ -170,7 +170,7 @@ button {
     right: 0%;
     top: 18px;
     background: black
-}
+} */
 
 .previewContainer .about {
     margin-bottom: 24px;
@@ -270,7 +270,7 @@ button {
 }
 .qr-code {
     right: 7px;
-    background: black;
+    /* background: black; */
     border: none;
     padding: 12px;
     border-radius: 5px !important;

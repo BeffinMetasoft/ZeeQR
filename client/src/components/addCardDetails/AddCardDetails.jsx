@@ -4,19 +4,18 @@ import { createCard } from '../../api/UserRequest';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UseSpinner from '../../hooks/UseSpinner';
-// const MAX_IMAGE_SIZE = 1024 * 1024; // 1MB
-
+import { SketchPicker } from 'react-color'
 
 function AddCardDetails() {
 
     const initialValues = {
         name: "", companyName: "", companyDesignation: "", phone: "",
-        about: "",whatsappNumber:"", facebook: "", instagram: "", twitter: "", skype: "", linkedIn: "", youtube: "", email: "",locationUrl:"", address: "",
+        about: "", whatsappNumber: "", facebook: "", instagram: "", twitter: "", skype: "", linkedIn: "", youtube: "", email: "", locationUrl: "", address: "",
         country: "", state: "", websiteName: "", websiteUrl: ""
     }
     const [userData, setUserData] = useState(initialValues)
     const [error, setError] = useState({});
-    const [backgroundImage, setBackgroundImage] = useState('') 
+    const [backgroundImage, setBackgroundImage] = useState('')
     const [profileImage, setProfileImage] = useState('')
     const [companyLogo, setCompanyLogo] = useState('')
     const [websiteImage, setWebsiteImage] = useState('')
@@ -28,6 +27,7 @@ function AddCardDetails() {
     const [showWb, setShowWb] = useState('')
     const [showHg, setShowHg] = useState([])
 
+    const [currentColor, setCurrentColor] = useState('#ff6')
 
     const [loader, showLoader, hideLoder] = UseSpinner()
 
@@ -73,6 +73,7 @@ function AddCardDetails() {
         const errors = validateForm(allData)
         console.log(Object.keys(errors).length);
         setError(errors)
+        userData.colorCode = currentColor
         if (Object.keys(errors).length === 0) {
 
             showLoader()
@@ -90,6 +91,8 @@ function AddCardDetails() {
                 datas.append(`${keys}`, `${userData[keys]}`)
             }
 
+            // datas.append('colorCode',currentColor)
+
             try {
                 const { data } = await createCard(datas)
                 console.log(data, 'result');
@@ -97,7 +100,7 @@ function AddCardDetails() {
                 if (data.success) {
                     hideLoder()
                     const details = data.newCard
-                    navigate('/order-success', { state: { details } ,replace:true })
+                    navigate('/order-success', { state: { details }, replace: true })
                 }
             } catch (error) {
                 console.log(error);
@@ -185,6 +188,13 @@ function AddCardDetails() {
     //     setBackgroundImage(file)
     // };
 
+    // color picker
+    const handleChangeColor = (color) => {
+        setCurrentColor(color.hex)
+        console.log(color.hex);
+
+    }
+
 
 
 
@@ -210,7 +220,7 @@ function AddCardDetails() {
                             <p className='text-red-500'>{error.profileImage}</p>
                         </div>
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="companyLogo" id='companyLogo' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleLg} />
+                            <input type="file" name="companyLogo" id='companyLogo' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleLg} />
                             <img className='w-28' src={showLg} alt="" />
                             <label htmlFor="companyLogo" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload your logo</label>
                             <p className='text-red-500'>{error.companyLogo}</p>
@@ -332,7 +342,7 @@ function AddCardDetails() {
                     <h1 className='my-3'>Highlight</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" multiple name="hightlightPhotos" id="hightlightPhotos" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleHg} />
+                            <input type="file" multiple name="hightlightPhotos" id="hightlightPhotos" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleHg} />
                             <div className='flex gap-2'>
                                 {showHg.map((obj) => (
 
@@ -343,8 +353,16 @@ function AddCardDetails() {
                             <p className='text-red-500'>{error.hightlightPhotos}</p>
                         </div>
                     </div>
+                    <div className='mb-5'>
+                    <SketchPicker
+                        color={currentColor}
+                        onChangeComplete={handleChangeColor}
+                    />
+                    <p>{currentColor}</p>
 
-                    <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </div>
+
+                    <button type="submit" className="text-white  bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                 </form>
                 <ToastContainer />
                 {loader}
