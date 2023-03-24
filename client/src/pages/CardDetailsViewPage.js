@@ -5,6 +5,7 @@ import logo from '../assests/zeeqr.png'
 import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
+const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
     const params = useParams()
@@ -24,6 +25,8 @@ function CardDetailsViewPage() {
                     setPre(false)
                     setCard(data.card)
                     document.title = data.card.name
+                    document.getElementsByTagName("META")[2].content= data.card.companyDesignation
+                    
 
                     let link = document.querySelector("link[rel~='icon']");
                     if (!link) {
@@ -57,8 +60,9 @@ function CardDetailsViewPage() {
                 <link rel="icon" type="image/png" sizes="16x16" href={card.profileImage} />
                 <meta property="og:title" class="notranslate" content={card.name} />
                 <meta property="og:type" content="website" />
-                <meta property="og:description" class="notranslate" content={card.companyDesignation} />
-                <meta property="og:image" content={card.profileImage} />
+                <meta property="og:url" content={metaDecorator.hostname + window.location.pathname + window.location.search} />
+                <meta property="og:description" class="notranslate" content={metaDecorator.hostname + card.companyDesignation} />
+                <meta property="og:image" content={metaDecorator.hostname + card.profileImage} />
             </Helmet>
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>

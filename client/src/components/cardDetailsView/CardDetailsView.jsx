@@ -4,18 +4,6 @@ import { ImMobile2 } from 'react-icons/im'
 import { BsFacebook, BsQrCodeScan } from 'react-icons/bs'
 import logo from '../../assests/zeeqr1.png'
 import { Link } from 'react-router-dom'
-<style>
-    
-.previewContainer h2:after {
-    position: absolute;
-    content: "";
-    width: 22.03px;
-    height: 3.3px;
-    right: 0%;
-    top: 18px;
-    background: black
-}
-</style>
 
 function CardDetailsView({ card }) {
     const [qrModal, setQrModal] = useState(false)
