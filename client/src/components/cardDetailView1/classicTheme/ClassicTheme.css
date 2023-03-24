@@ -389,8 +389,8 @@ button {
     justify-content: center;
     left: 27px;
     bottom: 27px;
-    width: 41px;
-    height: 41px;
+    width: 60px;
+    height: 60px;
     background: #1D1D1F;
     padding: 5px;
     color: #fff;
@@ -406,12 +406,12 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 80px;
+    left: 100px;
     bottom: 27px;
-    width: 41px;
-    height: 41px;
+    width: 60px;
+    height: 60px;
     background: #1D1D1F;
-    padding: 5px;
+    padding: 10px;
     color: #fff;
     cursor: pointer;
     border-radius: 41px;
@@ -424,8 +424,8 @@ button {
     margin-bottom: 4px;
 }
 .addToContact{
-    width: 107px;
-    height: 41px;
+    width: 150px;
+    height: 60px;
     position: fixed;
     right: 27px;
     bottom: 27px;
@@ -511,7 +511,7 @@ button {
 }
 .popup-container .userDetails .user{
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .popup-container .userDetails .user h1{
     font-weight: 600;
@@ -527,7 +527,7 @@ button {
 
 }
 .popup-container .my-qr-code{
-    margin: 0 auto 40px;
+    margin: 0 auto 30px;
 }
 .addToHome{
     height: 44px;
