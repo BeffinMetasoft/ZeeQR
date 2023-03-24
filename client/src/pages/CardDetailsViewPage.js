@@ -4,6 +4,7 @@ import { cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr.png'
 import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
+import { Helmet } from "react-helmet";
 
 function CardDetailsViewPage() {
     const params = useParams()
@@ -49,6 +50,16 @@ function CardDetailsViewPage() {
     }, [params.id])
     return (
         <div>
+            <Helmet>
+                <title>{card.name}</title>
+                <meta name="description" content={card.companyDesignation} />
+                <link rel="icon" type="image/png" sizes="32x32" href={card.profileImage} />
+                <link rel="icon" type="image/png" sizes="16x16" href={card.profileImage} />
+                <meta property="og:title" class="notranslate" content={card.name} />
+                <meta property="og:type" content="website" />
+                <meta property="og:description" class="notranslate" content={card.companyDesignation} />
+                <meta property="og:image" content={card.profileImage} />
+            </Helmet>
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>
                     <img src={logo} alt="" />
@@ -56,11 +67,11 @@ function CardDetailsViewPage() {
                 :
                 (
                     card ?
-                    (card.theme === 'classic' ?
-                    <ClassicTheme card={card} />
-                    :
-                    <ViewCardDetails card={card} />
-                    )
+                        (card.theme === 'classic' ?
+                            <ClassicTheme card={card} />
+                            :
+                            <ViewCardDetails card={card} />
+                        )
 
                         :
                         <div className='text-center' >
