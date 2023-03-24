@@ -25,7 +25,7 @@ function ViewCardDetails({ card }) {
     const handleShare = () => {
         if (navigator.share) {
             navigator.share({
-                text: "check it out",
+                text: "Please check it out.",
                 url: window.location.href,
                 title: 'ZeeQR'
             })

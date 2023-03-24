@@ -22,7 +22,7 @@ function ClassicTheme({ card }) {
     const handleShare = () => {
         if (navigator.share) {
             navigator.share({
-                text: "check it out",
+                text: "Please check it out.",
                 url: window.location.href,
                 title: 'ZeeQR'
             })
@@ -71,7 +71,7 @@ function ClassicTheme({ card }) {
                         <Link to={`tel:+${card.phone}`} >
                             <img src={phoneiconw} alt='' />
                         </Link>
-                        <Link to={`sms:+${card.phone};?body= SMS text `} >
+                        <Link to={`sms:+${card.phone}`} >
                             <img src={messageiconw} alt='' />
                         </Link>
                         <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
