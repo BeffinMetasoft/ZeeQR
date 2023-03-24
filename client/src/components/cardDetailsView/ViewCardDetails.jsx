@@ -112,8 +112,8 @@ function ViewCardDetails({ card }) {
                                     </Link>
                                     : ""}
                             </div>
-                        </div>   : " " 
-                }
+                        </div> : " "
+                    }
 
                     <div className='flex'>
                         <h2>Contact Info</h2>
