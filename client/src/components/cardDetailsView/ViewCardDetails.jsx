@@ -41,7 +41,7 @@ function ViewCardDetails({ card }) {
     return (
         <div>
             <section className="previewWrap">
-                <span className='qr-code fixed bottom-0 cursor-pointer center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{backgroundColor:`${card.colorCode ? card.colorCode : 'black'}`}} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
+                <span className='qr-code fixed bottom-0 cursor-pointer center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
@@ -51,7 +51,7 @@ function ViewCardDetails({ card }) {
                         {/* <img src={logo} alt="logo zeeqr" /> */}
                         {/* <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link> */}
                     </div>
-                    <div className='userDetails ' style={{backgroundColor:`${card.colorCode ? card.colorCode : 'black'}`}} >
+                    <div className='userDetails ' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
                         <figure>
                             <img src={card.profileImage} alt='' />
                         </figure>
@@ -66,48 +66,58 @@ function ViewCardDetails({ card }) {
                         </div> : ''
                     }
                     <div className="buttons">
-                        <Link className='addTo' to={`${card.vCard}`} style={{backgroundColor:`${card.colorCode ? card.colorCode : 'black'}`}} >Add to contacts</Link>
+                        <Link className='addTo' to={`${card.vCard}`} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >Add to contacts</Link>
                         <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
                     </div>
-                    <div className='flex'>
-                        <h2>About </h2>
-                        <p  style={{borderBottom:`3px solid ${card.colorCode ? card.colorCode : 'black'}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
-                    </div>
-                    <div className="about ">{card.about}</div>
-                    <div className='flex'>
-                        <h2>Social media links</h2>
-                        <p  style={{borderBottom:`3px solid ${card.colorCode ? card.colorCode : 'black'}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
-                    </div>
-                    <div className="social-links">
-                        {card.linkedin ?
-                            <Link to={`${card.linkedin}`} target="_blank">
-                                <img src={linkedin} alt='' />
-                            </Link>
-                            : ""}
-                        {card.instagram ?
-                            <Link to={`${card.instagram}`} target="_blank">
-                                <img src={insta} alt='' />
-                            </Link>
-                            : ''}
-                        {card.facebook ?
-                            <Link to={`${card.facebook}`} target="_blank">
-                                <img src={fb} alt='' />
-                            </Link>
-                            : ""}
-                        {card.twitter ?
-                            <Link to={`${card.twitter}`} target="_blank">
-                                <img src={twitter} alt='' />
-                            </Link>
-                            : ''}
-                        {card.whatsappNumber ?
-                            <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
-                                <img src={whatsapp} alt='' />
-                            </Link>
-                            : ""}
-                    </div>
+                    {card.about ?
+                        <div>
+                            <div className='flex'>
+                                <h2>About </h2>
+                                <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
+                            </div>
+                            <div className="about ">{card.about}</div>
+                        </div> : ""
+                    }
+
+                    {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?
+                        <div>
+                            <div className='flex'>
+                                <h2>Social media links</h2>
+                                <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
+                            </div>
+                            <div className="social-links">
+                                {card.linkedin ?
+                                    <Link to={`${card.linkedin}`} target="_blank">
+                                        <img src={linkedin} alt='' />
+                                    </Link>
+                                    : ""}
+                                {card.instagram ?
+                                    <Link to={`${card.instagram}`} target="_blank">
+                                        <img src={insta} alt='' />
+                                    </Link>
+                                    : ''}
+                                {card.facebook ?
+                                    <Link to={`${card.facebook}`} target="_blank">
+                                        <img src={fb} alt='' />
+                                    </Link>
+                                    : ""}
+                                {card.twitter ?
+                                    <Link to={`${card.twitter}`} target="_blank">
+                                        <img src={twitter} alt='' />
+                                    </Link>
+                                    : ''}
+                                {card.whatsappNumber ?
+                                    <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
+                                        <img src={whatsapp} alt='' />
+                                    </Link>
+                                    : ""}
+                            </div>
+                        </div>   : " " 
+                }
+
                     <div className='flex'>
                         <h2>Contact Info</h2>
-                        <p  style={{borderBottom:`3px solid ${card.colorCode ? card.colorCode : 'black'}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                        <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
                     </div>
                     <div className="contactOptions">
                         <Link to={`tel:+${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
@@ -119,7 +129,7 @@ function ViewCardDetails({ card }) {
                     </div>
                     <div className='flex'>
                         <h2>Website</h2>
-                        <p  style={{borderBottom:`3px solid ${card.colorCode ? card.colorCode : 'black'}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                        <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
                     </div>
                     <div className="otherLinks">
                         <Link to={`${card.websiteUrl}`} target="_blank" >
@@ -139,7 +149,7 @@ function ViewCardDetails({ card }) {
                         <div>
                             <div className='flex'>
                                 <h2>Gallery</h2>
-                                <p  style={{borderBottom:`3px solid ${card.colorCode ? card.colorCode : 'black'}`,height:'4px',marginTop:'18px'}} >&nbsp; &nbsp; &nbsp; </p>
+                                <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
                             </div>
                             <div className="photoGrid">
                                 {card.highlightPhotos.map((img) => (
@@ -153,7 +163,7 @@ function ViewCardDetails({ card }) {
                     }
 
                 </div>
-                <div className="footer flex flex-col items-center " style={{backgroundColor:`${card.colorCode ? card.colorCode : 'black'}`}}  >
+                <div className="footer flex flex-col items-center " style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }}  >
                     <p>Powered by <Link to={"https://zeeqr.co/"} target="_blank">Zeeqr</Link></p>
                     <Link to={"https://zeeqr.co/"} target="_blank" > <img className='w-18' src={ftLogo} alt='' /></Link>
                 </div>

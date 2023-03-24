@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { cardProfile } from '../api/UserRequest'
-// import CardDetailsView from '../components/cardDetailsView/CardDetailsView'
 import logo from '../assests/zeeqr.png'
 import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
+import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 
 function CardDetailsViewPage() {
     const params = useParams()
@@ -56,8 +56,12 @@ function CardDetailsViewPage() {
                 :
                 (
                     card ?
-                        // <CardDetailsView card={card} />
-                        <ViewCardDetails card={card} />
+                    (card.theme === 'standard' ?
+                    <ViewCardDetails card={card} />
+                    :
+                    <ClassicTheme card={card} />
+                    )
+
                         :
                         <div className='text-center' >
                             <div className='w-full flex justify-center'>
