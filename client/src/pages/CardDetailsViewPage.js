@@ -56,10 +56,10 @@ function CardDetailsViewPage() {
                 :
                 (
                     card ?
-                    (card.theme === 'standard' ?
-                    <ViewCardDetails card={card} />
-                    :
+                    (card.theme === 'classic' ?
                     <ClassicTheme card={card} />
+                    :
+                    <ViewCardDetails card={card} />
                     )
 
                         :
