@@ -53,7 +53,7 @@ function CardSaved({card,setDeletes}) {
 
                         </div>
                         <div className="flex justify-end">
-                            <img className="w-28 " src={card.QRCode} alt='' />
+                            <img className="w-24 " src={card.QRCode} alt='' />
 
                         </div>
                         <div className="flex justify-start gap-x-2">

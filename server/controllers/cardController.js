@@ -384,6 +384,8 @@ const editBookedCard = async (req, res, next) => {
 const getSingleCard = async (req, res, next) => {
   try {
     const card = await CardModel.findOne({ _id: req.params.id });
+    // const QRCode = await generateQR('https://zeeqr.info/profile-view/641a1a6a1fdeabb8a813a3af');
+    // console.log(QRCode);
 
     res
       .status(200)

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './ClassicTheme.css'
-import {saveAs} from 'file-saver'
+import { saveAs } from 'file-saver'
 import { BsQrCodeScan } from 'react-icons/bs'
 import mailiconw from '../../../assests/img1/mail_icon_white.svg';
 import phoneiconw from '../../../assests/img1/phone_icon_white.svg';
@@ -16,7 +16,6 @@ import webIcon from '../../../assests/img1/web_icon_1.svg';
 import shareIcon from '../../../assests/img1/share_icon_w.svg';
 import addIcon from '../../../assests/img1/addContact.svg';
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
-import qrDownload from '../../../assests/img1/qrDowload.png'
 
 function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
@@ -40,10 +39,10 @@ function ClassicTheme({ card }) {
         setShowResults(false)
     }
 
-    const handleDownload = ()=>{
+    const handleDownload = () => {
         let url = card.QRCode
         saveAs(url, card.name);
-       }
+    }
 
 
 
@@ -194,11 +193,11 @@ function ClassicTheme({ card }) {
                                             <h1>{card.name}</h1>
                                             <p>{card.companyDesignation}</p>
                                         </div>
-                                        
-                                        <img src={card.QRCode} className="my-qr-code" alt="" />
-                                        <div className='my-qr-download' onClick={handleDownload}>
-                                        <img src={qrDownload} className="" alt="" />
-                                        </div>
+
+                                        <img src={card.QRCode} className="my-qr-code" width="200px" alt="" />
+                                        <p className='my-qr-download' onClick={handleDownload}>
+                                           Download QR Code
+                                        </p>
                                         {!showResults ?
                                             <div className='addToHome' onClick={onClick}>Add to Home Screen</div>
                                             :

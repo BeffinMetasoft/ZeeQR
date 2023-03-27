@@ -530,10 +530,10 @@ button {
     margin: 0 auto 30px;
 }
 .popup-container .my-qr-download{
-    background: white;
-    padding: 10px;
-    border-radius: 50px;
-    width: 70px;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+    width: 200px;
     margin: 0 auto 30px;
 }
 .addToHome{

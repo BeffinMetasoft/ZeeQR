@@ -42,7 +42,7 @@ function CardDetailsViewPage() {
                         linkAppple.rel = "apple-touch-icon";
                         document.getElementsByTagName("head")[0].appendChild(linkAppple);
                     }
-                    linkAppple.href = data.card.faviconImage
+                    linkAppple.href = data.card.profileImage
                 }
             } catch (error) {
 
@@ -62,7 +62,7 @@ function CardDetailsViewPage() {
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={metaDecorator.hostname + window.location.pathname + window.location.search} />
                 <meta property="og:description" class="notranslate" content={metaDecorator.hostname + card.companyDesignation} />
-                <meta property="og:image" content={metaDecorator.hostname + card.profileImage} />
+                <meta property="og:image" content={card.profileImage} />
             </Helmet>
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>

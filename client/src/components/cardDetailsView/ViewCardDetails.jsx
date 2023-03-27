@@ -14,7 +14,8 @@ import phn from '../../assests/img/phone_icon.svg'
 import mail from '../../assests/img/mail_icon.svg'
 import loc from '../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
-import qrDownload from '../../assests/img1/qrDowload.png'
+import addtoHome from '../../assests/img1/addtoHome.jpg'
+
 
 
 
@@ -35,6 +36,15 @@ function ViewCardDetails({ card }) {
         }
     }
 
+   
+
+    const [showResults, setShowResults] = useState(false)
+    const onClick = () => setShowResults(true)
+    const handleClose = (e) => {
+        setQrModal(false)
+        setShowResults(false)
+    }
+
     const handleDownload = () => {
         let url = card.QRCode
         saveAs(url, card.name);
@@ -43,14 +53,11 @@ function ViewCardDetails({ card }) {
 
 
 
-
     return (
         <div>
             <section className="previewWrap">
                 <span className='qr-code fixed bottom-0 cursor-pointer center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
-                <div className='qr-code-download fixed bottom-0  center-0 z-10  ' onClick={handleDownload} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
-                    <img src={qrDownload} className="w-9" alt="" />
-                </div>
+               
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
@@ -186,10 +193,29 @@ function ViewCardDetails({ card }) {
                             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-transparent outline-none focus:outline-none">
 
                                 {/*body*/}
-                                <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none" id="modal" onClick={() => setQrModal(false)} >
+                                <div className="popup-container1 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none" id="modal"  >
 
-                                    <img src={card.QRCode} alt="" />
-                                    <button className="cursor-pointer absolute top-0 right-0 mt-8   mr-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onClick={() => setQrModal(false)} >
+                                <div className="userDetails">
+                                        <figure>
+                                            <img src={card.profileImage} alt='' />
+                                        </figure>
+                                        <div className="user">
+                                            <h1>{card.name}</h1>
+                                            <p>{card.companyDesignation}</p>
+                                        </div>
+
+                                        <img src={card.QRCode} className="my-qr-code" width="200px" alt="" />
+                                        <p className='my-qr-download' onClick={handleDownload}>
+                                           Download QR Code
+                                        </p>
+                                        {!showResults ?
+                                            <div className='addToHome' onClick={onClick} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >Add to Home Screen</div>
+                                            :
+                                            <img className='addtoHomeImage' src={addtoHome} alt='' />}
+
+                                    </div>
+
+                                    <button className="cursor-pointer absolute top-0 left-0 mt-6 close-popup  ml-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600" onClick={handleClose} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-x" width="20" height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                             <path stroke="none" d="M0 0h24v24H0z" />
                                             <line x1="18" y1="6" x2="6" y2="18" />
