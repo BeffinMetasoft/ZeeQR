@@ -280,6 +280,14 @@ button {
     padding: 12px;
     border-radius: 5px !important;
 }
+.qr-code-download {
+    right: 80px;
+    /* background: black; */
+    border: none;
+    padding: 11px;
+    margin-bottom: 21px;
+    border-radius: 5px !important;
+}
 .previewContainer .photoGrid figure {
     min-width: calc(50% - 11px);
     height: 164px;

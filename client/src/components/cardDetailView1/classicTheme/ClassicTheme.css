@@ -529,6 +529,13 @@ button {
 .popup-container .my-qr-code{
     margin: 0 auto 30px;
 }
+.popup-container .my-qr-download{
+    background: white;
+    padding: 10px;
+    border-radius: 50px;
+    width: 70px;
+    margin: 0 auto 30px;
+}
 .addToHome{
     height: 44px;
     width: 100%;

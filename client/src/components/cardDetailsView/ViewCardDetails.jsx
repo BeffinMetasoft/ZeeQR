@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './PreviewCard.css'
+import { saveAs } from 'file-saver'
 // import logo from '../../assests/img/zeeqr-logo-white.svg'
 import ftLogo from '../../assests/img/footer_logo.svg'
 import share from '../../assests/img/share_icon.svg'
@@ -13,8 +14,8 @@ import phn from '../../assests/img/phone_icon.svg'
 import mail from '../../assests/img/mail_icon.svg'
 import loc from '../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
-// import Contacts from 'react-native-contacts';
-// import ContactsModule from './ContactModule'
+import qrDownload from '../../assests/img1/qrDowload.png'
+
 
 
 
@@ -34,6 +35,11 @@ function ViewCardDetails({ card }) {
         }
     }
 
+    const handleDownload = () => {
+        let url = card.QRCode
+        saveAs(url, card.name);
+    }
+
 
 
 
@@ -42,6 +48,9 @@ function ViewCardDetails({ card }) {
         <div>
             <section className="previewWrap">
                 <span className='qr-code fixed bottom-0 cursor-pointer center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
+                <div className='qr-code-download fixed bottom-0  center-0 z-10  ' onClick={handleDownload} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
+                    <img src={qrDownload} className="w-9" alt="" />
+                </div>
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
@@ -120,7 +129,7 @@ function ViewCardDetails({ card }) {
                         <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
                     </div>
                     <div className="contactOptions">
-                        <Link to={`tel:+${card.phone}`} ><img src={phn} alt='' />{card.phone}</Link>
+                        <Link to={`tel:+${card.phone}`} ><img src={phn} alt='' />+{card.phone}</Link>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
