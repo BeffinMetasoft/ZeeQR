@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './PreviewTheme.css'
+import './PreviewTheme5.css'
 import logo from '../../assests/img/zeeqr-logo-white.svg'
 import ftLogo from '../../assests/img/footer_logo.svg'
 import share from '../../assests/img/share_icon.svg'
@@ -21,7 +21,7 @@ import video1 from '../../assests/image.png'
 
 // import ContactsModule from './ContactModule'
 
-function PreviewTheme({ card }) {
+function PreviewTheme5({ card }) {
 
     const [qrModal, setQrModal] = useState(false)
 
@@ -53,6 +53,7 @@ function PreviewTheme({ card }) {
                         <img src={logo} alt="logo zeeqr" />
                         <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link>
                     </div>
+                    <div className="logo" style={{backgroundColor:'#2C2C2C', minHeight:'200px', textAlign:'center',fontSize:'2.7em',fontWeight:'bold', color:'white'}}>YOUR LOGO</div>
                     <div className="userDetails">
                         <figure>
                             <img src={card.profileImage} alt='' />
@@ -67,10 +68,10 @@ function PreviewTheme({ card }) {
                             <img src={card.companyLogo} alt='' />
                         </div> : ''
                     }
-                    <div className="buttons">
+                    {/* <div className="buttons">
                         <Link className="addTo" to={`${card.vCard}`}  >Add to contacts</Link>
                         <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
-                    </div>
+                    </div> */}
                     <h2>About</h2>
                     <div className="about">{card.about}</div>
                     <h2>Social media links</h2>
@@ -103,7 +104,12 @@ function PreviewTheme({ card }) {
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">
-                        <Link to={`tel:+${card.phone}`} ><img src={phonelogo11} alt='' />{card.phone}</Link>
+    
+                    <div className="buttons">
+                        <Link className="addTo" to={`${card.vCard}`}  >Add to contacts</Link>
+                        <Link onClick={handleShare} className='sharebuttons' ><img src={share} alt='' />Share it </Link>
+                    </div>
+                        {/* <Link to={`tel:+${card.phone}`} ><img src={phonelogo11} alt='' />{card.phone}</Link> */}
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
@@ -199,4 +205,4 @@ function PreviewTheme({ card }) {
     )
 }
 
-export default PreviewTheme
+export default PreviewTheme5

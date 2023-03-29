@@ -46,7 +46,7 @@ function CardDetailsViewPage1() {
                         // <ViewCardDetails card={card} />
                         // <PreviewTheme card={card} />
                         // <PreviewTheme1 card={card} />
-                        <PreviewTheme1 card={card} />
+                        <PreviewTheme2 card={card} />
                         :
                         <div className='text-center' >
                             <div className='w-full flex justify-center'>

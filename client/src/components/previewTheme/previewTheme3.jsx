@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './PreviewTheme.css'
+import './PreviewTheme3.css'
 import logo from '../../assests/img/zeeqr-logo-white.svg'
 import ftLogo from '../../assests/img/footer_logo.svg'
 import share from '../../assests/img/share_icon.svg'
@@ -18,10 +18,13 @@ import phonelogo12 from '../../assests/mail12.png'
 import phonelogo13 from '../../assests/loaction13.png'
 import video from '../../assests/video.png'
 import video1 from '../../assests/image.png'
-
+import phonelogo from '../../assests/cell1.png'
+import phonelogo1 from '../../assests/mail2.png'
+import phonelogo2 from '../../assests/mail3.png'
+// import Contacts from 'react-native-contacts';
 // import ContactsModule from './ContactModule'
 
-function PreviewTheme({ card }) {
+function PreviewTheme3({ card }) {
 
     const [qrModal, setQrModal] = useState(false)
 
@@ -48,7 +51,7 @@ function PreviewTheme({ card }) {
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
                 </div>
-                <div className="previewContainer">
+                <div className="previewContainer4">
                     <div className="header">
                         <img src={logo} alt="logo zeeqr" />
                         <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link>
@@ -103,12 +106,13 @@ function PreviewTheme({ card }) {
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">
-                        <Link to={`tel:+${card.phone}`} ><img src={phonelogo11} alt='' />{card.phone}</Link>
+                   
+                        <Link to={`tel:+${card.phone}`} ><img src={phonelogo} alt='' />{card.phone}</Link>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
-                        }} ><img src={phonelogo12} alt='' style={{color:"white"}}/>{card.email}</Link>
-                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={phonelogo13} alt='' />{card.address}</Link>
+                        }} ><img src={phonelogo1} alt='' style={{color:"white"}}/>{card.email}</Link>
+                        <Link to={`${card.locationUrl}`} target="_blank" ><img src={phonelogo2} alt='' />{card.address}</Link>
                     </div>
                     <h2>Website/Portfolio</h2>
                     <div className="otherLinks">
@@ -199,4 +203,4 @@ function PreviewTheme({ card }) {
     )
 }
 
-export default PreviewTheme
+export default PreviewTheme3

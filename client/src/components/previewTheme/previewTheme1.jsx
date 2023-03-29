@@ -16,6 +16,8 @@ import { BsQrCodeScan } from 'react-icons/bs'
 import phonelogo from '../../assests/cell1.png'
 import phonelogo1 from '../../assests/mail2.png'
 import phonelogo2 from '../../assests/mail3.png'
+import video from '../../assests/video.png'
+import video1 from '../../assests/image.png'
 // import Contacts from 'react-native-contacts';
 // import ContactsModule from './ContactModule'
 
@@ -142,14 +144,23 @@ function PreviewTheme1({ card }) {
                         </div>
 
                     }
-                    <video width="auto" height="auto" autoplay>
-  <source src='https://youtu.be/J_tBA-Cjjy4' type="video/ogg"/>
-
-</video>
-<h2>Video of Highlight</h2>
-<iframe width="400" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-                </div>
+                      <div className="ourVideo">
+                    <h2>Video of Highlight</h2>
+          <a className="video">
+           
+            <span></span>
+          </a>
+          <img className="img-fluid" src={video}  alt/>
+        </div>
+        <div className="ourVideo">
+                    
+          <a className="video">
+           
+            <span></span>
+          </a>
+          <img className="img-fluid" src={video1}  alt/>
+        </div>
+        </div>
                 <div className="footer flex flex-col items-center">
                     <p>Powered by <Link to={"https://zeeqr.co/"} target="_blank">Zeeqr</Link></p>
                     <img className='w-18' src={ftLogo} alt='' />

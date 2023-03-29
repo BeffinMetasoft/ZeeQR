@@ -116,6 +116,7 @@ button {
 
 .previewContainer2 .userDetails .user {
     width: calc(100% - 154px);
+    color: #000;
 
 }
 
@@ -128,7 +129,6 @@ button {
     font-size: 25px;
     line-height: 30px;
     color:white;
-    
     margin-bottom: 5px
 }
 
@@ -136,7 +136,8 @@ button {
     margin: 0;
     font-size: 12px;
     line-height: 18px;
-    color: #c8c8c8;
+    color:#C8C8C8;
+
 
 }
 
@@ -168,8 +169,7 @@ button {
 
 .previewContainer2 .buttons a.addTo {
     background:#FF5C00;
-
-    color: #fff
+    color:white;
 }
 
 .previewContainer2 h2 {
@@ -206,7 +206,7 @@ button {
     display: flex;
     gap: 12px;
     justify-content: space-between;
-    margin: 0 0 35px 0
+    margin: 0 0 35px 0;
 }
 
 .previewContainer2 .social-links a {
@@ -217,7 +217,6 @@ button {
     align-items: center;
     justify-content: center;
     background:#EFEFEF;
-    ;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px
@@ -300,6 +299,14 @@ button {
   display: flex;
   color: #EFEFEF;
 
+
+
+}
+
+.mb-6{
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .qr-code {
     right: 7px;

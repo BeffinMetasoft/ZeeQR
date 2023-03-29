@@ -152,7 +152,7 @@ button {
 }
 
 .previewContainer .buttons a.addTo {
-    background:#FF5C00;
+    background: linear-gradient(90deg, #6A2C8B 0%, #EA1E79 100%);
 
     color:white;
 }
@@ -201,7 +201,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #efefef;
+    background: linear-gradient(90deg, #6A2C8B 0%, #EA1E79 100%);
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px
@@ -219,7 +219,7 @@ button {
     display: flex;
     align-items: center;
     min-height: 34px;
-    color:white;
+    color:#afafaf;
     text-decoration: none;
     cursor: pointer;
     gap: 10px;

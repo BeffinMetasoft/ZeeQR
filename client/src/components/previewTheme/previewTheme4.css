@@ -11,6 +11,7 @@ button {
 .previewWrap {
     position: relative;
     height: 100%;
+    background-color: white;
     
     
 }
@@ -19,7 +20,8 @@ button {
     height: 200px;
     position: absolute;
     width: 100%;
-    background: #f4f4f4
+    
+   
 }
 
 .previewWrap .bannerImage img {
@@ -27,7 +29,9 @@ button {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    background: center center
+    background: center center;
+    background-color: white;
+   
 }
 
 .previewContainer {
@@ -35,10 +39,12 @@ button {
     padding: 0 15px;
     margin: 0 auto;
     position: relative;
-    background-color: #000;
-    z-index: 5
-    
+    background-color: #efd2d2;
+    z-index: 5;
+    background-color:white;
+   
 }
+
 
 .previewContainer .header {
     padding-top: 65px;
@@ -81,7 +87,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1e1e1e;
+    background:rgb(162, 140, 140);
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -92,7 +98,8 @@ button {
     width: 154px;
     min-width: 154px;
     height: 200px;
-    margin: 0
+    margin: 0;
+    color:white;
 }
 
 .previewContainer .userDetails figure img {
@@ -114,7 +121,7 @@ button {
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
-    color: #fff;
+    color: #1d0202;
     margin-bottom: 5px
 }
 
@@ -152,7 +159,7 @@ button {
 }
 
 .previewContainer .buttons a.addTo {
-    background:#FF5C00;
+    background: linear-gradient(90deg, #6A2C8B 0%, #EA1E79 100%);
 
     color:white;
 }
@@ -165,7 +172,7 @@ button {
     position: relative;
     display: inline-block;
     margin-bottom: 16px;
-    color: white;
+    color: black;
 }
 
 .previewContainer h2:after {
@@ -201,7 +208,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #efefef;
+    background: linear-gradient(90deg, #6A2C8B 0%, #EA1E79 100%);
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px
@@ -219,7 +226,7 @@ button {
     display: flex;
     align-items: center;
     min-height: 34px;
-    color:white;
+    color:#afafaf;
     text-decoration: none;
     cursor: pointer;
     gap: 10px;

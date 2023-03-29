@@ -7,6 +7,7 @@ import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import PreviewTheme from '../components/previewTheme/previewTheme'
 import PreviewTheme1 from '../components/previewTheme/previewTheme1'
 import PreviewTheme2 from '../components/previewTheme/previewTheme2'
+import PreviewTheme3 from '../components/previewTheme/previewTheme3'
 
 function CardDetailsViewPage1() {
     const params = useParams()
@@ -46,7 +47,7 @@ function CardDetailsViewPage1() {
                         // <ViewCardDetails card={card} />
                         // <PreviewTheme card={card} />
                         // <PreviewTheme1 card={card} />
-                        <PreviewTheme1 card={card} />
+                        <PreviewTheme3 card={card} />
                         :
                         <div className='text-center' >
                             <div className='w-full flex justify-center'>

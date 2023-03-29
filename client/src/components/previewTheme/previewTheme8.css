@@ -11,15 +11,18 @@ button {
 .previewWrap {
     position: relative;
     height: 100%;
-    
-    
+    background-color: black;
+  
 }
 
 .previewWrap .bannerImage {
     height: 200px;
     position: absolute;
     width: 100%;
-    background: #f4f4f4
+    background: #f4f4f4;
+    background-color: black;
+  
+    
 }
 
 .previewWrap .bannerImage img {
@@ -27,105 +30,120 @@ button {
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    background: center center
+    background: center center;
+    background-color: #000;
+   
 }
 
-.previewContainer {
+.previewContainer8 {
     max-width: 380px;
     padding: 0 15px;
     margin: 0 auto;
     position: relative;
-    background-color: #000;
-    z-index: 5
+    z-index: 5;
+    background-color: white;
+  
     
 }
 
-.previewContainer .header {
+.previewContainer8 .header {
     padding-top: 65px;
     padding-bottom: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 170px;
+    background-color: rgb(8, 5, 5);
+  
+   
 }
 
-.previewContainer .header img {
-    width: 106px
+.previewContainer8 .header img {
+    width: 106px;
+    
 }
 
-.previewContainer .header img path {
-    fill: #fff
+.previewContainer8 .header img path {
+    fill: #100404;
 }
 
-.previewContainer .header .btn {
+.previewContainer8 .header .btn {
     width: auto;
     height: 30px;
-    border: 1px solid #fff;
+    border: 1px solid white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 400;
     font-size: 11px;
     line-height: 13px;
-    color: #fff;
+    color: white;
     padding: 0 15px;
     text-decoration: none;
     border-radius: 4px;
     -moz-border-radius: 4px;
-    -webkit-border-radius: 4px
+    -webkit-border-radius: 4px;
+
 }
 
-.previewContainer .userDetails {
+.previewContainer8 .userDetails {
     position: relative;
+    height: 100px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1e1e1e;
+    background:linear-gradient(90deg, #FF5030 0%, #DD2475 100%);
     border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    margin-bottom: 30px
+    /* -moz-border-radius: 10px; */
+    /* -webkit-border-radius: 10px; */
+    /* margin-bottom: 30px; */
+    
 }
 
-.previewContainer .userDetails figure {
+.previewContainer8 .userDetails figure {
     width: 154px;
     min-width: 154px;
     height: 200px;
     margin: 0
 }
 
-.previewContainer .userDetails figure img {
+.previewContainer8 .userDetails figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.previewContainer .userDetails .user {
-    width: calc(100% - 154px)
+.previewContainer8 .userDetails .user {
+    /* width: calc(100% - 154px); */
+    margin: 2px;
+
 }
 
-.previewContainer .user {
+.previewContainer8 .user {
     padding: 25px
 }
 
-.previewContainer .user h1 {
+.previewContainer8 .user h1 {
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
-    color: #fff;
+    color:black;
+    
     margin-bottom: 5px
 }
 
-.previewContainer .user p {
+.previewContainer8 .user p {
     margin: 0;
     font-size: 12px;
     line-height: 18px;
-    color: #c8c8c8
+    color: #7E7E7E;
+
+
 }
 
-.previewContainer .buttons {
+.previewContainer8 .buttons {
     display: flex;
     width: 100%;
     overflow: hidden;
@@ -135,7 +153,7 @@ button {
     -webkit-border-radius: 4px
 }
 
-.previewContainer .buttons a {
+.previewContainer8 .buttons a {
     height: 49px;
     width: 50%;
     text-align: center;
@@ -151,13 +169,13 @@ button {
     background: #e6e6e6
 }
 
-.previewContainer .buttons a.addTo {
-    background:#FF5C00;
-
+.previewContainer8 .buttons a.addTo {
+    background: linear-gradient(90deg, #FE4F31 0%, #DD2474 100%);
+border-radius: 3.95px;
     color:white;
 }
 
-.previewContainer h2 {
+.previewContainer8 h2 {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -165,53 +183,58 @@ button {
     position: relative;
     display: inline-block;
     margin-bottom: 16px;
-    color: white;
+    color: black;
 }
 
-.previewContainer h2:after {
+.previewContainer8 h2:after {
     position: absolute;
     content: "";
     width: 22.03px;
     height: 3.3px;
     right: 0%;
     top: 18px;
-    background: black
+    background: black;
+    color:white;
 }
 
-.previewContainer .about {
+.previewContainer8 .about {
     margin-bottom: 24px;
     font-size: 13px;
     line-height: 22px;
     font-weight: 500;
-    color:#AFAFAF;
+    color:#818181;
 
+    
 }
 
-.previewContainer .social-links {
+.previewContainer8 .social-links {
     display: flex;
     gap: 12px;
     justify-content: space-between;
     margin: 0 0 35px 0
 }
 
-.previewContainer .social-links a {
+.previewContainer8 .social-links a {
     width: 54px;
     height: 54px;
     min-width: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #efefef;
+    background: linear-gradient(90deg, #FE4F31 0%, #DD2474 100%);
+border-radius: 3.95px;
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px
 }
 
-.previewContainer .contactOptions {
-    margin-bottom: 40px
+.previewContainer8 .contactOptions {
+    margin-bottom: 40px;
+    color: rgb(208, 168, 168);
+    
 }
 
-.previewContainer .contactOptions a {
+.previewContainer8 .contactOptions a {
     padding: 10px 0;
     font-weight: 500;
     font-size: 13px;
@@ -219,19 +242,26 @@ button {
     display: flex;
     align-items: center;
     min-height: 34px;
-    color:white;
+    color:rgb(18, 14, 14);
     text-decoration: none;
     cursor: pointer;
     gap: 10px;
-    border-bottom: solid 1px #d9d9d9;
+    border-bottom: solid 1px;
+   
+    
     background: url("../../assests/img/more_icon.svg") no-repeat right center
 }
 
-.previewContainer .otherLinks {
+.sharebuttons{
+    background-color: #EFEFEF
+    !important;
+}
+
+.previewContainer8 .otherLinks {
     margin-bottom: 40px
 }
 
-.previewContainer .otherLinks a {
+.previewContainer8 .otherLinks a {
     overflow: hidden;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -244,28 +274,28 @@ button {
     background: #efefef url("../../assests/img/more_icon.svg") no-repeat 96% center
 }
 
-.previewContainer .otherLinks figure {
+.previewContainer8 .otherLinks figure {
     min-width: 180px;
     width: 180px;
     height: 80px
 }
 
-.previewContainer .otherLinks figure img {
+.previewContainer8 .otherLinks figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.previewContainer .otherLinks figcaption {
+.previewContainer8 .otherLinks figcaption {
     padding: 15px 35px 15px 15px;
     width: calc(100% - 180px);
     font-size: 15px;
     line-height: 20px;
-    color: #1e1e1e
+    color: black;
 }
 
-.previewContainer .photoGrid {
+.previewContainer8 .photoGrid {
     display:grid;
     flex-wrap: wrap;
     gap: 5px;
@@ -282,7 +312,7 @@ button {
   grid-gap: 1rem;
   display: flex;
   color: #EFEFEF;
-
+  
 
 }
 
@@ -298,25 +328,22 @@ button {
     padding: 12px;
     border-radius: 5px !important;
 }
-.previewContainer .photoGrid figure {
-    min-width: calc(50% - 11px);
-    height: 164px;
-    display: block;
-    margin-bottom: 22px
-}
+ 
 
-.previewContainer .photoGrid figure img {
-    width: 100%;
-    height: 100%;
+ .photoGrid figure img {
+   
     -o-object-fit: cover;
-    object-fit: cover
+    object-fit: cover;
+    grid-template-columns: 10rem 10rem 10rem;
+  grid-gap: 1rem;
+  display:flex;
 }
 
-.previewContainer .companyLogo {
+.previewContainer8 .companyLogo {
     margin-bottom: 40px
 }
 
-.previewContainer .companyLogo img {
+.previewContainer8 .companyLogo img {
     display: block;
     height: 50px;
     margin: 0 auto
@@ -337,29 +364,6 @@ button {
 
 .footer p a {
     text-decoration: none;
-    color: #fff
-}
-.ourVideo {
-    width: 100%;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    position: relative;
-}
-a.video {
-    position: relative;
-    left: 50%;
-    top: 50%;
-    margin: -50px 0 0 -50px;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-}
-a.video span {
-    width: 100%;
-    height: 100%;
-    background: url("../../assests/playicon.png") no-repeat center center;
-    background-size: 40%;
-    background-position: 50% 50%;
-    display: block;
+    color: #fff;
 }
 
