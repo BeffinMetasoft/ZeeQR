@@ -36,8 +36,6 @@ function CardDetailsView({card}) {
                                 <span className='border rounded-full bg-red-600 text-white p-2'> <ImMobile2 className='mt-1' size={24} /></span>
                                 <span className='border rounded-full bg-red-600 text-white p-2'><AiFillMessage size={30} /></span>
 
-
-
                             </div>
                             <div className='border border-2 rounded-xl  my-5 py-3 px-3 '>
                                 <div className='flex gap-3 '>

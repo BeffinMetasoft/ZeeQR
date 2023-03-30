@@ -5,23 +5,19 @@ const QRCode = require('qrcode')
 
 const generateQR = async (URL) => {
     var opts = {
-      errorCorrectionLevel: "H",
-      type: "image/svg",
-      width:"1000",
-      quality: 0.92,
-      margin: 1,
-      color: {
-        dark: "#000000",
-        light: "#FFFFFF",
-      },
+        errorCorrectionLevel: "H",
+        type: "image/svg",
+        width: "1000",
+        quality: 0.92,
+        margin: 1,
+        color: {
+            dark: "#000000",
+            light: "#FFFFFF",
+        },
     };
-  
-    QRCode.toDataURL(URL, opts, function (err, url) {
-      if (err) throw err;
-  
-      console.log(url);
-    });
-  };
+
+   return QRCode.toDataURL(URL, opts)
+};
 
 module.exports = {
     generateQR

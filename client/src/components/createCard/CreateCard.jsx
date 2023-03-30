@@ -1,5 +1,4 @@
 import React from 'react'
-import SimpleAccordion from '../accordions/BackgroundImage'
 import mob from '../../assests/mobile.png'
 import CardDetailsView from './CardDetailsView'
 
@@ -35,11 +34,7 @@ function CreateCard() {
 
           <div className='my-5 flex flex-col gap-2'>
 
-            <SimpleAccordion />
-            <SimpleAccordion />
-            <SimpleAccordion />
-            <SimpleAccordion />
-            <SimpleAccordion />
+            
           </div>
 
         </div>

@@ -3,7 +3,7 @@ const SavedCardModel = require("../model/savedCardModel");
 const createError = require("http-errors");
 const createHttpError = require("http-errors");
 const mongoose = require("mongoose");
-const { uploadFile } = require("../helpers/s3");
+const { uploadFile, deleteFile } = require("../helpers/s3");
 const { generateQR } = require("../helpers/qrCodeGenerator");
 const crypto = require("crypto");
 
@@ -13,10 +13,11 @@ const fs = require('fs');
 const S3Url = process.env.AWS_BUCKET_URL
 const QRBase = process.env.QR_CODE_BASE_URL
 
-const generateFileName = (bytes = 32) =>
-  crypto.randomBytes(bytes).toString("hex");
+const generateFileName = (bytes = 32) => crypto.randomBytes(bytes).toString("hex");
 
-//saved card Controller
+
+
+/* -------------------------- saved card Controller ------------------------- */
 
 const saveCard = async (req, res, next) => {
   const file = req.file;
@@ -112,23 +113,25 @@ const removeCard = async (req, res, next) => {
   }
 };
 
-//create card Controller
+/* -------------------------------------------------------------------------- */
+/*                        create a new card Controller                        */
+/* -------------------------------------------------------------------------- */
 
 const createCard = async (req, res, next) => {
   // console.log(req.files.hightlightPhotos, 'qwer');
   // console.log(req.body);
   const backgroundImage = req.files?.backgroundImage[0]
   const profileImage = req.files?.profileImage[0]
-  const companyLogo =req.files?.companyLogo ? req.files?.companyLogo[0] : ''
+  const companyLogo = req.files?.companyLogo ? req.files?.companyLogo[0] : ''
   const websiteImage = req.files?.websiteImage[0]
-  const hightlightPhotos =req.files?.hightlightPhotos ? req.files?.hightlightPhotos : ''
+  const hightlightPhotos = req.files?.hightlightPhotos ? req.files?.hightlightPhotos : ''
 
 
   const backgroundImageName = generateFileName();
   await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype);
   const profileImageName = generateFileName();
   await uploadFile(profileImage.buffer, profileImageName, profileImage.mimetype);
-  const companyLogoName =companyLogo ? generateFileName() : ''
+  const companyLogoName = companyLogo ? generateFileName() : ''
   companyLogo ? await uploadFile(companyLogo.buffer, companyLogoName, companyLogo.mimetype) : ''
   const websiteImageName = generateFileName();
   await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype);
@@ -139,18 +142,14 @@ const createCard = async (req, res, next) => {
     for (let i = 0; i < hightlightPhotos.length; i++) {
       const hightlightPhotosName = generateFileName()
       array.push(hightlightPhotosName)
-  
+
       await uploadFile(hightlightPhotos[i].buffer, array[i], hightlightPhotos[i].mimetype);
     }
-    // console.log(array, '12345678');
-  
-    
     for (let i = 0; i < array.length; i++) {
       photoNameArray.push(S3Url + array[i])
     }
   }
 
-  
 
   const CardData = {
 
@@ -172,14 +171,13 @@ const createCard = async (req, res, next) => {
     country: req.body.country,
     websiteUrl: req.body.websiteUrl,
     websiteName: req.body.websiteName,
-    locationUrl:req.body.locationUrl,
+    locationUrl: req.body.locationUrl,
     backgroundImage: S3Url + backgroundImageName,
     profileImage: S3Url + profileImageName,
     companyLogo: companyLogo ? S3Url + companyLogoName : '',
     websiteImage: S3Url + websiteImageName,
-    highlightPhotos: photoNameArray ,
-    colorCode:req.body.colorCode,
-
+    highlightPhotos: photoNameArray,
+    colorCode: req.body.colorCode,
     userID: req.user._id,
   };
 
@@ -223,10 +221,9 @@ const createCard = async (req, res, next) => {
   const newCard = new CardModel(CardData);
   newCard._id = mongoose.Types.ObjectId();
   const URL = QRBase + newCard._id;
-  // console.log("URL", URL);
   const QRCode = await generateQR(URL);
   newCard.QRCode = QRCode;
-  // console.log("newCard", newCard);
+
   try {
     await newCard.save();
     res.status(200).json({ success: true, newCard });
@@ -234,7 +231,12 @@ const createCard = async (req, res, next) => {
     console.log(error);
     next(error);
   }
+
 };
+
+/* -------------------------------------------------------------------------- */
+/*                          getting all booked cards                          */
+/* -------------------------------------------------------------------------- */
 
 const getCard = async (req, res, next) => {
   try {
@@ -246,6 +248,10 @@ const getCard = async (req, res, next) => {
     next(error);
   }
 };
+
+/* -------------------------------------------------------------------------- */
+/*                    delete the booked card to the trash                    */
+/* -------------------------------------------------------------------------- */
 
 const deletBookedCard = async (req, res, next) => {
   // console.log(req.params.id);
@@ -260,11 +266,16 @@ const deletBookedCard = async (req, res, next) => {
     next(error);
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                        Eidt the details of the cards                       */
+/* -------------------------------------------------------------------------- */
+
 const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
   // console.log(cardId);
   // console.log(req.files)
-  console.log(req.body, '++++');
+  // console.log(req.body, '++++');
 
   const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
   const pfImage = req.files?.pfImage ? req.files?.pfImage[0] : ''
@@ -272,26 +283,60 @@ const editBookedCard = async (req, res, next) => {
   const wbImage = req.files?.wbImage ? req.files?.wbImage[0] : ''
   const hgPhotos = req.files?.hgPhotos ? req.files?.hgPhotos : ''
 
+  const savedcard = await CardModel.findById(cardId);
 
   const bgImageName = bgImage ? generateFileName() : ''
-  bgImage ? await uploadFile(bgImage.buffer, bgImageName, bgImage.mimetype) : ''
+  if (bgImage) {
+    const oldBgImage = savedcard.backgroundImage
+    const array = oldBgImage.split("/");
+    const bgOldImg = array[array.length - 1]
+    await deleteFile(bgOldImg)
+    await uploadFile(bgImage.buffer, bgImageName, bgImage.mimetype)
+  }
+
   const pfImageName = pfImage ? generateFileName() : ''
-  pfImage ? await uploadFile(pfImage.buffer, pfImageName, pfImage.mimetype) : ''
+  if (pfImage) {
+    const oldPfImage = savedcard.profileImage
+    const array = oldPfImage.split("/");
+    const pfOldImg = array[array.length - 1]
+    await deleteFile(pfOldImg)
+    await uploadFile(pfImage.buffer, pfImageName, pfImage.mimetype)
+  }
+
   const companyLgName = companyLg ? generateFileName() : ''
-  companyLg ? await uploadFile(companyLg.buffer, companyLgName, companyLg.mimetype) : ''
+  if (companyLg) {
+    const oldCompanyLg = savedcard.companyLogo
+    const array = oldCompanyLg.split("/");
+    const companyLgOld = array[array.length - 1]
+    await deleteFile(companyLgOld)
+    await uploadFile(companyLg.buffer, companyLgName, companyLg.mimetype)
+  }
+
   const wbImageName = wbImage ? generateFileName() : ''
-  wbImage ? await uploadFile(wbImage.buffer, wbImageName, wbImage.mimetype) : ''
+  if (wbImage) {
+    const oldWbImage = savedcard.websiteImage
+    const array = oldWbImage.split("/");
+    const wbOldImage = array[array.length - 1]
+    await deleteFile(wbOldImage)
+    await uploadFile(wbImage.buffer, wbImageName, wbImage.mimetype)
+  }
+
   const array = []
   const photoNameArray = []
   if (hgPhotos) {
+
+    const oldHgPhotos = savedcard.highlightPhotos
+    for (let i = 0; i < oldHgPhotos.length; i++) {
+      const array = oldHgPhotos[i].split("/");
+      const hgOldPhotos = array[array.length - 1]
+      await deleteFile(hgOldPhotos)
+    }
+
     for (let i = 0; i < hgPhotos.length; i++) {
       const hgPhotosName = generateFileName()
       array.push(hgPhotosName)
-
       await uploadFile(hgPhotos[i].buffer, array[i], hgPhotos[i].mimetype);
     }
-    // console.log(array, '12345678');
-
 
     for (let i = 0; i < array.length; i++) {
       photoNameArray.push(S3Url + array[i])
@@ -300,10 +345,7 @@ const editBookedCard = async (req, res, next) => {
   }
 
 
-
-
   try {
-    const savedcard = await CardModel.findById(cardId);
     const CardData = {
 
       companyName: req.body.companyName,
@@ -324,53 +366,44 @@ const editBookedCard = async (req, res, next) => {
       country: req.body.country,
       websiteUrl: req.body.websiteUrl,
       websiteName: req.body.websiteName,
-      locationUrl:req.body.locationUrl,
-      colorCode:req.body.colorCode,
+      locationUrl: req.body.locationUrl,
+      colorCode: req.body.colorCode,
 
       backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
       profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,
       companyLogo: companyLg ? S3Url + companyLgName : req.body.companyLogo,
       websiteImage: wbImage ? S3Url + wbImageName : req.body.websiteImage,
-      highlightPhotos: hgPhotos ? photoNameArray : saveCard.highlightPhotos,
+      highlightPhotos: hgPhotos ? photoNameArray : savedcard.highlightPhotos,
 
       userID: req.user._id,
     };
 
     // Create a new vCard object and set contact information
-  const card = vCardsJS();
-  card.firstName = CardData.name;
-  // card.lastName = 'Doe';
-  card.organization = CardData.companyName;
-  card.title = CardData.companyDesignation;
-  card.email = CardData.email;
-  card.workPhone = '+' + CardData.phone;
-  card.url = CardData.websiteUrl
+    const card = vCardsJS();
+    card.firstName = CardData.name;
+    card.organization = CardData.companyName;
+    card.title = CardData.companyDesignation;
+    card.email = CardData.email;
+    card.workPhone = '+' + CardData.phone;
+    card.url = CardData.websiteUrl
+
+    // Set the image URL
+    const imageUrl = CardData.profileImage;
+    card.photo.attachFromUrl(imageUrl)
+
+    // Generate vCard string and save to file
+    const vcardString = card.getFormattedString()
+
+    // Save file to database and get download link
+    const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
+    // console.log(vcardString, '1234567891234567');
+
+    // Save the downloadLink to your database along with any other relevant information
+    CardData.vCard = downloadLink
 
 
-  // Set the image URL
-  const imageUrl = CardData.profileImage;
-  card.photo.attachFromUrl(imageUrl)
-
-  
-
-  // Generate vCard string and save to file
-  const vcardString = card.getFormattedString()
-
-
-  // Save file to database and get download link
-  const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
-  // console.log(vcardString, '1234567891234567');
-
-  // Save the downloadLink to your database along with any other relevant information
-  CardData.vCard = downloadLink
-
-
-
-    // console.log(savedcard);
     if (savedcard.userID == req.user._id) {
-      console.log('ij');
       await savedcard.updateOne(CardData);
-
       res.status(200).json({ success: true, message: "card updated" });
     } else {
       res.status(403).json("Action forbidden");
@@ -381,11 +414,15 @@ const editBookedCard = async (req, res, next) => {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                         get the single card details                        */
+/* -------------------------------------------------------------------------- */
+
 const getSingleCard = async (req, res, next) => {
   try {
     const card = await CardModel.findOne({ _id: req.params.id });
-    // const QRCode = await generateQR('https://zeeqr.info/profile-view/641a1a6a1fdeabb8a813a3af');
-    // console.log(QRCode);
+    // const QRCode = await generateQR('https://zeeqr.info/profile-view/641eb3995cc9b4462a832959');
+    //  console.log( 'qwert123');
 
     res
       .status(200)
@@ -396,7 +433,7 @@ const getSingleCard = async (req, res, next) => {
   }
 };
 
-//Admin card Controller
+/* -------------------------- Admin card Controller ------------------------- */
 
 const getAllCard = async (req, res, next) => {
   try {

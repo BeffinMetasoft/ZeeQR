@@ -72,9 +72,9 @@ function CardDetailsViewPage() {
                 (
                     card ?
                         (card.theme === 'classic' ?
-                            <ClassicTheme card={card} />
+                            <ClassicTheme card={card} key={card._id} />
                             :
-                            <ViewCardDetails card={card} />
+                            <ViewCardDetails card={card} key={card._id} />
                         )
 
                         :
