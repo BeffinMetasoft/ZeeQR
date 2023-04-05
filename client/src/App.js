@@ -22,6 +22,8 @@ function App() {
       <Routes> 
         <Route path='/' element={<LandingPage/>} />
         <Route path='/profile-view/:id' element={<CardDetailsViewPage/>} />
+        <Route path='/error-404' element={<Error404Page/>} />
+
 
         <Route element={<UserLoginProtect/>}>
         <Route path='/signup' element={<SignupPage/>} />
@@ -36,7 +38,6 @@ function App() {
         <Route path='/profile' element={<ProfilePage/>} />
         <Route path='/saved-cards' element={<SavedCardsPage/>} />
         <Route path='/booked-cards' element={<BookedCardsPage/>} />
-        <Route path='/error-404' element={<Error404Page/>} />
         <Route path='/create-card' element={<CreateCardPage/>} />
         </Route>
       </Routes>

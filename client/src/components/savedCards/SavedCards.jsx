@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { getSavedCards } from '../../api/UserRequest'
+// import { getSavedCards } from '../../api/UserRequest'
 import CardSaved from '../cards/CardSaved'
+import UseAxiosPrivate from '../../hooks/UseAxiosPrivate'
 
 function SavedCards() {
+  const axiosPrivate = UseAxiosPrivate()
   const [savedCards,setSavedCards]= useState([])
   const [deletes,setDeletes]=useState('')
   useEffect(()=>{
     const allSavedCards=async()=>{
       try {
-        const {data}= await getSavedCards()
+       const data =await axiosPrivate.get('/getSavedCard')
+        // const {data}= await getSavedCards()
         console.log(data,'savedCards');
-        if (data.success) {
-          setSavedCards(data.card)
-        }
+        // if (data.success) {
+        //   setSavedCards(data.card)
+        // }
       } catch (error) {
         console.log(error);
       }

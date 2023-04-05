@@ -22,6 +22,12 @@ app.use('/api', authRouter)
 app.use('/api', userRouter)
 app.use('/api', cardRouter)
 
+
+
+
+const {connectDb}=require('./config/connection')
+connectDb()
+
 app.use((err, req, res, next) => {
     const error = {
         success: false,
@@ -30,11 +36,6 @@ app.use((err, req, res, next) => {
     };
     res.status(error.status).json(error)
 });
-
-
-const {connectDb}=require('./config/connection')
-connectDb()
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running at port ${PORT}`));

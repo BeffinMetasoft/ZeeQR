@@ -27,16 +27,17 @@ export default function Dropdown() {
           onClick: async () => {
             try {
               const refToken = await localStorage.getItem("refToken")
-              console.log(refToken, '12345');
+              // console.log(refToken, '12345');
               const { data } = await userLogout(refToken)
               console.log(data);
               if (data.success) {
                 localStorage.removeItem('refToken')
-                // cookies.remove('accessToken')
                 navigate('/login')
               }
             } catch (error) {
               console.log(error.response.data);
+              localStorage.removeItem('refToken')
+              navigate('/login')
             }
           }
         },

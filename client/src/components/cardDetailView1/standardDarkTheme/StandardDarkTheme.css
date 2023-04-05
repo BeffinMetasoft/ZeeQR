@@ -8,19 +8,19 @@ button {
     font-family: "Poppins", sans-serif
 }
 
-.previewWrap {
+.previewWrapDark {
     position: relative;
     height: 100%
 }
 
-.previewWrap .bannerImage {
+.previewWrapDark .bannerImage {
     height: 200px;
     position: absolute;
     width: 100%;
     background: #f4f4f4
 }
 
-.previewWrap .bannerImage img {
+.previewWrapDark .bannerImage img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -28,7 +28,7 @@ button {
     background: center center
 }
 
-.previewContainer {
+.previewContainerDark {
     max-width: 380px;
     padding: 0 12px;
     margin: 0 auto;
@@ -36,7 +36,7 @@ button {
     z-index: 5
 }
 
-.previewContainer .header {
+.previewContainerDark .header {
     padding-top: 65px;
     padding-bottom: 35px;
     display: flex;
@@ -45,15 +45,15 @@ button {
     min-height: 170px;
 }
 
-.previewContainer .header img {
+.previewContainerDark .header img {
     width: 106px
 }
 
-.previewContainer .header img path {
+.previewContainerDark .header img path {
     fill: #fff
 }
 
-.previewContainer .header .btn {
+.previewContainerDark .header .btn {
     width: auto;
     height: 30px;
     border: 1px solid #fff;
@@ -71,7 +71,7 @@ button {
     -webkit-border-radius: 4px
 }
 
-.previewContainer .userDetails {
+.previewContainerDark .userDetails {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -84,29 +84,29 @@ button {
     margin-bottom: 30px
 }
 
-.previewContainer .userDetails figure {
+.previewContainerDark .userDetails figure {
     width: 154px;
     min-width: 154px;
     height: 200px;
     margin: 0
 }
 
-.previewContainer .userDetails figure img {
+.previewContainerDark .userDetails figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.previewContainer .userDetails .user {
+.previewContainerDark .userDetails .user {
     width: calc(100% - 154px)
 }
 
-.previewContainer .user {
+.previewContainerDark .user {
     padding: 20px
 }
 
-.previewContainer .user h1 {
+.previewContainerDark .user h1 {
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
@@ -115,14 +115,14 @@ button {
     word-wrap: break-word;
 }
 
-.previewContainer .user p {
+.previewContainerDark .user p {
     margin: 0;
     font-size: 12px;
     line-height: 18px;
     color: #c8c8c8
 }
 
-.previewContainer .buttons {
+.previewContainerDark .buttons {
     display: flex;
     width: 100%;
     overflow: hidden;
@@ -132,7 +132,7 @@ button {
     -webkit-border-radius: 4px
 }
 
-.previewContainer .buttons a {
+.previewContainerDark .buttons a {
     height: 49px;
     width: 50%;
     text-align: center;
@@ -148,12 +148,12 @@ button {
     background: #efefef;
 }
 
-.previewContainer .buttons a.addTo {
-    /* background: black; */
+.previewContainerDark .buttons a.addTo {
+    background: #FF5C00;
     color: #fff
 }
 
-.previewContainer h2 {
+.previewContainerDark h2 {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -163,7 +163,7 @@ button {
     margin-bottom: 16px
 }
 
-/* .previewContainer h2:after {
+/* .previewContainerDark h2:after {
     position: absolute;
     content: "";
     width: 22.03px;
@@ -173,7 +173,7 @@ button {
     background: black
 } */
 
-.previewContainer .about {
+.previewContainerDark .about {
     margin-bottom: 24px;
     font-size: 13px;
     line-height: 22px;
@@ -181,14 +181,14 @@ button {
     /* color: #424242 */
 }
 
-.previewContainer .social-links {
+.previewContainerDark .social-links {
     display: flex;
     gap: 12px;
     justify-content: space-between;
     margin: 0 0 35px 0
 }
 
-.previewContainer .social-links a {
+.previewContainerDark .social-links a {
     width: 54px;
     height: 54px;
     min-width: 54px;
@@ -201,11 +201,11 @@ button {
     -webkit-border-radius: 3px
 }
 
-.previewContainer .contactOptions {
+.previewContainerDark .contactOptions {
     margin-bottom: 40px
 }
 
-.previewContainer .contactOptions a {
+.previewContainerDark .contactOptions a {
     padding: 10px 0;
     font-weight: 500;
     font-size: 13px;
@@ -218,14 +218,14 @@ button {
     cursor: pointer;
     gap: 10px;
     border-bottom: solid 1px #d9d9d9;
-    background: url("../../assests/img/more_icon.svg") no-repeat right center
+    background: url("../../../assests/img/more_icon.svg") no-repeat right center
 }
 
-.previewContainer .otherLinks {
+.previewContainerDark .otherLinks {
     margin-bottom: 40px
 }
 
-.previewContainer .otherLinks a {
+.previewContainerDark .otherLinks a {
     overflow: hidden;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -235,17 +235,17 @@ button {
     justify-content: space-between;
     margin-bottom: 10px;
     text-decoration: none;
-    background: #efefef url("../../assests/img/more_icon.svg") no-repeat 96% center
+    background: #efefef url("../../../assests/img/more_icon.svg") no-repeat 96% center
 }
 
-.previewContainer .otherLinks figure {
+.previewContainerDark .otherLinks figure {
     min-width: 180px;
     width: 180px;
     height: 89px;
     padding-left: 1px;
 }
 
-.previewContainer .otherLinks figure img {
+.previewContainerDark .otherLinks figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -255,7 +255,7 @@ button {
     -webkit-border-radius: 4px 0 0 4px;
 }
 
-.previewContainer .otherLinks figcaption {
+.previewContainerDark .otherLinks figcaption {
     padding: 15px 35px 15px 15px;
     width: calc(100% - 180px);
     font-size: 15px;
@@ -263,19 +263,20 @@ button {
     color: #1e1e1e
 }
 
-.previewContainer .photoGrid {
+.previewContainerDark .photoGrid {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     justify-content: space-between;
     margin-bottom: 20px
 }
-.previewContainer .photoGrid img{
+.previewContainerDark .photoGrid img{
     object-fit: cover;
 }
-.qr-code {
+.qr-code-stdDark {
     right: 7px;
-    /* background: black; */
+    background: white;
+    color: #000;
     border: none;
     padding: 12px;
     border-radius: 5px !important;
@@ -288,25 +289,25 @@ button {
     margin-bottom: 21px;
     border-radius: 5px !important;
 }
-.previewContainer .photoGrid figure {
+.previewContainerDark .photoGrid figure {
     min-width: calc(50% - 11px);
     height: 164px;
     display: block;
     margin-bottom: 22px
 }
 
-.previewContainer .photoGrid figure img {
+.previewContainerDark .photoGrid figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.previewContainer .companyLogo {
+.previewContainerDark .companyLogo {
     margin-bottom: 40px
 }
 
-.previewContainer .companyLogo img {
+.previewContainerDark .companyLogo img {
     display: block;
     height: 50px;
     margin: 0 auto
@@ -334,11 +335,11 @@ button {
     color: #fff
 }
 
-.popup-container1{
+.popup-containerDark{
     background: #EFEFEF;
 }
 
-.popup-container1 .close-popup{
+.popup-containerDark .close-popup{
     width: 45px;
     height: 45px;
     display: flex;
@@ -351,11 +352,11 @@ button {
     -webkit-border-radius: 40px;
 }
 
-.popup-container1 .userDetails{
+.popup-containerDark .userDetails{
     padding: 30px;
     width: 100%;
 }
-.popup-container1 .userDetails figure{
+.popup-containerDark .userDetails figure{
     width: 140px;
     height: 140px;
     margin: 0 auto 10px;
@@ -364,34 +365,34 @@ button {
     -moz-border-radius: 140px;
     -webkit-border-radius: 140px;
 }
-.popup-container1 .userDetails .user{
+.popup-containerDark .userDetails .user{
     text-align: center;
     margin-bottom: 20px;
 }
-.popup-container1 .userDetails .user h1{
+.popup-containerDark .userDetails .user h1{
     font-weight: 600;
     font-size: 27.88px;
     line-height: 34px;
     color: #000;
     margin-bottom: 4px;
 }
-.popup-container1 .userDetails .user p{
+.popup-containerDark .userDetails .user p{
     color: #525252;
     font-weight: 600;
     font-size: 14px;
 
 }
-.popup-container1 .my-qr-code{
+.popup-containerDark .my-qr-code{
     margin: 0 auto 30px;
 }
-.popup-container1 .my-qr-download{
+.popup-containerDark .my-qr-download{
     cursor: pointer;
     padding: 5px;
     text-align: center;
     width: 200px;
     margin: 0 auto 30px;
 }
-.addToHome{
+.addToHomeDark{
     height: 44px;
     width: 100%;
     display: flex;
@@ -403,19 +404,19 @@ button {
     line-height: 19px;
     padding-left: 14px;
     cursor: pointer;
-    background: #000000 url("../../assests/img1/plus_icon.svg") no-repeat 95% center;
+    background: #000000 url("../../../assests/img1/plus_icon.svg") no-repeat 95% center;
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
 }
-.addtoHomeImage{
+.addtoHomeImageDark{
     max-width: 80%;
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
     margin:20px auto 0;
 }
-.popup-container1 .userDetails figure img{
+.popup-containerDark .userDetails figure img{
     width: 100%;
     height: 100%;
     object-fit: cover;

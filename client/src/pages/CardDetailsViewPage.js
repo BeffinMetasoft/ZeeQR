@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link,  useParams } from 'react-router-dom'
 import { cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr.png'
 import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
+import ModernTheme from '../components/cardDetailView1/modernTheme/ModernTheme'
+import MinimalTheme from '../components/cardDetailView1/minimalTheme/MinimalTheme'
+import StandardDarkTheme from '../components/cardDetailView1/standardDarkTheme/StandardDarkTheme'
 const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
     const params = useParams()
     const [card, setCard] = useState('')
-    // const navigate = useNavigate()
     const [pre, setPre] = useState(true)
 
 
@@ -45,7 +47,8 @@ function CardDetailsViewPage() {
                     linkAppple.href = data.card.profileImage
                 }
             } catch (error) {
-
+                setPre(false)
+                setCard('')
             }
         }
 
@@ -61,7 +64,7 @@ function CardDetailsViewPage() {
                 <meta property="og:title" class="notranslate" content={card.name} />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={metaDecorator.hostname + window.location.pathname + window.location.search} />
-                <meta property="og:description" class="notranslate" content={metaDecorator.hostname + card.companyDesignation} />
+                <meta property="og:description" class="notranslate" content={card.companyDesignation} />
                 <meta property="og:image" content={card.profileImage} />
             </Helmet>
             {pre ?
@@ -71,8 +74,14 @@ function CardDetailsViewPage() {
                 :
                 (
                     card ?
-                        (card.theme === 'classic' ?
+                        (
+                            card.theme === 'classic' ?
                             <ClassicTheme card={card} key={card._id} />
+                            :  card.theme === 'standard' ? 
+                            <ViewCardDetails card={card} key={card._id} />
+                            // <ModernTheme card={card} key={card._id}  />
+                            // <MinimalTheme card={card} key={card._id} />
+                            // <StandardDarkTheme  card={card} key={card._id} />
                             :
                             <ViewCardDetails card={card} key={card._id} />
                         )

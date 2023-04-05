@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { userLogin } from '../../api/UserRequest'
 import  banner from '../../assests/banner01.webp'
 const landingImg = "https://dragon2000-multisite.s3.eu-west-2.amazonaws.com/wp-content/uploads/sites/142/2021/01/07101841/Warranty-Banner-1.jpg"
@@ -10,6 +10,8 @@ function Login() {
     const initialValues = {  email: '', password: '' }
     const [formValues, setFormValues] = useState(initialValues)
     const navigate = useNavigate()
+    const location =useLocation()
+    const from = location.state?.from?.pathname || "/home"
     const [error, setError] = useState({});
     const [loginError,setLoginError] = useState('')
 
@@ -36,7 +38,7 @@ function Login() {
                     // cookies.set('accessToken', data.accessToken, { path: '/' });
 
 
-                    navigate("/home")
+                    navigate(from , {replace:true})
                 }
             } catch (error) {
                 console.log(error.response.data.message);

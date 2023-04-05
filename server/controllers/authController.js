@@ -105,15 +105,8 @@ const adminlogin = async (req, res, next) => {
 
 const refreshToken = async (req, res, next) => {
   try {
-    const { userId, refToken } = req.body;
-    console.log(req.body);
-
-    //finding the user
-    const user = await User.findOne({ _id: userId }).select({
-      name: 1,
-      email: 1,
-      phone: 1,
-    });
+    const { refToken } = req.body;
+    // console.log(req.body);
 
     //if there is no ref token throwing err
     if (!refToken)
@@ -121,45 +114,54 @@ const refreshToken = async (req, res, next) => {
 
     //get the ref token from the array with
     if (!refreshTokenArray.includes(refToken))
-      throw createError.Unauthorized("Invalid refresh token");
+      throw createError.InternalServerError("Invalid refresh token");
 
     //verify the ref token from array
     jwt.verify(
       refToken,
       process.env.JWT_REFRESH_TOKEN_SECRET,
       async (err, data) => {
-        if (err) throw createError.InternalServerError(err);
+        try {
+          if (err) throw createError.InternalServerError(err);
 
-        //black listing the used refresh token
-        refreshTokenArray = refreshTokenArray.filter(
-          (item) => item != refToken
-        );
+          //finding the user
+          const userId = data._id
+          const user = await User.findOne({ _id: userId })
 
-        //if it matches create a new pair of auth token and refresh token
-        const accessToken = await genAccessToken(user);
-        const refreshToken = await genRefreshToken(user);
 
-        //saving the new refresh token to array
-        refreshTokenArray.push(refreshToken);
+          //black listing the used refresh token
+          refreshTokenArray = refreshTokenArray.filter(
+            (item) => item != refToken
+          );
 
-        //sending response to the client
-        res
-          .status(200)
-          .cookie("accessToken", accessToken, {
-            httpOnly: true,
-            path: "/",
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-            sameSite: "strict",
-          })
-          .json({
-            success: true,
-            message: "new pair of tokens created",
-            refreshToken,
-          });
+          //if it matches create a new pair of auth token and refresh token
+          const accessToken = await genAccessToken(user);
+          const refreshToken = await genRefreshToken(user);
+
+          //saving the new refresh token to array
+          refreshTokenArray.push(refreshToken);
+
+          //sending response to the client
+          res
+            .status(200)
+            .cookie("accessToken", accessToken, {
+              httpOnly: true,
+              path: "/",
+              maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+              sameSite: "strict",
+            })
+            .json({
+              success: true,
+              message: "new pair of tokens created",
+              refreshToken,
+            });
+        } catch (error) {
+          next(error)
+        }
       }
     );
   } catch (error) {
-    console.log(error);
+    console.log(error, "123456");
     next(error);
   }
 };
@@ -182,21 +184,25 @@ const logout = (req, res, next) => {
       refToken,
       process.env.JWT_REFRESH_TOKEN_SECRET,
       async (err, data) => {
-        if (err)
-          throw createError.Unauthorized("ref token from failed verification");
+        try {
+          if (err)
+            throw createError.Unauthorized(err)
 
-        //black listing the used refresh token
-        refreshTokenArray = refreshTokenArray.filter(
-          (item) => item != refToken
-        );
+          //black listing the used refresh token
+          refreshTokenArray = refreshTokenArray.filter(
+            (item) => item != refToken
+          );
 
-        res
-          .clearCookie("accessToken")
-          .json({ success: true, message: "Logged out successfully" });
+          res
+            .clearCookie("accessToken")
+            .json({ success: true, message: "Logged out successfully" });
+        } catch (error) {
+          next(error)
+        }
       }
     );
   } catch (error) {
-    console.log(error);
+    console.log(error, "123456");
     next(error);
   }
 };

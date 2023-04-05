@@ -8,19 +8,20 @@ button {
     font-family: "Poppins", sans-serif
 }
 
-.previewWrap {
+.previewWrap31 {
     position: relative;
-    height: 100%
+    height: 100%;
+    background-color:white;
 }
 
-.previewWrap .bannerImage {
-    height: 200px;
+.previewWrap31 .bannerImage {
+    height: 310px;
     position: absolute;
     width: 100%;
     background: #f4f4f4
 }
 
-.previewWrap .bannerImage img {
+.previewWrap31 .bannerImage img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -28,32 +29,36 @@ button {
     background: center center
 }
 
-.previewContainer {
+
+
+
+.previewContainer31 {
     max-width: 380px;
-    padding: 0 12px;
+    padding: 0 15px;
     margin: 0 auto;
     position: relative;
     z-index: 5
 }
 
-.previewContainer .header {
+
+.previewContainer31 .header {
     padding-top: 65px;
     padding-bottom: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 170px;
+    min-height: 240px;
 }
 
-.previewContainer .header img {
+.previewContainer31 .header img {
     width: 106px
 }
 
-.previewContainer .header img path {
+.previewContainer31 .header img path {
     fill: #fff
 }
 
-.previewContainer .header .btn {
+.previewContainer31 .header .btn {
     width: auto;
     height: 30px;
     border: 1px solid #fff;
@@ -71,68 +76,68 @@ button {
     -webkit-border-radius: 4px
 }
 
-.previewContainer .userDetails {
+.previewContainer31 .userDetails {
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background: #1e1e1e; */
+    background: linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin-bottom: 30px
 }
 
-.previewContainer .userDetails figure {
+.previewContainer31 .userDetails figure {
     width: 154px;
     min-width: 154px;
     height: 200px;
     margin: 0
 }
 
-.previewContainer .userDetails figure img {
+.previewContainer31 .userDetails figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.previewContainer .userDetails .user {
+.previewContainer31 .userDetails .user {
     width: calc(100% - 154px)
 }
 
-.previewContainer .user {
-    padding: 20px
+.previewContainer31 .user {
+    padding: 25px
 }
 
-.previewContainer .user h1 {
+.previewContainer31 .user h1 {
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
     color: #fff;
-    margin-bottom: 5px;
-    word-wrap: break-word;
+    margin-bottom: 5px
 }
 
-.previewContainer .user p {
+.previewContainer31 .user p {
     margin: 0;
     font-size: 12px;
     line-height: 18px;
     color: #c8c8c8
 }
 
-.previewContainer .buttons {
+
+.previewContainer31 .buttons {
     display: flex;
-    width: 100%;
+    /* width: 25%; */
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px
 }
 
-.previewContainer .buttons a {
+.previewContainer31 .buttons a {
     height: 49px;
     width: 50%;
     text-align: center;
@@ -144,36 +149,38 @@ button {
     font-size: 14px;
     line-height: 20px;
     gap: 17px;
-    /* color: #000; */
-    background: #efefef;
+    color: #000;
+    background: #e6e6e6
 }
 
-.previewContainer .buttons a.addTo {
-    /* background: black; */
-    color: #fff
+.previewContainer31 .buttons a.addTo {
+    color: white;
+    background: linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
 }
 
-.previewContainer h2 {
+
+.previewContainer31 h2 {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
-    padding-right: 10px;
+    padding-right: 30px;
     position: relative;
     display: inline-block;
-    margin-bottom: 16px
+    margin-bottom: 16px;
+    /* color: black; */
 }
 
-/* .previewContainer h2:after {
+.previewContainer31 h2:after {
     position: absolute;
     content: "";
     width: 22.03px;
     height: 3.3px;
     right: 0%;
     top: 18px;
-    background: black
-} */
+    background: linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
+}
 
-.previewContainer .about {
+.previewContainer31 .about {
     margin-bottom: 24px;
     font-size: 13px;
     line-height: 22px;
@@ -181,31 +188,31 @@ button {
     /* color: #424242 */
 }
 
-.previewContainer .social-links {
+.previewContainer31 .social-links {
     display: flex;
     gap: 12px;
     justify-content: space-between;
     margin: 0 0 35px 0
 }
 
-.previewContainer .social-links a {
+.previewContainer31 .social-links a {
     width: 54px;
     height: 54px;
     min-width: 54px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #efefef;
+    background: linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
     border-radius: 3px;
     -moz-border-radius: 3px;
-    -webkit-border-radius: 3px
+    -webkit-border-radius: 3px;
 }
 
-.previewContainer .contactOptions {
+.previewContainer31 .contactOptions {
     margin-bottom: 40px
 }
 
-.previewContainer .contactOptions a {
+.previewContainer31 .contactOptions a {
     padding: 10px 0;
     font-weight: 500;
     font-size: 13px;
@@ -213,19 +220,20 @@ button {
     display: flex;
     align-items: center;
     min-height: 34px;
-    /* color: #000; */
+    /* color:black; */
     text-decoration: none;
     cursor: pointer;
     gap: 10px;
-    border-bottom: solid 1px #d9d9d9;
-    background: url("../../assests/img/more_icon.svg") no-repeat right center
+    /* color: black; */
+    border-bottom: solid 1px  #E6E6E6;
+    background: url("../../../assests/img/more_icon.svg") no-repeat right center;
 }
 
-.previewContainer .otherLinks {
+.previewContainer31 .otherLinks {
     margin-bottom: 40px
 }
 
-.previewContainer .otherLinks a {
+.previewContainer31 .otherLinks a {
     overflow: hidden;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -235,27 +243,23 @@ button {
     justify-content: space-between;
     margin-bottom: 10px;
     text-decoration: none;
-    background: #efefef url("../../assests/img/more_icon.svg") no-repeat 96% center
+    background: #efefef url("../../../assests/img/more_icon.svg") no-repeat 96% center
 }
 
-.previewContainer .otherLinks figure {
+.previewContainer31 .otherLinks figure {
     min-width: 180px;
     width: 180px;
-    height: 89px;
-    padding-left: 1px;
+    height: 80px
 }
 
-.previewContainer .otherLinks figure img {
+.previewContainer31 .otherLinks figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
-    object-fit: cover;
-    border-radius: 4px 0 0 4px;
-    -moz-border-radius: 4px 0 0 4px;
-    -webkit-border-radius: 4px 0 0 4px;
+    object-fit: cover
 }
 
-.previewContainer .otherLinks figcaption {
+.previewContainer31 .otherLinks figcaption {
     padding: 15px 35px 15px 15px;
     width: calc(100% - 180px);
     font-size: 15px;
@@ -263,70 +267,76 @@ button {
     color: #1e1e1e
 }
 
-.previewContainer .photoGrid {
-    display: flex;
+.previewContainer31 .photoGrid {
+    display:grid;
     flex-wrap: wrap;
     gap: 5px;
     justify-content: space-between;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    
+
+
 }
-.previewContainer .photoGrid img{
+ .photoGrid {
+  
+    display:flex;
+    grid-template-columns: 50% 50%;
+  grid-gap: 1rem;
+  display: flex;
+  color: #EFEFEF;
+  
+
+}
+
+.mb-6{
+    max-width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-.qr-code {
+.qr-code-modern {
     right: 7px;
     /* background: black; */
+    background: linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
     border: none;
     padding: 12px;
     border-radius: 5px !important;
 }
-.qr-code-download {
-    right: 80px;
-    /* background: black; */
-    border: none;
-    padding: 11px;
-    margin-bottom: 21px;
-    border-radius: 5px !important;
-}
-.previewContainer .photoGrid figure {
-    min-width: calc(50% - 11px);
-    height: 164px;
-    display: block;
-    margin-bottom: 22px
-}
+ 
 
-.previewContainer .photoGrid figure img {
-    width: 100%;
-    height: 100%;
+ .photoGrid figure img {
+   
     -o-object-fit: cover;
-    object-fit: cover
+    object-fit: cover;
+    grid-template-columns: 10rem 10rem 10rem;
+  grid-gap: 1rem;
+  display:flex;
 }
 
-.previewContainer .companyLogo {
-    margin-bottom: 40px
+.previewContainer31 .companyLogo {
+    margin-bottom: 40px;
+    width: 100px;
 }
 
-.previewContainer .companyLogo img {
-    display: block;
-    height: 50px;
-    margin: 0 auto
+.previewContainer31 .companyLogo img {
+    margin-top: 30px;
+    height: 70px;
+    width: 70px;
+
+
 }
 
 .footer {
     text-align: center;
     padding: 25px 0 18px;
+    padding-bottom: 100px;
     background: #1e1e1e
 }
 
 .footer p {
     font-size: 14px;
     line-height: 15px;
-    background: linear-gradient(90deg, #DBB24B 0%, #DED099 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 10px
+    color: #fff;
+    margin-bottom: 5px
 }
 
 .footer p a {
@@ -334,28 +344,28 @@ button {
     color: #fff
 }
 
-.popup-container1{
+.popup-container2{
     background: #EFEFEF;
 }
 
-.popup-container1 .close-popup{
+.popup-container2 .close-popup{
     width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
-    background: #000000;
+    background: linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
     border-radius: 40px;
     -moz-border-radius: 40px;
     -webkit-border-radius: 40px;
 }
 
-.popup-container1 .userDetails{
+.popup-container2 .userDetails{
     padding: 30px;
     width: 100%;
 }
-.popup-container1 .userDetails figure{
+.popup-container2 .userDetails figure{
     width: 140px;
     height: 140px;
     margin: 0 auto 10px;
@@ -364,34 +374,34 @@ button {
     -moz-border-radius: 140px;
     -webkit-border-radius: 140px;
 }
-.popup-container1 .userDetails .user{
+.popup-container2 .userDetails .user{
     text-align: center;
     margin-bottom: 20px;
 }
-.popup-container1 .userDetails .user h1{
+.popup-container2 .userDetails .user h1{
     font-weight: 600;
     font-size: 27.88px;
     line-height: 34px;
     color: #000;
     margin-bottom: 4px;
 }
-.popup-container1 .userDetails .user p{
+.popup-container2 .userDetails .user p{
     color: #525252;
     font-weight: 600;
     font-size: 14px;
 
 }
-.popup-container1 .my-qr-code{
+.popup-container2 .my-qr-code{
     margin: 0 auto 30px;
 }
-.popup-container1 .my-qr-download{
+.popup-container2 .my-qr-download{
     cursor: pointer;
     padding: 5px;
     text-align: center;
     width: 200px;
     margin: 0 auto 30px;
 }
-.addToHome{
+.addToHome2{
     height: 44px;
     width: 100%;
     display: flex;
@@ -403,19 +413,19 @@ button {
     line-height: 19px;
     padding-left: 14px;
     cursor: pointer;
-    background: #000000 url("../../assests/img1/plus_icon.svg") no-repeat 95% center;
+    background:  url("../../../assests/img1/plus_icon.svg")  no-repeat 95% center, linear-gradient(90deg, #FE4F32 0%, #DD2474 100%);
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
 }
-.addtoHomeImage{
+.addtoHomeImage2{
     max-width: 80%;
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
     margin:20px auto 0;
 }
-.popup-container1 .userDetails figure img{
+.popup-container2 .userDetails figure img{
     width: 100%;
     height: 100%;
     object-fit: cover;

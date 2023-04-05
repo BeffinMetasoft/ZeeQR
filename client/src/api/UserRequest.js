@@ -1,7 +1,7 @@
 import axios from '../api/Axios'
 // import UseAxiosPrivate from '../hooks/UseAxiosPrivate'
 
-// const axiosPrivate = UseAxiosPrivate()
+
 
 export const userSignup = (signupData) => axios.post('/signup',signupData)
 
@@ -13,7 +13,10 @@ export const createCard = (details) => axios.post('/createCard',details)
 
 export const cardProfile = (id) => axios.get(`/profileView/${id}`)
 
-export const getSavedCards = () => axios.get('/getSavedCard')
+// export const getSavedCards = () =>{
+//     const axiosPrivate = UseAxiosPrivate()
+//     axiosPrivate.get('/getSavedCard')
+// } 
 
 export const getBookedCards = () => axios.get('/getcreatedCard')
 
