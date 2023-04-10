@@ -20,7 +20,10 @@ button {
     height: 200px;
     position: absolute;
     width: 100%;
-    background: #f4f4f4
+    background: #f4f4f4;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
+    -moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
+    -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
 }
 
 .previewWrap1 .bannerImage img {
@@ -33,7 +36,7 @@ button {
 
 .previewContainer1 {
     max-width: 380px;
-    padding: 0 12px;
+    padding: 0 12px 60px;
     margin: 0 auto;
     position: relative;
     z-index: 5
@@ -431,6 +434,9 @@ button {
     bottom: 27px;
     z-index: 10;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
 }
 .addToContact img{
     width: 100%;
