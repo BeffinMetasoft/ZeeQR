@@ -1,5 +1,5 @@
 import axios from "../api/Axios"
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 // import { useLocation, useNavigate } from 'react-router';
 
 // const navigate = useNavigate()
@@ -16,7 +16,7 @@ axiosPrivate.interceptors.response.use((response) => {
     async (error) => {
         if (error.response.status === 401) {
             try {
-                
+
                 const refToken = await localStorage.getItem("refToken")
                 const response = await axios.post('/refresh-token', { refToken }, {
                     withCredentials: true
@@ -30,14 +30,14 @@ axiosPrivate.interceptors.response.use((response) => {
                 }
             } catch (error) {
                 console.log(error, 'qwerty');
-                swal({
+                Swal.fire({
                     title: error.response.data.message.name,
                     text: error.message + " (Please login again...)",
 
                 }).then(() => {
 
                     localStorage.removeItem('refToken')
-                    
+
                     // navigate('/login', { state: { from: location }, replace: true })
                     window.location.href = '/login'
                 })

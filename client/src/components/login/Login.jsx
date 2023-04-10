@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { userLogin } from '../../api/UserRequest'
-import  banner from '../../assests/banner01.webp'
+import banner from '../../assests/banner01.webp'
 const landingImg = "https://dragon2000-multisite.s3.eu-west-2.amazonaws.com/wp-content/uploads/sites/142/2021/01/07101841/Warranty-Banner-1.jpg"
 
 
 function Login() {
 
-    const initialValues = {  email: '', password: '' }
+    const initialValues = { email: '', password: '' }
     const [formValues, setFormValues] = useState(initialValues)
     const navigate = useNavigate()
-    const location =useLocation()
+    const location = useLocation()
     const from = location.state?.from?.pathname || "/home"
     const [error, setError] = useState({});
-    const [loginError,setLoginError] = useState('')
+    const [loginError, setLoginError] = useState('')
+
 
     const loginData = {
         ...formValues
@@ -35,10 +36,9 @@ function Login() {
                 console.log(data);
                 if (data.success) {
                     localStorage.setItem("refToken", data.refreshToken)
-                    // cookies.set('accessToken', data.accessToken, { path: '/' });
+                   
+                    navigate(from, { replace: true })
 
-
-                    navigate(from , {replace:true})
                 }
             } catch (error) {
                 console.log(error.response.data.message);
@@ -53,13 +53,13 @@ function Login() {
     const validateForm = (data) => {
         const error = {};
         const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-        
+
         if (!data.email) {
             error.email = "email required"
         } else if (!regex.test(data.email)) {
             error.email = "enter valide email address"
         }
-        
+
         if (!data.password) {
             error.password = "password required"
         } else if (data.password.length < 6) {
@@ -69,8 +69,8 @@ function Login() {
         return error;
     }
 
-  return (
-    <div>
+    return (
+        <div>
             <div className={`w-full h-screen flex `}>
                 <div className='grid grid-cols-1 md:grid-cols-2 m-auto h-[550px] shadow-lg shadow-gray-600 sm:max-w-[900px]'>
                     <div className=' w-full text-center h-[550px] hidden md:block' style={{ backgroundImage: `url(${landingImg})` }}>
@@ -88,8 +88,8 @@ function Login() {
                                 <input className='border p-2 mb-2 w-full' placeholder='Password' name='password' type="Password" value={formValues.password} onChange={handleChange} />
                                 <p className='text-red-500'>{error.password}</p>
                             </div>
-                            {loginError? 
-                            <p className='text-red-500 mx-2'>{loginError}</p>:""
+                            {loginError ?
+                                <p className='text-red-500 mx-2'>{loginError}</p> : ""
                             }
                             <button className='w-full py-2 my-4 bg-green-600 hover:bg-green-500'>Login</button>
                             <p>forgot password ?</p>
@@ -102,9 +102,8 @@ function Login() {
             </div>
 
 
-
         </div>
-  )
+    )
 }
 
 export default Login

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import {  userSignup } from '../../api/UserRequest';
 import  banner from '../../assests/banner01.webp'
-
+import Swal from 'sweetalert2'
 const landingImg = "https://dragon2000-multisite.s3.eu-west-2.amazonaws.com/wp-content/uploads/sites/142/2021/01/07101841/Warranty-Banner-1.jpg"
 
 function Signup() {
@@ -11,6 +11,7 @@ function Signup() {
     const [formValues, setFormValues] = useState(initialValues)
     const navigate = useNavigate()
     const [error, setError] = useState({});
+    const [loginError,setLoginError] = useState('')
 
     const loginData = {
         ...formValues
@@ -33,12 +34,21 @@ function Signup() {
                 console.log(data);
                 if (data.success) {
                     
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Succesfully registered, Please login..',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
 
+                        navigate("/login")
+                    })
 
-                    navigate("/login")
                 }
             } catch (error) {
                 console.log(error.response.data.message);
+                setLoginError(error.response.data.message)
 
             }
 
@@ -102,6 +112,9 @@ function Signup() {
                                 <input className='border p-2 mb-2 w-full' placeholder='Password' name='password' type="Password" value={formValues.password} onChange={handleChange} />
                                 <p className='text-red-500'>{error.password}</p>
                             </div>
+                            {loginError? 
+                            <p className='text-red-500 mx-2'>{loginError}</p>:""
+                            }
                             <button className='w-full py-2 my-4 bg-green-600 hover:bg-green-500'>Signup</button>
 
                         </form>
