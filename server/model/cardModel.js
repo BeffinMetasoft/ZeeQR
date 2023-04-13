@@ -122,6 +122,10 @@ const CardSchema = mongoose.Schema({
         type:Date,
         default:Date.now()
     },
+    block: {
+        type: Boolean,
+       default:false
+    }
 
 
 

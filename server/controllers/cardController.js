@@ -420,13 +420,14 @@ const editBookedCard = async (req, res, next) => {
 
 const getSingleCard = async (req, res, next) => {
   try {
-    const card = await CardModel.findOne({ _id: req.params.id });
+    // const card = await CardModel.findOne({ _id: req.params.id });
+    const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { block: false }] });
     // const QRCode = await generateQR('https://zeeqr.info/profile-view/641eb3995cc9b4462a832959');
-    //  console.log( 'qwert123');
-
+    //  console.log( card,'qwert123');
     res
       .status(200)
       .json({ success: true, card, message: "Single Booked Card" });
+
   } catch (error) {
     console.log(error);
     next(error);
