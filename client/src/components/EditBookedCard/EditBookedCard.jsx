@@ -44,6 +44,7 @@ function EditBookedCard({ cardId }) {
     const [showHg, setShowHg] = useState([])
 
     const [currentColor, setCurrentColor] = useState('')
+    const [checked,setChecked]= useState()
 
 
     const [loader, showLoader, hideLoder] = UseSpinner()
@@ -58,6 +59,17 @@ function EditBookedCard({ cardId }) {
         setUserData({ ...userData, [name]: value })
         console.log(userData, "qwerty");
 
+    }
+    const handleCheckbox =(e)=>{
+        if (e.target.checked) {
+            console.log('✅ Checkbox is checked');
+            setChecked(true)
+            // console.log(checked,'456456');
+          } else {
+            console.log('⛔️ Checkbox is NOT checked');
+            setChecked(false)
+            // console.log(checked,'456456');
+          }
     }
     const handleBg = (e) => {
         setShowBg(URL.createObjectURL(e.target.files[0]))
@@ -101,6 +113,7 @@ function EditBookedCard({ cardId }) {
             datas.append('pfImage', profileImage)
             datas.append('companyLg', companyLogo)
             datas.append('wbImage', websiteImage)
+            datas.append('checkLogo', checked)
             for (let i = 0; i < hightlightPhotos.length; i++) {
                 datas.append('hgPhotos', hightlightPhotos[i])
             }
@@ -221,6 +234,20 @@ function EditBookedCard({ cardId }) {
             <div className='flex justify-center pt-5 py-5'>
                 <form className='w-3/6' onSubmit={handleSubmit}  >
 
+                    <h1 className='my-3'>Themes</h1>
+                    <div className="grid xl:grid-cols-2 xl:gap-6" >
+                        <div className="relative z-0 mb-6 w-full group">
+                            <select class="py-3 mt-4 px-4 pr-9 block border border-xl w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" id='theme' name="theme" onChange={handleChange} value={userData["theme"] || ""}  >
+                                <option selected>Open this select menu</option>
+                                <option value="standard" >standard</option>
+                                <option value="classic" >classic</option>
+                                <option value="modern" >modern</option>
+                                <option value="minimal">minimal</option>
+                            </select>
+                            <label htmlFor="theme" className="absolute text-sm text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"   >Select the theme </label>
+
+                        </div>
+                    </div>
                     <h1 className='my-3'>Images</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
@@ -236,8 +263,24 @@ function EditBookedCard({ cardId }) {
                             <label htmlFor="profileImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload profile Picture</label>
                             <p className='text-red-500'>{error.profileImage}</p>
                         </div>
+
                         <div className="relative z-0 mb-6 w-full group">
+
                             <input type="file" name="companyLogo" id='companyLogo' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleLg} />
+                            <label>
+                                {/* <input type="checkbox" name='checkLogo'  onChange={handleCheckbox}   /> */}
+                                <input type="checkbox" defaultChecked={userData?.checkLogo} onClick={handleCheckbox} />
+                                Show Logo
+                            </label>
+                            {/* <div class="flex items-center mb-4">
+                                <input id="default-radio-1" type="radio" value="hide" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " onChange={handleChange} />
+                                <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Hide Logo</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input checked id="default-radio-2" type="radio" value="show" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 " onChange={handleChange} />
+                                <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Show Logo</label>
+                            </div> */}
+
                             <img className='w-28' src={showLg ? showLg : userData.companyLogo} alt="" />
                             <label htmlFor="companyLogo" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload your logo</label>
                             <p className='text-red-500'>{error.companyLogo}</p>

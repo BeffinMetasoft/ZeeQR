@@ -178,6 +178,7 @@ const createCard = async (req, res, next) => {
     websiteImage: S3Url + websiteImageName,
     highlightPhotos: photoNameArray,
     colorCode: req.body.colorCode,
+    theme:req.body.theme,
     userID: req.user._id,
   };
 
@@ -275,7 +276,7 @@ const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
   // console.log(cardId);
   // console.log(req.files)
-  // console.log(req.body, '++++');
+  console.log(req.body, '++++');
 
   const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
   const pfImage = req.files?.pfImage ? req.files?.pfImage[0] : ''
@@ -368,6 +369,8 @@ const editBookedCard = async (req, res, next) => {
       websiteName: req.body.websiteName,
       locationUrl: req.body.locationUrl,
       colorCode: req.body.colorCode,
+      theme:req.body.theme,
+      checkLogo:req.body.checkLogo[0],
 
       backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
       profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,

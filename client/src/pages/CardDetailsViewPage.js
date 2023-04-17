@@ -79,11 +79,14 @@ function CardDetailsViewPage() {
                             <ClassicTheme card={card} key={card._id} />
                             :  card.theme === 'standard' ? 
                             <ViewCardDetails card={card} key={card._id} />
-                            // <ModernTheme card={card} key={card._id}  />
-                            // <MinimalTheme card={card} key={card._id} />
                             // <StandardDarkTheme  card={card} key={card._id} />
-                            :
-                            <ViewCardDetails card={card} key={card._id} />
+                            : card.theme === 'modern' ?
+                             <ModernTheme card={card} key={card._id}  />
+                             :card.theme === 'minimal' ?
+                             <MinimalTheme card={card} key={card._id} />
+                             :  card.theme === 'standardDark' ?
+                            <StandardDarkTheme  card={card} key={card._id} />
+                            :""
                         )
 
                         :

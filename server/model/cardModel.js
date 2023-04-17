@@ -125,6 +125,14 @@ const CardSchema = mongoose.Schema({
     block: {
         type: Boolean,
        default:false
+    },
+    theme:{
+        type:String,
+        default:"standard"
+    },
+    checkLogo:{
+        type: Boolean,
+        default:true 
     }
 
 

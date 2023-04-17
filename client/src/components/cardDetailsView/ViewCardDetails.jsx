@@ -78,9 +78,11 @@ function ViewCardDetails({ card }) {
                             </div>
                         </div>
                         {card.companyLogo ?
-                            <div className="companyLogo ">
+                            (card.checkLogo ?
+                                <div className="companyLogo ">
                                 <img src={card.companyLogo} alt='' />
-                            </div> : ''
+                            </div> : "")
+                            : ''
                         }
                         <div className="buttons">
                             <Link className='addTo' to={`${card.vCard}`} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >Add to contacts</Link>

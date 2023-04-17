@@ -9,7 +9,7 @@ import { SketchPicker } from 'react-color'
 function AddCardDetails() {
 
     const initialValues = {
-        name: "", companyName: "", companyDesignation: "", phone: "",
+        name: "", companyName: "", companyDesignation: "", phone: "",theme:"",
         about: "", whatsappNumber: "", facebook: "", instagram: "", twitter: "", skype: "", linkedIn: "", youtube: "", email: "", locationUrl: "", address: "",
         country: "", state: "", websiteName: "", websiteUrl: ""
     }
@@ -39,7 +39,7 @@ function AddCardDetails() {
     const handleChange = (e) => {
         const { name, value } = e.target
         setUserData({ ...userData, [name]: value })
-        // console.log(userData,"qwerty");
+        console.log(userData,"qwerty");
 
     }
     const handleBg = (e) => {
@@ -203,7 +203,20 @@ function AddCardDetails() {
 
             <div className='flex justify-center pt-5 py-5'>
                 <form className='w-3/6' onSubmit={handleSubmit}  >
+                    <h1 className='my-3'>Themes</h1>
+                    <div className="grid xl:grid-cols-2 xl:gap-6" >
+                        <div className="relative z-0 mb-6 w-full group">
+                        <select class="py-3 mt-4 px-4 pr-9 block border border-xl w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" id='theme'  name="theme" onChange={handleChange}  >
+                            <option selected>Open this select menu</option>
+                            <option value="standard" >standard</option>
+                            <option value="classic" >classic</option>
+                            <option value="modern" >modern</option>
+                            <option value="minimal">minimal</option>
+                        </select>
+                        <label htmlFor="theme" className="absolute text-sm text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"   >Select the theme </label>
 
+                        </div>
+                    </div>
                     <h1 className='my-3'>Images</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
@@ -354,11 +367,11 @@ function AddCardDetails() {
                         </div>
                     </div>
                     <div className='mb-5'>
-                    <SketchPicker
-                        color={currentColor}
-                        onChangeComplete={handleChangeColor}
-                    />
-                    <p>{currentColor}</p>
+                        <SketchPicker
+                            color={currentColor}
+                            onChangeComplete={handleChangeColor}
+                        />
+                        <p>{currentColor}</p>
 
                     </div>
 
