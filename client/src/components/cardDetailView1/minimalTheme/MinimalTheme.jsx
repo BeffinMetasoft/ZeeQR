@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import './MinimalTheme.css'
 import { saveAs } from 'file-saver'
 import { BsQrCodeScan } from 'react-icons/bs'
-import logo from '../../../assests/img/zeeqr-logo-white.svg';
-import logoBlack from '../../../assests/img/zeeqr.png'
+// import logo from '../../../assests/img/zeeqr-logo-white.svg';
+// import logoBlack from '../../../assests/img/zeeqr.png'
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
 import linkedin from "../../../assests/img/in_icon.svg";
@@ -55,7 +55,7 @@ function MinimalTheme({ card }) {
                     className="qr-code-minimal fixed bottom-0 center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6" onClick={() => setQrModal(true)}>
                     <BsQrCodeScan size={30} />
                 </span>
-                <div className="p-3 lg:px-20" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                {/* <div className="p-3 lg:px-20" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     {card.color ?
                         <img src={logo} className='p-3' alt="logo zeeqr" />:
                         <img src={logoBlack} width={120} alt="logo zeeqr" /> 
@@ -63,7 +63,7 @@ function MinimalTheme({ card }) {
                     <Link className="btn" to={"https://zeeqr.co/"} target="_blank" style={{ fontSize: "15px", border: "solid 1px", padding: "4px" }}>
                         Get your card
                     </Link>
-                </div>
+                </div> */}
                 <div className="bannerImage" style={{ marginTop: "0px" }}>
                     <img src={card.backgroundImage} alt="" />
                 </div>

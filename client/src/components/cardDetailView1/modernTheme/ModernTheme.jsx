@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './ModernTheme.css'
 import { saveAs } from 'file-saver'
 import { BsQrCodeScan } from 'react-icons/bs'
-import logo from '../../../assests/img/zeeqr-logo-white.svg';
+// import logo from '../../../assests/img/zeeqr-logo-white.svg';
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
 import linkedin from "../../../assests/img/in_icon.svg";
@@ -58,7 +58,7 @@ function ModernTheme({ card }) {
                     <BsQrCodeScan size={30} />
                 </span>
 
-                <div
+                {/* <div
                     className="header1"
                     style={{
                         display: "flex",
@@ -78,7 +78,7 @@ function ModernTheme({ card }) {
                     >
                         Get your card
                     </Link>
-                </div>
+                </div> */}
                 <div className="bannerImage" style={{ marginTop: "0px" }}>
                     <img src={card.profileImage} alt="" />
                 </div>
