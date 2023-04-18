@@ -8,7 +8,7 @@ function NavbarLanding({ props, link, page }) {
       <nav className="flex items-center justify-between flex-wrap bg-white text-black p-2 border-b-2 ">
         <div className="flex items-center flex-shrink-0 text-black mx-6">
           <img className='w-14 ' src={logo} alt="" srcset="" />
-          <Link to={'/home'} className="font-bold text-3xl tracking-tight">ZeeQR</Link>
+          <Link to={'/home'} className="font-bold text-3xl tracking-tight">ZEEQR</Link>
         </div>
         <div className="block lg:hidden">
           <button className="flex items-center px-3 py-2 border rounded text-black border-teal-400 hover:text-white hover:border-white">

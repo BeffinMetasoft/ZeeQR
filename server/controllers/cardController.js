@@ -276,7 +276,7 @@ const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
   // console.log(cardId);
   // console.log(req.files)
-  console.log(req.body, '++++');
+  // console.log(req.body, '++++');
 
   const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
   const pfImage = req.files?.pfImage ? req.files?.pfImage[0] : ''

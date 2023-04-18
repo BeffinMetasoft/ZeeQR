@@ -44,7 +44,10 @@ function EditBookedCard({ cardId }) {
     const [showHg, setShowHg] = useState([])
 
     const [currentColor, setCurrentColor] = useState('')
-    const [checked,setChecked]= useState()
+    const defCheck= userData?.checkLogo
+    // console.log(defCheck,'123456789');
+    const [checked, setChecked] = useState()
+    
 
 
     const [loader, showLoader, hideLoder] = UseSpinner()
@@ -57,20 +60,25 @@ function EditBookedCard({ cardId }) {
     const handleChange = (e) => {
         const { name, value } = e.target
         setUserData({ ...userData, [name]: value })
-        console.log(userData, "qwerty");
+        // console.log(userData, "qwerty");
+        // console.log(checked, "123");
 
     }
-    const handleCheckbox =(e)=>{
+    const handleCheckbox = (e) => {
+
         if (e.target.checked) {
-            console.log('✅ Checkbox is checked');
+            // console.log('✅ Checkbox is checked');
             setChecked(true)
             // console.log(checked,'456456');
-          } else {
-            console.log('⛔️ Checkbox is NOT checked');
+        } else {
+            // console.log('⛔️ Checkbox is NOT checked');
             setChecked(false)
             // console.log(checked,'456456');
-          }
+        }
+
     }
+
+
     const handleBg = (e) => {
         setShowBg(URL.createObjectURL(e.target.files[0]))
         setBackgroundImage(e.target.files[0])
@@ -113,7 +121,7 @@ function EditBookedCard({ cardId }) {
             datas.append('pfImage', profileImage)
             datas.append('companyLg', companyLogo)
             datas.append('wbImage', websiteImage)
-            datas.append('checkLogo', checked)
+            datas.append('checkLogo', checked ?  checked : defCheck )
             for (let i = 0; i < hightlightPhotos.length; i++) {
                 datas.append('hgPhotos', hightlightPhotos[i])
             }
