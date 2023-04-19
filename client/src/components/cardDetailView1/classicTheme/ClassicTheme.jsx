@@ -97,8 +97,8 @@ function ClassicTheme({ card }) {
                         <h3>Location</h3>
                         <Link >{card.address}</Link>
                         {card.locationUrl ?
-                        <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link> 
-                        :""
+                            <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link>
+                            : ""
                         }
                     </div>
 
@@ -148,17 +148,19 @@ function ClassicTheme({ card }) {
                         </div> : ""
                     }
 
-
-
-                    <div className="contactOptions">
-                        <h4>Website</h4>
-                        <div className="social-media">
-                            <Link to={`${card.websiteUrl}`} target="_blank" >
-                                <img src={webIcon} alt='' />
-                                <h5> {card.websiteName}</h5>
-                            </Link>
+                    {card.websiteUrl ?
+                        <div className="contactOptions">
+                            <h4>Website</h4>
+                            <div className="social-media">
+                                <Link to={`${card.websiteUrl}`} target="_blank" >
+                                    <img src={webIcon} alt='' />
+                                    <h5> {card.websiteName}</h5>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
+                        : ""}
+
+
 
 
                     {card.highlightPhotos.length === 0 ? '' :
@@ -199,7 +201,7 @@ function ClassicTheme({ card }) {
 
                                         <img src={card.QRCode} className="my-qr-code" width="200px" alt="" />
                                         <p className='my-qr-download' onClick={handleDownload}>
-                                           Download QR Code
+                                            Download QR Code
                                         </p>
                                         {!showResults ?
                                             <div className='addToHome' onClick={onClick}>Add to Home Screen</div>

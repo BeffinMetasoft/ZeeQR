@@ -202,6 +202,22 @@ function ModernTheme({ card }) {
 
 
                     </div>
+                    {card.websiteImage ?
+                        <>
+                            <h2>Website/Portfolio</h2>
+                            <div className="otherLinks">
+                                <Link to={`${card.websiteUrl}`} target="_blank">
+                                    <figure>
+                                        <img src={card.websiteImage} alt="" />
+                                    </figure>
+                                    <figcaption> {card.websiteName}</figcaption>
+                                </Link>
+
+                            </div>
+                        </>
+                        : ''
+                    }
+
                     {card.highlightPhotos.length === 0 ? (
                         ""
                     ) : (
