@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
-
 function FileInput({ onImageSelected }) {
-  const inputRef = useRef();
+const inputRef = useRef();
 
   const handleOnChange = (event) => {
     if (event.target.files && event.target.files.length > 0) {
@@ -12,11 +11,9 @@ function FileInput({ onImageSelected }) {
       };
     }
   };
-
   const onChooseImg = () => {
     inputRef.current.click();
   };
-
   return (
     <div>
       <input

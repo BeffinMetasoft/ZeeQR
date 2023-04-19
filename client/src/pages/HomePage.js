@@ -8,7 +8,6 @@ function HomePage() {
     <div>
       <Navbar />
       <Home />
-
     </div>
   )
 }

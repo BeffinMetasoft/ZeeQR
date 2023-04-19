@@ -1,8 +1,6 @@
 import React from 'react'
 import logo from '../../assests/zeeqr1.png'
 import { AiFillCheckCircle } from "react-icons/ai";
-
-
 function Cards1({ status }) {
     return (
         <div className='flex justify-center p-2'>
@@ -20,12 +18,9 @@ function Cards1({ status }) {
                             <span className="text-xs text-black">ENNOVATING THE FUTURE</span>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
     )
 }
-
 export default Cards1

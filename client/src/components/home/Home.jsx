@@ -5,6 +5,7 @@ import Cards2 from '../cards/Cards2'
 import Cards3 from '../cards/Cards3'
 import Cards4 from '../cards/Cards4'
 
+
 function Home() {
     const [card,setCard]= useState('')
     console.log(card);
@@ -33,5 +34,4 @@ function Home() {
         </div>
     )
 }
-
 export default Home

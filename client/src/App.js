@@ -15,6 +15,8 @@ import CreateCardPage from './pages/CreateCardPage';
 import UserLoginProtect from './auth/UserLoginProtect';
 import UserRouteProtect from './auth/UserRouteProtect';
 import UpdateBookedCardPage from './pages/UpdateBookedCardPage';
+import ChecOutPage from './pages/ChecOutPage';
+
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Routes> 
         <Route path='/' element={<LandingPage/>} />
         <Route path='/profile-view/:id' element={<CardDetailsViewPage/>} />
+        <Route path='/checkout' element={<ChecOutPage/>} />
+
 
         <Route element={<UserLoginProtect/>}>
         <Route path='/signup' element={<SignupPage/>} />
@@ -38,6 +42,7 @@ function App() {
         <Route path='/booked-cards' element={<BookedCardsPage/>} />
         <Route path='/error-404' element={<Error404Page/>} />
         <Route path='/create-card' element={<CreateCardPage/>} />
+
         </Route>
       </Routes>
     </Router>

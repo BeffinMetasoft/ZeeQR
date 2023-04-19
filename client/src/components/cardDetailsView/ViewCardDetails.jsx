@@ -16,10 +16,6 @@ import loc from '../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../assests/img1/addtoHome.jpg'
 
-
-
-
-
 function ViewCardDetails({ card }) {
 
     const [qrModal, setQrModal] = useState(false)
@@ -35,9 +31,6 @@ function ViewCardDetails({ card }) {
                 .catch((error) => console.log('Error sharing', error));
         }
     }
-
-   
-
     const [showResults, setShowResults] = useState(false)
     const onClick = () => setShowResults(true)
     const handleClose = (e) => {
@@ -49,9 +42,6 @@ function ViewCardDetails({ card }) {
         let url = card.QRCode
         saveAs(url, card.name);
     }
-
-
-
 
     return (
         <div>
@@ -130,7 +120,6 @@ function ViewCardDetails({ card }) {
                             </div>
                         </div> : " "
                     }
-
                     <div className='flex'>
                         <h2>Contact Info</h2>
                         <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
