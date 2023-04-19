@@ -55,14 +55,14 @@ function ViewCardDetails({ card }) {
 
     return (
         <div>
-            <section className="previewWrap  "  style={{ backgroundColor: `${card.color ? card.color : 'white'}` }} >
+            <section className="previewWrap  " style={{ backgroundColor: `${card.color ? card.color : 'white'}` }} >
                 <span className='qr-code fixed bottom-0 cursor-pointer center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
 
 
                 <div className="bannerImage">
                     <img src={card.backgroundImage} alt='' />
                 </div>
-                <div className="previewContainer" style={{color : `${card.color ? card.color :"black"}`}} >
+                <div className="previewContainer" style={{ color: `${card.color ? card.color : "black"}` }} >
                     <div className="header">
                         {/* <img src={logo} alt="logo zeeqr" /> */}
                         {/* <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link> */}
@@ -80,8 +80,8 @@ function ViewCardDetails({ card }) {
                         {card.companyLogo ?
                             (card.checkLogo ?
                                 <div className="companyLogo ">
-                                <img src={card.companyLogo} alt='' />
-                            </div> : "")
+                                    <img src={card.companyLogo} alt='' />
+                                </div> : "")
                             : ''
                         }
                         <div className="buttons">
@@ -144,26 +144,28 @@ function ViewCardDetails({ card }) {
                                 window.location = `mailto:${card.email}`;
                                 e.preventDefault();
                             }} ><img src={mail} alt='' />{card.email}</Link>
-                            <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link>
+                            {card.locationUrl ?
+                            <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link> :
+                            <Link ><img src={loc} alt='' />{card.address}</Link>
+                            }
                         </div>
-                        <div className='flex'>
-                            <h2>Website</h2>
-                            <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
-                        </div>
-                        <div className="otherLinks">
-                            <Link to={`${card.websiteUrl}`} target="_blank" >
-                                <figure><img src={card.websiteImage} alt='' /></figure>
-                                <figcaption> {card.websiteName}</figcaption>
-                            </Link>
-                            {/* <Link >
-                            <figure><img src="https://metasoftit.com/wp-content/uploads/2020/08/service4.jpg" alt='' /></figure>
-                            <figcaption>Work testimonials</figcaption>
-                        </Link>
-                        <Link >
-                            <figure><img src="https://metasoftit.com/wp-content/uploads/2020/08/service4.jpg" alt='' /></figure>
-                            <figcaption>My works & vides</figcaption>
-                        </Link> */}
-                        </div>
+                        {card.websiteImage ?
+                            <div>
+                                <div className='flex'>
+                                    <h2>Website</h2>
+                                    <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
+                                </div>
+                                <div className="otherLinks">
+                                    <Link to={`${card.websiteUrl}`} target="_blank" >
+                                        <figure><img src={card.websiteImage} alt='' /></figure>
+                                        <figcaption> {card.websiteName}</figcaption>
+                                    </Link>
+
+                                </div>
+                            </div>
+                            : ""
+                        }
+
                         {card.highlightPhotos.length === 0 ? '' :
                             <div>
                                 <div className='flex'>

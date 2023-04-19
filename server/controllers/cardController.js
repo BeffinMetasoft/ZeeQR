@@ -123,7 +123,7 @@ const createCard = async (req, res, next) => {
   const backgroundImage = req.files?.backgroundImage[0]
   const profileImage = req.files?.profileImage[0]
   const companyLogo = req.files?.companyLogo ? req.files?.companyLogo[0] : ''
-  const websiteImage = req.files?.websiteImage[0]
+  const websiteImage = req.files?.websiteImage ? req.files?.websiteImage[0] : ''
   const hightlightPhotos = req.files?.hightlightPhotos ? req.files?.hightlightPhotos : ''
 
 
@@ -133,8 +133,8 @@ const createCard = async (req, res, next) => {
   await uploadFile(profileImage.buffer, profileImageName, profileImage.mimetype);
   const companyLogoName = companyLogo ? generateFileName() : ''
   companyLogo ? await uploadFile(companyLogo.buffer, companyLogoName, companyLogo.mimetype) : ''
-  const websiteImageName = generateFileName();
-  await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype);
+  const websiteImageName =websiteImage ? generateFileName() : ''
+  websiteImage ? await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype) : ''
   const array = []
   const photoNameArray = []
 
@@ -175,7 +175,7 @@ const createCard = async (req, res, next) => {
     backgroundImage: S3Url + backgroundImageName,
     profileImage: S3Url + profileImageName,
     companyLogo: companyLogo ? S3Url + companyLogoName : '',
-    websiteImage: S3Url + websiteImageName,
+    websiteImage:websiteImage ? S3Url + websiteImageName : '',
     highlightPhotos: photoNameArray,
     colorCode: req.body.colorCode,
     theme:req.body.theme,

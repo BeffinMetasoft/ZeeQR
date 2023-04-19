@@ -22,7 +22,6 @@ const CardSchema = mongoose.Schema({
     },
     about: {
         type: String,
-        required: [true, "About is required"]
     },
     email: {
         type: String,
@@ -36,11 +35,9 @@ const CardSchema = mongoose.Schema({
     },
     websiteUrl: {
         type: String,
-        required: [true, "WebsiteUrl is required"]
     },
     websiteName: {
         type: String,
-        required: [true, "WebsiteName is required"]
     },
     address: {
         type: String,
@@ -56,7 +53,6 @@ const CardSchema = mongoose.Schema({
     },
     locationUrl: {
         type: String,
-        required: [true, "locationUrl is required"]
     },
     backgroundImage:{
         type:String,
@@ -71,7 +67,6 @@ const CardSchema = mongoose.Schema({
     },
     websiteImage:{
         type:String,
-        required: [true, "websiteImage is required"]
     },
     highlightPhotos:{
         type:Array,

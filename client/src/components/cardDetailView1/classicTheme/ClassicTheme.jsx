@@ -96,7 +96,10 @@ function ClassicTheme({ card }) {
                         }} >{card.email}</Link>
                         <h3>Location</h3>
                         <Link >{card.address}</Link>
-                        <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link>
+                        {card.locationUrl ?
+                        <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link> 
+                        :""
+                        }
                     </div>
 
                     {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?

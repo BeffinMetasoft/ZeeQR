@@ -107,7 +107,7 @@ function EditBookedCard({ cardId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const errors = validateForm(allData)
+        const errors = validateForm(allData,websiteImage)
         console.log(Object.keys(errors).length);
         setError(errors)
         userData.colorCode = currentColor
@@ -155,7 +155,7 @@ function EditBookedCard({ cardId }) {
 
 
 
-    const validateForm = (data) => {
+    const validateForm = (data,websiteImage) => {
         const error = {};
         const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -180,9 +180,9 @@ function EditBookedCard({ cardId }) {
         if (!data.phone) {
             error.phone = "phone required"
         }
-        if (!data.about) {
-            error.about = "about required"
-        }
+        // if (!data.about) {
+        //     error.about = "about required"
+        // }
 
         if (!data.address) {
             error.address = "address required"
@@ -198,15 +198,40 @@ function EditBookedCard({ cardId }) {
         } else if (!regex.test(data.email)) {
             error.email = "email address"
         }
-        if (!data.locationUrl) {
-            error.locationUrl = "locationUrl required"
+        // if (!data.locationUrl) {
+        //     error.locationUrl = "locationUrl required"
+        // }
+        if (data.websiteName) {
+            if (!data.websiteUrl) {
+                error.websiteUrl = "websiteUrl required"
+            }
+            if (!websiteImage) {
+                error.websiteImage = "websiteImage required"
+            }
         }
-        if (!data.websiteName) {
-            error.websiteName = "websiteName required"
+        if (data.websiteUrl) {
+            if (!data.websiteName) {
+                error.websiteName = "websiteName required"
+            }
+            if (!websiteImage) {
+                error.websiteImage = "websiteImage required"
+            }
         }
-        if (!data.websiteUrl) {
-            error.websiteUrl = "websiteUrl required"
+        if (websiteImage) {
+            if (!data.websiteName) {
+                error.websiteName = "websiteName required"
+            }
+            if (!data.websiteUrl) {
+                error.websiteUrl = "websiteUrl required"
+            }
         }
+        // if (!backgroundImage) {
+        //     error.backgroundImage = "backgroundImage required"
+        // }
+        // if (!profileImage) {
+        //     error.profileImage = "profileImage required"
+        // }
+       
         // if (!data.websiteImage) {
         //     error.websiteImage = "websiteImage required"
         // }
