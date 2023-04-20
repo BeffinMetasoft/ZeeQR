@@ -16,6 +16,10 @@ import UserLoginProtect from './auth/UserLoginProtect';
 import UserRouteProtect from './auth/UserRouteProtect';
 import UpdateBookedCardPage from './pages/UpdateBookedCardPage';
 import ChecOutPage from './pages/ChecOutPage';
+import Cart_Page from './pages/Cart_Page';
+
+
+
 
 
 function App() {
@@ -25,6 +29,7 @@ function App() {
         <Route path='/' element={<LandingPage/>} />
         <Route path='/profile-view/:id' element={<CardDetailsViewPage/>} />
         <Route path='/checkout' element={<ChecOutPage/>} />
+        <Route path='/cart_page' element={<Cart_Page/>}/>
 
 
         <Route element={<UserLoginProtect/>}>
