@@ -132,14 +132,15 @@ button {
     display: flex;
     /* width: 100%; */
     overflow: hidden;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px
 }
 
 .previewContainer14 .buttons a {
-    height: 49px;
+    /* padding: 10px 0 10px; */
+    height: 53px;
     width: 50%;
     text-align: center;
     display: flex;
@@ -327,21 +328,21 @@ button {
     margin: 0 auto
 }
 
-.footer {
+.previewWrap14 .footer {
     text-align: center;
-    padding: 25px 0 18px;
+    padding: 25px 0 18px ;
     padding-bottom: 100px;
     background: #1e1e1e
 }
 
-.footer p {
+.previewWrap14 .footer p {
     font-size: 14px;
     line-height: 15px;
     color: #fff;
     margin-bottom: 5px
 }
 
-.footer p a {
+.previewWrap14 .footer p a {
     text-decoration: none;
     color: #fff
 }

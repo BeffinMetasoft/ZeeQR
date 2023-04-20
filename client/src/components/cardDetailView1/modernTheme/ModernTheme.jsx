@@ -6,11 +6,11 @@ import { BsQrCodeScan } from 'react-icons/bs'
 // import logo from '../../../assests/img/zeeqr-logo-white.svg';
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
-import linkedin from "../../../assests/img/in_icon.svg";
-import insta from "../../../assests/img/ig_icon.svg";
-import fb from "../../../assests/img/fb_icon.svg";
-import twitter from "../../../assests/img/twt_icon.svg";
-import whatsapp from "../../../assests/img/wha_icon.svg";
+import linkedin from "../../../assests/img/linkedIn_white.png";
+import insta from "../../../assests/img/insta_white.png";
+import fb from "../../../assests/img/fb_white.png";
+import twitter from "../../../assests/img/tw_white.png";
+import whatsapp from "../../../assests/img/whatsapp_white.png";
 // import phn from '../../../assests/img/phone_icon.svg'
 // import video from "../../../assests/img1/video.png";
 // import video1 from "../../../assests/img1/image.png";

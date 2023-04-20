@@ -313,13 +313,13 @@ button {
     margin: 0 auto
 }
 
-.footer {
+.previewWrapDark .footer {
     text-align: center;
     padding: 25px 0 18px;
     background: #1e1e1e
 }
 
-.footer p {
+.previewWrapDark .footer p {
     font-size: 14px;
     line-height: 15px;
     background: linear-gradient(90deg, #DBB24B 0%, #DED099 100%);
@@ -330,7 +330,7 @@ button {
     margin-bottom: 10px
 }
 
-.footer p a {
+.previewWrapDark .footer p a {
     text-decoration: none;
     color: #fff
 }

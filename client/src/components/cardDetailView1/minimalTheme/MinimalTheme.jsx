@@ -7,11 +7,11 @@ import { BsQrCodeScan } from 'react-icons/bs'
 // import logoBlack from '../../../assests/img/zeeqr.png'
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
-import linkedin from "../../../assests/img/in_icon.svg";
-import insta from "../../../assests/img/ig_icon.svg";
-import fb from "../../../assests/img/fb_icon.svg";
-import twitter from "../../../assests/img/twt_icon.svg";
-import whatsapp from "../../../assests/img/wha_icon.svg";
+import linkedin from "../../../assests/img/linkedIn_white.png";
+import insta from "../../../assests/img/insta_white.png";
+import fb from "../../../assests/img/fb_white.png";
+import twitter from "../../../assests/img/tw_white.png";
+import whatsapp from "../../../assests/img/whatsapp_white.png";
 // import phn from '../../../assests/img/phone_icon.svg'
 // import video from "../../../assests/img1/video.png";
 // import video1 from "../../../assests/img1/image.png";
@@ -68,7 +68,7 @@ function MinimalTheme({ card }) {
                     <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt="" />
                 </div>
                 <div className="previewContainer14"  >
-                    <div className="buttons w-[280px] md:w-[350px] fixed bottom-0 z-10 ">
+                    <div className="buttons w-[280px]  md:w-[350px] fixed bottom-0 z-10 ">
                         <Link className='addTo' to={`${card.vCard}`}  >Add to contacts</Link>
                         <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
                     </div>
@@ -136,6 +136,7 @@ function MinimalTheme({ card }) {
                                 target="_blank"
                             >
                                 <img src={whatsapp} alt="" />
+                               
                             </Link>
                         ) : (
                             ""
@@ -217,7 +218,7 @@ function MinimalTheme({ card }) {
                     </div> */}
 
                 </div>
-                <div className="footer flex flex-col items-center">
+                <div className="footer  flex flex-col items-center">
                     <p>
                         Powered by{" "}
                         <Link to={"https://zeeqr.co/"} target="_blank">
