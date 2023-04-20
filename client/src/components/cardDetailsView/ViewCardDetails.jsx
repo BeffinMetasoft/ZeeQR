@@ -60,7 +60,7 @@ function ViewCardDetails({ card }) {
 
 
                 <div className="bannerImage">
-                    <img src={card.backgroundImage} alt='' />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' />
                 </div>
                 <div className="previewContainer" style={{ color: `${card.color ? card.color : "black"}` }} >
                     <div className="header">
@@ -70,7 +70,7 @@ function ViewCardDetails({ card }) {
                     <div >
                         <div className='userDetails' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
                             <figure>
-                                <img src={card.profileImage} alt='' />
+                                <img src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt='' />
                             </figure>
                             <div className="user">
                                 <h1>{card.name}</h1>
@@ -167,6 +167,7 @@ function ViewCardDetails({ card }) {
                         }
 
                         {card.highlightPhotos.length === 0 ? '' :
+                        (card.checkHighlight ?
                             <div>
                                 <div className='flex'>
                                     <h2>Gallery</h2>
@@ -180,6 +181,8 @@ function ViewCardDetails({ card }) {
                                     ))}
                                 </div>
                             </div>
+                           : '' )
+                            
 
                         }
                     </div>

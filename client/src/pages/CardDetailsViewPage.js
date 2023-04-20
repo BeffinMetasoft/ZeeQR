@@ -44,7 +44,7 @@ function CardDetailsViewPage() {
                         linkAppple.rel = "apple-touch-icon";
                         document.getElementsByTagName("head")[0].appendChild(linkAppple);
                     }
-                    linkAppple.href = data.card.profileImage
+                    linkAppple.href = data.card.profileImage ? data.card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'
                 }
             } catch (error) {
                 setPre(false)
@@ -86,7 +86,8 @@ function CardDetailsViewPage() {
                              <MinimalTheme card={card} key={card._id} />
                              :  card.theme === 'standardDark' ?
                             <StandardDarkTheme  card={card} key={card._id} />
-                            :""
+                            :
+                            <ViewCardDetails card={card} key={card._id} />
                         )
 
                         :

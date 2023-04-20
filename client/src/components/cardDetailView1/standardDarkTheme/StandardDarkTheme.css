@@ -183,8 +183,8 @@ button {
 
 .previewContainerDark .social-links {
     display: flex;
-    gap: 12px;
-    justify-content: space-between;
+    gap: 28px;
+    /* justify-content: space-between; */
     margin: 0 0 35px 0
 }
 

@@ -128,6 +128,10 @@ const CardSchema = mongoose.Schema({
     checkLogo:{
         type: Boolean,
         default:true 
+    },
+    checkHighlight:{
+        type: Boolean,
+        default:true 
     }
 
 

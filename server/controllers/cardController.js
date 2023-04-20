@@ -120,21 +120,25 @@ const removeCard = async (req, res, next) => {
 const createCard = async (req, res, next) => {
   // console.log(req.files.hightlightPhotos, 'qwer');
   // console.log(req.body);
-  const backgroundImage = req.files?.backgroundImage[0]
-  const profileImage = req.files?.profileImage[0]
+  const backgroundImage = req.files?.backgroundImage ? req.files?.backgroundImage[0] : ''
+  const profileImage = req.files?.profileImage ? req.files?.profileImage[0] : ''
   const companyLogo = req.files?.companyLogo ? req.files?.companyLogo[0] : ''
   const websiteImage = req.files?.websiteImage ? req.files?.websiteImage[0] : ''
   const hightlightPhotos = req.files?.hightlightPhotos ? req.files?.hightlightPhotos : ''
 
 
-  const backgroundImageName = generateFileName();
-  await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype);
-  const profileImageName = generateFileName();
-  await uploadFile(profileImage.buffer, profileImageName, profileImage.mimetype);
+  const backgroundImageName = backgroundImage ? generateFileName() :''
+  backgroundImage ? await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype) : ''
+
+  const profileImageName = profileImage ? generateFileName() : ''
+  profileImage ? await uploadFile(profileImage.buffer, profileImageName, profileImage.mimetype) : ''
+
   const companyLogoName = companyLogo ? generateFileName() : ''
   companyLogo ? await uploadFile(companyLogo.buffer, companyLogoName, companyLogo.mimetype) : ''
-  const websiteImageName =websiteImage ? generateFileName() : ''
+
+  const websiteImageName = websiteImage ? generateFileName() : ''
   websiteImage ? await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype) : ''
+
   const array = []
   const photoNameArray = []
 
@@ -172,8 +176,8 @@ const createCard = async (req, res, next) => {
     websiteUrl: req.body.websiteUrl,
     websiteName: req.body.websiteName,
     locationUrl: req.body.locationUrl,
-    backgroundImage: S3Url + backgroundImageName,
-    profileImage: S3Url + profileImageName,
+    backgroundImage:backgroundImage ? S3Url + backgroundImageName : '',
+    profileImage:profileImage ? S3Url + profileImageName : '',
     companyLogo: companyLogo ? S3Url + companyLogoName : '',
     websiteImage:websiteImage ? S3Url + websiteImageName : '',
     highlightPhotos: photoNameArray,
@@ -276,7 +280,7 @@ const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
   // console.log(cardId);
   // console.log(req.files)
-  // console.log(req.body, '++++');
+  console.log(req.body, '++++');
 
   const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
   const pfImage = req.files?.pfImage ? req.files?.pfImage[0] : ''
@@ -370,7 +374,8 @@ const editBookedCard = async (req, res, next) => {
       locationUrl: req.body.locationUrl,
       colorCode: req.body.colorCode,
       theme:req.body.theme,
-      checkLogo:req.body.checkLogo[0],
+      checkLogo:req.body.checkLogo[0] === "undefined" ?  savedcard.checkLogo : req.body.checkLogo[0] ,
+      checkHighlight:req.body.checkHighlight[0] === "undefined" ?  savedcard.checkHighlight : req.body.checkHighlight[0] ,
 
       backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
       profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,
@@ -426,7 +431,7 @@ const getSingleCard = async (req, res, next) => {
     // const card = await CardModel.findOne({ _id: req.params.id });
     const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { block: false }] });
     // const QRCode = await generateQR('https://zeeqr.info/profile-view/641eb3995cc9b4462a832959');
-    //  console.log( card,'qwert123');
+     console.log( card,'qwert123');
     res
       .status(200)
       .json({ success: true, card, message: "Single Booked Card" });

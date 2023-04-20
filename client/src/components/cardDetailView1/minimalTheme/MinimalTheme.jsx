@@ -13,8 +13,8 @@ import fb from "../../../assests/img/fb_icon.svg";
 import twitter from "../../../assests/img/twt_icon.svg";
 import whatsapp from "../../../assests/img/wha_icon.svg";
 // import phn from '../../../assests/img/phone_icon.svg'
-import video from "../../../assests/img1/video.png";
-import video1 from "../../../assests/img1/image.png";
+// import video from "../../../assests/img1/video.png";
+// import video1 from "../../../assests/img1/image.png";
 // import loc from '../../../assests/img/loc_icon.svg'
 // import email from '../../../assests/img1/mail2.png'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
@@ -65,7 +65,7 @@ function MinimalTheme({ card }) {
                     </Link>
                 </div> */}
                 <div className="bannerImage" style={{ marginTop: "0px" }}>
-                    <img src={card.backgroundImage} alt="" />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt="" />
                 </div>
                 <div className="previewContainer14"  >
                     <div className="buttons w-[280px] md:w-[350px] fixed bottom-0 z-10 ">
@@ -79,13 +79,20 @@ function MinimalTheme({ card }) {
                     <div className="logo" />
                     <div className="userDetails">
                         <figure>
-                            <img className="userDetails-img" src={card.profileImage} alt="" />
+                            <img className="userDetails-img" src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt="" />
                         </figure>
                         <div className="user">
                             <h1>{card.name}</h1>
-                            <p>{card.companyDesignation}</p>
+                            <p className='font-bold'>{card.companyDesignation}</p>
                         </div>
                     </div>
+                    {card.companyLogo ?
+                            (card.checkLogo ?
+                                <div className="companyLogo ">
+                                    <img src={card.companyLogo} alt='' />
+                                </div> : "")
+                            : ''
+                        }
                     {card.about ?
                         <>
                             <h2>About</h2>
@@ -186,7 +193,7 @@ function MinimalTheme({ card }) {
 
                     {card.highlightPhotos.length === 0 ? (
                         ""
-                    ) : (
+                    ) : (card.checkHighlight ?
                         <div>
                             <h2>Photos of Highlight</h2>
 
@@ -197,9 +204,9 @@ function MinimalTheme({ card }) {
                                     // </figure>
                                 ))}
                             </div>
-                        </div>
+                        </div> : ''
                     )}
-                    <div className="ourVideo">
+                    {/* <div className="ourVideo">
                         <h2>Video of Highlight</h2>
                         <Link className="video">
                             <img className="img-fluid mb-5" src={video} alt="" />
@@ -207,7 +214,7 @@ function MinimalTheme({ card }) {
                         <Link className="video ">
                             <img className="img-fluid mb-5" src={video1} alt="" />
                         </Link>
-                    </div>
+                    </div> */}
 
                 </div>
                 <div className="footer flex flex-col items-center">

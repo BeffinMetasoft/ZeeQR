@@ -123,8 +123,9 @@ button {
 .previewContainer14 .user p {
     margin: 0;
     font-size: 12px;
+    /* font-weight: 600px; */
     line-height: 18px;
-    color: #c8c8c8
+    color: #312b2b
 }
 
 .previewContainer14 .buttons {
@@ -191,8 +192,8 @@ button {
 
 .previewContainer14 .social-links {
     display: flex;
-    gap: 12px;
-    justify-content: space-between;
+    gap: 28px;
+    /* justify-content: space-between; */
     margin: 0 0 35px 0
 }
 
@@ -208,6 +209,8 @@ button {
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px
 }
+
+
 
 .previewContainer14 .contactOptions {
     margin-bottom: 40px

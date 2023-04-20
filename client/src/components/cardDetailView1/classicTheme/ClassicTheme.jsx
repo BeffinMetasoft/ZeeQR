@@ -54,13 +54,13 @@ function ClassicTheme({ card }) {
                 <Link className="addToContact" to={`${card.vCard}`}><img src={addIcon} alt='' /></Link>
 
                 <div className="bannerImage">
-                    <img src={card.backgroundImage} alt='' />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' />
                 </div>
                 <div className="previewContainer1">
                     <div className="header"></div>
                     <div className="userDetails">
                         <figure>
-                            <img src={card.profileImage} alt='' />
+                            <img src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt='' />
                         </figure>
                         <div className="user">
                             <h1>{card.name}</h1>
@@ -164,15 +164,18 @@ function ClassicTheme({ card }) {
 
 
                     {card.highlightPhotos.length === 0 ? '' :
-                        <div>
-                            <div className="photoGrid">
-                                {card.highlightPhotos.map((img) => (
-                                    // <figure>
-                                    <img className='mb-4' src={img} alt="" />
-                                    // </figure>
-                                ))}
+                        (card.checkHighlight ?
+                            <div>
+                                <div className="photoGrid">
+                                    {card.highlightPhotos.map((img) => (
+                                        // <figure>
+                                        <img className='mb-4' src={img} alt="" />
+                                        // </figure>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
+                            : '')
+
 
                     }
 
