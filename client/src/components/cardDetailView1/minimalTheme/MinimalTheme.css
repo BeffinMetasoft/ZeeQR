@@ -132,7 +132,7 @@ button {
     display: flex;
     /* width: 100%; */
     overflow: hidden;
-    margin-bottom: 26px;
+    margin-bottom: 24px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px
@@ -140,7 +140,7 @@ button {
 
 .previewContainer14 .buttons a {
     /* padding: 10px 0 10px; */
-    height: 53px;
+    height: 54px;
     width: 50%;
     text-align: center;
     display: flex;

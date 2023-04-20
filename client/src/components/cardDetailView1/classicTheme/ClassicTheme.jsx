@@ -201,8 +201,7 @@ function ClassicTheme({ card }) {
                                             <h1>{card.name}</h1>
                                             <p>{card.companyDesignation}</p>
                                         </div>
-
-                                        <img src={card.QRCode} className="my-qr-code" width="200px" alt="" />
+                                        <img  src={card.QRCode} className="my-qr-code p-3 bg-white  border-2 rounded-xl border-black" width="200px" alt="" />
                                         <p className='my-qr-download' onClick={handleDownload}>
                                             Download QR Code
                                         </p>
