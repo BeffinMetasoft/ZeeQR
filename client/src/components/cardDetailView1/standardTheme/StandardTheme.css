@@ -218,7 +218,7 @@ button {
     cursor: pointer;
     gap: 10px;
     border-bottom: solid 1px #d9d9d9;
-    background: url("../../assests/img/more_icon.svg") no-repeat right center
+    background: url("../../../assests/img/more_icon.svg") no-repeat right center
 }
 
 .previewContainer .otherLinks {
@@ -235,7 +235,7 @@ button {
     justify-content: space-between;
     margin-bottom: 10px;
     text-decoration: none;
-    background: #efefef url("../../assests/img/more_icon.svg") no-repeat 96% center
+    background: #efefef url("../../../assests/img/more_icon.svg") no-repeat 96% center
 }
 
 .previewContainer .otherLinks figure {
@@ -403,7 +403,7 @@ button {
     line-height: 19px;
     padding-left: 14px;
     cursor: pointer;
-    background: #000000 url("../../assests/img1/plus_icon.svg") no-repeat 95% center;
+    background: #000000 url("../../../assests/img1/plus_icon.svg") no-repeat 95% center;
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;

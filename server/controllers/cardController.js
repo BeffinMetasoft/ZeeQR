@@ -126,6 +126,11 @@ const createCard = async (req, res, next) => {
   const websiteImage = req.files?.websiteImage ? req.files?.websiteImage[0] : ''
   const hightlightPhotos = req.files?.hightlightPhotos ? req.files?.hightlightPhotos : ''
 
+  // const hightlightPhotos1 = req.files?.hightlightPhotos1 ? req.files?.hightlightPhotos1[0] : ''
+  // const hightlightPhotos2 = req.files?.hightlightPhotos2 ? req.files?.hightlightPhotos2[0] : ''
+  // const hightlightPhotos3 = req.files?.hightlightPhotos3 ? req.files?.hightlightPhotos3[0] : ''
+  // const hightlightPhotos4 = req.files?.hightlightPhotos4 ? req.files?.hightlightPhotos4[0] : ''
+
 
   const backgroundImageName = backgroundImage ? generateFileName() :''
   backgroundImage ? await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype) : ''
@@ -138,6 +143,16 @@ const createCard = async (req, res, next) => {
 
   const websiteImageName = websiteImage ? generateFileName() : ''
   websiteImage ? await uploadFile(websiteImage.buffer, websiteImageName, websiteImage.mimetype) : ''
+
+  // const hightlightPhotosName1 = hightlightPhotos1 ? generateFileName() : ''
+  // hightlightPhotos1 ? await uploadFile(hightlightPhotos1.buffer, hightlightPhotosName1, hightlightPhotos1.mimetype) : ''
+  // const hightlightPhotosName2 = hightlightPhotos2 ? generateFileName() : ''
+  // hightlightPhotos2 ? await uploadFile(hightlightPhotos2.buffer, hightlightPhotosName2, hightlightPhotos2.mimetype) : ''
+  // const hightlightPhotosName3 = hightlightPhotos3 ? generateFileName() : ''
+  // hightlightPhotos3 ? await uploadFile(hightlightPhotos3.buffer, hightlightPhotosName3, hightlightPhotos3.mimetype) : ''
+  // const hightlightPhotosName4 = hightlightPhotos4 ? generateFileName() : ''
+  // hightlightPhotos4 ? await uploadFile(hightlightPhotos4.buffer, hightlightPhotosName4, hightlightPhotos4.mimetype) : ''
+  
 
   const array = []
   const photoNameArray = []
@@ -181,6 +196,12 @@ const createCard = async (req, res, next) => {
     companyLogo: companyLogo ? S3Url + companyLogoName : '',
     websiteImage:websiteImage ? S3Url + websiteImageName : '',
     highlightPhotos: photoNameArray,
+    // hightlightPhotos:{
+    //   hightlightPhotos1:hightlightPhotos1 ? S3Url + hightlightPhotosName1 : '',
+    //   hightlightPhotos2:hightlightPhotos2 ? S3Url + hightlightPhotosName2 : '',
+    //   hightlightPhotos3:hightlightPhotos3 ? S3Url + hightlightPhotosName3 : '',
+    //   hightlightPhotos4:hightlightPhotos4 ? S3Url + hightlightPhotosName4 : '',
+    // },
     colorCode: req.body.colorCode,
     theme:req.body.theme,
     userID: req.user._id,
@@ -431,7 +452,7 @@ const getSingleCard = async (req, res, next) => {
     // const card = await CardModel.findOne({ _id: req.params.id });
     const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { block: false }] });
     // const QRCode = await generateQR('https://zeeqr.info/profile-view/641eb3995cc9b4462a832959');
-     console.log( card,'qwert123');
+    //  console.log( card,'qwert123');
     res
       .status(200)
       .json({ success: true, card, message: "Single Booked Card" });

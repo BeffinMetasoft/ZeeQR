@@ -20,6 +20,10 @@ router.post('/createCard', verifyJwt,upload.fields([
     {name:'companyLogo',maxCount:1},
     {name:'websiteImage',maxCount:1},
     {name:'hightlightPhotos',maxCount:4},
+    // {name:'hightlightPhotos1',maxCount:1},
+    // {name:'hightlightPhotos2',maxCount:1},
+    // {name:'hightlightPhotos3',maxCount:1},
+    // {name:'hightlightPhotos4',maxCount:1},
 ]), createCard)
 router.get('/getcreatedCard', verifyJwt, getCard)
 router.post('/removeBookedCard/:id',verifyJwt,deletBookedCard)

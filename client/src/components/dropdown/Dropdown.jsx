@@ -37,7 +37,7 @@ export default function Dropdown() {
             } catch (error) {
               console.log(error.response.data);
               localStorage.removeItem('refToken')
-              navigate('/login')
+              navigate('/')
             }
           }
         },

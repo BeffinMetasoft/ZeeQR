@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Link,  useParams } from 'react-router-dom'
 import { cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr.png'
-import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
 import ModernTheme from '../components/cardDetailView1/modernTheme/ModernTheme'
 import MinimalTheme from '../components/cardDetailView1/minimalTheme/MinimalTheme'
 import StandardDarkTheme from '../components/cardDetailView1/standardDarkTheme/StandardDarkTheme'
+import StandardTheme from '../components/cardDetailView1/standardTheme/StandardTheme'
 const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
@@ -78,8 +78,7 @@ function CardDetailsViewPage() {
                             card.theme === 'classic' ?
                             <ClassicTheme card={card} key={card._id} />
                             :  card.theme === 'standard' ? 
-                            <ViewCardDetails card={card} key={card._id} />
-                            // <StandardDarkTheme  card={card} key={card._id} />
+                            <StandardTheme card={card} key={card._id} />
                             : card.theme === 'modern' ?
                              <ModernTheme card={card} key={card._id}  />
                              :card.theme === 'minimal' ?
@@ -87,7 +86,7 @@ function CardDetailsViewPage() {
                              :  card.theme === 'standardDark' ?
                             <StandardDarkTheme  card={card} key={card._id} />
                             :
-                            <ViewCardDetails card={card} key={card._id} />
+                            <StandardTheme card={card} key={card._id} />
                         )
 
                         :

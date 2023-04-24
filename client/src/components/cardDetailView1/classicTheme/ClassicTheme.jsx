@@ -117,7 +117,7 @@ function ClassicTheme({ card }) {
                             </div>
                             <div className="contactOptions">
                                 <div className="social-media">
-                                    {card.linkedin ?
+                                    {card.instagram ?
                                         <Link to={`${card.instagram}`} target="_blank">
                                             <img src={instaIcon} alt='' />
                                             <h5>Instagram<span>Follow me on Instagram</span></h5>
@@ -127,7 +127,7 @@ function ClassicTheme({ card }) {
                             </div>
                             <div className="contactOptions">
                                 <div className="social-media">
-                                    {card.phone ?
+                                    {card.whatsappNumber ?
                                         <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
                                             <img src={whtsIcon} alt='' />
                                             <h5>WhatsApp<span>Follow me on WhatsApp</span></h5>

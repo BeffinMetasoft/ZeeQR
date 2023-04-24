@@ -72,6 +72,15 @@ const CardSchema = mongoose.Schema({
         type:Array,
         default:[]
     },
+
+    // highlightPhotos:[
+    //     {
+    //         hightlightPhotos1:String,
+    //         hightlightPhotos2:String,
+    //         hightlightPhotos3:String,
+    //         hightlightPhotos4:String,
+    //     }
+    // ],
     
     status: {
         type: String,

@@ -1,26 +1,26 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './PreviewCard.css'
+import './StandardTheme.css'
 import { saveAs } from 'file-saver'
-// import logo from '../../assests/img/zeeqr-logo-white.svg'
-import ftLogo from '../../assests/img/footer_logo.svg'
-import share from '../../assests/img/share_icon.svg'
-import linkedin from '../../assests/img/in_icon.svg'
-import insta from '../../assests/img/ig_icon.svg'
-import fb from '../../assests/img/fb_icon.svg'
-import twitter from '../../assests/img/twt_icon.svg'
-import whatsapp from '../../assests/img/wha_icon.svg'
-import phn from '../../assests/img/phone_icon.svg'
-import mail from '../../assests/img/mail_icon.svg'
-import loc from '../../assests/img/loc_icon.svg'
+// import logo from '../../../assests/img/zeeqr-logo-white.svg'
+import ftLogo from '../../../assests/img/footer_logo.svg'
+import share from '../../../assests/img/share_icon.svg'
+import linkedin from '../../../assests/img/in_icon.svg'
+import insta from '../../../assests/img/ig_icon.svg'
+import fb from '../../../assests/img/fb_icon.svg'
+import twitter from '../../../assests/img/twt_icon.svg'
+import whatsapp from '../../../assests/img/wha_icon.svg'
+import phn from '../../../assests/img/phone_icon.svg'
+import mail from '../../../assests/img/mail_icon.svg'
+import loc from '../../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
-import addtoHome from '../../assests/img1/addtoHome.jpg'
+import addtoHome from '../../../assests/img1/addtoHome.jpg'
 
 
 
 
 
-function ViewCardDetails({ card }) {
+function StandardTheme({ card }) {
 
     const [qrModal, setQrModal] = useState(false)
 
@@ -245,4 +245,4 @@ function ViewCardDetails({ card }) {
     )
 }
 
-export default ViewCardDetails
+export default StandardTheme
