@@ -56,11 +56,9 @@ const CardSchema = mongoose.Schema({
     },
     backgroundImage:{
         type:String,
-        required: [true, " backgroundImage is required"]
     },
     profileImage:{
         type:String,
-        required: [true, "profileImage is required"]
     },
     companyLogo:{
         type:String,

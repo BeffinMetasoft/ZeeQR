@@ -54,19 +54,19 @@ function ClassicTheme({ card }) {
                 <Link className="addToContact" to={`${card.vCard}`}><img src={addIcon} alt='' /></Link>
 
                 <div className="bannerImage">
-                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt='' />
                 </div>
                 <div className="previewContainer1">
                     <div className="header"></div>
                     <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`}>
                         {!card.checkProfile ? '' :
 
-                        <figure>
-                            <img src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt='' />
-                        </figure> 
+                            <figure>
+                                <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
+                            </figure>
                         }
                         <div className="user ">
-                            <h1  style={{width: `${!card.checkProfile ? "max-content" : '' }`}} >{card.name}</h1>
+                            <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}` }} >{card.name}</h1>
                             <p>{card.companyDesignation}</p>
                         </div>
                     </div>
@@ -107,9 +107,9 @@ function ClassicTheme({ card }) {
 
                     {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?
                         <div>
-                            
+
                             <div className="contactOptions">
-                            <h4>Social Media</h4>
+                                <h4>Social Media</h4>
                                 <div className="social-media">
                                     {card.whatsappNumber ?
                                         <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
@@ -119,37 +119,42 @@ function ClassicTheme({ card }) {
                                         : ""}
                                 </div>
                             </div>
-                            <div className="contactOptions">
-                                <div className="social-media">
-                                    {card.instagram ?
+                            {card.instagram ?
+                                <div className="contactOptions">
+                                    <div className="social-media">
+
                                         <Link to={`${card.instagram}`} target="_blank">
                                             <img src={instaIcon} alt='' />
                                             <h5>Instagram<span>Follow me on Instagram</span></h5>
                                         </Link>
-                                        : ""}
+
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="contactOptions">
-                                <div className="social-media">
-                                    {card.facebook ?
+                                : ""}
+                            {card.facebook ?
+                                <div className="contactOptions">
+                                    <div className="social-media">
+
                                         <Link to={`${card.facebook}`} target="_blank">
                                             <img src={fbIcon} alt='' />
                                             <h5>Facebook<span>Follow me on Facebook</span></h5>
                                         </Link>
-                                        : ""}
+
+                                    </div>
                                 </div>
-                            </div>
-                           
+                                : ""}
+                                 {card.linkedin ?
                             <div className="contactOptions">
                                 <div className="social-media">
-                                    {card.linkedin ?
+                                   
                                         <Link to={`${card.linkedin}`} target="_blank">
                                             <img src={inIcon} alt='' />
                                             <h5>LinkedIn<span>Follow me on LinkedIn</span></h5>
                                         </Link>
-                                        : ""}
+                                        
                                 </div>
                             </div>
+                            : ""}
                         </div> : ""
                     }
 
@@ -206,7 +211,7 @@ function ClassicTheme({ card }) {
                                             <h1>{card.name}</h1>
                                             <p>{card.companyDesignation}</p>
                                         </div>
-                                        <img  src={card.QRCode} className="my-qr-code p-3 bg-white  border-2 rounded-xl border-black" width="200px" alt="" />
+                                        <img src={card.QRCode} className="my-qr-code p-3 bg-white  border-2 rounded-xl border-black" width="200px" alt="" />
                                         <p className='my-qr-download' onClick={handleDownload}>
                                             Download QR Code
                                         </p>
