@@ -2,7 +2,7 @@ import React from 'react'
 import rotate from '../../assests/img/rotate.png';
 import zeeqrcardimg from '../../assests/img/black and gold back.png';
 import Card from '../cards/Card';
-import Cards5 from '../cards/Cards7';
+import Cards5 from '../cards/Cards5';
 function ZeeqrCard() {
   return (
     <div>
