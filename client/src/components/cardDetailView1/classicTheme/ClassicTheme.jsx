@@ -58,12 +58,15 @@ function ClassicTheme({ card }) {
                 </div>
                 <div className="previewContainer1">
                     <div className="header"></div>
-                    <div className="userDetails">
+                    <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`}>
+                        {!card.checkProfile ? '' :
+
                         <figure>
                             <img src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt='' />
-                        </figure>
-                        <div className="user">
-                            <h1>{card.name}</h1>
+                        </figure> 
+                        }
+                        <div className="user ">
+                            <h1  style={{width: `${!card.checkProfile ? "max-content" : '' }`}} >{card.name}</h1>
                             <p>{card.companyDesignation}</p>
                         </div>
                     </div>

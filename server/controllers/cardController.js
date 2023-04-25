@@ -397,6 +397,7 @@ const editBookedCard = async (req, res, next) => {
       theme:req.body.theme,
       checkLogo:req.body.checkLogo[0] === "undefined" ?  savedcard.checkLogo : req.body.checkLogo[0] ,
       checkHighlight:req.body.checkHighlight[0] === "undefined" ?  savedcard.checkHighlight : req.body.checkHighlight[0] ,
+      checkProfile:req.body.checkProfile[0] === "undefined" ?  savedcard.checkProfile : req.body.checkProfile[0] ,
 
       backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
       profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,

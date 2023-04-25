@@ -72,7 +72,7 @@ function Signup1({ setIsData }) {
     const validateForm = (data) => {
         const error = {};
         const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-        const userRegex = /^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{3,}\s{1}[a-zA-Z0-9]{1,})$/;
+        const userRegex = /^([a-zA-Z0-9]+|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}|[a-zA-Z0-9]+\s{1}[a-zA-Z0-9]{1,}\s{1}[a-zA-Z0-9]{1,})$/;
         if (!data.name) {
             error.name = "user name required"
         } else if (!userRegex.test(data.name)) {

@@ -141,6 +141,10 @@ const CardSchema = mongoose.Schema({
     checkHighlight:{
         type: Boolean,
         default:true 
+    },
+    checkProfile:{
+        type: Boolean,
+        default:true 
     }
 
 
