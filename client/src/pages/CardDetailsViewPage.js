@@ -5,6 +5,7 @@ import logo from '../assests/zeeqr.png'
 import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
+import UltraTheme from '../components/cardDetailView1/ultraTheme/UltraTheme'
 const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
@@ -12,22 +13,19 @@ function CardDetailsViewPage() {
     const [card, setCard] = useState('')
     // const navigate = useNavigate()
     const [pre, setPre] = useState(true)
-
-
     useEffect(() => {
 
         const getDetails = async () => {
             try {
                 // console.log(params.id, '11111111111');
                 const { data } = await cardProfile(params.id)
-                // console.log(data, 'dataaaaaaaaaaa');
+                console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     setPre(false)
                     setCard(data.card)
                     document.title = data.card.name
                     document.getElementsByTagName("META")[2].content= data.card.companyDesignation
                     
-
                     let link = document.querySelector("link[rel~='icon']");
                     if (!link) {
                         link = document.createElement("link");
@@ -74,7 +72,8 @@ function CardDetailsViewPage() {
                         (card.theme === 'classic' ?
                             <ClassicTheme card={card} key={card._id} />
                             :
-                            <ViewCardDetails card={card} key={card._id} />
+                            // <ViewCardDetails card={card} key={card._id} />
+                            <UltraTheme  card={card} key={card._id} />
                         )
 
                         :
