@@ -107,13 +107,14 @@ function ClassicTheme({ card }) {
 
                     {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?
                         <div>
+                            
                             <div className="contactOptions">
-                                <h4>Social Media</h4>
+                            <h4>Social Media</h4>
                                 <div className="social-media">
-                                    {card.facebook ?
-                                        <Link to={`${card.facebook}`} target="_blank">
-                                            <img src={fbIcon} alt='' />
-                                            <h5>Facebook<span>Follow me on Facebook</span></h5>
+                                    {card.whatsappNumber ?
+                                        <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
+                                            <img src={whtsIcon} alt='' />
+                                            <h5>WhatsApp<span>Follow me on WhatsApp</span></h5>
                                         </Link>
                                         : ""}
                                 </div>
@@ -130,14 +131,15 @@ function ClassicTheme({ card }) {
                             </div>
                             <div className="contactOptions">
                                 <div className="social-media">
-                                    {card.whatsappNumber ?
-                                        <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
-                                            <img src={whtsIcon} alt='' />
-                                            <h5>WhatsApp<span>Follow me on WhatsApp</span></h5>
+                                    {card.facebook ?
+                                        <Link to={`${card.facebook}`} target="_blank">
+                                            <img src={fbIcon} alt='' />
+                                            <h5>Facebook<span>Follow me on Facebook</span></h5>
                                         </Link>
                                         : ""}
                                 </div>
                             </div>
+                           
                             <div className="contactOptions">
                                 <div className="social-media">
                                     {card.linkedin ?
