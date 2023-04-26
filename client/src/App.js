@@ -19,10 +19,6 @@ import ChecOutPage from './pages/ChecOutPage';
 import Cart_Page from './pages/Cart_Page';
 import ZeeqrCard from './pages/ZeeqrCard';
 
-
-
-
-
 function App() {
   return (
     <Router>
@@ -32,13 +28,10 @@ function App() {
         <Route path='/checkout' element={<ChecOutPage/>} />
         <Route path='/cart_page' element={<Cart_Page/>}/>
         <Route path='/zeeqrcard' element={<ZeeqrCard/>}/>
-
-
         <Route element={<UserLoginProtect/>}>
         <Route path='/signup' element={<SignupPage/>} />
         <Route path='/login' element={<LoginPage/>} />
         </Route>
-
         <Route element={<UserRouteProtect/>}>
         <Route path='/home' element={<HomePage/>} />
         <Route path='/update-details' element={<UpdateDetailsPage/>} />
@@ -49,7 +42,6 @@ function App() {
         <Route path='/booked-cards' element={<BookedCardsPage/>} />
         <Route path='/error-404' element={<Error404Page/>} />
         <Route path='/create-card' element={<CreateCardPage/>} />
-
         </Route>
       </Routes>
     </Router>

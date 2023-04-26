@@ -184,8 +184,31 @@ button {
     padding-right: 10px;
     position: relative;
     display: inline-block;
+    
     margin-bottom: 16px
 }
+.previewContainerUltra .contact {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-right: 10px;
+    position: relative;
+    display: inline-block;
+    width: 149px;
+    margin-bottom: 16px
+}
+.previewContainerUltra .photo {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    padding-right: 10px;
+    position: relative;
+    display: inline-block;
+    width: 219px;
+    margin-top: 20px;
+    margin-bottom: 16px
+}
+
 
 /* .previewContainer h2:after {
     position: absolute;
@@ -251,22 +274,67 @@ button {
     width: 100%;
     background: url('../../../assests/img/more_icon.svg') no-repeat right center;
 }
-.previewContainerUltra .contactOptions .social{
+.previewContainerUltra .contactOptions h4{
     width: 207px;
     height: 29px;
     position: relative;
     font-weight: 500;
     font-size: 19.4327px;
     line-height: 29px;
-    
+
     color: #000000;
 }
+
 .previewContainerUltra .contactOptions .social::after{
     content: "";
     display: block;
     width: 21.91px;
     height: 3.29px;
-    background: #B53723;
+    background: #000000;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    
+}
+.previewContainerUltra .contactOptions .website::after{
+    content: "";
+    display: block;
+    width: 21.91px;
+    height: 3.29px;
+    background: #000000;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    
+}
+.previewContainerUltra .contactOptions .contact::after{
+    content: "";
+    display: block;
+    width: 21.91px;
+    height: 3.29px;
+    background: #000000;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    
+}
+.previewContainerUltra .photo::after{
+    content: "";
+    display: block;
+    width: 21.91px;
+    height: 3.29px;
+    background: #000000;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    
+}
+.previewContainerUltra .contactOptions .contact::after{
+    content: "";
+    display: block;
+    width: 21.91px;
+    height: 3.29px;
+    background: #000000;
     right: 0;
     top: 50%;
     position: absolute;

@@ -261,7 +261,49 @@ button {
     
     color: #000000;
 }
+.previewContainerUltra .contactOptions .website1{
+    width: 197px;
+    height: 29px;
+    position: relative;
+    font-weight: 500;
+    font-size: 19.4327px;
+    line-height: 29px;
+    
+    color: #000000;
+}
+.previewContainerUltra .photo1{
+    width: 217px;
+    height: 29px;
+    position: relative;
+    font-weight: 500;
+    font-size: 19.4327px;
+    line-height: 29px;
+    
+    color: #000000;
+}
 .previewContainerUltra .contactOptions .social::after{
+    content: "";
+    display: block;
+    width: 21.91px;
+    height: 3.29px;
+    background: #B53723;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    
+}
+.previewContainerUltra .contactOptions .website1::after{
+    content: "";
+    display: block;
+    width: 21.91px;
+    height: 3.29px;
+    background: #B53723;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    
+}
+.previewContainerUltra  .photo1::after{
     content: "";
     display: block;
     width: 21.91px;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import './UltraTheme.css'
+import './AquaTheme.css'
 import { saveAs } from 'file-saver'
 
 import logo from '../../../assests/img/zeeqr-logo-white.svg'
@@ -15,17 +15,17 @@ import phonecontact from '../../../assests/img/phonecontact.svg'
 import messagecontact from '../../../assests/img/messagecontact.svg'
 import whatsappcontact from '../../../assests/img/whatsappcontact.svg'
 import share from '../../../assests/img/share_icon.svg'
-import inIcon from '../../../assests/img/in_icon.svg'
-import instaIcon from '../../../assests/img/ig_icon.svg'
-import fbIcon from '../../../assests/img/fb_icon.svg'
 import twitter from '../../../assests/img/twt_icon.svg'
 import ultraThemeimg from '../../../assests/ultrathemeimgbg.png'
-import whtsIcon from '../../../assests/img/wha_icon.svg'
 import phoneiconw from '../../../assests/img/phone_icon.svg'
 import mail from '../../../assests/img/mail_icon.svg'
 import loc from '../../../assests/img/loc_icon.svg'
 import arrowIcon from '../../../assests/img1/arrow_white.svg';
 import webIcon from '../../../assests/img1/web_icon_1.svg'
+import whtsIcon from '../../../assests/img1/what_icon_1.svg';
+import inIcon from '../../../assests/img1/in_icon_1.svg';
+import instaIcon from '../../../assests/img1/insta_icon_1.svg';
+import fbIcon from '../../../assests/img1/fb_icon_1.svg';
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
 import { message } from 'antd'
@@ -34,7 +34,7 @@ import { message } from 'antd'
 
 
 
-function UltraTheme1({ card }) {
+function AquaTheme({ card }) {
 
   const [qrModal, setQrModal] = useState(false)
 
@@ -86,21 +86,19 @@ function UltraTheme1({ card }) {
             <div className='relative h-[400px]'>
               <div className='userDetails' >
                 {/* <img src={ultraThemeimg} /> */}
-
-                <img className='rounded-lg' src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt='' />
-
-
-                <div className='userdetails_img'>
-                  <img src={ultraThemeimg} />
-
-                </div>
-
+                 
+                <img className='rounded-lg'src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt='' />
+           
+                
+               
                 {/* <div className='figure'>
                           <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
                           </div> */}
 
 
               </div>
+              <div className='bg-black h-2 mb-[10px]'></div>
+              <div className='bg-black h-2 mb-[10px]'> </div>
               <div className='userdetails_profile_img absolute top-[180px] left-7'>
                 
                 <figure>
@@ -136,18 +134,20 @@ function UltraTheme1({ card }) {
 
             <div className='contact_details justify-center items-center '>
               <div className=" flex justify-center items-center gap-4">
-                <img src={ultratheme1mail} />
-                <img src={ultratheme1call} />
-                <img src={ultratheme1sms} />
-                <img src={ultratheme1whatsapp} />
+                <img className='h-16' src={ultratheme1mail} />
+                <img className='h-16' src={ultratheme1call} />
+                <img className='h-16' src={ultratheme1sms} />
+                <img className='h-16'  src={ultratheme1whatsapp} />
 
               </div>
 
 
 
             </div>
-            {/* <div className="contactOptions">
-              <h2><span><img src={phoneiconw} alt='' /></span> Contact Me</h2>
+            <div className="contactOptions mt-10">
+              <h2 className='contact'>
+                {/* <span><img src={phoneiconw} alt='' /></span>  */}
+              Contact Me</h2>
               <h3>Call</h3>
               <Link to={`tel:+${card.phone}`} >+{card.phone}</Link>
               <h3>Email</h3>
@@ -157,16 +157,16 @@ function UltraTheme1({ card }) {
               }} >{card.email}</Link>
               <h3>Location</h3>
               <Link >{card.address}</Link>
-              {card.locationUrl ?
+              {/* {card.locationUrl ?
                 <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link>
                 : ""
-              }
-            </div> */}
+              } */}
+            </div>
 
             {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?
               <div>
                 <div className="contactOptions">
-                  <h4 className='social'>Social media links</h4>
+                  <h4 className='social mb-4'>Social media links</h4>
                   <div className="social-media">
                     {card.facebook ?
                       <Link to={`${card.facebook}`} target="_blank">
@@ -211,7 +211,7 @@ function UltraTheme1({ card }) {
 
             {card.websiteUrl ?
               <div className="contactOptions">
-                <h4>Website</h4>
+                <h4 className='website mb-4'>Website/Portfolio</h4>
                 <div className="social-media">
                   <Link to={`${card.websiteUrl}`} target="_blank" >
                     <img src={webIcon} alt='' />
@@ -224,7 +224,7 @@ function UltraTheme1({ card }) {
               ""
             ) : (
               <div>
-                <h2>Photos of Highlight</h2>
+                <h2 className='photo'>Photos of Highlight</h2>
 
                 <div className="photoGrid">
                   {card.highlightPhotos.map((img) => (
@@ -297,4 +297,4 @@ function UltraTheme1({ card }) {
   )
 }
 
-export default UltraTheme1
+export default AquaTheme

@@ -6,6 +6,7 @@ import ViewCardDetails from '../components/cardDetailsView/ViewCardDetails'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
 import UltraTheme from '../components/cardDetailView1/ultraTheme/UltraTheme'
+import AquaTheme from '../components/cardDetailView1/aquaTheme/AquaTheme'
 const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
@@ -73,7 +74,8 @@ function CardDetailsViewPage() {
                             <ClassicTheme card={card} key={card._id} />
                             :
                             // <ViewCardDetails card={card} key={card._id} />
-                            <UltraTheme  card={card} key={card._id} />
+                            // <UltraTheme  card={card} key={card._id} />
+                            <AquaTheme card={card} key={card._id} />
                         )
 
                         :

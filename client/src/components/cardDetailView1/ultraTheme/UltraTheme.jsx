@@ -11,17 +11,18 @@ import phonecontact from '../../../assests/img/phonecontact.svg'
 import messagecontact from '../../../assests/img/messagecontact.svg'
 import whatsappcontact from '../../../assests/img/whatsappcontact.svg'
 import share from '../../../assests/img/share_icon.svg'
-import inIcon from '../../../assests/img/in_icon.svg'
-import instaIcon from '../../../assests/img/ig_icon.svg'
-import fbIcon from '../../../assests/img/fb_icon.svg'
 import twitter from '../../../assests/img/twt_icon.svg'
 import ultraThemeimg from '../../../assests/ultrathemeimgbg.png'
-import whtsIcon from '../../../assests/img/wha_icon.svg'
 import phoneiconw from '../../../assests/img/phone_icon.svg'
 import mail from '../../../assests/img/mail_icon.svg'
 import loc from '../../../assests/img/loc_icon.svg'
 import arrowIcon from '../../../assests/img1/arrow_white.svg';
 import webIcon from '../../../assests/img1/web_icon_1.svg'
+import whtsIcon from '../../../assests/img1/what_icon_1.svg';
+import inIcon from '../../../assests/img1/in_icon_1.svg';
+import instaIcon from '../../../assests/img1/insta_icon_1.svg';
+import fbIcon from '../../../assests/img1/fb_icon_1.svg';
+
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
 import { message } from 'antd'
@@ -162,7 +163,7 @@ function UltraTheme({ card }) {
             {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?
               <div>
                 <div className="contactOptions">
-                  <h4 className='social'>Social media links</h4>
+                  <h4 className='social mt-4 mb-4'>Social media links</h4>
                   <div className="social-media">
                     {card.facebook ?
                       <Link to={`${card.facebook}`} target="_blank">
@@ -207,7 +208,7 @@ function UltraTheme({ card }) {
 
             {card.websiteUrl ?
               <div className="contactOptions">
-                <h4>Website</h4>
+                <h4 className='website1 mb-4'>Website/Portfolio</h4>
                 <div className="social-media">
                   <Link to={`${card.websiteUrl}`} target="_blank" >
                     <img src={webIcon} alt='' />
@@ -220,7 +221,7 @@ function UltraTheme({ card }) {
               ""
             ) : (
               <div>
-                <h2>Photos of Highlight</h2>
+                <h2 className='photo1'>Photos of Highlight</h2>
 
                 <div className="photoGrid">
                   {card.highlightPhotos.map((img) => (
