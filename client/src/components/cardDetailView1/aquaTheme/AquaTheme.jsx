@@ -69,7 +69,7 @@ function AquaTheme({ card }) {
 
   return (
     <div>
-      <section className="previewWrapUltra" style={{ backgroundColor: `${card.color ? card.color : 'white'}` }} >
+      <section className="previewWrapAqua" style={{ backgroundColor: `${card.color ? card.color : 'white'}` }} >
         <span className='qr-code fixed bottom-0 cursor-pointer center-0 z-10 ml-[330px] md:ml-[800px] border rounded-full  text-white p-2 my-6' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} onClick={() => setQrModal(true)} ><BsQrCodeScan size={30} /></span>
 
 
@@ -77,7 +77,7 @@ function AquaTheme({ card }) {
           {/* <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' /> */}
 
         </div>
-        <div className="previewContainerUltra" style={{ color: `${card.color ? card.color : "black"}` }} >
+        <div className="previewContainerAqua" style={{ color: `${card.color ? card.color : "black"}` }} >
           <div className="header">
             <img src={logo} alt="logo zeeqr" />
             <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link>
@@ -224,7 +224,7 @@ function AquaTheme({ card }) {
               ""
             ) : (
               <div>
-                <h2 className='photo'>Photos of Highlight</h2>
+                <h2 className='photo ml-5'>Photos of Highlight</h2>
 
                 <div className="photoGrid">
                   {card.highlightPhotos.map((img) => (

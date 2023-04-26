@@ -8,19 +8,19 @@ button {
     font-family: "Poppins", sans-serif
 }
 
-.previewWrapUltra {
+.previewWrapUltraAqua {
     position: relative;
     height: 100%
 }
 
-.previewWrapUltra .bannerImage {
+.previewWrapAqua .bannerImage {
     height: 200px;
     position: absolute;
     width: 100%;
     background: #f4f4f4
 }
 
-.previewWrapUltra .bannerImage img {
+.previewWrapAqua .bannerImage img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -28,7 +28,7 @@ button {
     background: center center
 }
 
-.previewContainerUltra {
+.previewContainerAqua {
     max-width: 380px;
     padding: 0 12px;
     margin: 0 auto;
@@ -36,7 +36,7 @@ button {
     z-index: 5
 }
 
-.previewContainerUltra .header {
+.previewContainerAqua .header {
     padding-top: 65px;
     padding-bottom: 35px;
     display: flex;
@@ -45,7 +45,7 @@ button {
     min-height: 170px;
 }
 
-.previewContainerUltra .header img {
+.previewContainerAqua.header img {
     width: 106px
 }
 
@@ -53,7 +53,7 @@ button {
     fill: #fff
 }
 
-.previewContainerUltra .header .btn {
+.previewContainerAqua .header .btn {
     width: auto;
     height: 30px;
     border: 1px solid #fff;
@@ -71,7 +71,7 @@ button {
     -webkit-border-radius: 4px
 }
 
-.previewContainerUltra .userDetails {
+.previewContainerAqua .userDetails {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -84,7 +84,7 @@ button {
     margin-bottom: 30px;
     /* height: 400px; */
 }
-.previewContainerUltra .userDetails .userdetails_img img{
+.previewContainerAqua .userDetails .userdetails_img img{
     position: absolute;
     top: 70%;
     /* bottom: 0%; */
@@ -95,7 +95,7 @@ button {
     
 }
 
-.previewContainerUltra .userDetails img{
+.previewContainerAqua .userDetails img{
     width: 100%;
     height: 238px;
 }
@@ -106,7 +106,7 @@ button {
     left: 50%;
     transform: translate(-20%, -50%);
 } */
-.previewContainerUltra .userDetails .userdetails_profile_img figure {
+.previewContainerAqua .userDetails .userdetails_profile_img figure {
     width: 224px;
     min-width: 154px;
     height: 220px;
@@ -116,21 +116,21 @@ button {
 }
 
 
-.previewContainerUltra .userDetails .userdetails_profile_img figure img {
+.previewContainerAqua .userDetails .userdetails_profile_img figure img {
     width: 100%;
     height: 100%;
   
 }
 
-.previewContainerUltra .userDetails .user {
+.previewContainerAqua .userDetails .user {
     width: calc(100% - 154px)
 }
 
-.previewContainerUltra .user {
+.previewContainerAqua .user {
     padding: 20px
 }
 
-.previewContainerUltra .user h1 {
+.previewContainerAqua .user h1 {
     font-weight: 700;
     font-size: 25px;
     line-height: 30px;
@@ -139,14 +139,14 @@ button {
     word-wrap: break-word;
 }
 
-.previewContainerUltra .user p {
+.previewContainerAqua .user p {
     margin: 0;
     font-size: 12px;
     line-height: 18px;
     color: #000000
 }
 
-.previewContainerUltra .buttons {
+.previewContainerAqua .buttons {
     display: flex;
     width: 100%;
     overflow: hidden;
@@ -156,7 +156,7 @@ button {
     -webkit-border-radius: 4px
 }
 
-.previewContainerUltra .buttons a {
+.previewContainerAqua .buttons a {
     height: 49px;
     width: 50%;
     text-align: center;
@@ -172,12 +172,12 @@ button {
     background: #efefef;
 }
 
-.previewContainerUltra .buttons a.addTo {
+.previewContainerAqua .buttons a.addTo {
     /* background: black; */
     color: #fff
 }
 
-.previewContainerUltra h2 {
+.previewContainerAqua h2 {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -187,7 +187,7 @@ button {
     
     margin-bottom: 16px
 }
-.previewContainerUltra .contact {
+.previewContainerAqua .contact {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -197,7 +197,7 @@ button {
     width: 149px;
     margin-bottom: 16px
 }
-.previewContainerUltra .photo {
+.previewContainerAqua .photo {
     font-weight: 500;
     font-size: 20px;
     line-height: 30px;
@@ -220,7 +220,7 @@ button {
     background: black
 } */
 
-.previewContainerUltra .about {
+.previewContainerAqua .about {
     margin-bottom: 24px;
     font-size: 13px;
     line-height: 22px;
@@ -228,7 +228,7 @@ button {
     /* color: #424242 */
 }
 
-.previewContainerUltra .social-links {
+.previewContainerAqua .social-links {
     display: flex;
     gap: 12px;
     justify-content: center;
@@ -240,7 +240,7 @@ button {
     -webkit-border-radius: 9px;
 }
 
-.previewContainerUltra .social-links a {
+.previewContainerAqua .social-links a {
     width: 44px;
     height: 44px;
     min-width: 44px;
@@ -254,12 +254,12 @@ button {
     -webkit-border-radius: 44px
 }
 
-.previewContainerUltra .social-media {
+.previewContainerAqua .social-media {
     display: flex;
     margin: 0;
     padding: 0;
 }
-.previewContainerUltra .contactOptions .social-media a{
+.previewContainerAqua .contactOptions .social-media a{
     padding:0 ;
     font-weight: 500;
     font-size: 14px;
@@ -274,7 +274,7 @@ button {
     width: 100%;
     background: url('../../../assests/img/more_icon.svg') no-repeat right center;
 }
-.previewContainerUltra .contactOptions h4{
+.previewContainerAqua .contactOptions h4{
     width: 207px;
     height: 29px;
     position: relative;
@@ -285,7 +285,7 @@ button {
     color: #000000;
 }
 
-.previewContainerUltra .contactOptions .social::after{
+.previewContainerAqua .contactOptions .social::after{
     content: "";
     display: block;
     width: 21.91px;
@@ -296,7 +296,7 @@ button {
     position: absolute;
     
 }
-.previewContainerUltra .contactOptions .website::after{
+.previewContainerAqua .contactOptions .website::after{
     content: "";
     display: block;
     width: 21.91px;
@@ -307,7 +307,7 @@ button {
     position: absolute;
     
 }
-.previewContainerUltra .contactOptions .contact::after{
+.previewContainerAqua .contactOptions .contact::after{
     content: "";
     display: block;
     width: 21.91px;
@@ -318,7 +318,7 @@ button {
     position: absolute;
     
 }
-.previewContainerUltra .photo::after{
+.previewContainerAqua .photo::after{
     content: "";
     display: block;
     width: 21.91px;
@@ -329,7 +329,7 @@ button {
     position: absolute;
     
 }
-.previewContainerUltra .contactOptions .contact::after{
+.previewContainerAqua .contactOptions .contact::after{
     content: "";
     display: block;
     width: 21.91px;
@@ -340,17 +340,17 @@ button {
     position: absolute;
     
 }
-.previewContainerUltra .contactOptions .social-media a img{
+.previewContainerAqua .contactOptions .social-media a img{
     width: 43px;
     height: 43px;
 }
-.previewContainerUltra .social-media h5{
+.previewContainerAqua .social-media h5{
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     color: #000000;
 }
-.previewContainerUltra .social-media h5 span{
+.previewContainerAqua .social-media h5 span{
     display: block;
     font-size: 12px;
     line-height: 15px;
@@ -358,7 +358,7 @@ button {
     font-weight: 400;
 
 }
-.previewContainerUltra .contactOptions {
+.previewContainerAqua .contactOptions {
     margin-bottom: 13px;
     background: #FFFFFF;
     padding: 16px 24px;
@@ -367,13 +367,13 @@ button {
     -webkit-border-radius: 10px
 }
 
-.previewContainerUltra .contactOptions h3{
+.previewContainerAqua .contactOptions h3{
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;    
 }
 
-.previewContainerUltra .contactOptions a {
+.previewContainerAqua .contactOptions a {
     padding:0 0 10px 0;
     font-weight: 500;
     font-size: 14px;
@@ -387,11 +387,11 @@ button {
     gap: 10px;
 }
 
-.previewContainerUltra .otherLinks {
+.previewContainerAqua .otherLinks {
     margin-bottom: 40px
 }
 
-.previewContainerUltra .otherLinks a {
+.previewContainerAqua .otherLinks a {
     overflow: hidden;
     border-radius: 4px;
     -moz-border-radius: 4px;
@@ -404,14 +404,14 @@ button {
     background: #efefef url("../../../assests/img/more_icon.svg") no-repeat 96% center
 }
 
-.previewContainerUltra .otherLinks figure {
+.previewContainerAqua .otherLinks figure {
     min-width: 180px;
     width: 180px;
     height: 89px;
     padding-left: 1px;
 }
 
-.previewContainerUltra .otherLinks figure img {
+.previewContainerAqua .otherLinks figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
@@ -421,7 +421,7 @@ button {
     -webkit-border-radius: 4px 0 0 4px;
 }
 
-.previewContainerUltra .otherLinks figcaption {
+.previewContainerAqua .otherLinks figcaption {
     padding: 15px 35px 15px 15px;
     width: calc(100% - 180px);
     font-size: 15px;
@@ -429,14 +429,14 @@ button {
     color: #1e1e1e
 }
 
-.previewContainerUltra .photoGrid {
+.previewContainerAqua .photoGrid {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
     justify-content: space-between;
     margin-bottom: 20px
 }
-.previewContainerUltra .photoGrid img{
+.previewContainerAqua .photoGrid img{
     object-fit: cover;
 }
 .qr-code {
@@ -454,25 +454,25 @@ button {
     margin-bottom: 21px;
     border-radius: 5px !important;
 }
-.previewContainerUltra .photoGrid figure {
+.previewContainerAqua .photoGrid figure {
     min-width: calc(50% - 11px);
     height: 164px;
     display: block;
     margin-bottom: 22px
 }
 
-.previewContainerUltra .photoGrid figure img {
+.previewContainerAqua .photoGrid figure img {
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-.previewContainerUltra .companyLogo {
+.previewContainerAqua .companyLogo {
     margin-bottom: 40px
 }
 
-.previewContainerUltra .companyLogo img {
+.previewContainerAqua .companyLogo img {
     display: block;
     height: 50px;
     margin: 0 auto
