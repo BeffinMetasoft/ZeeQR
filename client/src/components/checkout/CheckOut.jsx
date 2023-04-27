@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import casestydy_zeeqrimg from '../../assests/casestydy_zeeqrimg.png';
-
 import line from '../../assests/img/line.png';
-
-
 function CheckOut() {
+  const initialValues = {  firstname: '', lastname: '' , companyname: '' , country: ''  , streetaddress: '' , towncity: '' , state: '' , postcode: '' , phonenumber: '' , email: '' , landmark: '' , ordernote: ''}
+  const [formValues, setFormValues] = useState(initialValues)
+
+  console.log("sukshma values",formValues);
+
+  
+
+const handleChange = (e) => {
+  const { name, value } = e.target
+  setFormValues({ ...formValues, [name]: value })
+}
+
   return (
     <div>
       <div className='w-full flex justify-center'>
@@ -26,9 +35,8 @@ function CheckOut() {
                     <label className="block">
                       <span className="block text-sm font-bold text-slate-700">First Name*</span>
 
-                      <input type="text" placeholder='jack' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    "/>
+                      <input type="text" placeholder='jack' name='firstname' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none" value={formValues.firstname} onChange={handleChange} />
                     </label>
 
                   </form>
@@ -36,10 +44,10 @@ function CheckOut() {
                     <label className="block">
                       <span className="block text-sm  font-bold text-slate-700 ">Last Name*</span>
 
-                      <input type="text" placeholder='Sparrow' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+                      <input type="text" placeholder='Sparrow'  name='lastname' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
       focus:outline-none 
     
-    "/>
+    " value={formValues.lastname} onChange={handleChange} />
                     </label>
 
                   </form>
@@ -48,10 +56,8 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">Company Name*</span>
 
-                    <input type="text" placeholder='Zeeqr pvt ltd' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='Zeeqr pvt ltd' name='companyname' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.companyname} onChange={handleChange} />
                   </label>
 
                 </form>
@@ -60,25 +66,18 @@ function CheckOut() {
                   <label className="block ">
                     <span className="block text-sm font-medium text-slate-700 ">Country*</span>
 
-                    <input type="text" placeholder='Zeeqr pvt ltd' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='Zeeqr pvt ltd' name='country' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.country} onChange={handleChange} />
                   </label>
 
                 </form>
                 <form className='pl-10 p-3'>
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">Street Address*</span>
-
-                    <input type="text" placeholder='United Arab Emirates' className="mt-1 block  w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-   
-    "/>
-                    <input type="text" placeholder='Apartment, suite, unite, etc.' className=" mt-4 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='United Arab Emirates' name='streetaddress' className="mt-1 block  w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.streetaddress} onChange={handleChange} />
+                    <input type="text" placeholder='Apartment, suite, unite, etc.' name='streetaddress' className=" mt-4 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none" value={formValues.streetaddress} onChange={handleChange} />
 
                   </label>
 
@@ -88,10 +87,8 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">Town/City*</span>
 
-                    <input type="text" placeholder='Al Qusais ' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='Al Qusais ' name='towncity' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.towncity} onChange={handleChange} />
 
                   </label>
 
@@ -100,10 +97,8 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">State/Region*</span>
 
-                    <input type="text" placeholder='Dubai' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='Dubai' name='state' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.state} onChange={handleChange} />
                   </label>
 
                 </form>
@@ -111,10 +106,8 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">Postcode/Zip*</span>
 
-                    <input type="text" placeholder='1006000' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='1006000' name='postcode' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.postcode} onChange={handleChange} />
                   </label>
 
                 </form>
@@ -123,10 +116,8 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">Phone Number*</span>
 
-                    <input type="text" placeholder='+971 XXX XXX XXXX' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='+971 XXX XXX XXXX' name='phonenumber' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none  " value={formValues.phonenumber} onChange={handleChange} />
                   </label>
 
                 </form>
@@ -134,10 +125,8 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 ">Email*</span>
 
-                    <input type="text" placeholder='jack@zeeqr.com' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="email" placeholder='jack@zeeqr.com' name='email' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none  " value={formValues.email} onChange={handleChange} />
                   </label>
 
                 </form>
@@ -146,18 +135,16 @@ function CheckOut() {
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 mt-4 ">LandMark*</span>
 
-                    <input type="text" placeholder='LandMark' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-none 
-    
-    "/>
+                    <input type="text" placeholder='LandMark' name='landmark' className="mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-none " value={formValues.landmark} onChange={handleChange} />
                   </label>
 
                 </form>
                 <form className='pl-10'>
                   <label className="block">
                     <span className="block text-sm font-medium text-slate-700 mt-10 ">Order note</span>
-                    <textarea placeholder='Notes about your order, e,g. special notes for delivery' className="md-textarea form-control w-full h-44 mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
-      focus:outline-non" ></textarea>
+                    <textarea placeholder='Notes about your order, e,g. special notes for delivery' name='ordernote' className="md-textarea form-control w-full h-44 mt-1 block w-full px-3 py-2 bg-white rounded-md text-sm shadow-sm placeholder-slate-400 h-10
+      focus:outline-non" value={formValues.ordernote} onChange={handleChange}  ></textarea>
 
                   </label>
 
@@ -167,15 +154,16 @@ function CheckOut() {
               <div className='w-1/3 ml-2'>
                 <h1 className='text-xl ext-slate-700 p-10 font-bold '>Your Order</h1>
                 <div className='mb-7'>
-                  <img src={line} />
+                  <img src={line} alt="" />
+                  
                 </div>
 
                 <div className="flex justify-center item-center">
-                  <img className="" src={casestydy_zeeqrimg} />
+                  <img className="" src={casestydy_zeeqrimg} alt='' />
 
                 </div>
                 <div className='mt-7'>
-                  <img src={line} />
+                  <img src={line} alt='' />
                 </div>
 
                 <div className='flex flex-row mt-7'>
@@ -210,7 +198,7 @@ function CheckOut() {
                     you the proof shortly</p>
                 </div>
                 <div className='mt-7'>
-                  <img src={line} />
+                  <img src={line} alt='' />
                 </div>
 
                 <div className='flex flex-row mt-7'>
@@ -245,7 +233,7 @@ function CheckOut() {
                   </div>
                 </div>
                 <div className='mt-7'>
-                  <img src={line} />
+                  <img src={line} alt='' />
                 </div>
 
                 <div className='flex flex-row pt-10'>
