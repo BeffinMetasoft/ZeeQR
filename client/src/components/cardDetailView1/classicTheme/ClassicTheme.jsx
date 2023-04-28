@@ -16,6 +16,7 @@ import webIcon from '../../../assests/img1/web_icon_1.svg';
 import shareIcon from '../../../assests/img1/share_icon_w.svg';
 import addIcon from '../../../assests/img1/addContact.svg';
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
+import companyProfile from '../../../assests/img/companyProfile.jpg'
 
 function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
@@ -150,6 +151,18 @@ function ClassicTheme({ card }) {
                                         <Link to={`${card.linkedin}`} target="_blank">
                                             <img src={inIcon} alt='' />
                                             <h5>LinkedIn<span>Follow me on LinkedIn</span></h5>
+                                        </Link>
+                                        
+                                </div>
+                            </div>
+                            : ""}
+                                 {card.companyProfile ?
+                            <div className="contactOptions">
+                                <div className="social-media">
+                                   
+                                        <Link to={`${card.companyProfile}`} target="_blank">
+                                            <img src={companyProfile} alt='' />
+                                            <h5>Company Profile<span>company profile</span></h5>
                                         </Link>
                                         
                                 </div>
