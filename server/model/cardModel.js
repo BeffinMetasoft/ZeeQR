@@ -120,6 +120,9 @@ const CardSchema = mongoose.Schema({
     colorCode:{
         type:String
     },
+    companyProfile:{
+        type:String
+    },
     date:{
         type:Date,
         default:Date.now()

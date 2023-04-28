@@ -17,6 +17,7 @@ import whatsapp from "../../../assests/img/Whatsapp_white.svg";
 // import loc from '../../../assests/img/loc_icon.svg'
 // import email from '../../../assests/img1/mail2.png'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
+import { ImProfile } from 'react-icons/im'
 
 
 function ModernTheme({ card }) {
@@ -115,7 +116,7 @@ function ModernTheme({ card }) {
                         </div>
 
                         <div className="companyLogo">
-                            <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt="" />
+                            <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt="" />
                         </div>
 
                     </div>
@@ -137,7 +138,7 @@ function ModernTheme({ card }) {
                         : ""
                     }
                     <h2>Social media links</h2>
-                    <div className="social-links">
+                    <div className="social-links overflow-x-scroll scrollbar-hide">
                         {card.linkedin ? (
                             <Link to={`${card.linkedin}`} target="_blank">
                                 <img src={linkedin} alt="" />
@@ -176,6 +177,11 @@ function ModernTheme({ card }) {
                         ) : (
                             ""
                         )}
+                        {card.companyProfile ?
+                            <Link to={`${card.companyProfile}`} target="_blank">
+                                <ImProfile size={20}  style={{color:"white"}} />
+                            </Link>
+                            : ''}
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">

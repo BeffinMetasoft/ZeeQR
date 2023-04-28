@@ -65,7 +65,7 @@ function ClassicTheme({ card }) {
                                 <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
                             </figure>
                         }
-                        <div className="user ">
+                        <div className="user " style={{width :`${card.checkProfile ? 'calc(100% - 122px)' : ''}`}}>
                             <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}` }} >{card.name}</h1>
                             <p>{card.companyDesignation}</p>
                         </div>

@@ -15,6 +15,7 @@ import whatsapp from '../../../assests/img/wha_icon.svg'
 // import loc from '../../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
+import { ImProfile } from 'react-icons/im'
 
 function StandardDarkTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
@@ -55,7 +56,7 @@ function StandardDarkTheme({ card }) {
 
 
                 <div className="bannerImage">
-                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt='' />
                 </div>
                 <div className="previewContainerDark" >
                     <div className="header">
@@ -65,12 +66,12 @@ function StandardDarkTheme({ card }) {
                     <div >
                         <div className='userDetails' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
                             <figure>
-                                <img src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt='' />
+                                <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
                             </figure>
                             <div className="user">
                                 <h1>{card.name}</h1>
                                 <p>{card.companyDesignation}</p>
-                                
+
                             </div>
                         </div>
                         {card.companyLogo ?
@@ -100,7 +101,7 @@ function StandardDarkTheme({ card }) {
                                     <h2>Social media links</h2>
                                     <p style={{ borderBottom: `3px solid #FF5C00`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
                                 </div>
-                                <div className="social-links">
+                                <div className="social-links overflow-x-scroll scrollbar-hide">
                                     {card.linkedin ?
                                         <Link to={`${card.linkedin}`} target="_blank">
                                             <img src={linkedin} alt='' />
@@ -126,6 +127,11 @@ function StandardDarkTheme({ card }) {
                                             <img src={whatsapp} alt='' />
                                         </Link>
                                         : ""}
+                                    {card.companyProfile ?
+                                        <Link to={`${card.companyProfile}`} target="_blank">
+                                            <ImProfile size={20}  style={{color:"black"}} />
+                                        </Link>
+                                        : ''}
                                 </div>
                             </div> : " "
                         }

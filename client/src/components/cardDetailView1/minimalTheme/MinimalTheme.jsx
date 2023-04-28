@@ -18,6 +18,7 @@ import whatsapp from "../../../assests/img/Whatsapp_white.svg";
 // import loc from '../../../assests/img/loc_icon.svg'
 // import email from '../../../assests/img1/mail2.png'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
+import { ImProfile } from 'react-icons/im'
 
 function MinimalTheme({ card }) {
 
@@ -65,7 +66,7 @@ function MinimalTheme({ card }) {
                     </Link>
                 </div> */}
                 <div className="bannerImage" style={{ marginTop: "0px" }}>
-                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt="" />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt="" />
                 </div>
                 <div className="previewContainer14"  >
                     <div className="buttons w-[280px]  md:w-[350px] fixed bottom-0 z-10 ">
@@ -79,7 +80,7 @@ function MinimalTheme({ card }) {
                     <div className="logo" />
                     <div className="userDetails">
                         <figure>
-                            <img className="userDetails-img" src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt="" />
+                            <img className="userDetails-img" src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt="" />
                         </figure>
                         <div className="user">
                             <h1>{card.name}</h1>
@@ -87,12 +88,12 @@ function MinimalTheme({ card }) {
                         </div>
                     </div>
                     {card.companyLogo ?
-                            (card.checkLogo ?
-                                <div className="companyLogo ">
-                                    <img src={card.companyLogo} alt='' />
-                                </div> : "")
-                            : ''
-                        }
+                        (card.checkLogo ?
+                            <div className="companyLogo ">
+                                <img src={card.companyLogo} alt='' />
+                            </div> : "")
+                        : ''
+                    }
                     {card.about ?
                         <>
                             <h2>About</h2>
@@ -101,7 +102,7 @@ function MinimalTheme({ card }) {
                         : ""
                     }
                     <h2>Social media links</h2>
-                    <div className="social-links">
+                    <div className="social-links overflow-x-scroll scrollbar-hide">
                         {card.linkedin ? (
                             <Link to={`${card.linkedin}`} target="_blank">
                                 <img src={linkedin} alt="" />
@@ -136,11 +137,16 @@ function MinimalTheme({ card }) {
                                 target="_blank"
                             >
                                 <img src={whatsapp} alt="" />
-                               
+
                             </Link>
                         ) : (
                             ""
                         )}
+                        {card.companyProfile ?
+                            <Link to={`${card.companyProfile}`} target="_blank">
+                                <ImProfile size={20}  style={{color:"white"}} />
+                            </Link>
+                            : ''}
                     </div>
                     <h2>Contact Info</h2>
                     <div className="contactOptions">

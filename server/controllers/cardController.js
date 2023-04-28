@@ -204,6 +204,7 @@ const createCard = async (req, res, next) => {
     // },
     colorCode: req.body.colorCode,
     theme:req.body.theme,
+    companyProfile:req.body.companyProfile,
     userID: req.user._id,
   };
 
@@ -395,6 +396,7 @@ const editBookedCard = async (req, res, next) => {
       locationUrl: req.body.locationUrl,
       colorCode: req.body.colorCode,
       theme:req.body.theme,
+      companyProfile:req.body.companyProfile,
       checkLogo:req.body.checkLogo[0] === "undefined" ?  savedcard.checkLogo : req.body.checkLogo[0] ,
       checkHighlight:req.body.checkHighlight[0] === "undefined" ?  savedcard.checkHighlight : req.body.checkHighlight[0] ,
       checkProfile:req.body.checkProfile[0] === "undefined" ?  savedcard.checkProfile : req.body.checkProfile[0] ,

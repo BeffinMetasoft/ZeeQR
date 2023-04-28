@@ -15,6 +15,7 @@ import mail from '../../../assests/img/mail_icon.svg'
 import loc from '../../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
+import {ImProfile} from 'react-icons/im'
 
 
 
@@ -104,7 +105,7 @@ function StandardTheme({ card }) {
                                     <h2>Social media links</h2>
                                     <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
                                 </div>
-                                <div className="social-links">
+                                <div className="social-links overflow-x-scroll scrollbar-hide ">
                                     {card.linkedin ?
                                         <Link to={`${card.linkedin}`} target="_blank">
                                             <img src={linkedin} alt='' />
@@ -130,6 +131,11 @@ function StandardTheme({ card }) {
                                             <img src={whatsapp} alt='' />
                                         </Link>
                                         : ""}
+                                        {card.companyProfile ?
+                                        <Link to={`${card.companyProfile}`} target="_blank">
+                                            <ImProfile size={20}/>
+                                        </Link>
+                                        : ''}
                                 </div>
                             </div> : " "
                         }

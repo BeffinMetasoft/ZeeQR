@@ -9,7 +9,7 @@ import { SketchPicker } from 'react-color'
 function AddCardDetails() {
 
     const initialValues = {
-        name: "", companyName: "", companyDesignation: "", phone: "",theme:"",
+        name: "", companyName: "", companyDesignation: "", phone: "", theme: "",companyProfile:"",
         about: "", whatsappNumber: "", facebook: "", instagram: "", twitter: "", skype: "", linkedIn: "", youtube: "", email: "", locationUrl: "", address: "",
         country: "", state: "", websiteName: "", websiteUrl: ""
     }
@@ -39,7 +39,7 @@ function AddCardDetails() {
     const handleChange = (e) => {
         const { name, value } = e.target
         setUserData({ ...userData, [name]: value })
-        console.log(userData,"qwerty");
+        console.log(userData, "qwerty");
 
     }
     const handleBg = (e) => {
@@ -70,7 +70,7 @@ function AddCardDetails() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const errors = validateForm(allData,websiteImage,backgroundImage,profileImage)
+        const errors = validateForm(allData, websiteImage, backgroundImage, profileImage)
         console.log(Object.keys(errors).length);
         setError(errors)
         userData.colorCode = currentColor
@@ -116,7 +116,7 @@ function AddCardDetails() {
 
 
 
-    const validateForm = (data,websiteImage,backgroundImage,profileImage) => {
+    const validateForm = (data, websiteImage, backgroundImage, profileImage) => {
         const error = {};
         const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -192,7 +192,7 @@ function AddCardDetails() {
         // if (!profileImage) {
         //     error.profileImage = "profileImage required"
         // }
-        
+
         // if (!data.websiteImage) {
         //     error.websiteImage = "websiteImage required"
         // }
@@ -231,28 +231,28 @@ function AddCardDetails() {
                     <h1 className='my-3'>Themes</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6" >
                         <div className="relative z-0 mb-6 w-full group">
-                        <select class="py-3 mt-4 px-4 pr-9 block border border-xl w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" id='theme'  name="theme" onChange={handleChange}  >
-                            <option selected>Open this select menu</option>
-                            <option value="standard" >Standard</option>
-                            <option value="classic" >Classic</option>
-                            <option value="modern" >Modern</option>
-                            <option value="minimal">Minimal</option>
-                            <option value="standardDark">Standard Dark</option>
-                        </select>
-                        <label htmlFor="theme" className="absolute text-sm text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"   >Select the theme </label>
+                            <select class="py-3 mt-4 px-4 pr-9 block border border-xl w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" id='theme' name="theme" onChange={handleChange}  >
+                                <option selected>Open this select menu</option>
+                                <option value="standard" >Standard</option>
+                                <option value="classic" >Classic</option>
+                                <option value="modern" >Modern</option>
+                                <option value="minimal">Minimal</option>
+                                <option value="standardDark">Standard Dark</option>
+                            </select>
+                            <label htmlFor="theme" className="absolute text-sm text-gray-500  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"   >Select the theme </label>
 
                         </div>
                     </div>
                     <h1 className='my-3'>Images</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="backgroundImage" id='backgroundImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleBg} />
+                            <input type="file" name="backgroundImage" id='backgroundImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleBg} />
                             <img className='w-28' src={showBg} alt="" />
                             <label htmlFor="backgroundImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload Background Image</label>
                             <p className='text-red-500'>{error.backgroundImage}</p>
                         </div>
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="profileImage" id='profileImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handlePf} />
+                            <input type="file" name="profileImage" id='profileImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handlePf} />
                             <img className='w-28' src={showPf} alt="" />
                             <label htmlFor="profileImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload profile Picture</label>
                             <p className='text-red-500'>{error.profileImage}</p>
@@ -361,7 +361,7 @@ function AddCardDetails() {
                     <h1 className='my-3'>website</h1>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
-                            <input type="file" name="websiteImage" id='websiteImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" "  onChange={handleWb} />
+                            <input type="file" name="websiteImage" id='websiteImage' className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleWb} />
                             <img className='w-28' src={showWb} alt="" />
                             <label htmlFor="websiteImage" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Upload website Image</label>
                             <p className='text-red-500'>{error.websiteImage}</p>
@@ -375,6 +375,14 @@ function AddCardDetails() {
                             <input type="text" name="websiteUrl" id="floating_website" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleChange} value={userData["websiteUrl"] || ""} />
                             <label htmlFor="floating_website" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Website Url</label>
                             <p className='text-red-500'>{error.websiteUrl}</p>
+                        </div>
+                    </div>
+
+                    <h1 className='my-3'>Company Profile</h1>
+                    <div className="grid xl:grid-cols-2 xl:gap-6">
+                        <div className="relative z-0 mb-6 w-full group">
+                            <input type="text" name="companyProfile" id="companyProfile" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleChange} value={userData["companyProfile"] || ""} />
+                            <label htmlFor="companyProfile" className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company Profile Link</label>
                         </div>
                     </div>
                     <h1 className='my-3'>Highlight</h1>
