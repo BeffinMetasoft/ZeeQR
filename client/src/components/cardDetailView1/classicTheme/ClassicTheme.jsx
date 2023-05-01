@@ -20,6 +20,13 @@ import companyProfile from '../../../assests/img/companyProfile.jpg'
 
 function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
+    // const [letter,setLetter]= useState('')
+    const array = card.name.split(" ");
+   
+   
+
+
+    // console.log(array, '1234wer');
 
     const handleShare = () => {
         if (navigator.share) {
@@ -66,8 +73,10 @@ function ClassicTheme({ card }) {
                                 <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
                             </figure>
                         }
-                        <div className="user " style={{width :`${card.checkProfile ? 'calc(100% - 122px)' : ''}`}}>
-                            <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}` }} >{card.name}</h1>
+                        <div className="user " style={{ width: `${card.checkProfile ? 'calc(100% - 122px)' : ''}` }}>
+                        
+                            <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}` ,fontSize:`${array[0]?.length > 12 || array[1]?.length > 12 ? '20px' : ''}` }} >{card.name}</h1>
+
                             <p>{card.companyDesignation}</p>
                         </div>
                     </div>
@@ -144,30 +153,30 @@ function ClassicTheme({ card }) {
                                     </div>
                                 </div>
                                 : ""}
-                                 {card.linkedin ?
-                            <div className="contactOptions">
-                                <div className="social-media">
-                                   
+                            {card.linkedin ?
+                                <div className="contactOptions">
+                                    <div className="social-media">
+
                                         <Link to={`${card.linkedin}`} target="_blank">
                                             <img src={inIcon} alt='' />
                                             <h5>LinkedIn<span>Follow me on LinkedIn</span></h5>
                                         </Link>
-                                        
+
+                                    </div>
                                 </div>
-                            </div>
-                            : ""}
-                                 {card.companyProfile ?
-                            <div className="contactOptions">
-                                <div className="social-media">
-                                   
+                                : ""}
+                            {card.companyProfile ?
+                                <div className="contactOptions">
+                                    <div className="social-media">
+
                                         <Link to={`${card.companyProfile}`} target="_blank">
                                             <img src={companyProfile} alt='' />
                                             <h5>Company Profile<span>company profile</span></h5>
                                         </Link>
-                                        
+
+                                    </div>
                                 </div>
-                            </div>
-                            : ""}
+                                : ""}
                         </div> : ""
                     }
 

@@ -114,10 +114,12 @@ function ModernTheme({ card }) {
                                 Designations
                             </div>
                         </div>
-
+                        {
+                            card.backgroundImage ? 
                         <div className="companyLogo">
                             <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt="" />
-                        </div>
+                        </div> : ''
+                        }
 
                     </div>
 
