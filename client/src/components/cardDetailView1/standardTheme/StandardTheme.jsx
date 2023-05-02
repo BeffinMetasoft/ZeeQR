@@ -15,7 +15,7 @@ import mail from '../../../assests/img/mail_icon.svg'
 import loc from '../../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
-import {ImProfile} from 'react-icons/im'
+import { ImProfile } from 'react-icons/im'
 
 
 
@@ -61,7 +61,7 @@ function StandardTheme({ card }) {
 
 
                 <div className="bannerImage">
-                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' />
+                    <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg'} alt='' />
                 </div>
                 <div className="previewContainer" style={{ color: `${card.color ? card.color : "black"}` }} >
                     <div className="header">
@@ -71,7 +71,7 @@ function StandardTheme({ card }) {
                     <div >
                         <div className='userDetails' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
                             <figure>
-                                <img src={card.profileImage ? card.profileImage  : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg' } alt='' />
+                                <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
                             </figure>
                             <div className="user">
                                 <h1>{card.name}</h1>
@@ -131,9 +131,19 @@ function StandardTheme({ card }) {
                                             <img src={whatsapp} alt='' />
                                         </Link>
                                         : ""}
-                                        {card.companyProfile ?
+                                    {card.tiktok ? (
+                                        <Link to={`${card.tiktok}`} target="_blank">
+                                            {/* <img src={tiktok} alt="" /> */}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" color='black' class="bi bi-tiktok" viewBox="0 0 16 16"> <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z" /> </svg>
+
+
+                                        </Link>
+                                    ) : (
+                                        ""
+                                    )}
+                                    {card.companyProfile ?
                                         <Link to={`${card.companyProfile}`} target="_blank">
-                                            <ImProfile size={20}/>
+                                            <ImProfile size={20} />
                                         </Link>
                                         : ''}
                                 </div>
@@ -151,8 +161,8 @@ function StandardTheme({ card }) {
                                 e.preventDefault();
                             }} ><img src={mail} alt='' />{card.email}</Link>
                             {card.locationUrl ?
-                            <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link> :
-                            <Link ><img src={loc} alt='' />{card.address}</Link>
+                                <Link to={`${card.locationUrl}`} target="_blank" ><img src={loc} alt='' />{card.address}</Link> :
+                                <Link ><img src={loc} alt='' />{card.address}</Link>
                             }
                         </div>
                         {card.websiteImage ?
@@ -173,22 +183,22 @@ function StandardTheme({ card }) {
                         }
 
                         {card.highlightPhotos.length === 0 ? '' :
-                        (card.checkHighlight ?
-                            <div>
-                                <div className='flex'>
-                                    <h2>Gallery</h2>
-                                    <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
+                            (card.checkHighlight ?
+                                <div>
+                                    <div className='flex'>
+                                        <h2>Gallery</h2>
+                                        <p style={{ borderBottom: `3px solid ${card.colorCode ? card.colorCode : 'black'}`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
+                                    </div>
+                                    <div className="photoGrid">
+                                        {card.highlightPhotos.map((img) => (
+                                            // <figure>
+                                            <img className='mb-4' src={img} alt="" />
+                                            // </figure>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div className="photoGrid">
-                                    {card.highlightPhotos.map((img) => (
-                                        // <figure>
-                                        <img className='mb-4' src={img} alt="" />
-                                        // </figure>
-                                    ))}
-                                </div>
-                            </div>
-                           : '' )
-                            
+                                : '')
+
 
                         }
                     </div>

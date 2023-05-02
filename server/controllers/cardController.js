@@ -185,6 +185,7 @@ const createCard = async (req, res, next) => {
     linkedin: req.body.linkedIn,
     skype: req.body.skype,
     youtube: req.body.youtube,
+    tiktok: req.body.tiktok,
     address: req.body.address,
     state: req.body.state,
     country: req.body.country,
@@ -301,7 +302,7 @@ const deletBookedCard = async (req, res, next) => {
 const editBookedCard = async (req, res, next) => {
   const cardId = req.params.id;
   // console.log(cardId);
-  // console.log(req.files)
+  console.log(req.files)
   console.log(req.body, '++++');
 
   const bgImage = req.files?.bgImage ? req.files?.bgImage[0] : ''
@@ -388,6 +389,7 @@ const editBookedCard = async (req, res, next) => {
       linkedin: req.body.linkedIn,
       skype: req.body.skype,
       youtube: req.body.youtube,
+      tiktok: req.body.tiktok,
       address: req.body.address,
       state: req.body.state,
       country: req.body.country,

@@ -41,15 +41,12 @@ const CardSchema = mongoose.Schema({
     },
     address: {
         type: String,
-        required: [true, "Address is required"]
     },
     state: {
         type: String,
-        required: [true, "State is required"]
     },
     country: {
         type: String,
-        required: [true, "Country is required"]
     },
     locationUrl: {
         type: String,
@@ -112,6 +109,9 @@ const CardSchema = mongoose.Schema({
         type:String
     },
     youtube:{
+        type:String
+    },
+    tiktok:{
         type:String
     },
     vCard:{
