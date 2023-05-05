@@ -98,9 +98,9 @@ button {
     object-fit: cover
 }
 
-.previewContainer .userDetails .user {
+/* .previewContainer .userDetails .user {
     width: calc(100% - 154px)
-}
+} */
 
 .previewContainer .user {
     padding: 20px

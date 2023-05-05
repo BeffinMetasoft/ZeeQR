@@ -146,6 +146,10 @@ const CardSchema = mongoose.Schema({
     checkProfile:{
         type: Boolean,
         default:true 
+    },
+    checkPfCard:{
+        type: Boolean,
+        default:true 
     }
 
 

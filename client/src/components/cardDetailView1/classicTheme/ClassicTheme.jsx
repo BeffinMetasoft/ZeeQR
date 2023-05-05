@@ -23,8 +23,8 @@ function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
     // const [letter,setLetter]= useState('')
     const array = card.name.split(" ");
-   
-   
+
+
 
 
     // console.log(array, '1234wer');
@@ -67,20 +67,23 @@ function ClassicTheme({ card }) {
                 </div>
                 <div className="previewContainer1">
                     <div className="header"></div>
-                    <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`}>
-                        {!card.checkProfile ? '' :
+                    {card.checkPfCard ?
 
-                            <figure>
-                                <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
-                            </figure>
-                        }
-                        <div className="user " style={{ width: `${card.checkProfile ? 'calc(100% - 122px)' : ''}` }}>
-                        
-                            <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}` ,fontSize:`${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.name}</h1>
+                        <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`}>
+                            {!card.checkProfile ? '' :
 
-                            <p>{card.companyDesignation}</p>
-                        </div>
-                    </div>
+                                <figure>
+                                    <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
+                                </figure>
+                            }
+                            <div className="user " style={{ width: `${card.checkProfile ? 'calc(100% - 122px)' : ''}` }}>
+
+                                <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.name}</h1>
+
+                                <p>{card.companyDesignation}</p>
+                            </div>
+                        </div> : ''
+                    }
                     <div className="social-links">
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;

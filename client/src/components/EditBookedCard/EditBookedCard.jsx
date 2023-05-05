@@ -48,9 +48,10 @@ function EditBookedCard({ cardId }) {
     // const defHg= userData?.checkHighlight
     // console.log(defHg,'1st check');
     const [checked, setChecked] = useState()
-    const [checkHg,setcheckHg] = useState()
-    const [checkProfile,setcheckProfile] = useState()
-    
+    const [checkHg, setcheckHg] = useState()
+    const [checkProfile, setcheckProfile] = useState()
+    const [checkPfCard, setCheckPfCard] = useState()
+
 
 
     const [loader, showLoader, hideLoder] = UseSpinner()
@@ -81,7 +82,7 @@ function EditBookedCard({ cardId }) {
 
     }
 
-    const handleCheckHighlight =(e)=>{
+    const handleCheckHighlight = (e) => {
         if (e.target.checked) {
             // console.log('✅ Checkbox is checked');
             setcheckHg(true)
@@ -90,13 +91,22 @@ function EditBookedCard({ cardId }) {
             setcheckHg(false)
         }
     }
-    const handleCheckProfile =(e)=>{
+    const handleCheckProfile = (e) => {
         if (e.target.checked) {
             // console.log('✅ Checkbox is checked');
             setcheckProfile(true)
         } else {
             // console.log('⛔️ Checkbox is NOT checked');
             setcheckProfile(false)
+        }
+    }
+    const handleCheckPfCard = (e) => {
+        if (e.target.checked) {
+            // console.log('✅ Checkbox is checked');
+            setCheckPfCard(true)
+        } else {
+            // console.log('⛔️ Checkbox is NOT checked');
+            setCheckPfCard(false)
         }
     }
 
@@ -129,7 +139,7 @@ function EditBookedCard({ cardId }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const errors = validateForm(allData,websiteImage)
+        const errors = validateForm(allData, websiteImage)
         console.log(Object.keys(errors).length);
         setError(errors)
         userData.colorCode = currentColor
@@ -137,16 +147,17 @@ function EditBookedCard({ cardId }) {
         if (Object.keys(errors).length === 0) {
 
             showLoader()
-            console.log(checkHg,'checkhggggggggg');
+            console.log(checkHg, 'checkhggggggggg');
 
             const datas = new FormData();
             datas.append('bgImage', backgroundImage)
             datas.append('pfImage', profileImage)
             datas.append('companyLg', companyLogo)
             datas.append('wbImage', websiteImage)
-            datas.append('checkLogo', checked  )
-            datas.append('checkHighlight', checkHg   )
-            datas.append('checkProfile', checkProfile   )
+            datas.append('checkLogo', checked)
+            datas.append('checkHighlight', checkHg)
+            datas.append('checkProfile', checkProfile)
+            datas.append('checkPfCard', checkPfCard)
             for (let i = 0; i < hightlightPhotos.length; i++) {
                 datas.append('hgPhotos', hightlightPhotos[i])
             }
@@ -180,7 +191,7 @@ function EditBookedCard({ cardId }) {
 
 
 
-    const validateForm = (data,websiteImage) => {
+    const validateForm = (data, websiteImage) => {
         const error = {};
         const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
@@ -256,7 +267,7 @@ function EditBookedCard({ cardId }) {
         // if (!profileImage) {
         //     error.profileImage = "profileImage required"
         // }
-       
+
         // if (!data.websiteImage) {
         //     error.websiteImage = "websiteImage required"
         // }
@@ -340,7 +351,14 @@ function EditBookedCard({ cardId }) {
                         </div>
 
                     </div>
-                    <h1 className='my-3'>Basic info</h1>
+                    <div className='flex gap-5'>
+
+                        <h1 className='my-3'>Basic info</h1>
+                        <label className='mt-3 ml-3'>
+                            <input type="checkbox" defaultChecked={userData?.checkPfCard} onClick={handleCheckPfCard} />
+                            Show Profile Card
+                        </label>
+                    </div>
                     <div className="grid xl:grid-cols-2 xl:gap-6">
                         <div className="relative z-0 mb-6 w-full group">
                             <input type="text" name="name" id="floating_name" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " onChange={handleChange} value={userData["name"] || ""} />

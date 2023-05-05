@@ -132,7 +132,7 @@ const createCard = async (req, res, next) => {
   // const hightlightPhotos4 = req.files?.hightlightPhotos4 ? req.files?.hightlightPhotos4[0] : ''
 
 
-  const backgroundImageName = backgroundImage ? generateFileName() :''
+  const backgroundImageName = backgroundImage ? generateFileName() : ''
   backgroundImage ? await uploadFile(backgroundImage.buffer, backgroundImageName, backgroundImage.mimetype) : ''
 
   const profileImageName = profileImage ? generateFileName() : ''
@@ -152,7 +152,7 @@ const createCard = async (req, res, next) => {
   // hightlightPhotos3 ? await uploadFile(hightlightPhotos3.buffer, hightlightPhotosName3, hightlightPhotos3.mimetype) : ''
   // const hightlightPhotosName4 = hightlightPhotos4 ? generateFileName() : ''
   // hightlightPhotos4 ? await uploadFile(hightlightPhotos4.buffer, hightlightPhotosName4, hightlightPhotos4.mimetype) : ''
-  
+
 
   const array = []
   const photoNameArray = []
@@ -192,10 +192,10 @@ const createCard = async (req, res, next) => {
     websiteUrl: req.body.websiteUrl,
     websiteName: req.body.websiteName,
     locationUrl: req.body.locationUrl,
-    backgroundImage:backgroundImage ? S3Url + backgroundImageName : '',
-    profileImage:profileImage ? S3Url + profileImageName : '',
+    backgroundImage: backgroundImage ? S3Url + backgroundImageName : '',
+    profileImage: profileImage ? S3Url + profileImageName : '',
     companyLogo: companyLogo ? S3Url + companyLogoName : '',
-    websiteImage:websiteImage ? S3Url + websiteImageName : '',
+    websiteImage: websiteImage ? S3Url + websiteImageName : '',
     highlightPhotos: photoNameArray,
     // hightlightPhotos:{
     //   hightlightPhotos1:hightlightPhotos1 ? S3Url + hightlightPhotosName1 : '',
@@ -204,8 +204,8 @@ const createCard = async (req, res, next) => {
     //   hightlightPhotos4:hightlightPhotos4 ? S3Url + hightlightPhotosName4 : '',
     // },
     colorCode: req.body.colorCode,
-    theme:req.body.theme,
-    companyProfile:req.body.companyProfile,
+    theme: req.body.theme,
+    companyProfile: req.body.companyProfile,
     userID: req.user._id,
   };
 
@@ -316,36 +316,44 @@ const editBookedCard = async (req, res, next) => {
   const bgImageName = bgImage ? generateFileName() : ''
   if (bgImage) {
     const oldBgImage = savedcard.backgroundImage
-    const array = oldBgImage.split("/");
-    const bgOldImg = array[array.length - 1]
-    await deleteFile(bgOldImg)
+    if (oldBgImage) {
+      const array = oldBgImage.split("/");
+      const bgOldImg = array[array.length - 1]
+      await deleteFile(bgOldImg)
+    }
     await uploadFile(bgImage.buffer, bgImageName, bgImage.mimetype)
   }
 
   const pfImageName = pfImage ? generateFileName() : ''
   if (pfImage) {
     const oldPfImage = savedcard.profileImage
-    const array = oldPfImage.split("/");
-    const pfOldImg = array[array.length - 1]
-    await deleteFile(pfOldImg)
+    if (oldPfImage) {
+      const array = oldPfImage.split("/");
+      const pfOldImg = array[array.length - 1]
+      await deleteFile(pfOldImg)
+    }
     await uploadFile(pfImage.buffer, pfImageName, pfImage.mimetype)
   }
 
   const companyLgName = companyLg ? generateFileName() : ''
   if (companyLg) {
     const oldCompanyLg = savedcard.companyLogo
-    const array = oldCompanyLg.split("/");
-    const companyLgOld = array[array.length - 1]
-    await deleteFile(companyLgOld)
+    if (oldCompanyLg) {
+      const array = oldCompanyLg.split("/");
+      const companyLgOld = array[array.length - 1]
+      await deleteFile(companyLgOld)
+    }
     await uploadFile(companyLg.buffer, companyLgName, companyLg.mimetype)
   }
 
   const wbImageName = wbImage ? generateFileName() : ''
   if (wbImage) {
     const oldWbImage = savedcard.websiteImage
-    const array = oldWbImage.split("/");
-    const wbOldImage = array[array.length - 1]
-    await deleteFile(wbOldImage)
+    if (oldWbImage) {
+      const array = oldWbImage.split("/");
+      const wbOldImage = array[array.length - 1]
+      await deleteFile(wbOldImage)
+    }
     await uploadFile(wbImage.buffer, wbImageName, wbImage.mimetype)
   }
 
@@ -354,10 +362,12 @@ const editBookedCard = async (req, res, next) => {
   if (hgPhotos) {
 
     const oldHgPhotos = savedcard.highlightPhotos
-    for (let i = 0; i < oldHgPhotos.length; i++) {
-      const array = oldHgPhotos[i].split("/");
-      const hgOldPhotos = array[array.length - 1]
-      await deleteFile(hgOldPhotos)
+    if (oldHgPhotos) {
+      for (let i = 0; i < oldHgPhotos.length; i++) {
+        const array = oldHgPhotos[i].split("/");
+        const hgOldPhotos = array[array.length - 1]
+        await deleteFile(hgOldPhotos)
+      }
     }
 
     for (let i = 0; i < hgPhotos.length; i++) {
@@ -397,11 +407,12 @@ const editBookedCard = async (req, res, next) => {
       websiteName: req.body.websiteName,
       locationUrl: req.body.locationUrl,
       colorCode: req.body.colorCode,
-      theme:req.body.theme,
-      companyProfile:req.body.companyProfile,
-      checkLogo:req.body.checkLogo[0] === "undefined" ?  savedcard.checkLogo : req.body.checkLogo[0] ,
-      checkHighlight:req.body.checkHighlight[0] === "undefined" ?  savedcard.checkHighlight : req.body.checkHighlight[0] ,
-      checkProfile:req.body.checkProfile[0] === "undefined" ?  savedcard.checkProfile : req.body.checkProfile[0] ,
+      theme: req.body.theme,
+      companyProfile: req.body.companyProfile,
+      checkLogo: req.body.checkLogo[0] === "undefined" ? savedcard.checkLogo : req.body.checkLogo[0],
+      checkHighlight: req.body.checkHighlight[0] === "undefined" ? savedcard.checkHighlight : req.body.checkHighlight[0],
+      checkProfile: req.body.checkProfile[0] === "undefined" ? savedcard.checkProfile : req.body.checkProfile[0],
+      checkPfCard: req.body.checkPfCard[0] === "undefined" ? savedcard.checkPfCard : req.body.checkPfCard[0],
 
       backgroundImage: bgImage ? S3Url + bgImageName : req.body.backgroundImage,
       profileImage: pfImage ? S3Url + pfImageName : req.body.profileImage,

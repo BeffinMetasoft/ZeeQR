@@ -69,23 +69,28 @@ function StandardTheme({ card }) {
                         {/* <Link className="btn" to={"https://zeeqr.co/"} target="_blank">Get your card</Link> */}
                     </div>
                     <div >
-                        <div className='userDetails' style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
-                            <figure>
-                                <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
-                            </figure>
-                            <div className="user">
-                                <h1>{card.name}</h1>
-                                <p>{card.companyDesignation}</p>
+                        {card.checkPfCard ?
+                            <div className={`userDetails ${!card.checkProfile ? "flex  flex-col jutify-center" : ''}`} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >
+                                {!card.checkProfile ? '' :
+                                    <figure>
+                                        <img src={card.profileImage ? card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'} alt='' />
+                                    </figure>
+                                }
+                                <div className="user" style={{ width: `${card.checkProfile ? 'calc(100% - 122px)' : ''}` }} >
+                                    <h1>{card.name}</h1>
+                                    <p>{card.companyDesignation}</p>
+                                </div>
                             </div>
-                        </div>
+                            : ''
+                        }
                         {card.companyLogo ?
                             (card.checkLogo ?
-                                <div className="companyLogo ">
+                                <div className={`companyLogo ${!card.checkProfile ? "mt-12" : ''} `}>
                                     <img src={card.companyLogo} alt='' />
                                 </div> : "")
                             : ''
                         }
-                        <div className="buttons">
+                        <div className={`buttons ${!card.checkProfile ? "mt-12" : ''} `}>
                             <Link className='addTo' to={`${card.vCard}`} style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }} >Add to contacts</Link>
                             <Link onClick={handleShare} ><img src={share} alt='' />Share it </Link>
                         </div>
