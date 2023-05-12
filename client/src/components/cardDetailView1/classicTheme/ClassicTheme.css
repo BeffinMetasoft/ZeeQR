@@ -11,7 +11,7 @@ button {
 .previewWrap1 {
     position: relative;
     height: 100%;
-    background: #EFEFEF url("../../../assests/img1/background.jpg") no-repeat center center;
+    /* background: #EFEFEF url("../../../assests/img1/background.jpg") no-repeat center center; */
     padding-bottom: 20px;
     background-attachment: fixed;
 }
@@ -261,7 +261,7 @@ button {
     cursor: pointer;
     gap: 10px;
     width: 100%;
-    background: url('../../../assests/img/more_icon.svg') no-repeat right center;
+    /* background: url('../../../assests/img/more_icon.svg') no-repeat right center; */
 }
 .previewContainer1 .contactOptions .social-media a img{
     width: 43px;
@@ -338,7 +338,7 @@ button {
     -webkit-border-radius: 4px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 10px;
     text-decoration: none;
     padding: 0;

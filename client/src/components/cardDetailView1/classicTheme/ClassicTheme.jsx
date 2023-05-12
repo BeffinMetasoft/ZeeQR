@@ -16,15 +16,20 @@ import webIcon from '../../../assests/img1/web_icon_1.svg';
 import shareIcon from '../../../assests/img1/share_icon_w.svg';
 import addIcon from '../../../assests/img1/addContact.svg';
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
+import background from '../../../assests/img1/background.jpg'
 import tiktok from '../../../assests/img/tiktok.png'
+import arrow from '../../../assests/img/more_icon.svg'
+import arrow_white from '../../../assests/img/chevron-right-white.svg'
 import companyProfile from '../../../assests/img/companyProfile.jpg'
+import { IoIosArrowForward } from 'react-icons/io';
 
 function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
     // const [letter,setLetter]= useState('')
     const array = card.name.split(" ");
+    console.log(card.bgImg,'haiiii');
 
-
+// const bg= card.bgImg
 
 
     // console.log(array, '1234wer');
@@ -57,7 +62,7 @@ function ClassicTheme({ card }) {
 
     return (
         <div>
-            <section className="previewWrap1">
+            <section className="previewWrap1 " style={{backgroundImage:`url(${card.bgImg ? card.bgImg : background })`,backgroundRepeat:'no-repeat',backgroundSize:'100%' ,backgroundPosition:'center'}}>
                 <span className='qr-code1' onClick={() => setQrModal(true)} ><BsQrCodeScan size={22} /></span>
                 <Link className='share' onClick={handleShare}><img src={shareIcon} alt='' /></Link>
                 <Link className="addToContact" to={`${card.vCard}`}><img src={addIcon} alt='' /></Link>
@@ -102,17 +107,17 @@ function ClassicTheme({ card }) {
                         </Link>
                     </div>
 
-                    <div className="contactOptions">
+                    <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}`,   color:`${card.colorCode ? 'white' : ''}` }}>
                         <h2><span><img src={phoneiconw} alt='' /></span> Contact Me</h2>
                         <h3>Call</h3>
-                        <Link to={`tel:+${card.phone}`} >+{card.phone}</Link>
+                        <Link to={`tel:+${card.phone}`} style={{color:`${card.colorCode ? 'white' : ''}`}} >+{card.phone}</Link>
                         <h3>Email</h3>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
-                        }} >{card.email}</Link>
+                        }} style={{color:`${card.colorCode ? 'white' : ''}`}} >{card.email}</Link>
                         <h3>Location</h3>
-                        <Link >{card.address}</Link>
+                        <Link style={{color:`${card.colorCode ? 'white' : ''}`}} >{card.address}</Link>
                         {card.locationUrl ?
                             <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link>
                             : ""
@@ -122,74 +127,73 @@ function ClassicTheme({ card }) {
                     {card.facebook || card.whatsappNumber || card.linkedin || card.instagram || card.twitter || card.skype ?
                         <div>
 
-                            <div className="contactOptions">
-                                <h4>Social Media</h4>
-                                <div className="social-media">
+                            <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                <h4 style={{color:`${card.colorCode ? 'white' : ''}`}}>Social Media</h4>
+                                <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
                                     {card.whatsappNumber ?
                                         <Link to={`https://wa.me/+${card.whatsappNumber}?text=Hi%2C`} target="_blank">
                                             <img src={whtsIcon} alt='' />
-                                            <h5>WhatsApp<span>Follow me on WhatsApp</span></h5>
+                                            <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}>WhatsApp<span style={{color:`${card.colorCode ? 'white' : ''}`}}>Follow me on WhatsApp</span></h5>
                                         </Link>
                                         : ""}
                                 </div>
                             </div>
                             {card.instagram ?
-                                <div className="contactOptions">
-                                    <div className="social-media">
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
 
                                         <Link to={`${card.instagram}`} target="_blank">
                                             <img src={instaIcon} alt='' />
-                                            <h5>Instagram<span>Follow me on Instagram</span></h5>
+                                            <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}>Instagram<span style={{color:`${card.colorCode ? 'white' : ''}`}}>Follow me on Instagram</span></h5>
                                         </Link>
 
                                     </div>
                                 </div>
                                 : ""}
                             {card.facebook ?
-                                <div className="contactOptions">
-                                    <div className="social-media">
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
 
                                         <Link to={`${card.facebook}`} target="_blank">
                                             <img src={fbIcon} alt='' />
-                                            <h5>Facebook<span>Follow me on Facebook</span></h5>
+                                            <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}>Facebook<span style={{color:`${card.colorCode ? 'white' : ''}`}}>Follow me on Facebook</span></h5>
                                         </Link>
 
                                     </div>
                                 </div>
                                 : ""}
                             {card.linkedin ?
-                                <div className="contactOptions">
-                                    <div className="social-media">
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
 
                                         <Link to={`${card.linkedin}`} target="_blank">
                                             <img src={inIcon} alt='' />
-                                            <h5>LinkedIn<span>Follow me on LinkedIn</span></h5>
+                                            <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}>LinkedIn<span style={{color:`${card.colorCode ? 'white' : ''}`}}>Follow me on LinkedIn</span></h5>
                                         </Link>
 
                                     </div>
                                 </div>
                                 : ""}
                             {card.tiktok ?
-                                <div className="contactOptions">
-                                    <div className="social-media">
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
 
                                         <Link to={`${card.tiktok}`} target="_blank">
-                                            <img src={tiktok} alt='' />
+                                            <img className='rounded-full' src={tiktok} alt='' />
                                             {/* <svg className='bg-black text-white p-1 rounded-full ' xmlns="http://www.w3.org/2000/svg" width="40"  height="40" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16"> <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/> </svg> */}
-
-                                            <h5>Tiktok<span>Follow me on Tiktok</span></h5>
+                                            <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}>Tiktok<span style={{color:`${card.colorCode ? 'white' : ''}`}}>Follow me on Tiktok</span></h5>
                                         </Link>
 
                                     </div>
                                 </div>
                                 : ""}
                             {card.companyProfile ?
-                                <div className="contactOptions">
-                                    <div className="social-media">
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
 
                                         <Link to={`${card.companyProfile}`} target="_blank">
                                             <img src={companyProfile} alt='' />
-                                            <h5>Company Profile<span>company profile</span></h5>
+                                            <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}>Company Profile<span style={{color:`${card.colorCode ? 'white' : ''}`}}>company profile</span></h5>
                                         </Link>
 
                                     </div>
@@ -199,12 +203,12 @@ function ClassicTheme({ card }) {
                     }
 
                     {card.websiteUrl ?
-                        <div className="contactOptions">
-                            <h4>Website</h4>
-                            <div className="social-media">
+                        <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                            <h4 style={{color:`${card.colorCode ? 'white' : ''}`}}>Website</h4>
+                            <div className="social-media" style={{backgroundImage:`url(${card.colorCode ? arrow_white : arrow })`,backgroundRepeat:'no-repeat' ,backgroundPosition:'right'}}>
                                 <Link to={`${card.websiteUrl}`} target="_blank" >
-                                    <img src={webIcon} alt='' />
-                                    <h5> {card.websiteName}</h5>
+                                    <img className='rounded-full bg-white'  src={webIcon} alt=''/>
+                                    <h5 style={{color:`${card.colorCode ? 'white' : ''}`}}> {card.websiteName}</h5>
                                 </Link>
                             </div>
                         </div>

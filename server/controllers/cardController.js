@@ -240,7 +240,7 @@ const createCard = async (req, res, next) => {
 
   // Save file to database and get download link
   const downloadLink = `data:text/vcard;charset=utf-8,${encodeURIComponent(vcardString)}`;
-  console.log(vcardString, '1234567891234567');
+  // console.log(vcardString, '1234567891234567');
 
   // Save the downloadLink to your database along with any other relevant information
   CardData.vCard = downloadLink
@@ -251,6 +251,8 @@ const createCard = async (req, res, next) => {
   const URL = QRBase + newCard._id;
   const QRCode = await generateQR(URL);
   newCard.QRCode = QRCode;
+
+  // console.log(newCard,'||||||||||||||||||||||||||||||||||||||||');
 
   try {
     await newCard.save();
