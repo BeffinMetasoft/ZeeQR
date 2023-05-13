@@ -21,7 +21,7 @@ import tiktok from '../../../assests/img/tiktok.png'
 import arrow from '../../../assests/img/more_icon.svg'
 import arrow_white from '../../../assests/img/chevron-right-white.svg'
 import companyProfile from '../../../assests/img/companyProfile.jpg'
-import { IoIosArrowForward } from 'react-icons/io';
+// import { IoIosArrowForward } from 'react-icons/io';
 
 function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
@@ -62,7 +62,7 @@ function ClassicTheme({ card }) {
 
     return (
         <div>
-            <section className="previewWrap1 " style={{backgroundImage:`url(${card.bgImg ? card.bgImg : background })`,backgroundRepeat:'no-repeat',backgroundSize:'100%' ,backgroundPosition:'center'}}>
+            <section className="previewWrap1 " style={{backgroundImage:`url(${card.bgImg ? card.bgImg : background })`,backgroundSize:'100%' ,backgroundPosition:'center'}}>
                 <span className='qr-code1' onClick={() => setQrModal(true)} ><BsQrCodeScan size={22} /></span>
                 <Link className='share' onClick={handleShare}><img src={shareIcon} alt='' /></Link>
                 <Link className="addToContact" to={`${card.vCard}`}><img src={addIcon} alt='' /></Link>
