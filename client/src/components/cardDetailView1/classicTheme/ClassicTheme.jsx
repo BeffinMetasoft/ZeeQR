@@ -67,7 +67,7 @@ function ClassicTheme({ card }) {
 
     return (
         <div>
-            <section className="previewWrap1 " style={{ backgroundImage: `url(${card.bgImg ? card.bgImg : background})`, backgroundSize: '100%', backgroundPosition: 'center 200px' }}>
+            <section className="previewWrap1 " style={{ backgroundImage: `url(${card.bgImg ? card.bgImg : background})`, backgroundSize: '100%', backgroundPosition: 'center 150px',backgroundColor:`${card.bgImg ? '#0a0f23' : ''}` }}>
                 <span className='qr-code1' onClick={() => setQrModal(true)} ><BsQrCodeScan size={22} /></span>
                 <Link className='share' onClick={handleShare}><img src={shareIcon} alt='' /></Link>
                 <Link className="addToContact" to={`${card.vCard}`}><img src={addIcon} alt='' /></Link>
