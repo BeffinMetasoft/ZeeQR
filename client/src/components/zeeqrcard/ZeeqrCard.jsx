@@ -97,7 +97,7 @@ function ZeeqrCard() {
             <div className='flex m-[30px] bg-gray-200 w-[512px] h-12 rounded p-3'>
 
               <p className='text-xs font-medium cursor-pointer' onClick={()=>setColor("Select your Card Color -")}>Select your Card Color -</p>
-              {material==="Luxury"? <p className='text-xs font-bold ml-12  underline underline-offset-1  cursor-pointer' >24K Gold</p>
+              {material==="Luxury"? <p className='text-xs font-bold ml-12  underline underline-offset-1  cursor-pointer'onClick={()=>setColor("MGold")} >24K Gold</p>
               : <> <p className={`${materailcolor==="MBlack"?'text-xs underline underline-offset-1  font-bold  ml-12 cursor-pointer':'text-xs font-medium ml-12 cursor-pointer'}`} onClick={()=>setColor("MBlack")}>Matte Black</p>
               <p className={`${materailcolor==="MWhite"?'text-xs  underline underline-offset-1 font-bold  ml-12 cursor-pointer':'text-xs font-medium ml-12 cursor-pointer'}`} onClick={()=>setColor("MWhite")}>Matte White</p> </>}
 
@@ -135,7 +135,7 @@ Matte Black</p></>}
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
       invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500"value={formValues.firstname} onChange={handleChange} />
+      focus:invalid:border-pink-500 focus:invalid:ring-pink-500" value={formValues.firstname} onChange={handleChange} />
       <p className='text-red-500'>{error.firstname }</p>
             </label>
             </div>

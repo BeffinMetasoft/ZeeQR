@@ -22,9 +22,9 @@ function App({rotate, materailcolor, materailFavoriteColor}) {
 			flipDirection="horizontal">
 			<div >
 
-				{materailcolor==="MBlack"&&materailFavoriteColor==="GMBlack"?<img src={PMGF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="SMBlack"?<img src={PMSF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="FMBlack"?<img src={PMFF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="GMBlack"?<img src={PMWGF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="SMBlack"?<img src={PMWBF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="FMBlack"?<img src={PMWCF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="GMBlack"?<img src={PMGF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="SMBlack"?<img src={PMSF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="FMBlack"?<img src={PMFF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="GMBlack"?<img src={PMWGF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="SMBlack"?<img src={PMWBF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="FMBlack"?<img src={PMWCF}></img>:<img src={LGGF}></img>} 
+			 
 			
-				<br />
+	{materailcolor==="MBlack"&&materailFavoriteColor==="GMBlack"?<img src={PMGF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="SMBlack"?<img src={PMSF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="FMBlack"?<img src={PMFF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="GMBlack"?<img src={PMWGF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="SMBlack"?<img src={PMWBF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="FMBlack"?<img src={PMWCF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="GMBlack"?<img src={PMGF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="SMBlack"?<img src={PMSF}></img>:materailcolor==="MBlack"&&materailFavoriteColor==="FMBlack"?<img src={PMFF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="GMBlack"?<img src={PMWGF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="SMBlack"?<img src={PMWBF}></img>:materailcolor==="MWhite"&&materailFavoriteColor==="FMBlack"?<img src={PMWCF}></img>:<img src={LGGF}></img>}				<br />
 				<br />
 				
 			</div>
