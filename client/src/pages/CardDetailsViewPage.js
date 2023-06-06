@@ -8,6 +8,7 @@ import ModernTheme from '../components/cardDetailView1/modernTheme/ModernTheme'
 import MinimalTheme from '../components/cardDetailView1/minimalTheme/MinimalTheme'
 import StandardDarkTheme from '../components/cardDetailView1/standardDarkTheme/StandardDarkTheme'
 import StandardTheme from '../components/cardDetailView1/standardTheme/StandardTheme'
+import ClassicNewTheme from '../components/cardDetailView1/classicNewTheme/ClassicNewTheme'
 const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
@@ -85,6 +86,8 @@ function CardDetailsViewPage() {
                              <MinimalTheme card={card} key={card._id} />
                              :  card.theme === 'standardDark' ?
                             <StandardDarkTheme  card={card} key={card._id} />
+                            :  card.theme === 'classicNew' ?
+                            <ClassicNewTheme  card={card} key={card._id} />
                             :
                             <StandardTheme card={card} key={card._id} />
                         )
