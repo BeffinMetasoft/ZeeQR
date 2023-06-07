@@ -10,7 +10,8 @@ import whatsappiconw from '../../../assests/img1/whatsapp_icon_white.svg';
 import arrowIcon from '../../../assests/img1/arrow_white.svg';
 import fbIcon from '../../../assests/img1/fb_icon_1.svg';
 import instaIcon from '../../../assests/img1/insta_icon_1.svg';
-import inIcon from '../../../assests/img1/in_icon_1.svg';
+// import inIcon from '../../../assests/img1/in_icon_1.svg';
+import inIcon from '../../../assests/img1/linkedIn_classic.svg';
 import whtsIcon from '../../../assests/img1/what_icon_1.svg';
 // import webIcon from '../../../assests/img1/web_icon_1.svg';
 import webIcon from '../../../assests/img1/Subtract_white.svg';
@@ -73,7 +74,7 @@ function ClassicNewTheme({ card }) {
                 <span className='qr-code1' onClick={() => setQrModal(true)} style={{ backgroundColor: `${card.iconBgColor ? card.iconBgColor : ''}` }}><BsQrCodeScan size={22} /></span>
                 <Link className='share' onClick={handleShare} style={{ backgroundColor: `${card.iconBgColor ? card.iconBgColor : ''}` }} ><img src={shareIcon} alt='' /></Link>
                 {/* <Link className="addToContact" to={`${card.vCard}`} ><img src={addIcon} alt='' /></Link> */}
-                <Link className="addToContact flex" to={`${card.vCard}`} style={{ backgroundColor: `${card.iconBgColor ? card.iconBgColor : ''}` }} >
+                <Link className="addToContactNew flex" to={`${card.vCard}`} style={{ backgroundColor: `${card.iconBgColor ? card.iconBgColor : ''}` }} >
                     <p className='w-12 ml-6 my-2 text-white text-sm' >Add to Contacts</p>
                     <img className='ml-6 rounded-full bg-black  my-2 p-2 w-10 h-10' src={addIcon} alt='' style={{ backgroundColor: `${card.colorCode ? card.colorCode : ''}` }} />
                 </Link>

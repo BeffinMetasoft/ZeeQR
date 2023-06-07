@@ -426,7 +426,7 @@ button {
     width: 75%;
     margin-bottom: 4px;
 }
-.addToContact{
+.addToContactNew{
     width: 150px;
     height: 60px;
     position: fixed;
@@ -438,7 +438,7 @@ button {
     -moz-border-radius: 60px;
     -webkit-border-radius: 60px;
 }
-.addToContact img{
+.addToContactNew img{
     width: 27%;
 }
 .previewContainer1New .photoGrid figure {
