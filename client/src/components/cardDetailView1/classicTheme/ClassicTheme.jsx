@@ -255,6 +255,15 @@ function ClassicTheme({ card }) {
                                     <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}> {card.websiteName}</h5>
                                 </Link>
                             </div>
+                            {card.websiteName1 ?
+                            <div className="social-media mt-5" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
+                                <Link to={`${card.websiteUrl1}`} target="_blank" >
+                                    <img className='rounded-full bg-white' src={webIcon} alt='' />
+                                    <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}> {card.websiteName1}</h5>
+                                </Link>
+                            </div>
+                            :''
+                            }
                         </div>
                         : ""}
 

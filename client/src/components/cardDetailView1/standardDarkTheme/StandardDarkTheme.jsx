@@ -187,8 +187,16 @@ function StandardDarkTheme({ card }) {
                                         <figure><img src={card.websiteImage} alt='' /></figure>
                                         <figcaption> {card.websiteName}</figcaption>
                                     </Link>
-
                                 </div>
+                                {card.websiteImage1 ?
+                                <div className="otherLinks ">
+                                    <Link to={`${card.websiteUrl1}`} target="_blank" >
+                                        <figure><img src={card.websiteImage1} alt='' /></figure>
+                                        <figcaption> {card.websiteName1}</figcaption>
+                                    </Link>
+                                </div>
+                                : ''
+                                }
                             </div>
                             : ''}
 

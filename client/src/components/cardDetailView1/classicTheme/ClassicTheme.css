@@ -245,7 +245,7 @@ button {
 
 .previewContainer1 .social-media {
     display: flex;
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
 }
 .previewContainer1 .contactOptions .social-media a{
