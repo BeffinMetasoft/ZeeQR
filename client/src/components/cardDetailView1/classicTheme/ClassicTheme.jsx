@@ -84,7 +84,7 @@ function ClassicTheme({ card }) {
                     <div className="header"></div>
                     {card.checkPfCard ?
 
-                        <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`}>
+                        <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`} style={{backgroundColor: `${card.pfCardColor ? card.pfCardColor : ''}`}}>
                             {!card.checkProfile ? '' :
 
                                 <figure>
@@ -121,6 +121,13 @@ function ClassicTheme({ card }) {
                         <h2><span><img src={phoneiconw} alt='' /></span> Contact Me</h2>
                         <h3>Call</h3>
                         <Link to={`tel:+${card.phone}`} style={{ color: `${card.colorCode ? 'white' : ''}` }} >+{card.phone}</Link>
+                        {card.altPhone ?
+                            <>
+                                <h3>Work</h3>
+                                <Link to={`tel:+${card.altPhone}`} style={{ color: `${card.colorCode ? 'white' : ''}` }} >+{card.altPhone}</Link>
+                            </>
+                            : ''
+                        }
                         <h3>Email</h3>
                         <Link onClick={(e) => {
                             window.location = `mailto:${card.email}`;
@@ -316,11 +323,11 @@ function ClassicTheme({ card }) {
 
             </section>
             {card.footer ?
-            <div className="footerClassic flex flex-col items-center " style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }}  >
-                <p>POWERED BY <Link to={"https://zeeqr.co/"} target="_blank">ZEEQR</Link></p>
-                <Link to={"https://zeeqr.co/"} target="_blank" > <img className='w-18' src={ftLogo} alt='' /></Link>
-            </div>
-            :''
+                <div className="footerClassic flex flex-col items-center " style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }}  >
+                    <p>POWERED BY <Link to={"https://zeeqr.co/"} target="_blank">ZEEQR</Link></p>
+                    <Link to={"https://zeeqr.co/"} target="_blank" > <img className='w-18' src={ftLogo} alt='' /></Link>
+                </div>
+                : ''
             }
 
             {qrModal ? (
