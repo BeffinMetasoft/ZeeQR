@@ -27,6 +27,8 @@ import arrow from '../../../assests/img/more_icon.svg'
 import arrow_white from '../../../assests/img/chevron-right-white.svg'
 import companyProfile from '../../../assests/img/companyProfile.jpg'
 import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
+import ftLogo from '../../../assests/img/footer_logo.svg'
+
 // import { IoIosArrowForward } from 'react-icons/io';
 
 function ClassicTheme({ card }) {
@@ -308,9 +310,18 @@ function ClassicTheme({ card }) {
 
                     }
 
+
+
                 </div>
 
             </section>
+            {card.footer ?
+            <div className="footerClassic flex flex-col items-center " style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }}  >
+                <p>POWERED BY <Link to={"https://zeeqr.co/"} target="_blank">ZEEQR</Link></p>
+                <Link to={"https://zeeqr.co/"} target="_blank" > <img className='w-18' src={ftLogo} alt='' /></Link>
+            </div>
+            :''
+            }
 
             {qrModal ? (
                 <>

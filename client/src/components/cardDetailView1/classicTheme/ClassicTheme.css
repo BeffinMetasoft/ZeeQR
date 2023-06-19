@@ -465,13 +465,13 @@ button {
     margin: 0 auto
 }
 
-.footer {
+.footerClassic {
     text-align: center;
-    padding: 25px 0 18px;
+    padding: 25px 0 60px;
     background: #1e1e1e
 }
 
-.footer p {
+.footerClassic p {
     font-size: 14px;
     line-height: 15px;
     background: linear-gradient(90deg, #DBB24B 0%, #DED099 100%);
@@ -482,7 +482,7 @@ button {
     margin-bottom: 10px
 }
 
-.footer p a {
+.footerClassic p a {
     text-decoration: none;
     color: #fff
 }

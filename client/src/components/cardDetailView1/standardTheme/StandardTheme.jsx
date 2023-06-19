@@ -243,7 +243,7 @@ function StandardTheme({ card }) {
 
                 </div>
                 <div className="footer flex flex-col items-center " style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'black'}` }}  >
-                    <p>Powered by <Link to={"https://zeeqr.co/"} target="_blank">Zeeqr</Link></p>
+                    <p>POWERED BY <Link to={"https://zeeqr.co/"} target="_blank">ZEEQR</Link></p>
                     <Link to={"https://zeeqr.co/"} target="_blank" > <img className='w-18' src={ftLogo} alt='' /></Link>
                 </div>
             </section>
