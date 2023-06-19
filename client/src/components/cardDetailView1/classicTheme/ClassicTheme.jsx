@@ -26,6 +26,7 @@ import youtube from '../../../assests/img/youtube4.png'
 import arrow from '../../../assests/img/more_icon.svg'
 import arrow_white from '../../../assests/img/chevron-right-white.svg'
 import companyProfile from '../../../assests/img/companyProfile.jpg'
+import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
 // import { IoIosArrowForward } from 'react-icons/io';
 
 function ClassicTheme({ card }) {
@@ -65,9 +66,11 @@ function ClassicTheme({ card }) {
 
 
 
+
+
     return (
         <div>
-            <section className="previewWrap1 " style={{ backgroundImage: `url(${card.bgImg ? card.bgImg : background})`, backgroundSize: '100%', backgroundPosition: 'center 150px',backgroundColor:`${card.bgImg ? '#0a0f23' : ''}` }}>
+            <section className="previewWrap1 " style={{ backgroundImage: `url(${card.bgImg ? card.bgImg : background})`, backgroundSize: '100%', backgroundPosition: 'center 150px', backgroundColor: `${card.bgImg ? '#0a0f23' : ''}` }}>
                 <span className='qr-code1' onClick={() => setQrModal(true)} ><BsQrCodeScan size={22} /></span>
                 <Link className='share' onClick={handleShare}><img src={shareIcon} alt='' /></Link>
                 <Link className="addToContact" to={`${card.vCard}`}><img src={addIcon} alt='' /></Link>
@@ -256,14 +259,33 @@ function ClassicTheme({ card }) {
                                 </Link>
                             </div>
                             {card.websiteName1 ?
-                            <div className="social-media mt-5" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
-                                <Link to={`${card.websiteUrl1}`} target="_blank" >
-                                    <img className='rounded-full bg-white' src={webIcon} alt='' />
-                                    <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}> {card.websiteName1}</h5>
-                                </Link>
-                            </div>
-                            :''
+                                <div className="social-media mt-5" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
+                                    <Link to={`${card.websiteUrl1}`} target="_blank" >
+                                        <img className='rounded-full bg-white' src={webIcon} alt='' />
+                                        <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}> {card.websiteName1}</h5>
+                                    </Link>
+                                </div>
+                                : ''
                             }
+                        </div>
+                        : ""}
+
+
+                    {card.downloads ?
+                        <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                            <h4 style={{ color: `${card.colorCode ? 'white' : ''}` }}>Downloads</h4>
+                            {card.downloads.map((obj) => {
+                                return (
+
+                                    <div className="social-media" >
+                                        <Link to={`${obj.itemLink}`}  >
+                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                                            <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}> {obj.itemName}</h5>
+                                        </Link>
+                                    </div>
+                                )
+                            })}
+
                         </div>
                         : ""}
 

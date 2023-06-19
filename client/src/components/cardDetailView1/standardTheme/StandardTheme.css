@@ -262,6 +262,52 @@ button {
     line-height: 20px;
     color: #1e1e1e
 }
+.previewContainer .downloadLinks {
+    margin-bottom: 40px
+}
+
+.previewContainer .downloadLinks a {
+    overflow: hidden;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    text-decoration: none;
+    background: #efefef;
+    /* background: #efefef url("../../../assests/img/more_icon.svg") no-repeat 96% center */
+}
+
+.previewContainer .downloadLinks figure {
+    min-width: 150px;
+    width: 150px;
+    height: 89px;
+    padding-left: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.previewContainer .downloadLinks figure img {
+    width: 50%;
+    height: 50%;
+   
+    margin-top: 18px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+}
+
+.previewContainer .downloadLinks figcaption {
+    padding: 15px 35px 15px 15px;
+    width: calc(100% - 180px);
+    font-size: 18px;
+    line-height: 20px;
+    color: #1e1e1e
+}
 
 .previewContainer .photoGrid {
     display: flex;

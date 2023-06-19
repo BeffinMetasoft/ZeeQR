@@ -16,6 +16,8 @@ import loc from '../../../assests/img/loc_icon.svg'
 import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
 import { ImProfile } from 'react-icons/im'
+import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
+
 
 
 
@@ -184,18 +186,39 @@ function StandardTheme({ card }) {
 
                                 </div>
                                 {card.websiteImage1 ?
-                                <div className="otherLinks ">
-                                    <Link to={`${card.websiteUrl1}`} target="_blank" >
-                                        <figure><img src={card.websiteImage1} alt='' /></figure>
-                                        <figcaption> {card.websiteName1}</figcaption>
-                                    </Link>
+                                    <div className="otherLinks ">
+                                        <Link to={`${card.websiteUrl1}`} target="_blank" >
+                                            <figure><img src={card.websiteImage1} alt='' /></figure>
+                                            <figcaption> {card.websiteName1}</figcaption>
+                                        </Link>
 
-                                </div>
-                                : ''
+                                    </div>
+                                    : ''
                                 }
                             </div>
                             : ""
                         }
+
+                        {card.downloads ?
+                            <div>
+                                <div className='flex'>
+                                    <h2>Downloads</h2>
+                                    <p style={{ borderBottom: `3px solid #FF5C00`, height: '4px', marginTop: '18px' }} >&nbsp; &nbsp; &nbsp; </p>
+                                </div>
+                                {card.downloads.map((obj) => {
+                                    return (
+
+                                        <div className="downloadLinks">
+                                            <Link to={`${obj.itemLink}`} >
+                                                <figcaption > {obj.itemName}</figcaption>
+                                                <figure><img src={downloadIcon} alt='' /></figure>
+                                            </Link>
+                                        </div>
+                                    )
+                                })}
+
+                            </div>
+                            : ''}
 
                         {card.highlightPhotos.length === 0 ? '' :
                             (card.checkHighlight ?

@@ -17,6 +17,7 @@ import { BsQrCodeScan } from 'react-icons/bs'
 import addtoHome from '../../../assests/img1/addtoHome.jpg'
 import { ImProfile } from 'react-icons/im'
 
+
 function StandardDarkTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
 
@@ -128,7 +129,7 @@ function StandardDarkTheme({ card }) {
                                         </Link>
                                         : ""}
                                     {card.tiktok ? (
-                                       <Link to={`${card.tiktok}`} target="_blank">
+                                        <Link to={`${card.tiktok}`} target="_blank">
                                             {/* <img src={tiktok} alt="" /> */}
                                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" color='black' class="bi bi-tiktok" viewBox="0 0 16 16"> <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z" /> </svg>
 
@@ -189,16 +190,19 @@ function StandardDarkTheme({ card }) {
                                     </Link>
                                 </div>
                                 {card.websiteImage1 ?
-                                <div className="otherLinks ">
-                                    <Link to={`${card.websiteUrl1}`} target="_blank" >
-                                        <figure><img src={card.websiteImage1} alt='' /></figure>
-                                        <figcaption> {card.websiteName1}</figcaption>
-                                    </Link>
-                                </div>
-                                : ''
+                                    <div className="otherLinks ">
+                                        <Link to={`${card.websiteUrl1}`} target="_blank" >
+                                            <figure><img src={card.websiteImage1} alt='' /></figure>
+                                            <figcaption> {card.websiteName1}</figcaption>
+                                        </Link>
+                                    </div>
+                                    : ''
                                 }
                             </div>
                             : ''}
+
+
+                        
 
                         {card.highlightPhotos.length === 0 ? '' :
                             (card.checkHighlight ?
