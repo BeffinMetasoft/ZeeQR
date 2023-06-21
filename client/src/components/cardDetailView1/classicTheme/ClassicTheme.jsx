@@ -84,7 +84,7 @@ function ClassicTheme({ card }) {
                     <div className="header"></div>
                     {card.checkPfCard ?
 
-                        <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`} style={{backgroundColor: `${card.pfCardColor ? card.pfCardColor : ''}`}}>
+                        <div className={`userDetails ${!card.checkProfile ? "flex flex-col jutify-center" : ''}`} style={{ backgroundColor: `${card.pfCardColor ? card.pfCardColor : ''}` }}>
                             {!card.checkProfile ? '' :
 
                                 <figure>
@@ -96,6 +96,20 @@ function ClassicTheme({ card }) {
                                 <h1 style={{ width: `${!card.checkProfile ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.name}</h1>
 
                                 <p>{card.companyDesignation}</p>
+                            </div>
+                        </div> : ''
+                    }
+                    {card.checkPfCard1 ?
+
+                        <div className={`userDetails ${!card.checkProfile1 ? "flex flex-col jutify-center" : ''}`} style={{ backgroundColor: `${card.pfCardColor ? card.pfCardColor : ''}` }}>
+                           
+                            <div className="user " style={{ width: `${card.checkProfile1 ? 'calc(100% - 122px)' : ''}` }}>
+
+                                <h1 style={{ width: `${!card.checkProfile1 ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.pfCard1name1}</h1>
+                                <h1 style={{ width: `${!card.checkProfile1 ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.pfCard1name2}</h1>
+
+                                {/* <p>{card.pfCard1name1}</p> */}
+                                {/* <p>{card.pfCard1name2}</p> */}
                             </div>
                         </div> : ''
                     }
@@ -116,6 +130,16 @@ function ClassicTheme({ card }) {
                             <img src={whatsappiconw} alt='' />
                         </Link>
                     </div>
+                    {card.about ?
+
+                        <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}`, color: `${card.colorCode ? 'white' : ''}` }}>
+                            <h2>About Me</h2>
+                            <p>{card.about}</p>
+
+
+                        </div>
+                        : ''
+                    }
 
                     <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}`, color: `${card.colorCode ? 'white' : ''}` }}>
                         <h2><span><img src={phoneiconw} alt='' /></span> Contact Me</h2>
@@ -133,9 +157,21 @@ function ClassicTheme({ card }) {
                             window.location = `mailto:${card.email}`;
                             e.preventDefault();
                         }} style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.email}</Link>
+                        {card.email1 ?
+                        <Link onClick={(e) => {
+                            window.location = `mailto:${card.email1}`;
+                            e.preventDefault();
+                        }} style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.email1}</Link>
+                        :''
+                        }
                         <h3>Location</h3>
                         <Link style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.address}</Link>
                         {card.locationUrl ?
+                            <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link>
+                            : ""
+                        }
+                        <Link style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.address1}</Link>
+                        {card.locationUrl1 ?
                             <Link target='_blank' to={`${card.locationUrl}`} className='blk-btn'><img src={arrowIcon} alt='' />Direction</Link>
                             : ""
                         }
@@ -167,6 +203,30 @@ function ClassicTheme({ card }) {
                                     </div>
                                 </div>
                                 : ""}
+                            {card.instagram1 ?
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
+
+                                        <Link to={`${card.instagram1}`} target="_blank">
+                                            <img src={instaIcon} alt='' />
+                                            <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}>Instagram<span style={{ color: `${card.colorCode ? 'white' : ''}` }}>Follow me on Personal Instagram</span></h5>
+                                        </Link>
+
+                                    </div>
+                                </div>
+                                : ""}
+                            {card.instagram2 ?
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
+
+                                        <Link to={`${card.instagram2}`} target="_blank">
+                                            <img src={instaIcon} alt='' />
+                                            <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}>Instagram<span style={{ color: `${card.colorCode ? 'white' : ''}` }}>Follow me on company Instagram</span></h5>
+                                        </Link>
+
+                                    </div>
+                                </div>
+                                : ""}
                             {card.facebook ?
                                 <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
                                     <div className="social-media" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
@@ -174,6 +234,30 @@ function ClassicTheme({ card }) {
                                         <Link to={`${card.facebook}`} target="_blank">
                                             <img src={fbIcon} alt='' />
                                             <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}>Facebook<span style={{ color: `${card.colorCode ? 'white' : ''}` }}>Follow me on Facebook</span></h5>
+                                        </Link>
+
+                                    </div>
+                                </div>
+                                : ""}
+                            {card.facebook1 ?
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
+
+                                        <Link to={`${card.facebook1}`} target="_blank">
+                                            <img src={fbIcon} alt='' />
+                                            <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}>Facebook<span style={{ color: `${card.colorCode ? 'white' : ''}` }}>Follow me on Personal Facebook</span></h5>
+                                        </Link>
+
+                                    </div>
+                                </div>
+                                : ""}
+                            {card.facebook2 ?
+                                <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}` }}>
+                                    <div className="social-media" style={{ backgroundImage: `url(${card.colorCode ? arrow_white : arrow})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right' }}>
+
+                                        <Link to={`${card.facebook2}`} target="_blank">
+                                            <img src={fbIcon} alt='' />
+                                            <h5 style={{ color: `${card.colorCode ? 'white' : ''}` }}>Facebook<span style={{ color: `${card.colorCode ? 'white' : ''}` }}>Follow me on Company Facebook</span></h5>
                                         </Link>
 
                                     </div>
