@@ -54,7 +54,7 @@ function ClassicTheme({ card, preview }) {
   //   checkPfCard,
   //   checkLogo,
   //   checkHighlight,
-  //   card?.SMediaPostion,
+  //   card?.card?.SMediaPostion,
   // } = useSelector((state) => state.cardReducer);
 
 
@@ -85,7 +85,7 @@ function ClassicTheme({ card, preview }) {
     saveAs(url, card?.name);
   };
 
-  const Highlightcolor = card?.colorCode ? card?.colorCodes : "#C3C3C3";
+  const Highlightcolor = card?.colorCode ? card?.colorCode : "";
   // console.log(Highlightcolor, 'qwertyuiop');
 
   const shareMail = (e) => {
@@ -94,8 +94,9 @@ function ClassicTheme({ card, preview }) {
   };
 
   const array = card?.name ? card?.name?.split(" ") : "";
-  //--------------------------------------FaceBookIcon-----------------------------------------------
-  const FaceBookIcon = (
+  //--------------------------------------FaceBookIcon1-----------------------------------------------
+
+  const FaceBookIcon1 = (
     <Link
       to={`${preview ? card?.facebook : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -106,8 +107,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------InstagramIcon-----------------------------------------------
-  const InstagramIcon = (
+  //--------------------------------------InstagramIcon1-----------------------------------------------
+  const InstagramIcon1 = (
     <Link
       to={`${preview ? card?.instagram : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -118,11 +119,12 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------WhatsAppIcon-----------------------------------------------
-  const WhatsAppIcon = (
+  //--------------------------------------WhatsAppIcon1-----------------------------------------------
+  const WhatsAppIcon1 = (
     <Link
-      to={`https://wa.me/+${preview ? card?.whatsappNumber : ""
-        }?text=Hi%2C`}
+      to={`https://wa.me/+${
+        preview ? card?.whatsappNumber : ""
+      }?text=Hi%2C`}
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={whtsIcon} alt="" />
@@ -131,8 +133,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------LinkedInIcon-----------------------------------------------
-  const LinkedInIcon = (
+  //--------------------------------------LinkedInIcon1-----------------------------------------------
+  const LinkedInIcon1 = (
     <Link
       to={`${preview ? card?.linkedin : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -143,8 +145,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------TwitterIcon-----------------------------------------------
-  const TwitterIcon = (
+  //--------------------------------------TwitterIcon1-----------------------------------------------
+  const TwitterIcon1 = (
     <Link
       to={`${preview ? card?.twitter : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -155,8 +157,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------YoutubeIcon-----------------------------------------------
-  const YoutubeIcon = (
+  //--------------------------------------YoutubeIcon1-----------------------------------------------
+  const YoutubeIcon1 = (
     <Link
       to={`${preview ? card?.youtube : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -167,8 +169,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------SkypeIcon-----------------------------------------------
-  const SkypeIcon = (
+  //--------------------------------------SkypeIcon1-----------------------------------------------
+  const SkypeIcon1 = (
     <Link
       to={`${preview ? card?.skype : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -179,8 +181,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------SnapChatIcon-----------------------------------------------
-  const SnapChatIcon = (
+  //--------------------------------------SnapChatIcon1-----------------------------------------------
+  const SnapChatIcon1 = (
     <Link
       to={`${preview ? card?.snapchat : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -191,8 +193,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------TikTokIcon-----------------------------------------------
-  const TikTokIcon = (
+  //--------------------------------------TikTokIcon1-----------------------------------------------
+  const TikTokIcon1 = (
     <Link
       to={`${preview ? card?.tiktok : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -203,8 +205,8 @@ function ClassicTheme({ card, preview }) {
       </h5>
     </Link>
   );
-  //--------------------------------------CompanyProfileIcon-----------------------------------------------
-  const CompanyProfileIcon = (
+  //--------------------------------------CompanyProfileIcon1-----------------------------------------------
+  const CompanyProfileIcon1 = (
     <Link
       to={`${preview ? card?.companyProfile : ""}`}
       target={`${preview ? "_blank" : ""}`}
@@ -213,6 +215,262 @@ function ClassicTheme({ card, preview }) {
       <h5>Company Profile</h5>
     </Link>
   );
+  //------------------------------------------------------------------------------------------------------
+
+  //--------------------------------------FaceBookIcon-----------------------------------------------
+
+  const FaceBookIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div style={{ marginBottom: "1px" }}>
+    <Link
+      to={`${preview ? card?.facebook : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={fbIcon} alt="" />
+      <div>
+      <h5 >
+        Facebook <span >Follow me on Facebook</span>
+      </h5>
+      </div>
+      
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------InstagramIcon-----------------------------------------------
+  const InstagramIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.instagram : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={instaIcon} alt="" />
+      <h5>
+        Instagram<span>Follow me on Instagram</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------WhatsAppIcon-----------------------------------------------
+  const WhatsAppIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`https://wa.me/+${
+        preview ? card?.whatsappNumber : ""
+      }?text=Hi%2C`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={whtsIcon} alt="" />
+      <h5>
+        WhatsApp<span>Follow me on WhatsApp</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------LinkedInIcon-----------------------------------------------
+  const LinkedInIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.linkedin : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={inIcon} alt="" />
+      <h5>
+        LinkedIn<span>Follow me on LinkedIn</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------TwitterIcon-----------------------------------------------
+  const TwitterIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.twitter : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={twitter} alt="" />
+      <h5>
+        Twitter<span>Follow me on Twitter</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------YoutubeIcon-----------------------------------------------
+  const YoutubeIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.youtube : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={youtube} alt="" />
+      <h5>
+        youtube<span>Follow me on Youtube</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------SkypeIcon-----------------------------------------------
+  const SkypeIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.skype : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={skype} alt="" />
+      <h5>
+        Skype<span>Follow me on Skype</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------SnapChatIcon-----------------------------------------------
+  const SnapChatIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.snapchat : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={snapchat} alt="" />
+      <h5>
+        Snapchat<span>Follow me on Snapchat</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------TikTokIcon-----------------------------------------------
+  const TikTokIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.tiktok : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={tiktok} alt="" />
+      <h5>
+        Tiktok<span>Follow me on Tiktok</span>
+      </h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
+  //--------------------------------------CompanyProfileIcon-----------------------------------------------
+  const CompanyProfileIcon = (
+    <div
+    className="contactOptions"
+    style={{
+      backgroundColor: `${
+        Highlightcolor ? Highlightcolor : ""
+      }`,
+    }}
+  >
+    <div className="social-media" style={{ display: "block" }}>
+    <div >
+    <Link
+      to={`${preview ? card?.companyProfile : ""}`}
+      target={`${preview ? "_blank" : ""}`}
+    >
+      <img src={companypfImage} alt="" />
+      <h5>Company Profile</h5>
+    </Link>
+    </div>
+    </div>
+    </div>
+  );
   //------------------------------------------------------------------------------------------------------
   return (
     <div>
@@ -253,7 +511,7 @@ function ClassicTheme({ card, preview }) {
               className={`userDetails ${!card?.checkProfile ? "flex flex-col jutify-center" : ""
                 }`}
               style={{
-                backgroundColor: `${Highlightcolor ? Highlightcolor : "#C3C3C3"
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                   }`,
               }}
             >
@@ -316,7 +574,10 @@ function ClassicTheme({ card, preview }) {
           ) : (
             ""
           )}
-          <div className="social-links">
+          <div className="social-links" style={{
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                  }`,
+              }}>
             <Link onClick={preview ? shareMail : ""}>
               <img src={mailiconw} alt="" />
             </Link>
@@ -340,7 +601,10 @@ function ClassicTheme({ card, preview }) {
             )}
           </div>
 
-          <div className="contactOptions">
+          <div className="contactOptions" style={{
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                  }`,
+              }}>
             <h2>
               <span>
                 <img src={phoneiconw} alt="" />
@@ -382,458 +646,464 @@ function ClassicTheme({ card, preview }) {
           {/* ------------------------------------------------------------------------------------------------------------------------------- */}
 
           {(card?.facebook && card?.SMediaPostion?.pos1) ||
-            (card?.whatsappNumber && card?.SMediaPostion?.pos1) ||
-            (card?.linkedin && card?.SMediaPostion?.pos1) ||
-            (card?.instagram && card?.SMediaPostion?.pos1) ||
-            (card?.twitter && card?.SMediaPostion?.pos1) ||
-            (card?.skype && card?.SMediaPostion?.pos1) ||
-            (card?.tiktok && card?.SMediaPostion?.pos1) ||
-            (card?.youtube && card?.SMediaPostion?.pos1) ||
-            (card?.snapchat && card?.SMediaPostion?.pos1) ||
-            (card?.companyProfile && card?.SMediaPostion?.pos1) ? (
+          (card?.whatsappNumber && card?.SMediaPostion?.pos1) ||
+          (card?.linkedin && card?.SMediaPostion?.pos1) ||
+          (card?.instagram && card?.SMediaPostion?.pos1) ||
+          (card?.twitter && card?.SMediaPostion?.pos1) ||
+          (card?.skype && card?.SMediaPostion?.pos1) ||
+          (card?.tiktok && card?.SMediaPostion?.pos1) ||
+          (card?.youtube && card?.SMediaPostion?.pos1) ||
+          (card?.snapchat && card?.SMediaPostion?.pos1) ||
+          (card?.companyProfile && card?.SMediaPostion?.pos1) ? (
             <div>
-              <div className="contactOptions">
-                <h4>Social Media</h4>
+              <div
+                className="contactOptions"
+                style={{
+                  backgroundColor: `${
+                    Highlightcolor ? Highlightcolor : ""
+                  }`,
+                }}
+              >
                 <div className="social-media" style={{ display: "block" }}>
                   <div style={{ marginBottom: "15px" }}>
-                    {card?.SMediaPostion?.pos1 === "facebook"
-                      ? card?.facebook
-                        ? FaceBookIcon
-                        : ""
-                      : card?.SMediaPostion?.pos1 === "instagram"
+                    <h4>Social Media</h4>
+                    </div>
+                    <div style={{ marginBottom: "5px" }}>
+                      {card?.SMediaPostion?.pos1 === "facebook"
+                        ? card?.facebook
+                          ? FaceBookIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "instagram"
                         ? card?.instagram
-                          ? InstagramIcon
+                          ? InstagramIcon1
                           : ""
                         : card?.SMediaPostion?.pos1 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos1 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos1 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos1 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos1 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos1 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos1 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos1 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
+                        ? card?.whatsappNumber
+                          ? WhatsAppIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "linkedin"
+                        ? card?.linkedin
+                          ? LinkedInIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "twitter"
+                        ? card?.twitter
+                          ? TwitterIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "youtube"
+                        ? card?.youtube
+                          ? YoutubeIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "skype"
+                        ? card?.skype
+                          ? SkypeIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "snapchat"
+                        ? card?.snapchat
+                          ? SnapChatIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "tiktok"
+                        ? card?.tiktok
+                          ? TikTokIcon1
+                          : ""
+                        : card?.SMediaPostion?.pos1 === "companyProfile"
+                        ? card?.companyProfile
+                          ? CompanyProfileIcon1
+                          : ""
+                        : ""}
+                    </div>
                   </div>
-                  <div style={{ marginBottom: "15px" }}>
+                </div>
+               
                     {card?.SMediaPostion?.pos2 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos2 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos2 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos2 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos2 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos2 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos2 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos2 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos2 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos2 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos2 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
+               
+             
                     {card?.SMediaPostion?.pos3 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos3 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos3 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos3 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos3 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos3 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos3 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos3 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos3 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos3 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos3 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos4 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos4 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos4 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos4 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos4 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos4 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos4 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos4 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos4 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos4 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos4 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos5 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos5 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos5 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos5 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos5 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos5 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos5 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos5 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos5 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos5 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos5 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos6 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos6 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos6 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos6 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos6 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos6 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos6 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos6 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos6 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos6 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos6 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos7 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos7 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos7 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos7 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos7 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos7 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos7 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos7 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos7 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos7 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos7 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos8 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos8 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos8 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos8 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos8 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos8 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos8 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos8 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos8 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos8 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos8 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos9 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos9 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos9 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos9 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos9 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos9 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos9 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos9 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos9 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos9 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                  <div style={{ marginBottom: "15px" }}>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos9 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
                     {card?.SMediaPostion?.pos10 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon
                         : ""
                       : card?.SMediaPostion?.pos10 === "instagram"
-                        ? card?.instagram
-                          ? InstagramIcon
-                          : ""
-                        : card?.SMediaPostion?.pos10 === "whatsappNumber"
-                          ? card?.whatsappNumber
-                            ? WhatsAppIcon
-                            : ""
-                          : card?.SMediaPostion?.pos10 === "linkedin"
-                            ? card?.linkedin
-                              ? LinkedInIcon
-                              : ""
-                            : card?.SMediaPostion?.pos10 === "twitter"
-                              ? card?.twitter
-                                ? TwitterIcon
-                                : ""
-                              : card?.SMediaPostion?.pos10 === "youtube"
-                                ? card?.youtube
-                                  ? YoutubeIcon
-                                  : ""
-                                : card?.SMediaPostion?.pos10 === "skype"
-                                  ? card?.skype
-                                    ? SkypeIcon
-                                    : ""
-                                  : card?.SMediaPostion?.pos10 === "snapchat"
-                                    ? card?.snapchat
-                                      ? SnapChatIcon
-                                      : ""
-                                    : card?.SMediaPostion?.pos10 === "tiktok"
-                                      ? card?.tiktok
-                                        ? TikTokIcon
-                                        : ""
-                                      : card?.SMediaPostion?.pos10 === "companyProfile"
-                                        ? card?.companyProfile
-                                          ? CompanyProfileIcon
-                                          : ""
-                                        : ""}
-                  </div>
-                </div>
-              </div>
+                      ? card?.instagram
+                        ? InstagramIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "whatsappNumber"
+                      ? card?.whatsappNumber
+                        ? WhatsAppIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "linkedin"
+                      ? card?.linkedin
+                        ? LinkedInIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "twitter"
+                      ? card?.twitter
+                        ? TwitterIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "youtube"
+                      ? card?.youtube
+                        ? YoutubeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "skype"
+                      ? card?.skype
+                        ? SkypeIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "snapchat"
+                      ? card?.snapchat
+                        ? SnapChatIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "tiktok"
+                      ? card?.tiktok
+                        ? TikTokIcon
+                        : ""
+                      : card?.SMediaPostion?.pos10 === "companyProfile"
+                      ? card?.companyProfile
+                        ? CompanyProfileIcon
+                        : ""
+                      : ""}
+                 
             </div>
           ) : (
-            ""
-          )}
+            ""
+          )}
 
           {card?.websiteImage || card?.websiteName || card?.websiteUrl ?
-            <div className="contactOptions">
+            <div className="contactOptions" style={{
+              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                }`,
+            }}>
               <h4>Website</h4>
               <div className="social-media">
                 <Link to={`${preview ? card?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} >
