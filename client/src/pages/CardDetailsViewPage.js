@@ -9,6 +9,11 @@ import MinimalTheme from '../components/cardDetailView1/minimalTheme/MinimalThem
 import StandardDarkTheme from '../components/cardDetailView1/standardDarkTheme/StandardDarkTheme'
 import StandardTheme from '../components/cardDetailView1/standardTheme/StandardTheme'
 import ClassicNewTheme from '../components/cardDetailView1/classicNewTheme/ClassicNewTheme'
+
+import ClassicTheme1 from '../components/cardViewThemes/classicTheme/ClassicTheme'
+import StandardTheme1 from '../components/cardViewThemes/standardTheme/StandardTheme'
+import ModernTheme1 from '../components/cardViewThemes/modernTheme/ModernTheme'
+
 const metaDecorator = require('../data/metaDecorator.json')
 
 function CardDetailsViewPage() {
@@ -23,7 +28,7 @@ function CardDetailsViewPage() {
             try {
                 // console.log(params.id, '11111111111');
                 const { data } = await cardProfile(params.id)
-                // console.log(data, 'dataaaaaaaaaaa');
+                console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     setPre(false)
                     setCard(data.card)
@@ -88,6 +93,16 @@ function CardDetailsViewPage() {
                             <StandardDarkTheme  card={card} key={card._id} />
                             :  card.theme === 'classicNew' ?
                             <ClassicNewTheme  card={card} key={card._id} />
+                            :
+
+                            card.theme === 'classic1' ?
+                            <ClassicTheme1  card={card}  preview={'preview'} key={card._id} />
+                            :
+                            card.theme === 'standard1' ?
+                            <StandardTheme1  card={card}  preview={'preview'} key={card._id} />
+                            :
+                            card.theme === 'modern1' ?
+                            <ModernTheme1  card={card}  preview={'preview'} key={card._id} />
                             :
                             <StandardTheme card={card} key={card._id} />
                         )

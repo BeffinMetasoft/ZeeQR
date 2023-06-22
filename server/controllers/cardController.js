@@ -468,7 +468,8 @@ const editBookedCard = async (req, res, next) => {
 const getSingleCard = async (req, res, next) => {
   try {
     // const card = await CardModel.findOne({ _id: req.params.id });
-    const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { block: false }] });
+    // const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { block: false }] });
+    const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { $or: [ { block: false }, { status : "active" } ] }] });
     // const QRCode = await generateQR('https://zeeqr.info/profile-view/641eb3995cc9b4462a832959');
     //  console.log( card,'qwert123');
     res
