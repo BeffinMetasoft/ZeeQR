@@ -35,7 +35,7 @@ function Login() {
                 const { data } = await userLogin(loginData)
                 console.log(data);
                 if (data.success) {
-                    localStorage.setItem("refToken", data.refreshToken)
+                    localStorage.setItem("refTokenZeeqrInfo", data.refreshToken)
                    
                     navigate(from, { replace: true })
 

@@ -17,7 +17,7 @@ axiosPrivate.interceptors.response.use((response) => {
         if (error.response.status === 401) {
             try {
 
-                const refToken = await localStorage.getItem("refToken")
+                const refToken = await localStorage.getItem("refTokenZeeqrInfo")
                 const response = await axios.post('/refresh-token', { refToken }, {
                     withCredentials: true
                 });

@@ -26,18 +26,18 @@ export default function Dropdown() {
           label: 'Yes',
           onClick: async () => {
             try {
-              const refToken = await localStorage.getItem("refToken")
+              const refToken = await localStorage.getItem("refTokenZeeqrInfo")
               // console.log(refToken, '12345');
               const { data } = await userLogout(refToken)
               console.log(data);
               if (data.success) {
-                localStorage.removeItem('refToken')
+                localStorage.removeItem('refTokenZeeqrInfo')
                 navigate('/login')
               }
             } catch (error) {
               console.log(error.response.data);
-              localStorage.removeItem('refToken')
-              navigate('/')
+              localStorage.removeItem('refTokenZeeqrInfo')
+              navigate('/login')
             }
           }
         },
