@@ -8,7 +8,7 @@ function CreateCard() {
       <div className='md:w-7/12 bg-gray-100 flex justify-end h-screen overflow-auto scrollbar-hide'>
         <div className='w-9/12  mt-20 ' >
 
-          <h1 className='text-6xl mx-5 pr-10 font-semibold '>Create your <b>ZeeQR </b> Business card profile </h1>
+          <h1 className='text-6xl mx-5 pr-10 font-semibold '>Create your <b>ZEEQR </b> Business card profile </h1>
           <h3 className='text-xl my-7'>Customize your details</h3>
           <p className='text-sm'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci voluptas reprehenderit eligendi laudantium labore tempora diet velit deleniti quasi incidunt?</p>
           <div className='mt-10  text-xs flex gap-3'>

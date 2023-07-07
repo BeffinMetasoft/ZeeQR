@@ -64,7 +64,7 @@ function ModernTheme({ card, preview }) {
         .share({
           text: "check it out",
           url: window.location.href,
-          title: "ZeeQR",
+          title: card.name,
         })
         .then(() => console.log("Successful share"))
         .catch((error) => console.log("Error sharing", error));
@@ -1141,7 +1141,7 @@ function ModernTheme({ card, preview }) {
                 <p>
                   Powered by{" "}
                   <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                    Zeeqr
+                  ZEEQR
                   </Link>
                 </p>
                 <Link to={"hhttps://zeeqr.com/"} target="_blank">
@@ -1152,7 +1152,7 @@ function ModernTheme({ card, preview }) {
             ) : (
               <>
                 <p>
-                  Powered by <Link>Zeeqr</Link>
+                  Powered by <Link> ZEEQR</Link>
                 </p>
                 <Link>
                   {" "}

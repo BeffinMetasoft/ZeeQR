@@ -30,7 +30,7 @@ function MinimalTheme({ card }) {
             navigator.share({
                 text: "Please check it out.",
                 url: window.location.href,
-                title: 'ZeeQR'
+                title: card.name
             })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error sharing', error));
@@ -249,7 +249,7 @@ function MinimalTheme({ card }) {
                     <p>
                         Powered by{" "}
                         <Link to={"https://zeeqr.co/"} target="_blank">
-                            Zeeqr
+                            ZEEQR
                         </Link>
                     </p>
                     <img className="w-18" src={ftLogo} alt="" />

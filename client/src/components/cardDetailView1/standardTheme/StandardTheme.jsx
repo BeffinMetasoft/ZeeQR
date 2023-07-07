@@ -32,7 +32,7 @@ function StandardTheme({ card }) {
             navigator.share({
                 text: "Please check it out.",
                 url: window.location.href,
-                title: 'ZeeQR'
+                title: card.name
             })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error sharing', error));

@@ -26,7 +26,7 @@ function StandardDarkTheme({ card }) {
             navigator.share({
                 text: "Please check it out.",
                 url: window.location.href,
-                title: 'ZeeQR'
+                title: card.name
             })
                 .then(() => console.log('Successful share'))
                 .catch((error) => console.log('Error sharing', error));
@@ -226,7 +226,7 @@ function StandardDarkTheme({ card }) {
 
                 </div>
                 <div className="footer flex flex-col items-center "   >
-                    <p>Powered by <Link to={"https://zeeqr.co/"} target="_blank">Zeeqr</Link></p>
+                    <p>Powered by <Link to={"https://zeeqr.co/"} target="_blank"> ZEEQR</Link></p>
                     <Link to={"https://zeeqr.co/"} target="_blank" > <img className='w-18' src={ftLogo} alt='' /></Link>
                 </div>
             </section>

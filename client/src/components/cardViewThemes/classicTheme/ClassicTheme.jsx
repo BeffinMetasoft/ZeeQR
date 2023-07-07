@@ -66,7 +66,7 @@ function ClassicTheme({ card, preview }) {
         .share({
           text: "Please check it out.",
           url: window.location.href,
-          title: "ZeeQR",
+          title: card.name,
         })
         .then(() => console.log("Successful share"))
         .catch((error) => console.log("Error sharing", error));
@@ -1219,7 +1219,7 @@ function ClassicTheme({ card, preview }) {
               <p>
                 Powered by{" "}
                 <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                  Zeeqr
+                ZEEQR
                 </Link>
               </p>
               <Link to={"hhttps://zeeqr.com/"} target="_blank">
@@ -1230,7 +1230,7 @@ function ClassicTheme({ card, preview }) {
           ) : (
             <>
               <p>
-                Powered by <Link>Zeeqr</Link>
+                Powered by <Link> ZEEQR</Link>
               </p>
               <Link>
                 {" "}

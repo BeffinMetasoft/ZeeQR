@@ -65,7 +65,7 @@ function StandardTheme({ card, preview }) {
         .share({
           text: "Please check it out.",
           url: window.location.href,
-          title: "ZeeQR",
+          title: card.name,
         })
         .then(() => console.log("Successful share"))
         .catch((error) => console.log("Error sharing", error));
@@ -181,10 +181,10 @@ function StandardTheme({ card, preview }) {
                     style={{
                       width: `${!card?.checkProfile ? "max-content" : ""}`,
                       fontSize: `${array[0]?.length > 9 ||
-                          array[1]?.length > 9 ||
-                          array[2]?.length > 9
-                          ? "20px"
-                          : ""
+                        array[1]?.length > 9 ||
+                        array[2]?.length > 9
+                        ? "20px"
+                        : ""
                         }`,
                     }}
                   >
@@ -2368,7 +2368,7 @@ function StandardTheme({ card, preview }) {
                     </figure>
                     <figcaption>
                       {card?.websiteName
-                        }
+                      }
                     </figcaption>
                   </Link>
                 </div>
@@ -2378,10 +2378,10 @@ function StandardTheme({ card, preview }) {
             )}
 
             {(card?.highlightPhotos[0].highlightPhotos1) ||
-            (card?.highlightPhotos[0].highlightPhotos2) ||
-            (card?.highlightPhotos[0].highlightPhotos3) ||
-            (card?.highlightPhotos[0].highlightPhotos4) ? (
-            card?.checkHighlight ? (
+              (card?.highlightPhotos[0].highlightPhotos2) ||
+              (card?.highlightPhotos[0].highlightPhotos3) ||
+              (card?.highlightPhotos[0].highlightPhotos4) ? (
+              card?.checkHighlight ? (
                 <div>
                   <div className="flex">
                     <h2>Gallery</h2>
@@ -2463,7 +2463,7 @@ function StandardTheme({ card, preview }) {
               <p>
                 Powered by{" "}
                 <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                  Zeeqr
+                  ZEEQR
                 </Link>
               </p>
               <Link to={"hhttps://zeeqr.com/"} target="_blank">
@@ -2474,7 +2474,7 @@ function StandardTheme({ card, preview }) {
           ) : (
             <>
               <p>
-                Powered by <Link>Zeeqr</Link>
+                Powered by <Link> ZEEQR</Link>
               </p>
               <Link>
                 {" "}
@@ -2506,12 +2506,12 @@ function StandardTheme({ card, preview }) {
                     </figure>
                     <div className="user">
                       <h1>
-                        {card?.name }
+                        {card?.name}
                       </h1>
                       <p>
                         {" "}
                         {card?.companyDesignatio
-                          }
+                        }
                       </p>
                     </div>
 
