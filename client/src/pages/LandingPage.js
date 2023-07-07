@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 function LandingPage() {
   useEffect(()=>{
     window.location.href = 'https://zeeqr.com/'
-  })
+  },[])
     return (
       <div>
            {/* <NavbarLanding/>

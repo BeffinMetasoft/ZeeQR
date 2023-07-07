@@ -642,6 +642,23 @@ function ClassicTheme({ card, preview }) {
             ) : (
               ""
             )}
+            <Link>
+              {card?.address1
+                ? card.address1
+                : ""}
+            </Link>
+            {card?.locationUrl1 ? (
+              <Link
+                to={`${preview ? card?.locationUrl1 : ""}`}
+                target={`${preview ? "_blank" : ""}`}
+                className="blk-btn"
+              >
+                <img src={arrowIcon} alt="" />
+                Direction
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
 
           {/* ------------------------------------------------------------------------------------------------------------------------------- */}
