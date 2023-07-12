@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./ClassicTheme.css";
+import "./ClassicTheme2.css";
 import { saveAs } from "file-saver";
-import { BsQrCodeScan } from "react-icons/bs";
+import { BsPlus, BsQrCodeScan, BsUpload } from "react-icons/bs";
 import mailiconw from "../../../assests/img1/mail_icon_white.svg";
 import phoneiconw from "../../../assests/img1/phone_icon_white.svg";
 import messageiconw from "../../../assests/img1/message_icon_white.svg";
@@ -12,9 +12,7 @@ import fbIcon from "../../../assests/img1/fb_icon_1.svg";
 import instaIcon from "../../../assests/img1/insta_icon_1.svg";
 import inIcon from "../../../assests/img1/in_icon_1.svg";
 import whtsIcon from "../../../assests/img1/what_icon_1.svg";
-import webIcon from "../../../assests/img1/web_icon_1.svg";
-import shareIcon from "../../../assests/img1/share_icon_w.svg";
-import addIcon from "../../../assests/img1/addContact.svg";
+import webIcon from "../../../assests/img1/Subtract_white.svg";
 import addtoHome from "../../../assests/img1/addtoHome.jpg";
 import skype from "../../../assests/img1/skype_icon.svg";
 import youtube from "../../../assests/img1/youtube.svg";
@@ -22,40 +20,14 @@ import snapchat from "../../../assests/img1/snapchat.svg";
 import twitter from "../../../assests/img1/twitter.png";
 import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
-import ftLogo from "../../../assests/img/footer_logo.svg";
 
-
-// import { useSelector } from "react-redux";
 
 const defaultBackgroundImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg";
 const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
-function ClassicTheme({ card, preview }) {
-  // const {
-  //   Hcolor,
-  //   backgroundImage,
-  //   profileImage,
-  //   companyLogo,
-  //   personalDetails,
-  //   card,
-  //   websiteDetails,
-  //   card,
-  //   websiteImage,
-  //   highlightPhotos1,
-  //   highlightPhotos2,
-  //   highlightPhotos3,
-  //   highlightPhotos4,
-
-  //   vCard,
-  //   QRCode,
-  //   checkProfile,
-  //   checkPfCard,
-  //   checkLogo,
-  //   checkHighlight,
-  //   card?.card?.SMediaPostion,
-  // } = useSelector((state) => state.cardReducer);
+function ClassicTheme2({ card, preview }) {
 
 
   const [qrModal, setQrModal] = useState(false);
@@ -86,7 +58,9 @@ function ClassicTheme({ card, preview }) {
   };
 
   const Highlightcolor = card?.colorCode ? card?.colorCode : "";
-  // console.log(Highlightcolor, 'qwertyuiop');
+  const Textcolor = card?.textColor ? card?.textColor : "";;
+  const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "";
+  const BgColor = card?.bgColor ? card?.bgColor : "";
 
   const shareMail = (e) => {
     window.location = `mailto:${card?.email}`;
@@ -94,6 +68,7 @@ function ClassicTheme({ card, preview }) {
   };
 
   const array = card?.name ? card?.name?.split(" ") : "";
+
   //--------------------------------------FaceBookIcon1-----------------------------------------------
 
   const FaceBookIcon1 = (
@@ -102,8 +77,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={fbIcon} alt="" />
-      <h5>
-        Facebook<span>Follow me on Facebook</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Facebook
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Facebook
+        </span>
       </h5>
     </Link>
   );
@@ -114,8 +96,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={instaIcon} alt="" />
-      <h5>
-        Instagram<span>Follow me on Instagram</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Instagram
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Instagram
+        </span>
       </h5>
     </Link>
   );
@@ -127,8 +116,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={whtsIcon} alt="" />
-      <h5>
-        WhatsApp<span>Follow me on WhatsApp</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        WhatsApp
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on WhatsApp
+        </span>
       </h5>
     </Link>
   );
@@ -139,8 +135,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={inIcon} alt="" />
-      <h5>
-        LinkedIn<span>Follow me on LinkedIn</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        LinkedIn
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on LinkedIn
+        </span>
       </h5>
     </Link>
   );
@@ -151,8 +154,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={twitter} alt="" />
-      <h5>
-        Twitter<span>Follow me on Twitter</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Twitter
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Twitter
+        </span>
       </h5>
     </Link>
   );
@@ -163,8 +173,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={youtube} alt="" />
-      <h5>
-        youtube<span>Follow me on Youtube</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        youtube
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Youtube
+        </span>
       </h5>
     </Link>
   );
@@ -175,8 +192,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={skype} alt="" />
-      <h5>
-        Skype<span>Follow me on Skype</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Skype
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Skype
+        </span>
       </h5>
     </Link>
   );
@@ -187,8 +211,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={snapchat} alt="" />
-      <h5>
-        Snapchat<span>Follow me on Snapchat</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Snapchat
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Snapchat
+        </span>
       </h5>
     </Link>
   );
@@ -199,8 +230,15 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={tiktok} alt="" />
-      <h5>
-        Tiktok<span>Follow me on Tiktok</span>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Tiktok
+        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+          Follow me on Tiktok
+        </span>
       </h5>
     </Link>
   );
@@ -211,7 +249,13 @@ function ClassicTheme({ card, preview }) {
       target={`${preview ? "_blank" : ""}`}
     >
       <img src={companypfImage} alt="" />
-      <h5>Company Profile</h5>
+      <h5
+        style={{
+          color: `${Textcolor ? Textcolor : ""}`,
+        }}
+      >
+        Company Profile
+      </h5>
     </Link>
   );
   //------------------------------------------------------------------------------------------------------
@@ -220,13 +264,12 @@ function ClassicTheme({ card, preview }) {
 
   const FaceBookIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
+      <div className="social-media2" style={{ display: "block" }}>
         <div style={{ marginBottom: "1px" }}>
           <Link
             to={`${preview ? card?.facebook : ""}`}
@@ -234,11 +277,14 @@ function ClassicTheme({ card, preview }) {
           >
             <img src={fbIcon} alt="" />
             <div>
-              <h5 >
-                Facebook <span >Follow me on Facebook</span>
+              <h5
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                }}
+              >
+                Facebook <span>Follow me on Facebook</span>
               </h5>
             </div>
-
           </Link>
         </div>
       </div>
@@ -247,21 +293,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------InstagramIcon-----------------------------------------------
   const InstagramIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.instagram : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={instaIcon} alt="" />
-            <h5>
-              Instagram<span>Follow me on Instagram</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              Instagram
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on Instagram
+              </span>
             </h5>
           </Link>
         </div>
@@ -271,22 +328,33 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------WhatsAppIcon-----------------------------------------------
   const WhatsAppIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`https://wa.me/+${preview ? card?.whatsappNumber : ""
               }?text=Hi%2C`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={whtsIcon} alt="" />
-            <h5>
-              WhatsApp<span>Follow me on WhatsApp</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              WhatsApp
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on WhatsApp
+              </span>
             </h5>
           </Link>
         </div>
@@ -296,21 +364,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------LinkedInIcon-----------------------------------------------
   const LinkedInIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.linkedin : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={inIcon} alt="" />
-            <h5>
-              LinkedIn<span>Follow me on LinkedIn</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              LinkedIn
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on LinkedIn
+              </span>
             </h5>
           </Link>
         </div>
@@ -320,21 +399,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------TwitterIcon-----------------------------------------------
   const TwitterIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.twitter : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={twitter} alt="" />
-            <h5>
-              Twitter<span>Follow me on Twitter</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              Twitter
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on Twitter
+              </span>
             </h5>
           </Link>
         </div>
@@ -344,21 +434,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------YoutubeIcon-----------------------------------------------
   const YoutubeIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.youtube : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={youtube} alt="" />
-            <h5>
-              youtube<span>Follow me on Youtube</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              youtube
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on Youtube
+              </span>
             </h5>
           </Link>
         </div>
@@ -368,21 +469,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------SkypeIcon-----------------------------------------------
   const SkypeIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.skype : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={skype} alt="" />
-            <h5>
-              Skype<span>Follow me on Skype</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              Skype
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on Skype
+              </span>
             </h5>
           </Link>
         </div>
@@ -392,21 +504,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------SnapChatIcon-----------------------------------------------
   const SnapChatIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.snapchat : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={snapchat} alt="" />
-            <h5>
-              Snapchat<span>Follow me on Snapchat</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              Snapchat
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on Snapchat
+              </span>
             </h5>
           </Link>
         </div>
@@ -416,21 +539,32 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------TikTokIcon-----------------------------------------------
   const TikTokIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.tiktok : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={tiktok} alt="" />
-            <h5>
-              Tiktok<span>Follow me on Tiktok</span>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              Tiktok
+              <span
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  opacity: ".8",
+                }}
+              >
+                Follow me on Tiktok
+              </span>
             </h5>
           </Link>
         </div>
@@ -440,20 +574,25 @@ function ClassicTheme({ card, preview }) {
   //--------------------------------------CompanyProfileIcon-----------------------------------------------
   const CompanyProfileIcon = (
     <div
-      className="contactOptions"
+      className="contactOptions2"
       style={{
-        backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-          }`,
+        backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media" style={{ display: "block" }}>
-        <div >
+      <div className="social-media2" style={{ display: "block" }}>
+        <div>
           <Link
             to={`${preview ? card?.companyProfile : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
             <img src={companypfImage} alt="" />
-            <h5>Company Profile</h5>
+            <h5
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
+              Company Profile
+            </h5>
           </Link>
         </div>
       </div>
@@ -462,24 +601,77 @@ function ClassicTheme({ card, preview }) {
   //------------------------------------------------------------------------------------------------------
   return (
     <div>
-      <section className="previewWrapClassic">
+      {/* <Helmet>
+        <title class="notranslate" >{card?.name}</title>
+        <link rel="icon" href={profileImage[0]?.thumbUrl} />
+        <link rel="apple-touch-icon" sizes="144x144" href={profileImage[0]?.thumbUrl} ></link>
+        <meta name="description" class="notranslate" content={card?.companyDesignation} />
+        <meta property="og:title" class="notranslate" content={card?.name} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" class="notranslate" content={card?.companyDesignation} />
+        <meta property="og:image" content={profileImage[0]?.thumbUrl} />
+      </Helmet> */}
+
+      <section
+        className="previewWrap2"
+        style={{
+          backgroundSize: "100%",
+          backgroundPosition: "center 150px",
+          backgroundColor: `${BgColor ? BgColor : "#0a0f29"}`,
+        }}
+      >
         {preview ? (
           <>
-            <span className="qr-codeClassic" onClick={() => setQrModal(true)}>
-              <BsQrCodeScan size={22} />
+            <span
+              style={{
+                backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+              }}
+              className="qr-code1"
+              onClick={() => setQrModal(true)}
+            >
+              <BsQrCodeScan size={22} color={Textcolor} />
             </span>
-            <Link className="shareClassic" onClick={handleShare}>
-              <img src={shareIcon} alt="" />
+            <Link
+              style={{
+                backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+              }}
+              className="share"
+              onClick={handleShare}
+            >
+              {/* <img src={shareIcon} alt="" /> */}
+              <BsUpload size={23} color={Textcolor} />
             </Link>
-            <Link className="addToContactClassic" to={`${card?.vCard}`}>
+            {/* <Link style={{
+                  backgroundColor: `${Iconcolor ? Iconcolor : ""
+                    }`}} className="addToContact" to={`${vCard}`}>
               <img src={addIcon} alt="" />
+            </Link> */}
+            <Link
+              className="addToContact flex"
+              to={`${card?.vCard}`}
+              style={{ backgroundColor: `${Iconcolor ? Iconcolor : ""}` }}
+            >
+              <p
+                className="w-12 ml-6 my-2 text-white text-sm"
+                style={{ color: `${Textcolor ? Textcolor : ""}` }}
+              >
+                Add to Contacts
+              </p>
+              <div
+                className="ml-6 rounded-full   my-2 p-2 w-10 h-10"
+                src=""
+                alt=""
+                style={{ backgroundColor: `${Textcolor ? Textcolor : ""}` }}
+              >
+                <BsPlus size={23} color={Iconcolor} />
+              </div>
             </Link>
           </>
         ) : (
           ""
         )}
 
-        <div className="bannerImage">
+        <div className="bannerImage2">
           {card?.backgroundImage ? (
             <img
               src={
@@ -492,15 +684,14 @@ function ClassicTheme({ card, preview }) {
           )}
           {/* <img src={card.backgroundImage ? card.backgroundImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg' } alt='' /> */}
         </div>
-        <div className="previewContainerClassic">
+        <div className="previewContainer2">
           <div className="header"></div>
           {card?.checkPfCard ? (
             <div
               className={`userDetails ${!card?.checkProfile ? "flex flex-col jutify-center" : ""
                 }`}
               style={{
-                backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-                  }`,
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
               }}
             >
               {card?.checkProfile ? (
@@ -525,6 +716,7 @@ function ClassicTheme({ card, preview }) {
               >
                 <h1
                   style={{
+                    color: `${Textcolor ? Textcolor : ""}`,
                     width: `${!card?.checkProfile ? "max-content" : ""}`,
                     fontSize: `${array[0]?.length > 12 ||
                       array[1]?.length > 12 ||
@@ -537,9 +729,12 @@ function ClassicTheme({ card, preview }) {
                   {" "}
                   {card?.name}
                 </h1>
-                <p>
-                  {card?.companyDesignation
-                  }
+                <p
+                  style={{
+                    color: `${Textcolor ? Textcolor : ""}`,
+                  }}
+                >
+                  {card?.companyDesignation}
                 </p>
               </div>
             </div>
@@ -562,94 +757,123 @@ function ClassicTheme({ card, preview }) {
           ) : (
             ""
           )}
-          <div className="social-links" style={{
-            backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-              }`,
-          }}>
-            <Link onClick={preview ? shareMail : ""}>
+          <div
+            className="social-links"
+            style={{
+              backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+            }}
+          >
+            <Link
+              style={{
+                backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+              }}
+              onClick={preview ? shareMail : ""}
+            >
               <img src={mailiconw} alt="" />
             </Link>
-            <Link to={preview ? `tel:+${card?.phone}` : ""}>
+            <Link
+              style={{
+                backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+              }}
+              to={preview ? `tel:+${card?.phone}` : ""}
+            >
               <img src={phoneiconw} alt="" />
             </Link>
-            <Link to={preview ? `sms:+${card?.phone}` : ""}>
+            <Link
+              style={{
+                backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+              }}
+              to={preview ? `sms:+${card?.phone}` : ""}
+            >
               <img src={messageiconw} alt="" />
             </Link>
             {preview ? (
               <Link
+                style={{
+                  backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+                }}
                 to={`https://wa.me/+${card?.whatsappNumber}?text=Hi%2C`}
                 target="_blank"
               >
                 <img src={whatsappiconw} alt="" />
               </Link>
             ) : (
-              <Link>
+              <Link
+                style={{
+                  backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+                }}
+              >
                 <img src={whatsappiconw} alt="" />
               </Link>
             )}
           </div>
-          {card.about ?
 
-            <div className="contactOptions" style={{
-              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-                }`,
-            }}>
+          {card?.about ? (
+            <div
+              className="contactOptions2"
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+              }}
+            >
               <h2>About Me</h2>
-              <p>{card.about}</p>
-
-
+              <p>{card?.about}</p>
             </div>
-            : ''
-          }
+          ) : (
+            ""
+          )}
 
-          <div className="contactOptions" style={{
-            backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-              }`,
-          }}>
+          <div
+            className="contactOptions2"
+            style={{
+              color: `${Textcolor ? Textcolor : ""}`,
+              backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+            }}
+          >
             <h2>
-              <span>
+              <span
+                style={{
+                  backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+                }}
+              >
                 <img src={phoneiconw} alt="" />
               </span>{" "}
               Contact Me
             </h2>
             <h3>Call</h3>
-            <Link to={preview ? `tel:+${card?.phone}` : ""}>
-              +
-              {card?.phone
-              }
+            <Link
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+              to={preview ? `tel:+${card?.phone}` : ""}
+            >
+              +{card?.phone}
             </Link>
             <h3>Email</h3>
-            <Link onClick={preview ? shareMail : ""}>
-              {card?.email
-              }
+            <Link
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+              onClick={preview ? shareMail : ""}
+            >
+              {card?.email}
             </Link>
             <h3>Location</h3>
-            <Link>
+            <Link
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}
+            >
               {" "}
-              {card?.address
-                ? card.address
-                : "2709 Hwy 51,Janesville"}
+              {card?.address}
             </Link>
             {card?.locationUrl ? (
               <Link
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+                }}
                 to={`${preview ? card?.locationUrl : ""}`}
-                target={`${preview ? "_blank" : ""}`}
-                className="blk-btn"
-              >
-                <img src={arrowIcon} alt="" />
-                Direction
-              </Link>
-            ) : (
-              ""
-            )}
-            <Link>
-              {card?.address1
-                ? card.address1
-                : ""}
-            </Link>
-            {card?.locationUrl1 ? (
-              <Link
-                to={`${preview ? card?.locationUrl1 : ""}`}
                 target={`${preview ? "_blank" : ""}`}
                 className="blk-btn"
               >
@@ -675,17 +899,21 @@ function ClassicTheme({ card, preview }) {
             (card?.companyProfile && card?.SMediaPostion?.pos1) ? (
             <div>
               <div
-                className="contactOptions"
+                className="contactOptions2"
                 style={{
-                  backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-                    }`,
+                  backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
                 }}
               >
-                <div className="social-media" style={{ display: "block" }}>
-                  <div style={{ marginBottom: "15px" }}>
+                <div className="social-media2" style={{ display: "block" }}>
+                  <div
+                    style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                      marginBottom: "15px",
+                    }}
+                  >
                     <h4>Social Media</h4>
                   </div>
-                  <div style={{ marginBottom: "5px" }}>
+                  <div>
                     {card?.SMediaPostion?.pos1 === "facebook"
                       ? card?.facebook
                         ? FaceBookIcon1
@@ -772,8 +1000,6 @@ function ClassicTheme({ card, preview }) {
                                     ? CompanyProfileIcon
                                     : ""
                                   : ""}
-
-
 
               {card?.SMediaPostion?.pos3 === "facebook"
                 ? card?.facebook
@@ -1110,39 +1336,72 @@ function ClassicTheme({ card, preview }) {
                                     ? CompanyProfileIcon
                                     : ""
                                   : ""}
-
             </div>
           ) : (
             ""
           )}
 
-          {card?.websiteImage || card?.websiteName || card?.websiteUrl || card?.website.length > 0 ?
-            <div className="contactOptions" style={{
-              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-                }`,
-            }}>
-              <h4>Website</h4>
+          {card?.websiteImage ||
+            card?.websiteName ||
+            card?.websiteUrl || card?.website.length > 0 ? (
+            <div
+              className="contactOptions2"
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+              }}
+            >
+              <h4 >Website</h4>
               {card?.websiteName &&
                 card?.websiteUrl ?
-                <div className="social-media">
-                  <Link to={`${preview ? card?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} >
-                    <img src={webIcon} alt='' />
-                    <h5> {card?.websiteName}</h5>
+                <div className="social-media2 ">
+                  <Link
+                  className="mb-5"
+                    to={`${preview ? card?.websiteUrl : ""}`}
+                    target={`${preview ? "_blank" : ""}`}
+                  >
+                    <img
+                      className="rounded-full p-2 "
+                      src={webIcon}
+                      alt=""
+                      style={{
+                        backgroundColor: `${Iconcolor ? Iconcolor : "black"}`,
+                      }}
+                    />
+
+                    <h5
+                      style={{
+                        color: `${Textcolor ? Textcolor : ""}`,
+                      }}
+                    >
+                      {" "}
+                      {card?.websiteName}
+                    </h5>
                   </Link>
                 </div>
                 : ''
               }
-              {card?.website.map(webData => <div className="social-media">
-                <Link to={`${preview ? webData?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} className="mt-5" >
-                  <img src={webIcon} alt='' />
-                  <h5> {webData?.websiteName ? webData.websiteName : "Website Name"}</h5>
+              {card?.website.map(webData => <div className="social-media2">
+                <Link to={`${preview ? webData?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} className="mb-5" >
+                  <img
+                    className="rounded-full p-2 "
+                    src={webIcon}
+                    alt=""
+                    style={{
+                      backgroundColor: `${Iconcolor ? Iconcolor : "black"}`,
+                    }}
+                  />
+                  <h5 style={{
+                    color: `${Textcolor ? Textcolor : ""}`,
+                  }}> {webData?.websiteName ? webData.websiteName : "Website Name"}</h5>
                 </Link>
               </div>)}
             </div>
-            : ""}
+          ) : (
+            ""
+          )}
 
           {/* --------------------------------------------------------------------------------------------------------------------------------------------------- */}
-
 
           {(card?.highlightPhotos[0].highlightPhotos1) ||
             (card?.highlightPhotos[0].highlightPhotos2) ||
@@ -1151,8 +1410,14 @@ function ClassicTheme({ card, preview }) {
             card?.checkHighlight ? (
               <div>
                 <div className="flex">
-                  {/* <h2>Gallery</h2> */}
-                  {/* <p
+                  <h2
+                    style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                    }}
+                  >
+                    Gallery
+                  </h2>
+                  <p
                     style={{
                       borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "black"
                         }`,
@@ -1161,15 +1426,14 @@ function ClassicTheme({ card, preview }) {
                     }}
                   >
                     &nbsp; &nbsp; &nbsp;{" "}
-                  </p> */}
+                  </p>
                 </div>
                 <div className="photoGrid">
                   {card?.highlightPhotos[0].highlightPhotos1 ? (
                     <img
                       className="mb-4"
                       src={
-                        card?.highlightPhotos[0].highlightPhotos1
-                      }
+                        card?.highlightPhotos[0].highlightPhotos1}
                       alt=""
                     />
                   ) : (
@@ -1179,8 +1443,7 @@ function ClassicTheme({ card, preview }) {
                     <img
                       className="mb-4"
                       src={
-                        card?.highlightPhotos[0].highlightPhotos2
-                      }
+                        card?.highlightPhotos[0].highlightPhotos2}
                       alt=""
                     />
                   ) : (
@@ -1190,8 +1453,7 @@ function ClassicTheme({ card, preview }) {
                     <img
                       className="mb-4"
                       src={
-                        card?.highlightPhotos[0].highlightPhotos3
-                      }
+                        card?.highlightPhotos[0].highlightPhotos3}
                       alt=""
                     />
                   ) : (
@@ -1201,8 +1463,7 @@ function ClassicTheme({ card, preview }) {
                     <img
                       className="mb-4"
                       src={
-                        card?.highlightPhotos[0].highlightPhotos4
-                      }
+                        card?.highlightPhotos[0].highlightPhotos4}
                       alt=""
                     />
                   ) : (
@@ -1218,41 +1479,6 @@ function ClassicTheme({ card, preview }) {
           )}
         </div>
       </section>
-      {card.footer ?
-        <div
-          className="footerClassic flex flex-col items-center "
-
-        >
-          {preview ? (
-
-            <>
-              <p>
-                Powered by{" "}
-                <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                  ZEEQR
-                </Link>
-              </p>
-              <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                {" "}
-                <img className="w-18" src={ftLogo} alt="" />
-              </Link>
-            </>
-          ) : (
-            <>
-              <p>
-                Powered by <Link> ZEEQR</Link>
-              </p>
-              <Link>
-                {" "}
-                <img className="w-18" src={ftLogo} alt="" />
-              </Link>
-            </>
-          )}
-        </div>
-        : ''
-      }
-
-
 
       {qrModal ? (
         <>
@@ -1262,66 +1488,86 @@ function ClassicTheme({ card, preview }) {
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-transparent outline-none focus:outline-none">
                 {/*body*/}
                 <div
-                  className="popup-containerClassic justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none"
+                  className="popup-container justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50  outline-none focus:outline-none"
                   id="modal"
                 >
-                  <div className="userDetails">
-                    <figure>
-                      {card?.profileImage ? (
-                        <img src={card?.profileImage} alt="" />
-                      ) : (
-                        <img src={defaultProfileImage} alt="" />
-                      )}
-                      {/* <img src={card.profileImage} alt='' /> */}
-                    </figure>
-                    <div className="user">
-                      <h1>
-                        {card?.name}
-                      </h1>
-                      <p>
-                        {" "}
-                        {card?.companyDesignation}
-                      </p>
-                    </div>
-                    <img
-                      src={card?.QRCode}
-                      className="my-qr-code p-3 bg-white  border-2 rounded-xl border-black"
-                      width="200px"
-                      alt=""
-                    />
-                    <p className="my-qr-download" onClick={handleDownload}>
-                      Download QR Code
-                    </p>
-                    {!showResults ? (
-                      <div className="addToHomeClassic" onClick={onClick}>
-                        Add to Home Screen
+                  <div className="w-full" style={{
+                    color: `${Textcolor ? Textcolor : ""}`,
+                    backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                      }`
+                  }}>
+                    <div className="userDetails">
+                      <figure>
+                        {card?.profileImage ? (
+                          <img src={card?.profileImage} alt="" />
+                        ) : (
+                          <img src={defaultProfileImage} alt="" />
+                        )}
+                        {/* <img src={card.profileImage} alt='' /> */}
+                      </figure>
+                      <div className="user">
+                        <h1 style={{ color: `${Textcolor ? Textcolor : ""}` }}>
+                          {card?.name}
+                        </h1>
+                        <p style={{ color: `${Textcolor ? Textcolor : ""}` }}>
+                          {" "}
+                          {card?.companyDesignation}
+                        </p>
                       </div>
-                    ) : (
-                      <img className="addToHomeClassicImage" src={addtoHome} alt="" />
-                    )}
-                  </div>
+                      <img
+                        src={card?.QRCode}
+                        className="my-qr-code p-3 bg-white  border-2 rounded-xl border-black"
+                        width="200px"
+                        alt=""
+                      />
+                      <p className="my-qr-download" onClick={handleDownload}>
+                        Download QR Code
+                      </p>
+                      {!showResults ? (
+                        <div
+                          className="addToHome"
+                          onClick={onClick}
+                          style={{
+                            color: `${Textcolor ? Textcolor : ""}`,
+                            backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+                          }}
+                        >
+                          Add to Home Screen
+                        </div>
+                      ) : (
+                        <img
+                          className="addtoHomeImage"
+                          src={addtoHome}
+                          alt=""
+                        />
+                      )}
+                    </div>
 
-                  <button
-                    className="cursor-pointer absolute top-0 left-0 mt-6 close-popup  ml-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
-                    onClick={handleClose}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="icon icon-tabler icon-tabler-x"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      stroke-width="2.5"
-                      stroke="currentColor"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                    <button
+                      style={{
+                        backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+                      }}
+                      className="cursor-pointer absolute top-0 left-0 mt-6 close-popup  ml-5 text-black hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
+                      onClick={handleClose}
                     >
-                      <path stroke="none" d="M0 0h24v24H0z" />
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  </button>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="icon icon-tabler icon-tabler-x"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        stroke-width="2.5"
+                        stroke={Textcolor}
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <path stroke="none" d="M0 0h24v24H0z" />
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1333,4 +1579,4 @@ function ClassicTheme({ card, preview }) {
   );
 }
 
-export default ClassicTheme;
+export default ClassicTheme2;

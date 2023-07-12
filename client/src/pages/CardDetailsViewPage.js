@@ -14,6 +14,7 @@ import ClassicNewTheme from '../components/cardDetailView1/classicNewTheme/Class
 import ClassicTheme1 from '../components/cardViewThemes/classicTheme/ClassicTheme'
 import StandardTheme1 from '../components/cardViewThemes/standardTheme/StandardTheme'
 import ModernTheme1 from '../components/cardViewThemes/modernTheme/ModernTheme'
+import ClassicTheme2 from '../components/cardViewThemes/classicTheme2/ClassicTheme2'
 
 const metaDecorator = require('../data/metaDecorator.json')
 
@@ -108,6 +109,9 @@ function CardDetailsViewPage() {
 
                                                     card.theme === 'classic1' ?
                                                         <ClassicTheme1 card={card} preview={'preview'} key={card._id} />
+                                                        :
+                                                    card.theme === 'classic2' ?
+                                                        <ClassicTheme2 card={card} preview={'preview'} key={card._id} />
                                                         :
                                                         card.theme === 'standard1' ?
                                                             <StandardTheme1 card={card} preview={'preview'} key={card._id} />
