@@ -1132,7 +1132,7 @@ function ClassicTheme({ card, preview }) {
                 </div>
                 : ''
               }
-              {card?.website.map(webData => <div className="social-media">
+              {card?.website?.map(webData => <div className="social-media">
                 <Link to={`${preview ? webData?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} className="mt-5" >
                   <img src={webIcon} alt='' />
                   <h5> {webData?.websiteName ? webData.websiteName : "Website Name"}</h5>

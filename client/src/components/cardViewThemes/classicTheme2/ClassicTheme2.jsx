@@ -1381,7 +1381,7 @@ function ClassicTheme2({ card, preview }) {
                 </div>
                 : ''
               }
-              {card?.website.map(webData => <div className="social-media2">
+              {card?.website?.map(webData => <div className="social-media2">
                 <Link to={`${preview ? webData?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} className="mb-5" >
                   <img
                     className="rounded-full p-2 "

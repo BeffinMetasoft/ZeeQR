@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const User = require("./userModel");
 
 const validateEmail = function (email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -51,21 +52,21 @@ const CardSchema = mongoose.Schema({
     locationUrl: {
         type: String,
     },
-    backgroundImage:{
-        type:String,
+    backgroundImage: {
+        type: String,
     },
-    profileImage:{
-        type:String,
+    profileImage: {
+        type: String,
     },
-    companyLogo:{
-        type:String,
+    companyLogo: {
+        type: String,
     },
-    websiteImage:{
-        type:String,
+    websiteImage: {
+        type: String,
     },
-    highlightPhotos:{
-        type:Array,
-        default:[]
+    highlightPhotos: {
+        type: Array,
+        default: []
     },
 
     // highlightPhotos:[
@@ -76,15 +77,20 @@ const CardSchema = mongoose.Schema({
     //         hightlightPhotos4:String,
     //     }
     // ],
-    
+
     status: {
         type: String,
         default: "Processing"
     },
+    // userID: {
+    //     type: String,
+    //     required: [true, "UserID is required"]
+    // },
     userID: {
-        type: String,
-        required: [true, "UserID is required"]
-    },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User,
+        required: [true, "User ID is required"],
+      },
     QRCode: {
         type: String,
         required: [true, "QRCode is required"]
@@ -105,52 +111,59 @@ const CardSchema = mongoose.Schema({
     linkedin: {
         type: String
     },
-    skype:{
-        type:String
+    skype: {
+        type: String
     },
-    youtube:{
-        type:String
+    youtube: {
+        type: String
     },
-    tiktok:{
-        type:String
+    tiktok: {
+        type: String
     },
-    vCard:{
-        type:String
+    vCard: {
+        type: String
     },
-    colorCode:{
-        type:String
+    colorCode: {
+        type: String
     },
-    companyProfile:{
-        type:String
+    companyProfile: {
+        type: String
     },
-    date:{
-        type:Date,
-        default:Date.now()
+    date: {
+        type: Date,
+        default: Date.now()
     },
     block: {
         type: Boolean,
-       default:false
+        default: false
     },
-    theme:{
-        type:String,
-        default:"standard"
+    theme: {
+        type: String,
+        default: "standard"
     },
-    checkLogo:{
+    checkLogo: {
         type: Boolean,
-        default:true 
+        default: true
     },
-    checkHighlight:{
+    checkHighlight: {
         type: Boolean,
-        default:true 
+        default: true
     },
-    checkProfile:{
+    checkProfile: {
         type: Boolean,
-        default:true 
+        default: true
     },
-    checkPfCard:{
+    checkPfCard: {
         type: Boolean,
-        default:true 
-    }
+        default: true
+    },
+    tapCount: {
+        type: Number,
+        default: 0
+    },
+    location: {
+        type: Array,
+    },
 
 
 

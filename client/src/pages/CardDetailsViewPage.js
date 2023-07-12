@@ -15,6 +15,7 @@ import ClassicTheme1 from '../components/cardViewThemes/classicTheme/ClassicThem
 import StandardTheme1 from '../components/cardViewThemes/standardTheme/StandardTheme'
 import ModernTheme1 from '../components/cardViewThemes/modernTheme/ModernTheme'
 import ClassicTheme2 from '../components/cardViewThemes/classicTheme2/ClassicTheme2'
+import axios from 'axios'
 
 const metaDecorator = require('../data/metaDecorator.json')
 
@@ -29,7 +30,9 @@ function CardDetailsViewPage() {
         const getDetails = async () => {
             try {
                 // console.log(params.id, '11111111111');
-                const { data } = await cardProfile(params.id)
+                const liveLocation = await axios.get('https://ipapi.co/json')
+                // console.log(liveLocation,'qwertyuio');
+                const { data } = await cardProfile(params.id,liveLocation.data)
                 console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     if (data?.card?.companyLogo) {
@@ -71,7 +74,8 @@ function CardDetailsViewPage() {
         }
 
         getDetails()
-    }, [params.id])
+    },[])
+    
     return (
         <div>
             <Helmet>

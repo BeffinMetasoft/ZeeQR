@@ -12,7 +12,7 @@ export const UploadDetails = (details) => axios.post('/saveCard',details)
 
 export const createCard = (details) => axiosPrivate.post('/createCard',details)
 
-export const cardProfile = (id) => axios.get(`/profileView/${id}`)
+export const cardProfile = (id,liveLocation) => axios.post(`/profileView/${id}`,liveLocation)  //profile view interface
 
 export const getSavedCards = () => axiosPrivate.get('/getSavedCard')
 

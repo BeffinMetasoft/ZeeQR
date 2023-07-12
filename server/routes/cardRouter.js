@@ -35,7 +35,7 @@ router.post('/editBookedCard/:id',verifyJwt,upload.fields([
     {name:'hgPhotos',maxCount:4},
 ]),editBookedCard)
 router.get('/getSingleCard/:id',verifyJwt, getSingleCard)
-router.get('/profileView/:id', getSingleCard)
+router.post('/profileView/:id', getSingleCard)   //profile view interface
 
 //admin routes
 router.get('/getAllCard', verifyJwt, getAllCard)
