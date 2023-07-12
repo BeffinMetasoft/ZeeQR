@@ -480,18 +480,19 @@ const getSingleCard = async (req, res, next) => {
     // const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { block: false }] });
     const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { $or: [{ block: false }, { status: "active" }] }] }).populate("userID");
     // const QRCode = await generateQR('https://zeeqr.info/profile-view/641eb3995cc9b4462a832959');
-    console.log(card, 'qwert123');
+    // console.log(card, 'qwert123');
 
     if (card?.userID?.adminID) {
-      console.log('2345678');
+      // console.log('2345678');
       const exp = await expiryDate(card.userID.adminID);
+      // console.log(exp,'77777777777');
 
       if (exp === "notExpired") {
 
         await card.updateOne({ $inc: { "tapCount": 1 } });
 
         const ExistLocation = card.location.filter(loc => loc.ip === locationData.ip && loc.city === locationData.city && loc.region === locationData.region && loc.country === locationData.country);
-        console.log("Exist", ExistLocation);
+        // console.log("Exist");
 
         if (ExistLocation.length > 0) {
           const query = { _id: card._id };
@@ -524,7 +525,7 @@ const getSingleCard = async (req, res, next) => {
       await card.updateOne({ $inc: { "tapCount": 1 } });
 
       const ExistLocation = card.location.filter(loc => loc.ip === locationData.ip && loc.city === locationData.city && loc.region === locationData.region && loc.country === locationData.country);
-      console.log("Exist esle", ExistLocation);
+      // console.log("Exist esle");
 
       if (ExistLocation.length > 0) {
         const query = { _id: card._id };
@@ -550,10 +551,6 @@ const getSingleCard = async (req, res, next) => {
 
       res.status(200).json({ success: true, card, message: "Single Booked Card" });
     }
-
-
-
-
 
     // res
     //   .status(200)

@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const Admin = require("./adminModel");
 
 const validateEmail = function (email) {
     var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -22,6 +23,11 @@ const UserSchema = mongoose.Schema({
         required: [true, "Phone number is required"]
     },
     companyName: String,
+    adminID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Admin,
+
+    },
     password: {
         type: String,
         minlength: [6, "Password must contain 6 letters"],

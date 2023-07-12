@@ -16,10 +16,28 @@ const AdminSchema = mongoose.Schema({
         required: [true, "Email is required"],
         unique: true
     },
+    cardLimit: {
+        type: Number,
+        default: 1
+    },
     password: {
         type: String,
         minlength: [6, "Password must contain 6 letters"],
         required: [true, "Password is required"]
+    },
+    profileImage: {
+        type: String,
+    },
+    status: {
+        type: String,
+        default: 'active'
+    },
+    createdDate: {
+        type: Date,
+        default: Date.now()
+    },
+    expiryDate: {
+        type: Number
     }
    
    
