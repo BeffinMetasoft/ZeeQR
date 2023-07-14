@@ -1343,7 +1343,7 @@ function ClassicTheme2({ card, preview }) {
 
           {card?.websiteImage ||
             card?.websiteName ||
-            card?.websiteUrl || card?.website.length > 0 ? (
+            card?.websiteUrl || card?.website?.length > 0 ? (
             <div
               className="contactOptions2"
               style={{
