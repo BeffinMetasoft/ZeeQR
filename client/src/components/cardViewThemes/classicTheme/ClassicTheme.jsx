@@ -1135,11 +1135,33 @@ function ClassicTheme({ card, preview }) {
               {card?.website?.map(webData => <div className="social-media">
                 <Link to={`${preview ? webData?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} className="mt-5" >
                   <img src={webIcon} alt='' />
-                  <h5> {webData?.websiteName ? webData.websiteName : "Website Name"}</h5>
+                  <h5> {webData?.websiteName ? webData.websiteName : ""}</h5>
                 </Link>
               </div>)}
             </div>
-            : ""}
+            : ""
+          }
+
+          {/* --------------------------------- review ---------------------------------  */}
+
+          {card?.reviews?.length ?
+            <div className="contactOptions" style={{
+              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                }`,
+            }}>
+              <h4>Review</h4>
+              {card?.reviews?.map((review) => (
+                <div className="social-media" >
+                  <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`}  className="mb-5">
+                    <h5>{review?.reviewName ? review?.reviewName : ''}</h5>
+                  </Link>
+                </div>
+
+              ))}
+
+            </div>
+            : ''
+          }
 
           {/* --------------------------------------------------------------------------------------------------------------------------------------------------- */}
 

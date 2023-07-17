@@ -1356,7 +1356,7 @@ function ClassicTheme2({ card, preview }) {
                 card?.websiteUrl ?
                 <div className="social-media2 ">
                   <Link
-                  className="mb-5"
+                    className="mb-5"
                     to={`${preview ? card?.websiteUrl : ""}`}
                     target={`${preview ? "_blank" : ""}`}
                   >
@@ -1400,6 +1400,30 @@ function ClassicTheme2({ card, preview }) {
           ) : (
             ""
           )}
+
+          {/* --------------------------------- review ---------------------------------  */}
+
+          {card?.reviews?.length ?
+            <div className="contactOptions2"
+              style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+              }}>
+              <h4>Review</h4>
+              {card?.reviews?.map((review) => (
+                <div className="social-media2" >
+                  <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`}  className="mb-5">
+                    <h5 style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                    }}>{review?.reviewName ? review?.reviewName : ''}</h5>
+                  </Link>
+                </div>
+
+              ))}
+
+            </div>
+            : ''
+          }
 
           {/* --------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
