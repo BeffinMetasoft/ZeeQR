@@ -2380,7 +2380,11 @@ function StandardTheme({ card, preview }) {
             {(card?.highlightPhotos[0].highlightPhotos1) ||
               (card?.highlightPhotos[0].highlightPhotos2) ||
               (card?.highlightPhotos[0].highlightPhotos3) ||
-              (card?.highlightPhotos[0].highlightPhotos4) ? (
+              (card?.highlightPhotos[0].highlightPhotos4) ||
+              (card?.highlightPhotos[0].highlightPhotos5) ||
+              (card?.highlightPhotos[0].highlightPhotos6) ||
+              (card?.highlightPhotos[0].highlightPhotos7) ||
+              (card?.highlightPhotos[0].highlightPhotos8) ? (
               card?.checkHighlight ? (
                 <div>
                   <div className="flex">
@@ -2436,6 +2440,50 @@ function StandardTheme({ card, preview }) {
                         className="mb-4"
                         src={
                           card?.highlightPhotos[0].highlightPhotos4
+                        }
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                    {card?.highlightPhotos[0].highlightPhotos5 ? (
+                      <img
+                        className="mb-4"
+                        src={
+                          card?.highlightPhotos[0].highlightPhotos5
+                        }
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                    {card?.highlightPhotos[0].highlightPhotos6 ? (
+                      <img
+                        className="mb-4"
+                        src={
+                          card?.highlightPhotos[0].highlightPhotos6
+                        }
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                    {card?.highlightPhotos[0].highlightPhotos7 ? (
+                      <img
+                        className="mb-4"
+                        src={
+                          card?.highlightPhotos[0].highlightPhotos7
+                        }
+                        alt=""
+                      />
+                    ) : (
+                      ""
+                    )}
+                    {card?.highlightPhotos[0].highlightPhotos8 ? (
+                      <img
+                        className="mb-4"
+                        src={
+                          card?.highlightPhotos[0].highlightPhotos8
                         }
                         alt=""
                       />
