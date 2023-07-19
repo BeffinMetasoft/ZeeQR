@@ -1170,7 +1170,7 @@ function ClassicTheme({ card, preview }) {
 
           {/*  -------------------------------- download --------------------------------  */}
 
-          {card?.downloads[0]?.itemLink  ?
+          {card?.downloads?.length  ?
             <div className="contactOptions" style={{
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                 }`,
