@@ -1431,7 +1431,7 @@ function ClassicTheme2({ card, preview }) {
 
           {/*  -------------------------------- downloads --------------------------------  */}
 
-          {card.downloads ?
+          {card?.downloads[0]?.itemLink ?
             <div className="contactOptions2"  style={{
               color: `${Textcolor ? Textcolor : ""}`,
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
