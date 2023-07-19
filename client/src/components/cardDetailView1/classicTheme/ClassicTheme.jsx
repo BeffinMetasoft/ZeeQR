@@ -102,7 +102,7 @@ function ClassicTheme({ card }) {
                     {card.checkPfCard1 ?
 
                         <div className={`userDetails ${!card.checkProfile1 ? "flex flex-col jutify-center" : ''}`} style={{ backgroundColor: `${card.pfCardColor ? card.pfCardColor : ''}` }}>
-                           
+
                             <div className="user " style={{ width: `${card.checkProfile1 ? 'calc(100% - 122px)' : ''}` }}>
 
                                 <h1 style={{ width: `${!card.checkProfile1 ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.pfCard1name1}</h1>
@@ -158,11 +158,11 @@ function ClassicTheme({ card }) {
                             e.preventDefault();
                         }} style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.email}</Link>
                         {card.email1 ?
-                        <Link onClick={(e) => {
-                            window.location = `mailto:${card.email1}`;
-                            e.preventDefault();
-                        }} style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.email1}</Link>
-                        :''
+                            <Link onClick={(e) => {
+                                window.location = `mailto:${card.email1}`;
+                                e.preventDefault();
+                            }} style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.email1}</Link>
+                            : ''
                         }
                         <h3>Location</h3>
                         <Link style={{ color: `${card.colorCode ? 'white' : ''}` }} >{card.address}</Link>
@@ -380,7 +380,8 @@ function ClassicTheme({ card }) {
                             })}
 
                         </div>
-                        : ""}
+                        : ""
+                    }
 
 
 

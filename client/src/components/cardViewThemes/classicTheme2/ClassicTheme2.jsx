@@ -20,6 +20,8 @@ import snapchat from "../../../assests/img1/snapchat.svg";
 import twitter from "../../../assests/img1/twitter.png";
 import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
+// import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
+
 
 
 const defaultBackgroundImage =
@@ -1341,6 +1343,8 @@ function ClassicTheme2({ card, preview }) {
             ""
           )}
 
+          {/*  --------------------------------- website --------------------------------  */}
+
           {card?.websiteImage ||
             card?.websiteName ||
             card?.websiteUrl || card?.website?.length > 0 ? (
@@ -1425,7 +1429,33 @@ function ClassicTheme2({ card, preview }) {
             : ''
           }
 
-          {/* --------------------------------------------------------------------------------------------------------------------------------------------------- */}
+          {/*  -------------------------------- downloads --------------------------------  */}
+
+          {card.downloads ?
+            <div className="contactOptions2"  style={{
+              color: `${Textcolor ? Textcolor : ""}`,
+              backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+            }}>
+              <h4 >Downloads</h4>
+              {card.downloads.map((obj) => {
+                return (
+
+                  <div className="social-media2" >
+                    <Link to={`${obj?.itemLink}`} target={`${preview ? "_blank" : ''}`} className="mb-5" >
+                      {/* <img className='rounded-full ' src={downloadIcon} alt=''  style={{ color: `${Iconcolor ? Iconcolor : "black"}`}} /> */}
+                      
+                      <svg width="40" height="40" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"   style={{ color: `${Iconcolor ? Iconcolor : "black"}`}}> <path d="M9 17L15 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 6V13M12 13L15.5 9.5M12 13L8.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+                      <h5 style={{color: `${Textcolor ? Textcolor : ""}`}} > {obj?.itemName}</h5>
+                    </Link>
+                  </div>
+                )
+              })}
+
+            </div>
+            : ""
+          }
+
+          {/* --------------------------------------- highlight images ------------------------------ */}
 
           {(card?.highlightPhotos[0].highlightPhotos1) ||
             (card?.highlightPhotos[0].highlightPhotos2) ||
@@ -1551,6 +1581,8 @@ function ClassicTheme2({ card, preview }) {
           )}
         </div>
       </section>
+
+      {/* ---------------------------------- modal ---------------------------------  */}
 
       {qrModal ? (
         <>

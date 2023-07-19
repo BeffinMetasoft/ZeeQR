@@ -23,6 +23,8 @@ import twitter from "../../../assests/img1/twitter.png";
 import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
 import ftLogo from "../../../assests/img/footer_logo.svg";
+import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
+
 
 
 // import { useSelector } from "react-redux";
@@ -1142,6 +1144,9 @@ function ClassicTheme({ card, preview }) {
             : ""
           }
 
+
+
+
           {/* --------------------------------- review ---------------------------------  */}
 
           {card?.reviews?.length ?
@@ -1152,7 +1157,7 @@ function ClassicTheme({ card, preview }) {
               <h4>Review</h4>
               {card?.reviews?.map((review) => (
                 <div className="social-media" >
-                  <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`}  className="mb-5">
+                  <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`} className="mb-5">
                     <h5>{review?.reviewName ? review?.reviewName : ''}</h5>
                   </Link>
                 </div>
@@ -1163,6 +1168,31 @@ function ClassicTheme({ card, preview }) {
             : ''
           }
 
+          {/*  -------------------------------- download --------------------------------  */}
+
+          {card.downloads ?
+            <div className="contactOptions" style={{
+              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                }`,
+            }}>
+              <h4 >Downloads</h4>
+              {card.downloads.map((obj) => {
+                return (
+
+                  <div className="social-media" >
+                    <Link to={`${obj?.itemLink}`} target={`${preview ? "_blank" : ''}`}  >
+                      <img className='rounded-full ' src={downloadIcon} alt='' />
+                      <h5 > {obj?.itemName}</h5>
+                    </Link>
+                  </div>
+                )
+              })}
+
+            </div>
+            : ""
+          }
+
+
           {/* --------------------------------------------------------------------------------------------------------------------------------------------------- */}
 
 
@@ -1171,8 +1201,8 @@ function ClassicTheme({ card, preview }) {
             (card?.highlightPhotos[0].highlightPhotos3) ||
             (card?.highlightPhotos[0].highlightPhotos4) ||
             (card?.highlightPhotos[0].highlightPhotos5) ||
-            (card?.highlightPhotos[0].highlightPhotos6)||
-            (card?.highlightPhotos[0].highlightPhotos7)||
+            (card?.highlightPhotos[0].highlightPhotos6) ||
+            (card?.highlightPhotos[0].highlightPhotos7) ||
             (card?.highlightPhotos[0].highlightPhotos8) ? (
             card?.checkHighlight ? (
               <div>
