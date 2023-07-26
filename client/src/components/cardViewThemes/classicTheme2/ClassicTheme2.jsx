@@ -20,7 +20,10 @@ import snapchat from "../../../assests/img1/snapchat.svg";
 import twitter from "../../../assests/img1/twitter.png";
 import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
+import background from '../../../assests/img1/background.jpg'
+
 // import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
+
 
 
 
@@ -600,6 +603,23 @@ function ClassicTheme2({ card, preview }) {
       </div>
     </div>
   );
+
+  const imageStyle = {
+    backgroundSize: "100%",
+    backgroundPosition: "center 150px",
+    backgroundImage: `url(${card?.bgImg })`,
+  };
+  const colorStyle = {
+    backgroundSize: "100%",
+    backgroundPosition: "center 150px",
+    backgroundColor: BgColor,
+  };
+  const defaultStyle = {
+    backgroundSize: "100%",
+    backgroundPosition: "center 150px",
+    backgroundImage: `url(${background })`,
+  };
+
   //------------------------------------------------------------------------------------------------------
   return (
     <div>
@@ -616,11 +636,7 @@ function ClassicTheme2({ card, preview }) {
 
       <section
         className="previewWrap2"
-        style={{
-          backgroundSize: "100%",
-          backgroundPosition: "center 150px",
-          backgroundColor: `${BgColor ? BgColor : "#0a0f29"}`,
-        }}
+        style={card?.bgImg ? imageStyle : BgColor? colorStyle : defaultStyle }
       >
         {preview ? (
           <>
@@ -693,7 +709,7 @@ function ClassicTheme2({ card, preview }) {
               className={`userDetails ${!card?.checkProfile ? "flex flex-col jutify-center" : ""
                 }`}
               style={{
-                backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+                backgroundColor: `${card?.pfCardColor ? card?.pfCardColor : Highlightcolor ? Highlightcolor : ""}`,
               }}
             >
               {card?.checkProfile ? (
@@ -818,7 +834,7 @@ function ClassicTheme2({ card, preview }) {
                 backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
               }}
             >
-              <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me' }</h2>
+              <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me'}</h2>
               <p>{card?.about}</p>
             </div>
           ) : (
@@ -1347,7 +1363,7 @@ function ClassicTheme2({ card, preview }) {
 
           {card?.websiteImage ||
             card?.websiteName ||
-            card?.websiteUrl || card?.website?.length > 0 ? (
+            card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : "") ? (
             <div
               className="contactOptions2"
               style={{
@@ -1407,53 +1423,94 @@ function ClassicTheme2({ card, preview }) {
 
           {/* --------------------------------- review ---------------------------------  */}
 
-          {card?.reviews?.length ?
-            <div className="contactOptions2"
-              style={{
-                color: `${Textcolor ? Textcolor : ""}`,
-                backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
-              }}>
-              <h4>Review</h4>
-              {card?.reviews?.map((review) => (
-                <div className="social-media2" >
-                  <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`}  className="mb-5">
-                    <h5 style={{
-                      color: `${Textcolor ? Textcolor : ""}`,
-                    }}>{review?.reviewName ? review?.reviewName : ''}</h5>
-                  </Link>
-                </div>
+          {card?.reviews ?
+            (card?.reviews[0]?.reviewName ?
+              <div className="contactOptions2"
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                  backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+                }}>
+                <h4>Review</h4>
+                {card?.reviews?.map((review) => (
+                  <div className="social-media2" >
+                    <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`} className="mb-5">
+                      <h5 style={{
+                        color: `${Textcolor ? Textcolor : ""}`,
+                      }}>{review?.reviewName ? review?.reviewName : ''}</h5>
+                    </Link>
+                  </div>
 
-              ))}
+                ))}
 
-            </div>
+              </div>
+              : '')
             : ''
           }
 
           {/*  -------------------------------- downloads --------------------------------  */}
 
-          {card?.downloads?.length ?
-            <div className="contactOptions2"  style={{
-              color: `${Textcolor ? Textcolor : ""}`,
-              backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
-            }}>
-              <h4 >Downloads</h4>
-              {card.downloads.map((obj) => {
-                return (
+          {(card?.files?.file1?.fileName) ||
+            (card?.files?.file2?.fileName) ||
+            (card?.files?.file3?.fileName) ||
+            (card?.files?.file4?.fileName) ?
+            <div className="contactOptions2" style={{ backgroundColor: `${Highlightcolor}` }}>
 
-                  <div className="social-media2" >
-                    <Link to={`${obj?.itemLink}`} target={`${preview ? "_blank" : ''}`} className="mb-5" >
-                      {/* <img className='rounded-full ' src={downloadIcon} alt=''  style={{ color: `${Iconcolor ? Iconcolor : "black"}`}} /> */}
-                      
-                      <svg width="40" height="40" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"   style={{ color: `${Iconcolor ? Iconcolor : "black"}`}}> <path d="M9 17L15 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 6V13M12 13L15.5 9.5M12 13L8.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
-                      <h5 style={{color: `${Textcolor ? Textcolor : ""}`}} > {obj?.itemName}</h5>
-                    </Link>
-                  </div>
-                )
-              })}
+              <h4 style={{
+                color: `${Textcolor ? Textcolor : ""}`,
+              }}>Downloads</h4>
+
+              {(card?.files?.file1?.fileName) ?
+                <div className="social-media2" >
+
+                  <Link to={`${preview ? card?.files?.file1?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                    <svg width="40" height="40" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: `${Iconcolor ? Iconcolor : "black"}` }}> <path d="M9 17L15 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 6V13M12 13L15.5 9.5M12 13L8.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+                    <h5 style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                    }}> {card?.files?.file1?.fileName}</h5>
+                  </Link>
+                </div>
+                : ""}
+
+              {(card?.files?.file2?.fileName) ?
+                <div className="social-media2" >
+
+                  <Link to={`${preview ? card?.files?.file2?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                    <svg width="40" height="40" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: `${Iconcolor ? Iconcolor : "black"}` }}> <path d="M9 17L15 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 6V13M12 13L15.5 9.5M12 13L8.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+                    <h5 style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                    }}> {card?.files?.file2?.fileName}</h5>
+                  </Link>
+                </div>
+                : ""}
+
+              {(card?.files?.file3?.fileName) ?
+                <div className="social-media2" >
+
+                  <Link to={`${preview ? card?.files?.file3?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"   >
+                    <svg width="40" height="40" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: `${Iconcolor ? Iconcolor : "black"}` }}> <path d="M9 17L15 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 6V13M12 13L15.5 9.5M12 13L8.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+                    <h5 style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                    }}> {card?.files?.file3?.fileName}</h5>
+                  </Link>
+                </div>
+                : ""}
+
+              {(card?.files?.file4?.fileName) ?
+                <div className="social-media2" >
+
+                  <Link to={`${preview ? card?.files?.file4?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                    <svg width="40" height="40" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: `${Iconcolor ? Iconcolor : "black"}` }}> <path d="M9 17L15 17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 6V13M12 13L15.5 9.5M12 13L8.5 9.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" /> </svg>
+                    <h5 style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                    }}> {card?.files?.file4?.fileName}</h5>
+
+                  </Link>
+                </div>
+                : ""}
+
 
             </div>
-            : ""
-          }
+            : ""}
 
           {/* --------------------------------------- highlight images ------------------------------ */}
 

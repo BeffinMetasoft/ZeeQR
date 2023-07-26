@@ -596,7 +596,7 @@ function ClassicTheme({ card, preview }) {
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                 }`,
             }}>
-              <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me' }</h2>
+              <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me'}</h2>
               <p>{card.about}</p>
 
 
@@ -1118,7 +1118,7 @@ function ClassicTheme({ card, preview }) {
             ""
           )}
 
-          {card?.websiteImage || card?.websiteName || card?.websiteUrl || card?.website?.length > 0 ?
+          {card?.websiteImage || card?.websiteName || card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : "") ?
             <div className="contactOptions" style={{
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                 }`,
@@ -1149,48 +1149,85 @@ function ClassicTheme({ card, preview }) {
 
           {/* --------------------------------- review ---------------------------------  */}
 
-          {card?.reviews?.length ?
-            <div className="contactOptions" style={{
-              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-                }`,
-            }}>
-              <h4>Review</h4>
-              {card?.reviews?.map((review) => (
-                <div className="social-media" >
-                  <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`} className="mb-5">
-                    <h5>{review?.reviewName ? review?.reviewName : ''}</h5>
-                  </Link>
-                </div>
-
-              ))}
-
-            </div>
-            : ''
-          }
-
-          {/*  -------------------------------- download --------------------------------  */}
-
-          {card?.downloads?.length  ?
-            <div className="contactOptions" style={{
-              backgroundColor: `${Highlightcolor ? Highlightcolor : ""
-                }`,
-            }}>
-              <h4 >Downloads</h4>
-              {card.downloads.map((obj) => {
-                return (
-
+          {card?.reviews ?
+            (card?.reviews[0]?.reviewName ?
+              <div className="contactOptions" style={{
+                backgroundColor: `${Highlightcolor ? Highlightcolor : ""
+                  }`,
+              }}>
+                <h4>Review</h4>
+                {card?.reviews?.map((review) => (
                   <div className="social-media" >
-                    <Link to={`${obj?.itemLink}`} target={`${preview ? "_blank" : ''}`}  >
-                      <img className='rounded-full ' src={downloadIcon} alt='' />
-                      <h5 > {obj?.itemName}</h5>
+                    <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`} className="mb-5">
+                      <h5>{review?.reviewName ? review?.reviewName : ''}</h5>
                     </Link>
                   </div>
-                )
-              })}
 
-            </div>
+                ))}
+
+              </div>
+              : '')
             : ""
           }
+
+
+          {/* -----------------------------------------------------------Dowloads Area---------------------------------------------------------------------------------------- */}
+
+
+          {(card?.files?.file1?.fileName)|| 
+          (card?.files?.file2?.fileName)|| 
+          (card?.files?.file3?.fileName)|| 
+          (card?.files?.file4?.fileName)?
+                        <div className="contactOptions" style={{ backgroundColor: `${Highlightcolor }` }}>
+                          
+                            <h4>Downloads</h4>
+                           
+                           {(card?.files?.file1?.fileName)?
+                                    <div className="social-media" >
+                                        
+                                        <Link  to={`${preview ? card?.files?.file1?.fileUrl : ""}`}  target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                                            <h5 > {card?.files?.file1?.fileName}</h5>
+                                        </Link>
+                                    </div>
+                                :""}
+                           
+                           {(card?.files?.file2?.fileName)?
+                                    <div className="social-media" >
+                                        
+                                        <Link  to={`${preview ? card?.files?.file2?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                                            <h5 > {card?.files?.file2?.fileName}</h5>
+                                        </Link>
+                                    </div>
+                                :""}
+                           
+                           {(card?.files?.file3?.fileName)?
+                                    <div className="social-media" >
+                                        
+                                        <Link  to={`${preview ? card?.files?.file3?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"   >
+                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                                            <h5 > {card?.files?.file3?.fileName}</h5>
+                                        </Link>
+                                    </div>
+                                :""}
+                           
+                           {(card?.files?.file4?.fileName)?
+                                    <div className="social-media" >
+                                        
+                                        <Link  to={`${preview ? card?.files?.file4?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                                            <h5 > {card?.files?.file4?.fileName}</h5>
+                                           
+                                        </Link>
+                                    </div>
+                                :""}
+                            
+
+                        </div>
+                        : ""}
+
+
 
 
           {/* --------------------------------------------------------------------------------------------------------------------------------------------------- */}
