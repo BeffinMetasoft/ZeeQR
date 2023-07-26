@@ -242,7 +242,7 @@ function StandardTheme({ card, preview }) {
             {card?.about ? (
               <div>
                 <div className="flex">
-                  <h2>About </h2>
+                  <h2>About {card?.aboutHeadline ? card?.aboutHeadline : '' }</h2>
                   <p
                     style={{
                       borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "black"

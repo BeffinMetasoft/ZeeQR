@@ -414,7 +414,7 @@ function ModernTheme({ card, preview }) {
             {card?.about ? (
               <div className={`${!card?.checkPfCard ? "mt-20" : ""} `}>
                 <div className="flex">
-                  <h2>About </h2>
+                  <h2>About {card?.aboutHeadline ? card?.aboutHeadline : '' }</h2>
                   <p
                     style={{
                       borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "#e71545"

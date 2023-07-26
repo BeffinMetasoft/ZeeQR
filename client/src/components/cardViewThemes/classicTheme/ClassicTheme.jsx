@@ -596,7 +596,7 @@ function ClassicTheme({ card, preview }) {
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                 }`,
             }}>
-              <h2>About Me</h2>
+              <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me' }</h2>
               <p>{card.about}</p>
 
 

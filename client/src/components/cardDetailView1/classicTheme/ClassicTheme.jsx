@@ -133,7 +133,7 @@ function ClassicTheme({ card }) {
                     {card.about ?
 
                         <div className="contactOptions" style={{ backgroundColor: `${card.colorCode ? card.colorCode : 'white'}`, color: `${card.colorCode ? 'white' : ''}` }}>
-                            <h2>About Me</h2>
+                            <h2>About {card.aboutHeadline ? card.aboutHeadline : 'Me' }</h2>
                             <p>{card.about}</p>
 
 
