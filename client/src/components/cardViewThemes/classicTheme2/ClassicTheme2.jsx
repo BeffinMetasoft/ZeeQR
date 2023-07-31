@@ -671,7 +671,7 @@ function ClassicTheme2({ card, preview }) {
             >
               <p
                 className="w-12 ml-6 my-2 text-white text-sm"
-                style={{ color: `${Textcolor ? Textcolor : ""}` }}
+                style={{ color: `${Textcolor ? Textcolor : "black"}` }}
               >
                 Add to Contacts
               </p>
@@ -679,9 +679,9 @@ function ClassicTheme2({ card, preview }) {
                 className="ml-6 rounded-full   my-2 p-2 w-10 h-10"
                 src=""
                 alt=""
-                style={{ backgroundColor: `${Textcolor ? Textcolor : ""}` }}
+                style={{ backgroundColor: `${Highlightcolor ? Highlightcolor : "white"}` }}
               >
-                <BsPlus size={23} color={Iconcolor} />
+                <BsPlus size={23} color={Textcolor ? Textcolor : 'black'} />
               </div>
             </Link>
           </>
@@ -734,7 +734,7 @@ function ClassicTheme2({ card, preview }) {
               >
                 <h1
                   style={{
-                    color: `${Textcolor ? Textcolor : ""}`,
+                    color: `${card?.pfCardColor ? "black" : Textcolor ? Textcolor : ""}`,
                     width: `${!card?.checkProfile ? "max-content" : ""}`,
                     fontSize: `${array[0]?.length > 12 ||
                       array[1]?.length > 12 ||
@@ -749,7 +749,7 @@ function ClassicTheme2({ card, preview }) {
                 </h1>
                 <p
                   style={{
-                    color: `${Textcolor ? Textcolor : ""}`,
+                    color: `${card?.pfCardColor ? "black" : Textcolor ? Textcolor : ""}`,
                   }}
                 >
                   {card?.companyDesignation}
