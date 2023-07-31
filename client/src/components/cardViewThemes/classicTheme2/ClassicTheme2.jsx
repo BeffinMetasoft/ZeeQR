@@ -667,7 +667,7 @@ function ClassicTheme2({ card, preview }) {
             <Link
               className="addToContact flex"
               to={`${card?.vCard}`}
-              style={{ backgroundColor: `${Iconcolor ? Iconcolor : ""}` }}
+              style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}
             >
               <p
                 className="w-12 ml-6 my-2 text-white text-sm"

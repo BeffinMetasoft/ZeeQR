@@ -1118,7 +1118,7 @@ function ClassicTheme({ card, preview }) {
             ""
           )}
 
-          {card?.websiteImage || card?.websiteName || card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : "") ?
+          {card?.websiteImage || card?.websiteName || card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName  : "") ?
             <div className="contactOptions" style={{
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                 }`,
