@@ -1363,7 +1363,7 @@ function ClassicTheme2({ card, preview }) {
 
           {card?.websiteImage ||
             card?.websiteName ||
-            card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : "") ? (
+            card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : card?.website?.length) ? (
             <div
               className="contactOptions2"
               style={{
