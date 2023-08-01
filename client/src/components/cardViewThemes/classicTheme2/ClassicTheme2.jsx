@@ -1361,9 +1361,8 @@ function ClassicTheme2({ card, preview }) {
 
           {/*  --------------------------------- website --------------------------------  */}
 
-          {card?.websiteImage ||
-            card?.websiteName ||
-            card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : card?.website?.length) ? (
+          {card?.websiteName ||
+            card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : '') ? (
             <div
               className="contactOptions2"
               style={{
