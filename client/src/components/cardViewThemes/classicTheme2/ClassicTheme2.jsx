@@ -2,17 +2,22 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./ClassicTheme2.css";
 import { saveAs } from "file-saver";
-import { BsPlus, BsQrCodeScan, BsUpload } from "react-icons/bs";
-import mailiconw from "../../../assests/img1/mail_icon_white.svg";
-import phoneiconw from "../../../assests/img1/phone_icon_white.svg";
-import messageiconw from "../../../assests/img1/message_icon_white.svg";
-import whatsappiconw from "../../../assests/img1/whatsapp_icon_white.svg";
-import arrowIcon from "../../../assests/img1/arrow_white.svg";
+// import { BsPlus, BsQrCodeScan, BsUpload } from "react-icons/bs";
+import { BsCursor, BsPlus, BsQrCodeScan, BsUpload, BsWhatsapp } from "react-icons/bs";
+import { FiLink, FiMail } from "react-icons/fi";
+import { BiMobileAlt } from "react-icons/bi";
+import { RiMessage2Line } from "react-icons/ri";
+import { IoIosArrowForward } from "react-icons/io";
+// import mailiconw from "../../../assests/img1/mail_icon_white.svg";
+// import phoneiconw from "../../../assests/img1/phone_icon_white.svg";
+// import messageiconw from "../../../assests/img1/message_icon_white.svg";
+// import whatsappiconw from "../../../assests/img1/whatsapp_icon_white.svg";
+// import arrowIcon from "../../../assests/img1/arrow_white.svg";
 import fbIcon from "../../../assests/img1/fb_icon_1.svg";
 import instaIcon from "../../../assests/img1/insta_icon_1.svg";
 import inIcon from "../../../assests/img1/in_icon_1.svg";
 import whtsIcon from "../../../assests/img1/what_icon_1.svg";
-import webIcon from "../../../assests/img1/Subtract_white.svg";
+// import webIcon from "../../../assests/img1/Subtract_white.svg";
 import addtoHome from "../../../assests/img1/addtoHome.jpg";
 import skype from "../../../assests/img1/skype_icon.svg";
 import youtube from "../../../assests/img1/youtube.svg";
@@ -66,6 +71,7 @@ function ClassicTheme2({ card, preview }) {
   const Textcolor = card?.textColor ? card?.textColor : "";;
   const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "";
   const BgColor = card?.bgColor ? card?.bgColor : "";
+  const BtIColor = card?.btIconColor ? card?.btIconColor : "";
 
   const shareMail = (e) => {
     window.location = `mailto:${card?.email}`;
@@ -77,191 +83,231 @@ function ClassicTheme2({ card, preview }) {
   //--------------------------------------FaceBookIcon1-----------------------------------------------
 
   const FaceBookIcon1 = (
-    <Link
-      to={`${preview ? card?.facebook : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={fbIcon} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+      <Link
+        to={`${preview ? card?.facebook : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Facebook
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Facebook
-        </span>
-      </h5>
-    </Link>
+        <img src={fbIcon} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Facebook
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Facebook
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
+
   );
   //--------------------------------------InstagramIcon1-----------------------------------------------
   const InstagramIcon1 = (
-    <Link
-      to={`${preview ? card?.instagram : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={instaIcon} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.instagram : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Instagram
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Instagram
-        </span>
-      </h5>
-    </Link>
+        <img src={instaIcon} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Instagram
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Instagram
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------WhatsAppIcon1-----------------------------------------------
   const WhatsAppIcon1 = (
-    <Link
-      to={`https://wa.me/+${preview ? card?.whatsappNumber : ""
-        }?text=Hi%2C`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={whtsIcon} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`https://wa.me/+${preview ? card?.whatsappNumber : ""
+          }?text=Hi%2C`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        WhatsApp
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on WhatsApp
-        </span>
-      </h5>
-    </Link>
+        <img src={whtsIcon} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          WhatsApp
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on WhatsApp
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------LinkedInIcon1-----------------------------------------------
   const LinkedInIcon1 = (
-    <Link
-      to={`${preview ? card?.linkedin : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={inIcon} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.linkedin : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        LinkedIn
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on LinkedIn
-        </span>
-      </h5>
-    </Link>
+        <img src={inIcon} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          LinkedIn
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on LinkedIn
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------TwitterIcon1-----------------------------------------------
   const TwitterIcon1 = (
-    <Link
-      to={`${preview ? card?.twitter : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={twitter} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.twitter : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Twitter
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Twitter
-        </span>
-      </h5>
-    </Link>
+        <img src={twitter} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Twitter
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Twitter
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------YoutubeIcon1-----------------------------------------------
   const YoutubeIcon1 = (
-    <Link
-      to={`${preview ? card?.youtube : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={youtube} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.youtube : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        youtube
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Youtube
-        </span>
-      </h5>
-    </Link>
+        <img src={youtube} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          youtube
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Youtube
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------SkypeIcon1-----------------------------------------------
   const SkypeIcon1 = (
-    <Link
-      to={`${preview ? card?.skype : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={skype} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.skype : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Skype
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Skype
-        </span>
-      </h5>
-    </Link>
+        <img src={skype} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Skype
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Skype
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------SnapChatIcon1-----------------------------------------------
   const SnapChatIcon1 = (
-    <Link
-      to={`${preview ? card?.snapchat : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={snapchat} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.snapchat : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Snapchat
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Snapchat
-        </span>
-      </h5>
-    </Link>
+        <img src={snapchat} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Snapchat
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Snapchat
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------TikTokIcon1-----------------------------------------------
   const TikTokIcon1 = (
-    <Link
-      to={`${preview ? card?.tiktok : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={tiktok} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.tiktok : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Tiktok
-        <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-          Follow me on Tiktok
-        </span>
-      </h5>
-    </Link>
+        <img className="rounded-full" src={tiktok} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Tiktok
+          <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
+            Follow me on Tiktok
+          </span>
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //--------------------------------------CompanyProfileIcon1-----------------------------------------------
   const CompanyProfileIcon1 = (
-    <Link
-      to={`${preview ? card?.companyProfile : ""}`}
-      target={`${preview ? "_blank" : ""}`}
-    >
-      <img src={companypfImage} alt="" />
-      <h5
-        style={{
-          color: `${Textcolor ? Textcolor : ""}`,
-        }}
+    <div className="w-full flex jusify-between items-center">
+
+      <Link
+        to={`${preview ? card?.companyProfile : ""}`}
+        target={`${preview ? "_blank" : ""}`}
       >
-        Company Profile
-      </h5>
-    </Link>
+        <img src={companypfImage} alt="" />
+        <h5
+          style={{
+            color: `${Textcolor ? Textcolor : ""}`,
+          }}
+        >
+          Company Profile
+        </h5>
+      </Link>
+      <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
+    </div>
   );
   //------------------------------------------------------------------------------------------------------
 
@@ -275,7 +321,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div style={{ marginBottom: "1px" }}>
+        <div style={{ marginBottom: "1px" }} className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.facebook : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -291,6 +337,7 @@ function ClassicTheme2({ card, preview }) {
               </h5>
             </div>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -304,7 +351,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.instagram : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -326,6 +373,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -339,7 +387,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`https://wa.me/+${preview ? card?.whatsappNumber : ""
               }?text=Hi%2C`}
@@ -362,6 +410,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -374,8 +423,8 @@ function ClassicTheme2({ card, preview }) {
         backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
       }}
     >
-      <div className="social-media2" style={{ display: "block" }}>
-        <div>
+      <div className="social-media2 " >
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.linkedin : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -397,6 +446,8 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -410,7 +461,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.twitter : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -432,6 +483,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -445,7 +497,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.youtube : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -467,6 +519,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -480,7 +533,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.skype : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -502,6 +555,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -515,7 +569,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.snapchat : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -537,6 +591,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -550,12 +605,12 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.tiktok : ""}`}
             target={`${preview ? "_blank" : ""}`}
           >
-            <img src={tiktok} alt="" />
+            <img className="rounded-full" src={tiktok} alt="" />
             <h5
               style={{
                 color: `${Textcolor ? Textcolor : ""}`,
@@ -572,6 +627,7 @@ function ClassicTheme2({ card, preview }) {
               </span>
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -585,7 +641,7 @@ function ClassicTheme2({ card, preview }) {
       }}
     >
       <div className="social-media2" style={{ display: "block" }}>
-        <div>
+        <div className="w-full flex jusify-between items-center">
           <Link
             to={`${preview ? card?.companyProfile : ""}`}
             target={`${preview ? "_blank" : ""}`}
@@ -599,6 +655,7 @@ function ClassicTheme2({ card, preview }) {
               Company Profile
             </h5>
           </Link>
+          <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
         </div>
       </div>
     </div>
@@ -607,7 +664,7 @@ function ClassicTheme2({ card, preview }) {
   const imageStyle = {
     backgroundSize: "100%",
     backgroundPosition: "center 150px",
-    backgroundImage: `url(${card?.bgImg })`,
+    backgroundImage: `url(${card?.bgImg})`,
   };
   const colorStyle = {
     backgroundSize: "100%",
@@ -617,8 +674,8 @@ function ClassicTheme2({ card, preview }) {
   const defaultStyle = {
     backgroundSize: "100%",
     backgroundPosition: "center 150px",
-    backgroundImage: `url(${background })`,
-  };
+    backgroundImage: `url(${background})`,
+  };
 
   //------------------------------------------------------------------------------------------------------
   return (
@@ -636,7 +693,7 @@ function ClassicTheme2({ card, preview }) {
 
       <section
         className="previewWrap2"
-        style={card?.bgImg ? imageStyle : BgColor? colorStyle : defaultStyle }
+        style={card?.bgImg ? imageStyle : BgColor ? colorStyle : defaultStyle}
       >
         {preview ? (
           <>
@@ -647,7 +704,7 @@ function ClassicTheme2({ card, preview }) {
               className="qr-code1"
               onClick={() => setQrModal(true)}
             >
-              <BsQrCodeScan size={22} color={Textcolor} />
+              <BsQrCodeScan size={22} color={BtIColor} />
             </span>
             <Link
               style={{
@@ -657,7 +714,7 @@ function ClassicTheme2({ card, preview }) {
               onClick={handleShare}
             >
               {/* <img src={shareIcon} alt="" /> */}
-              <BsUpload size={23} color={Textcolor} />
+              <BsUpload size={23} color={BtIColor} />
             </Link>
             {/* <Link style={{
                   backgroundColor: `${Iconcolor ? Iconcolor : ""
@@ -671,7 +728,7 @@ function ClassicTheme2({ card, preview }) {
             >
               <p
                 className="w-12 ml-6 my-2 text-white text-sm"
-                style={{ color: `${Textcolor ? Textcolor : "black"}` }}
+                style={{ color: `${BtIColor ? BtIColor : "white"}` }}
               >
                 Add to Contacts
               </p>
@@ -681,7 +738,7 @@ function ClassicTheme2({ card, preview }) {
                 alt=""
                 style={{ backgroundColor: `${Highlightcolor ? Highlightcolor : "white"}` }}
               >
-                <BsPlus size={23} color={Textcolor ? Textcolor : 'black'} />
+                <BsPlus size={23} color={Iconcolor ? Iconcolor : 'black'} />
               </div>
             </Link>
           </>
@@ -787,7 +844,9 @@ function ClassicTheme2({ card, preview }) {
               }}
               onClick={preview ? shareMail : ""}
             >
-              <img src={mailiconw} alt="" />
+              {/* <img src={mailiconw} alt="" /> */}
+              <FiMail size={23} color={BtIColor ? BtIColor : 'white'} />
+
             </Link>
             <Link
               style={{
@@ -795,7 +854,9 @@ function ClassicTheme2({ card, preview }) {
               }}
               to={preview ? `tel:+${card?.phone}` : ""}
             >
-              <img src={phoneiconw} alt="" />
+              {/* <img src={phoneiconw} alt="" /> */}
+              <BiMobileAlt size={25} color={BtIColor ? BtIColor : 'white'} />
+
             </Link>
             <Link
               style={{
@@ -803,27 +864,23 @@ function ClassicTheme2({ card, preview }) {
               }}
               to={preview ? `sms:+${card?.phone}` : ""}
             >
-              <img src={messageiconw} alt="" />
+              {/* <img src={messageiconw} alt="" /> */}
+              <RiMessage2Line size={23} color={BtIColor ? BtIColor : 'white'} />
+
             </Link>
-            {preview ? (
-              <Link
-                style={{
-                  backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
-                }}
-                to={`https://wa.me/+${card?.whatsappNumber}?text=Hi%2C`}
-                target="_blank"
-              >
-                <img src={whatsappiconw} alt="" />
-              </Link>
-            ) : (
-              <Link
-                style={{
-                  backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
-                }}
-              >
-                <img src={whatsappiconw} alt="" />
-              </Link>
-            )}
+
+            <Link
+              style={{
+                backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
+              }}
+              to={preview ? `https://wa.me/+${card?.whatsappNumber}?text=Hi%2C` : ""}
+              target={preview ? "_blank" : ""}
+            >
+              {/* <img src={whatsappiconw} alt="" /> */}
+              <BsWhatsapp size={23} color={BtIColor ? BtIColor : 'white'} />
+
+            </Link>
+
           </div>
 
           {card?.about ? (
@@ -854,7 +911,8 @@ function ClassicTheme2({ card, preview }) {
                   backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
                 }}
               >
-                <img src={phoneiconw} alt="" />
+                {/* <img src={phoneiconw} alt="" /> */}
+                <BiMobileAlt size={25} color={BtIColor ? BtIColor : 'white'} />
               </span>{" "}
               Contact Me
             </h2>
@@ -888,14 +946,16 @@ function ClassicTheme2({ card, preview }) {
             {card?.locationUrl ? (
               <Link
                 style={{
-                  color: `${Textcolor ? Textcolor : ""}`,
+                  color: `${BtIColor ? BtIColor : ""}`,
                   backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
                 }}
                 to={`${preview ? card?.locationUrl : ""}`}
                 target={`${preview ? "_blank" : ""}`}
                 className="blk-btn"
               >
-                <img src={arrowIcon} alt="" />
+                {/* <img src={arrowIcon} alt="" /> */}
+                <BsCursor size={16} color={BtIColor ? BtIColor : 'white'} />
+
                 Direction
               </Link>
             ) : (
@@ -1379,15 +1439,18 @@ function ClassicTheme2({ card, preview }) {
                     to={`${preview ? card?.websiteUrl : ""}`}
                     target={`${preview ? "_blank" : ""}`}
                   >
-                    <img
+                    {/* <img
                       className="rounded-full p-2 "
                       src={webIcon}
                       alt=""
                       style={{
                         backgroundColor: `${Iconcolor ? Iconcolor : "black"}`,
                       }}
-                    />
+                    /> */}
+                    <span className="websiteIcon" style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}>
+                      <FiLink size={23} color={BtIColor ? BtIColor : 'white'} />
 
+                    </span>
                     <h5
                       style={{
                         color: `${Textcolor ? Textcolor : ""}`,
@@ -1397,23 +1460,29 @@ function ClassicTheme2({ card, preview }) {
                       {card?.websiteName}
                     </h5>
                   </Link>
+                  <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
                 </div>
                 : ''
               }
               {card?.website?.map(webData => <div className="social-media2">
                 <Link to={`${preview ? webData?.websiteUrl : ''}`} target={`${preview ? "_blank" : ''}`} className="mb-5" >
-                  <img
+                  {/* <img
                     className="rounded-full p-2 "
                     src={webIcon}
                     alt=""
                     style={{
                       backgroundColor: `${Iconcolor ? Iconcolor : "black"}`,
                     }}
-                  />
+                  /> */}
+                  <span className="websiteIcon" style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}>
+                    <FiLink size={23} color={BtIColor ? BtIColor : 'white'} />
+
+                  </span>
                   <h5 style={{
                     color: `${Textcolor ? Textcolor : ""}`,
                   }}> {webData?.websiteName ? webData.websiteName : "Website Name"}</h5>
                 </Link>
+                <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
               </div>)}
             </div>
           ) : (
@@ -1437,6 +1506,7 @@ function ClassicTheme2({ card, preview }) {
                         color: `${Textcolor ? Textcolor : ""}`,
                       }}>{review?.reviewName ? review?.reviewName : ''}</h5>
                     </Link>
+                    <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
                   </div>
 
                 ))}
@@ -1467,6 +1537,7 @@ function ClassicTheme2({ card, preview }) {
                       color: `${Textcolor ? Textcolor : ""}`,
                     }}> {card?.files?.file1?.fileName}</h5>
                   </Link>
+                  <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
                 </div>
                 : ""}
 
@@ -1479,6 +1550,7 @@ function ClassicTheme2({ card, preview }) {
                       color: `${Textcolor ? Textcolor : ""}`,
                     }}> {card?.files?.file2?.fileName}</h5>
                   </Link>
+                  <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
                 </div>
                 : ""}
 
@@ -1491,6 +1563,7 @@ function ClassicTheme2({ card, preview }) {
                       color: `${Textcolor ? Textcolor : ""}`,
                     }}> {card?.files?.file3?.fileName}</h5>
                   </Link>
+                  <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
                 </div>
                 : ""}
 
@@ -1504,6 +1577,7 @@ function ClassicTheme2({ card, preview }) {
                     }}> {card?.files?.file4?.fileName}</h5>
 
                   </Link>
+                  <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
                 </div>
                 : ""}
 
@@ -1523,7 +1597,7 @@ function ClassicTheme2({ card, preview }) {
             (card?.highlightPhotos[0].highlightPhotos8) ? (
             card?.checkHighlight ? (
               <div>
-                <div className="flex">
+                {/* <div className="flex">
                   <h2
                     style={{
                       color: `${Textcolor ? Textcolor : ""}`,
@@ -1541,7 +1615,7 @@ function ClassicTheme2({ card, preview }) {
                   >
                     &nbsp; &nbsp; &nbsp;{" "}
                   </p>
-                </div>
+                </div> */}
                 <div className="photoGrid">
                   {card?.highlightPhotos[0].highlightPhotos1 ? (
                     <img
@@ -1685,14 +1759,16 @@ function ClassicTheme2({ card, preview }) {
                       </p>
                       {!showResults ? (
                         <div
-                          className="addToHome"
+                          className="addToHomeClassic2"
                           onClick={onClick}
                           style={{
-                            color: `${Textcolor ? Textcolor : ""}`,
+                            color: `${BtIColor ? BtIColor : ""}`,
                             backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
                           }}
                         >
                           Add to Home Screen
+                          <BsPlus className="mr-5" size={23} color={BtIColor ? BtIColor : 'white'} />
+
                         </div>
                       ) : (
                         <img
@@ -1717,7 +1793,7 @@ function ClassicTheme2({ card, preview }) {
                         height="20"
                         viewBox="0 0 24 24"
                         stroke-width="2.5"
-                        stroke={Textcolor}
+                        stroke={BtIColor}
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"

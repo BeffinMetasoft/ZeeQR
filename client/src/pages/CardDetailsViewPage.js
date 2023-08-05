@@ -33,7 +33,7 @@ function CardDetailsViewPage() {
                 const liveLocation = await axios.get('https://ipapi.co/json')
                 // console.log(liveLocation,'qwertyuio');
                 const { data } = await cardProfile(params.id,liveLocation.data)
-                console.log(data, 'dataaaaaaaaaaa');
+                // console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     if (data?.card?.companyLogo) {
 
@@ -70,6 +70,7 @@ function CardDetailsViewPage() {
             } catch (error) {
                 setPre(false)
                 setCard('')
+                console.log(error);
             }
         }
 

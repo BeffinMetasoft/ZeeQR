@@ -198,6 +198,18 @@ button {
     -webkit-border-radius: 44px;
     background: #1D1D1F;
 }
+
+.websiteIcon{
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 44px;
+    -moz-border-radius: 44px;
+    -webkit-border-radius: 44px;
+    /* background: #1D1D1F; */
+}
 /* 
 .previewContainer2 h2:after {
     position: absolute;
@@ -261,7 +273,7 @@ button {
     cursor: pointer;
     gap: 10px;
     width: 100%;
-    background: url('../../../assests/img/more_icon.svg') no-repeat right center;
+    /* background: url('../../../assests/img/more_icon.svg') no-repeat right center; */
 }
 .previewContainer2 .contactOptions2 .social-media2 a img{
     width: 43px;
@@ -542,7 +554,7 @@ button {
     width: 200px;
     margin: 0 auto 30px;
 }
-.addToHome{
+.addToHomeClassic2{
     height: 44px;
     width: 100%;
     display: flex;
@@ -554,7 +566,7 @@ button {
     line-height: 19px;
     padding-left: 14px;
     cursor: pointer;
-    background: #000000 url("../../../assests/img1/plus_icon.svg") no-repeat 95% center;
+    /* background: #000000 url("../../../assests/img1/plus_icon.svg") no-repeat 95% center; */
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
