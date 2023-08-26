@@ -41,7 +41,7 @@ function CardDetailsViewPage() {
                             // console.log(preview, 'dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
                             // setPre(preview)
                             setPre(false)
-                        }, 2500);
+                        }, 1000);
                     } else {
                         setPre(false)
                     }
