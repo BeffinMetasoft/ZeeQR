@@ -3,15 +3,14 @@ import React, { useEffect } from 'react'
 // import NavbarLanding from '../components/navbar/NavbarLanding'
 
 function LandingPage() {
-  useEffect(()=>{
+  useEffect(() => {
     window.location.href = 'https://zeeqr.com/'
-  },[])
-    return (
-      <div>
-           {/* <NavbarLanding/>
-           <Landing/> */}
-      </div>
-    )
+  }, [])
+  return (
+    <div>
+      <p></p>
+    </div>
+  )
 }
 
 export default LandingPage

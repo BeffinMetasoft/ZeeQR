@@ -35,7 +35,7 @@ function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
     // const [letter,setLetter]= useState('')
     const array = card.name.split(" ");
-    console.log(card.bgImg, 'haiiii');
+    // console.log(card.bgImg, 'haiiii');
 
     // const bg= card.bgImg
 

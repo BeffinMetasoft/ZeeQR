@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {  useParams } from 'react-router-dom'
 import { cardProfile } from '../api/UserRequest'
-// import logo from '../assests/zeeqr.png'
 import logo from '../assests/zeeqr-black.svg'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
@@ -75,7 +74,7 @@ function CardDetailsViewPage() {
         }
 
         getDetails()
-    },[])
+    },[params.id])
     
     return (
         <div>

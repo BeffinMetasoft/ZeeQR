@@ -14,12 +14,8 @@ app.use(cors({
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-const authRouter = require('./routes/authRouter')
-const userRouter = require('./routes/userRouter')
 const cardRouter = require('./routes/cardRouter')
 
-app.use('/api', authRouter)
-app.use('/api', userRouter)
 app.use('/api', cardRouter)
 
 
