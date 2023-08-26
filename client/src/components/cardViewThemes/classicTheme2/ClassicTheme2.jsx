@@ -22,7 +22,7 @@ import addtoHome from "../../../assests/img1/addtoHome.jpg";
 import skype from "../../../assests/img1/skype_icon.svg";
 import youtube from "../../../assests/img1/youtube.svg";
 import snapchat from "../../../assests/img1/snapchat.svg";
-import twitter from "../../../assests/img1/twitter.png";
+import twitter from "../../../assests/img/twitter.png";
 import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
 import background from '../../../assests/img1/background.jpg'
