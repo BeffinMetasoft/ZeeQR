@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { addLocation, cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
 import zeeqrLoder from '../assests/Zeeqr Loading.gif'
@@ -62,7 +62,7 @@ function CardDetailsViewPage() {
                     linkAppple.href = data.card.profileImage ? data.card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'
 
                     const liveLocation = await axios.get('https://ipapi.co/json')
-                    await addLocation(data.card._id,liveLocation.data)
+                    await addLocation(data.card._id, liveLocation.data)
 
                 }
             } catch (error) {
@@ -91,6 +91,7 @@ function CardDetailsViewPage() {
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>
                     <img src={card?.companyLogo ? card.companyLogo : zeeqrLoder} alt="" />
+
                 </div>
                 :
                 (
@@ -112,8 +113,14 @@ function CardDetailsViewPage() {
                         )
 
                         :
-                        <div className='w-full h-screen flex items-center justify-center'>
+                        <div className='w-full h-screen flex flex-col items-center justify-center'>
                             <img src={logo} alt="" />
+                            <h1 className='font-bold mt-2'>This card is not valid/card has expired!</h1>
+                            <p className='mt-1'>Please contact the admin</p>
+                            <Link to={'https://wa.me/+971505363704?text=Hi%2C'} target="blank" >
+                                <button className='p-2 mt-3 border-2 rounded-xl border-black'>Get In Touch</button>
+                            </Link>
+
                         </div>
 
                 )

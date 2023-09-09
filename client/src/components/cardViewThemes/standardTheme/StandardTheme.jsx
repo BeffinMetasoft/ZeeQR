@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./StandardTheme.css";
 import { saveAs } from "file-saver";
-// import logo from '../../../assests/img/zeeqr-logo-white.svg'
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
 import linkedin from "../../../assests/img/in_icon.svg";
@@ -15,7 +14,6 @@ import mail from "../../../assests/img/mail_icon.svg";
 import loc from "../../../assests/img/loc_icon.svg";
 import { BsQrCodeScan } from "react-icons/bs";
 import addtoHome from "../../../assests/img1/addtoHome.jpg";
-// import { useSelector } from "react-redux";
 import arrow from "../../../assests/img/more_icon.svg";
 import leftarrow from "../../../assests/img1/left_arrow.svg";
 import skype from "../../../assests/img1/skype_std.svg";
@@ -24,8 +22,7 @@ import snapchat from "../../../assests/img1/snapchat_std.svg";
 import tiktok from "../../../assests/img1/tiktok.svg";
 import companypfImage from "../../../assests/img1/companyProfile.svg";
 
-// import PhoneInput from "react-phone-input-2";
-// import "react-phone-input-2/lib/bootstrap.css";
+
 
 const defaultBackgroundImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg";
@@ -33,29 +30,7 @@ const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
 function StandardTheme({ card, preview }) {
-  // const {
-  //   color,
-  //   Hcolor,
-  //   backgroundImage,
-  //   profileImage,
-  //   companyLogo,
-  //   card,
-  //   card,
-  //   websiteDetails,
-  //   card,
-  //   websiteImage,
-  //   highlightPhotos1,
-  //   highlightPhotos2,
-  //   highlightPhotos3,
-  //   highlightPhotos4,
-  //   vCard,
-  //   QRCode,
-  //   checkProfile,
-  //   checkPfCard,
-  //   checkLogo,
-  //   checkHighlight,
-  //   card?.SMediaPostion,
-  // } = useSelector((state) => state.cardReducer);
+ 
 
   const [qrModal, setQrModal] = useState(false);
 
@@ -90,9 +65,7 @@ function StandardTheme({ card, preview }) {
     e.preventDefault();
   };
 
-  // const scroll = (scrollOffset) => {
-  //     ref.current.scrollLeft += scrollOffset;
-  // };
+ 
   const slideLeft = () => {
     var slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 100;
@@ -200,13 +173,7 @@ function StandardTheme({ card, preview }) {
             ) : (
               ""
             )}
-            {/* {card.companyLogo ?
-                            (card.checkLogo ?
-                                <div className="companyLogo ">
-                                    <img src={card.companyLogo} alt='' />
-                                </div> : "")
-                            : ''
-                        } */}
+            
             {card?.companyLogo ? (
               card?.checkLogo ? (
                 <div className={`companyLogo ${!card?.checkPfCard ? "mt-12" : ""} `}>

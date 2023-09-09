@@ -11,7 +11,6 @@ async function checkExpiry(data) {
     var expiration = moment(date_string).format("YYYY-MM-DD");
     var current_date = moment().format("YYYY-MM-DD");
     var days = moment(current_date).diff(expiration, 'days');
-    console.log(days, 'dddddddddddddaaaaaaaaaaaayssssssss');
     if (days > data.expire) {
         return 'expired'
     } else {

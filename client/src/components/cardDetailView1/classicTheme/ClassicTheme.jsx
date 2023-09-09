@@ -21,26 +21,19 @@ import tiktok from '../../../assests/img/tiktok.png'
 import twitter from '../../../assests/img/twitter.png'
 import skype from '../../../assests/img/skype.png'
 import youtube from '../../../assests/img/youtube4.png'
-// import youtube from '../../../assests/img/youtube1.webp'
-// import youtube from '../../../assests/img/youtube2.jpg'
 import arrow from '../../../assests/img/more_icon.svg'
 import arrow_white from '../../../assests/img/chevron-right-white.svg'
 import companyProfile from '../../../assests/img/companyProfile.jpg'
 import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
 import ftLogo from '../../../assests/img/footer_logo.svg'
 
-// import { IoIosArrowForward } from 'react-icons/io';
 
 function ClassicTheme({ card }) {
     const [qrModal, setQrModal] = useState(false)
-    // const [letter,setLetter]= useState('')
     const array = card.name.split(" ");
-    // console.log(card.bgImg, 'haiiii');
-
-    // const bg= card.bgImg
 
 
-    // console.log(array, '1234wer');
+
 
     const handleShare = () => {
         if (navigator.share) {
@@ -108,8 +101,6 @@ function ClassicTheme({ card }) {
                                 <h1 style={{ width: `${!card.checkProfile1 ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.pfCard1name1}</h1>
                                 <h1 style={{ width: `${!card.checkProfile1 ? "max-content" : ''}`, fontSize: `${array[0]?.length > 12 || array[1]?.length > 12 || array[2]?.length > 12 ? '20px' : ''}` }} >{card.pfCard1name2}</h1>
 
-                                {/* <p>{card.pfCard1name1}</p> */}
-                                {/* <p>{card.pfCard1name2}</p> */}
                             </div>
                         </div> : ''
                     }

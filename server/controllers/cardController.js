@@ -18,8 +18,6 @@ const getSingleCard = async (req, res, next) => {
   try {
 
     const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
-    console.log(card.expire, 'cardsssssdsdsdsdsdsd');
-
     if (card?.expire) {
 
       const cardExpiry = await checkExpiry(card)
@@ -37,11 +35,10 @@ const getSingleCard = async (req, res, next) => {
           res.status(200).json({ success: true, card, message: "Single Booked Card" });
         }
       } else {
-        console.log('0987654321');
         res.status(498).json({ success: false, message: "Profile Card Expired, Please Contact Admin" });
       }
     } else {
-      console.log('1234567');
+      // console.log('1234567');
 
       if (card?.userID?.adminID) {
         const exp = await expiryDate(card.userID.adminID);

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./ModernTheme.css";
 import { saveAs } from "file-saver";
 import { BsQrCodeScan } from "react-icons/bs";
-// import logo from '../../../assests/img/zeeqr-logo-white.svg';
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
 import linkedin from "../../../assests/img/linkedIn_white.svg";
@@ -11,17 +10,12 @@ import insta from "../../../assests/img/insta_white.svg";
 import fb from "../../../assests/img/fb_white.svg";
 import twitter from "../../../assests/img/tw_white.svg";
 import whatsapp from "../../../assests/img/Whatsapp_white.svg";
-// import phn from '../../../assests/img/phone_icon.svg'
-// import video from "../../../assests/img1/video.png";
-// import video1 from "../../../assests/img1/image.png";
-// import loc from '../../../assests/img/loc_icon.svg'
-// import email from '../../../assests/img1/mail2.png'
+
 import addtoHome from "../../../assests/img1/addtoHome.jpg";
 import tiktok from "../../../assests/img1/tiktok-white.svg";
 import skype from "../../../assests/img1/skype-white.svg";
 import youtube from "../../../assests/img1/youtube-white.svg";
 import snapchat from "../../../assests/img1/snapchat-white.svg";
-// import { useSelector } from "react-redux";
 import leftarrow from "../../../assests/img1/left_arrow.svg";
 import arrow from "../../../assests/img/more_icon.svg";
 import companypfImage from "../../../assests/img1/companyProfile_wht.svg";
@@ -32,29 +26,7 @@ const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
 function ModernTheme({ card, preview }) {
-  // const {
-  //   Hcolor,
-  //   // backgroundImage,
-  //   profileImage,
-  //   companyLogo,
-  //   card,
-  //   card,
-  //   card,
-  //   card,
-  //   websiteImage,
-  //   highlightPhotos1,
-  //   highlightPhotos2,
-  //   highlightPhotos3,
-  //   highlightPhotos4,
-
-  //   vCard,
-  //   QRCode,
-  //   checkProfile,
-  //   checkLogo,
-  //   checkHighlight,
-  //   checkPfCard,
-  //   card?.SMediaPostion,
-  // } = useSelector((state) => state.cardReducer);
+  
 
   const [qrModal, setQrModal] = useState(false);
 
@@ -345,14 +317,7 @@ function ModernTheme({ card, preview }) {
               >
                 <div
                   className="text"
-                  // style={{
-                  //     fontSize: "22px",
-                  //     hieght: "100px",
-                  //     color: "white",
-                  //    color: "white",
-                  //     // padding: "20px",
-                  //     paddingLeft: "20px"
-                  // }}
+                  
                   style={{
                     width: `${!card?.checkLogo ? "max-content" : ""}`,
                     padding: `${!card?.checkLogo ? "10px 0 10px 20px" : " 0 0 0 20px"
@@ -378,14 +343,7 @@ function ModernTheme({ card, preview }) {
                   </div>
                 </div>
 
-                {/* <div className="companyLogo">
-                                {backgroundImage[0]?.thumbUrl &&
-                                    backgroundImage[0]?.status !== "removed" ? (
-                                    <img src={backgroundImage[0]?.originFileObj ? URL.createObjectURL(backgroundImage[0]?.originFileObj) : backgroundImage[0].thumbUrl} alt="" />
-                                ) : (
-                                    <img src={defaultBackgroundImage} alt="" />
-                                )}
-                            </div> */}
+                
                 {card?.checkLogo ? (
                   <div className="companyLogo">
                     {card?.companyLogo ? (

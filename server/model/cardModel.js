@@ -152,7 +152,7 @@ const CardSchema = mongoose.Schema({
     },
     expire: {
         type: Number,
-        default: '3',
+        // default: '3',
     },
 
 
