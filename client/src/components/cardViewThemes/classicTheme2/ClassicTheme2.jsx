@@ -1597,25 +1597,7 @@ function ClassicTheme2({ card, preview }) {
             (card?.highlightPhotos[0].highlightPhotos8) ? (
             card?.checkHighlight ? (
               <div>
-                {/* <div className="flex">
-                  <h2
-                    style={{
-                      color: `${Textcolor ? Textcolor : ""}`,
-                    }}
-                  >
-                    Gallery
-                  </h2>
-                  <p
-                    style={{
-                      borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "black"
-                        }`,
-                      height: "4px",
-                      marginTop: "18px",
-                    }}
-                  >
-                    &nbsp; &nbsp; &nbsp;{" "}
-                  </p>
-                </div> */}
+                
                 <div className="photoGrid">
                   {card?.highlightPhotos[0].highlightPhotos1 ? (
                     <img

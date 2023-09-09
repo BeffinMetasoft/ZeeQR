@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import {  useParams } from 'react-router-dom'
-import { cardProfile } from '../api/UserRequest'
+import { useParams } from 'react-router-dom'
+import { addLocation, cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
+import zeeqrLoder from '../assests/Zeeqr Loading.gif'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
-import ModernTheme from '../components/cardDetailView1/modernTheme/ModernTheme'
-import MinimalTheme from '../components/cardDetailView1/minimalTheme/MinimalTheme'
-import StandardDarkTheme from '../components/cardDetailView1/standardDarkTheme/StandardDarkTheme'
-import StandardTheme from '../components/cardDetailView1/standardTheme/StandardTheme'
-import ClassicNewTheme from '../components/cardDetailView1/classicNewTheme/ClassicNewTheme'
 
 import ClassicTheme1 from '../components/cardViewThemes/classicTheme/ClassicTheme'
 import StandardTheme1 from '../components/cardViewThemes/standardTheme/StandardTheme'
@@ -29,9 +25,8 @@ function CardDetailsViewPage() {
         const getDetails = async () => {
             try {
                 // console.log(params.id, '11111111111');
-                const liveLocation = await axios.get('https://ipapi.co/json')
                 // console.log(liveLocation,'qwertyuio');
-                const { data } = await cardProfile(params.id,liveLocation.data)
+                const { data } = await cardProfile(params.id)
                 // console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     if (data?.card?.companyLogo) {
@@ -65,6 +60,10 @@ function CardDetailsViewPage() {
                         document.getElementsByTagName("head")[0].appendChild(linkAppple);
                     }
                     linkAppple.href = data.card.profileImage ? data.card.profileImage : 'https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg'
+
+                    const liveLocation = await axios.get('https://ipapi.co/json')
+                    await addLocation(data.card._id,liveLocation.data)
+
                 }
             } catch (error) {
                 setPre(false)
@@ -74,8 +73,8 @@ function CardDetailsViewPage() {
         }
 
         getDetails()
-    },[params.id])
-    
+    }, [params.id])
+
     return (
         <div>
             <Helmet>
@@ -91,52 +90,31 @@ function CardDetailsViewPage() {
             </Helmet>
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>
-                    <img src={card?.companyLogo ? card.companyLogo : logo} alt="" />
+                    <img src={card?.companyLogo ? card.companyLogo : zeeqrLoder} alt="" />
                 </div>
                 :
                 (
                     card ?
                         (
-                            card.theme === 'classic' ?
-                                <ClassicTheme card={card} key={card._id} />
-                                : card.theme === 'standard' ?
-                                    <StandardTheme card={card} key={card._id} />
-                                    : card.theme === 'modern' ?
-                                        <ModernTheme card={card} key={card._id} />
-                                        : card.theme === 'minimal' ?
-                                            <MinimalTheme card={card} key={card._id} />
-                                            : card.theme === 'standardDark' ?
-                                                <StandardDarkTheme card={card} key={card._id} />
-                                                : card.theme === 'classicNew' ?
-                                                    <ClassicNewTheme card={card} key={card._id} />
-                                                    :
-
-                                                    card.theme === 'classic1' ?
-                                                        <ClassicTheme1 card={card} preview={'preview'} key={card._id} />
-                                                        :
-                                                    card.theme === 'classic2' ?
-                                                        <ClassicTheme2 card={card} preview={'preview'} key={card._id} />
-                                                        :
-                                                        card.theme === 'standard1' ?
-                                                            <StandardTheme1 card={card} preview={'preview'} key={card._id} />
-                                                            :
-                                                            card.theme === 'modern1' ?
-                                                                <ModernTheme1 card={card} preview={'preview'} key={card._id} />
-                                                                :
-                                                                <StandardTheme card={card} key={card._id} />
+                            card.theme === 'classic1' ?
+                                <ClassicTheme1 card={card} preview={'preview'} key={card._id} />
+                                :
+                                card.theme === 'classic2' ?
+                                    <ClassicTheme2 card={card} preview={'preview'} key={card._id} />
+                                    :
+                                    card.theme === 'standard1' ?
+                                        <StandardTheme1 card={card} preview={'preview'} key={card._id} />
+                                        :
+                                        card.theme === 'modern1' ?
+                                            <ModernTheme1 card={card} preview={'preview'} key={card._id} />
+                                            :
+                                            <ClassicTheme card={card} key={card._id} />
                         )
 
                         :
                         <div className='w-full h-screen flex items-center justify-center'>
                             <img src={logo} alt="" />
                         </div>
-                    // <div className='text-center' >
-                    //     <div className='w-full flex justify-center'>
-                    //         <img className='w-2/5' src="https://img.freepik.com/free-vector/oops-404-error-with-broken-robot-concept-illustration_114360-5529.jpg?w=740&t=st=1678422474~exp=1678423074~hmac=430c2134e325899808dd4149291d56b61e0ccd73d8824547628ee1c8e53837f7" alt="" />
-
-                    //     </div>
-                    //     <Link to={'/'} className='my-2 bg-black rounded-xl text-white px-2 py-2' >Home Page</Link>
-                    // </div>
 
                 )
             }

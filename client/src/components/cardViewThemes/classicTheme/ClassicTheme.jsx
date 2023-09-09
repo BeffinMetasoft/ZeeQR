@@ -35,29 +35,7 @@ const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
 function ClassicTheme({ card, preview }) {
-  // const {
-  //   Hcolor,
-  //   backgroundImage,
-  //   profileImage,
-  //   companyLogo,
-  //   personalDetails,
-  //   card,
-  //   websiteDetails,
-  //   card,
-  //   websiteImage,
-  //   highlightPhotos1,
-  //   highlightPhotos2,
-  //   highlightPhotos3,
-  //   highlightPhotos4,
-
-  //   vCard,
-  //   QRCode,
-  //   checkProfile,
-  //   checkPfCard,
-  //   checkLogo,
-  //   checkHighlight,
-  //   card?.card?.SMediaPostion,
-  // } = useSelector((state) => state.cardReducer);
+  
 
 
   const [qrModal, setQrModal] = useState(false);

@@ -68,29 +68,15 @@ const CardSchema = mongoose.Schema({
         type: Array,
         default: []
     },
-
-    // highlightPhotos:[
-    //     {
-    //         hightlightPhotos1:String,
-    //         hightlightPhotos2:String,
-    //         hightlightPhotos3:String,
-    //         hightlightPhotos4:String,
-    //     }
-    // ],
-
     status: {
         type: String,
         default: "Processing"
     },
-    // userID: {
-    //     type: String,
-    //     required: [true, "UserID is required"]
-    // },
     userID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: User,
         required: [true, "User ID is required"],
-      },
+    },
     QRCode: {
         type: String,
         required: [true, "QRCode is required"]
@@ -164,7 +150,10 @@ const CardSchema = mongoose.Schema({
     location: {
         type: Array,
     },
-
+    expire: {
+        type: Number,
+        default: '3',
+    },
 
 
 })
