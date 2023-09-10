@@ -24,6 +24,7 @@ app.use('/api', cardRouter)
 const {connectDb}=require('./config/connection')
 connectDb()
 
+// error handling
 app.use((err, req, res, next) => {
     const error = {
         success: false,
