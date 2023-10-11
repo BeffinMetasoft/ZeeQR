@@ -35,7 +35,7 @@ const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
 function ClassicTheme({ card, preview }) {
-  
+
 
 
   const [qrModal, setQrModal] = useState(false);
@@ -70,6 +70,10 @@ function ClassicTheme({ card, preview }) {
 
   const shareMail = (e) => {
     window.location = `mailto:${card?.email}`;
+    e.preventDefault();
+  };
+  const shareMail2 = (e) => {
+    window.location = `mailto:${card?.secondaryEmail}`;
     e.preventDefault();
   };
 
@@ -598,11 +602,27 @@ function ClassicTheme({ card, preview }) {
               {card?.phone
               }
             </Link>
+            {card?.secondaryPhone ?
+              <Link
+                to={preview ? `tel:+${card?.secondaryPhone}` : ""}
+              >
+                +{card?.secondaryPhone}
+              </Link>
+              : ''
+            }
             <h3>Email</h3>
             <Link onClick={preview ? shareMail : ""}>
               {card?.email
               }
             </Link>
+            {card?.secondaryEmail ?
+              <Link
+                onClick={preview ? shareMail2 : ""}
+              >
+                {card?.secondaryEmail}
+              </Link>
+              : ''
+            }
             <h3>Location</h3>
             <Link>
               {" "}
@@ -1096,7 +1116,7 @@ function ClassicTheme({ card, preview }) {
             ""
           )}
 
-          {card?.websiteName || card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName  : '') ?
+          {card?.websiteName || card?.websiteUrl || (card?.website ? card?.website[0]?.websiteName : '') ?
             <div className="contactOptions" style={{
               backgroundColor: `${Highlightcolor ? Highlightcolor : ""
                 }`,
@@ -1152,58 +1172,58 @@ function ClassicTheme({ card, preview }) {
           {/* -----------------------------------------------------------Dowloads Area---------------------------------------------------------------------------------------- */}
 
 
-          {(card?.files?.file1?.fileName)|| 
-          (card?.files?.file2?.fileName)|| 
-          (card?.files?.file3?.fileName)|| 
-          (card?.files?.file4?.fileName)?
-                        <div className="contactOptions" style={{ backgroundColor: `${Highlightcolor }` }}>
-                          
-                            <h4>Downloads</h4>
-                           
-                           {(card?.files?.file1?.fileName)?
-                                    <div className="social-media" >
-                                        
-                                        <Link  to={`${preview ? card?.files?.file1?.fileUrl : ""}`}  target={`${preview ? "_blank" : ''}`} className="mb-5"  >
-                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
-                                            <h5 > {card?.files?.file1?.fileName}</h5>
-                                        </Link>
-                                    </div>
-                                :""}
-                           
-                           {(card?.files?.file2?.fileName)?
-                                    <div className="social-media" >
-                                        
-                                        <Link  to={`${preview ? card?.files?.file2?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
-                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
-                                            <h5 > {card?.files?.file2?.fileName}</h5>
-                                        </Link>
-                                    </div>
-                                :""}
-                           
-                           {(card?.files?.file3?.fileName)?
-                                    <div className="social-media" >
-                                        
-                                        <Link  to={`${preview ? card?.files?.file3?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"   >
-                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
-                                            <h5 > {card?.files?.file3?.fileName}</h5>
-                                        </Link>
-                                    </div>
-                                :""}
-                           
-                           {(card?.files?.file4?.fileName)?
-                                    <div className="social-media" >
-                                        
-                                        <Link  to={`${preview ? card?.files?.file4?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
-                                            <img className='rounded-full bg-white' src={downloadIcon} alt='' />
-                                            <h5 > {card?.files?.file4?.fileName}</h5>
-                                           
-                                        </Link>
-                                    </div>
-                                :""}
-                            
+          {(card?.files?.file1?.fileName) ||
+            (card?.files?.file2?.fileName) ||
+            (card?.files?.file3?.fileName) ||
+            (card?.files?.file4?.fileName) ?
+            <div className="contactOptions" style={{ backgroundColor: `${Highlightcolor}` }}>
 
-                        </div>
-                        : ""}
+              <h4>Downloads</h4>
+
+              {(card?.files?.file1?.fileName) ?
+                <div className="social-media" >
+
+                  <Link to={`${preview ? card?.files?.file1?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                    <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                    <h5 > {card?.files?.file1?.fileName}</h5>
+                  </Link>
+                </div>
+                : ""}
+
+              {(card?.files?.file2?.fileName) ?
+                <div className="social-media" >
+
+                  <Link to={`${preview ? card?.files?.file2?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                    <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                    <h5 > {card?.files?.file2?.fileName}</h5>
+                  </Link>
+                </div>
+                : ""}
+
+              {(card?.files?.file3?.fileName) ?
+                <div className="social-media" >
+
+                  <Link to={`${preview ? card?.files?.file3?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"   >
+                    <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                    <h5 > {card?.files?.file3?.fileName}</h5>
+                  </Link>
+                </div>
+                : ""}
+
+              {(card?.files?.file4?.fileName) ?
+                <div className="social-media" >
+
+                  <Link to={`${preview ? card?.files?.file4?.fileUrl : ""}`} target={`${preview ? "_blank" : ''}`} className="mb-5"  >
+                    <img className='rounded-full bg-white' src={downloadIcon} alt='' />
+                    <h5 > {card?.files?.file4?.fileName}</h5>
+
+                  </Link>
+                </div>
+                : ""}
+
+
+            </div>
+            : ""}
 
 
 

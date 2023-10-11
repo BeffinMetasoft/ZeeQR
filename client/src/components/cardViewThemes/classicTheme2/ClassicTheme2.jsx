@@ -78,6 +78,11 @@ function ClassicTheme2({ card, preview }) {
     e.preventDefault();
   };
 
+  const shareMail2 = (e) => {
+    window.location = `mailto:${card?.secondaryEmail}`;
+    e.preventDefault();
+};
+
   const array = card?.name ? card?.name?.split(" ") : "";
 
   //--------------------------------------FaceBookIcon1-----------------------------------------------
@@ -925,6 +930,17 @@ function ClassicTheme2({ card, preview }) {
             >
               +{card?.phone}
             </Link>
+            {card?.secondaryPhone ?
+              <Link
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                }}
+                to={preview ? `tel:+${card?.secondaryPhone}` : ""}
+              >
+                +{card?.secondaryPhone}
+              </Link>
+              : ''
+            }
             <h3>Email</h3>
             <Link
               style={{
@@ -934,6 +950,17 @@ function ClassicTheme2({ card, preview }) {
             >
               {card?.email}
             </Link>
+            {card?.secondaryEmail ?
+              <Link
+                style={{
+                  color: `${Textcolor ? Textcolor : ""}`,
+                }}
+                onClick={preview ? shareMail2 : ""}
+              >
+                {card?.secondaryEmail}
+              </Link>
+              : ''
+            }
             <h3>Location</h3>
             <Link
               style={{
@@ -1597,7 +1624,7 @@ function ClassicTheme2({ card, preview }) {
             (card?.highlightPhotos[0].highlightPhotos8) ? (
             card?.checkHighlight ? (
               <div>
-                
+
                 <div className="photoGrid">
                   {card?.highlightPhotos[0].highlightPhotos1 ? (
                     <img
