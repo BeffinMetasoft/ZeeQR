@@ -4,7 +4,7 @@ const { CardContext } = require("../../store/CardContext")
 
 
 
-function SocialMediaValid() {
+export const SocialMediaValid =()=> {
   const [cardData] = useContext(CardContext)
 
   const {
@@ -33,7 +33,7 @@ function SocialMediaValid() {
   }
 }
 
-function HighlightImageValid() {
+export const HighlightImageValid =()=> {
   const [cardData] = useContext(CardContext)
 
   const {
@@ -60,4 +60,4 @@ function HighlightImageValid() {
   }
 }
 
-module.exports = { SocialMediaValid, HighlightImageValid }
+// module.exports = { SocialMediaValid, HighlightImageValid }
