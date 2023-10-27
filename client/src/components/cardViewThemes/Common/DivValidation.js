@@ -4,7 +4,7 @@ const { CardContext } = require("../../store/CardContext")
 
 
 
-function SocialMediaValid(props ) {
+function SocialMediaValid() {
   const [cardData] = useContext(CardContext)
 
   const {
