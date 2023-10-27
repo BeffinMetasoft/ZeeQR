@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-FROM docker.io/node:alpine
-WORKDIR /app
-COPY package.json package-lock.json /app/
-RUN npm install
-COPY . .
-EXPOSE 5000.json 
-CMD ["npm", "start"]      
-=======
 # Use the official Node.js image as the base image
 FROM docker.io/node:alpine
 
@@ -26,4 +17,4 @@ EXPOSE 5000
 
 # Start the server
 CMD ["npm", "start"]
->>>>>>> a4550e72e7017e3179eb85525107addfb6658474
+
