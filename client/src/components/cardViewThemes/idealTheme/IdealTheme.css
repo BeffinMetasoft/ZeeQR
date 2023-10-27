@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wghpreviewWrapt@300;400;500;600;700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wghpreviewWrapt@300;400;500;600;700&display=swap');
+
+body,
+*,
+button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.digitalcontainer6 {
+    /* display: flex; */
+    justify-content: center;
+    background-color: white;
+    max-width: 340px;
+}
+
+.digitalcontainer6 .digitalcontainer_banner6 {
+    color: #fff;
+    max-width: 360px;
+}
+
+.digitalcontainer6 p {
+    line-height: 20px;
+}
+
+.digitalcontainer6 .text-3xl {
+    line-height: 34px;
+}
+
+.translate-y-full {
+    transform: translateY(100%);
+}
+
+.transition-transform {
+    transition-property: transform;
+}
+
+.ease-in-out {
+    transition-timing-function: ease-in-out;
+}
+
+.ant-float-btn-circle {
+    background: #fff;
+}

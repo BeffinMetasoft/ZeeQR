@@ -667,9 +667,11 @@ function ClassicTheme2({ card, preview }) {
   );
 
   const imageStyle = {
-    backgroundSize: "100%",
+    backgroundSize: card?.bgImgType ? card?.bgImgType : "cover",
     backgroundPosition: "center 150px",
     backgroundImage: `url(${card?.bgImg})`,
+    backgroundRepeat: card?.bgImgRepeat ? card?.bgImgRepeat : "no-repeat",
+
   };
   const colorStyle = {
     backgroundSize: "100%",

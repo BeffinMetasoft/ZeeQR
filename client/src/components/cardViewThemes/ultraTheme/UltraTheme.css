@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wghpreviewWrapt@300;400;500;600;700&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wghpreviewWrapt@300;400;500;600;700&display=swap');
+
+body,
+*,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+
+}
+
+.ultratheme {
+  position: relative;
+  height: 100%
+}
+
+.ultratheme .ultrathemecoloum {
+  max-width: 380px;
+  margin: 0 auto;
+}
+
+.ultratheme .ultrathemebanner {
+  height: 350px;
+  max-width: 380px;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.ultratheme .ultrathemebanner img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  background: center center
+}
+
+.ultratheme .ultrathemedetails {
+  max-width: 380px;
+  /* padding: 0 12px; */
+  margin: 0 auto;
+
+  z-index: 5;
+  height: 100vh;
+}
+
+.ultratheme .ultrathemedetails p {
+  line-height: 18px;
+}
+
+.ultratheme .ultrathemedetails p.leading-4 {
+  line-height: 15px;
+}
+
+.ultratheme .ultrathemedetails a {
+  color: #000;
+}
+
+.iconictheme_profilecard {
+  display: flex;
+  align-items: flex-end;
+}
+
+.ultratheme .ant-float-btn-group button {
+  background: #fff;
+}
