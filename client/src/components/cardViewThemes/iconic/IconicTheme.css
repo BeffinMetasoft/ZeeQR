@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wghpreviewWrapt@300;400;500;600;700&display=swap');
+
+body,
+*,
+button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.iconictheme{
+  max-width: 393px;
+    margin: 0 auto;
+}
+  
+  .iconictheme .iconictheme_banner{
+    color: #fff; 
+    max-width: 393px;
+height: 241px;
+  }
+  .iconictheme .iconictheme_banner img{
+    background-color: #D9D9D9; 
+   
+    color: #fff; 
+    width: 393px;
+height: 241px;
+-o-object-fit: cover;
+object-fit: cover;
+background: center center
+
+  }
+  .iconictheme .iconictheme_details{
+    width: 100%;
+    margin: 0 auto;
+  } 
+
+

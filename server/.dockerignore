@@ -1,0 +1,25 @@
+# Ignore node_modules directories in both the backend and frontend
+**/node_modules
+
+# Ignore any development or temporary files
+**/npm-debug.log
+**/yarn-error.log
+**/.git
+**/.idea
+
+# Ignore log files
+**/*.log
+
+# Ignore build and distribution directories
+**/build
+**/dist
+
+# Ignore environment-specific files (e.g., .env files)
+**/.env*
+
+# Ignore any local development files
+.dockerignore
+Dockerfile*
+.dockerignore
+Dockerfile*
+
