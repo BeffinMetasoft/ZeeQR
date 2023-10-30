@@ -538,7 +538,7 @@ function AntiqueTheme({ card, preview }) {
                 </div>
 
                 {preview ? (
-                    <div className="flex justify-center gap-[20px]  fixed top-[90%]  items-center  lg:left-[45%] left-[25%] ">
+                    <div className="flex justify-center gap-[20px]  fixed top-[90%]  items-center  lg:left-[45%] left-[20%] ">
                         <Link className="" to={`${preview ? vCard : ''}`}>
                             <button className="w-[50px] h-[50px] p-[15px] shadow-xl rounded-[12px]  bg-white">
                                 <svg

@@ -230,7 +230,7 @@ function TechTheme({ preview }) {
                     </>
 
                     {preview ? (
-                        <div className="flex justify-center gap-[20px] fixed bottom-8 left-[25%]   ">
+                        <div className="flex justify-center gap-[20px] fixed bottom-8 left-[25%] lg:left-[43%]   ">
                             <Link to={`${preview ? vCard : ''}`} >
                                 <button className="w-[50px] h-[50px] shadow-xl p-[15px] rounded-[12px]  bg-white" >
                                     <svg
