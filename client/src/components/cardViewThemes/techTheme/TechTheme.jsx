@@ -230,9 +230,9 @@ function TechTheme({ preview }) {
                     </>
 
                     {preview ? (
-                        <div className="flex justify-center gap-[20px] fixed bottom-8 left-[43%]   ">
+                        <div className="flex justify-center gap-[20px] fixed bottom-8 left-[25%]   ">
                             <Link to={`${preview ? vCard : ''}`} >
-                                <button className="w-[50px] h-[50px] p-[15px] rounded-[12px]  bg-white" >
+                                <button className="w-[50px] h-[50px] shadow-xl p-[15px] rounded-[12px]  bg-white" >
                                     <svg
                                         width="18"
                                         height="18"
@@ -247,15 +247,15 @@ function TechTheme({ preview }) {
                                     </svg>
                                 </button>
                             </Link>
-                            <div>
+                            <button  className="cursor-pointer shadow-xl w-[50px] shadow-xl  h-[50px]  rounded-[12px]  bg-white" onClick={handleShare}>
                                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="cursor-pointer" onClick={handleShare}>
                                     <rect width="50" height="50" rx="12" fill="white" />
                                     <path d="M31 35C30.1667 35 29.4583 34.7083 28.875 34.125C28.2917 33.5417 28 32.8333 28 32C28 31.8833 28.0083 31.7623 28.025 31.637C28.0417 31.5117 28.0667 31.3993 28.1 31.3L21.05 27.2C20.7667 27.45 20.45 27.646 20.1 27.788C19.75 27.93 19.3833 28.0007 19 28C18.1667 28 17.4583 27.7083 16.875 27.125C16.2917 26.5417 16 25.8333 16 25C16 24.1667 16.2917 23.4583 16.875 22.875C17.4583 22.2917 18.1667 22 19 22C19.3833 22 19.75 22.071 20.1 22.213C20.45 22.355 20.7667 22.5507 21.05 22.8L28.1 18.7C28.0667 18.6 28.0417 18.4877 28.025 18.363C28.0083 18.2383 28 18.1173 28 18C28 17.1667 28.2917 16.4583 28.875 15.875C29.4583 15.2917 30.1667 15 31 15C31.8333 15 32.5417 15.2917 33.125 15.875C33.7083 16.4583 34 17.1667 34 18C34 18.8333 33.7083 19.5417 33.125 20.125C32.5417 20.7083 31.8333 21 31 21C30.6167 21 30.25 20.9293 29.9 20.788C29.55 20.6467 29.2333 20.4507 28.95 20.2L21.9 24.3C21.9333 24.4 21.9583 24.5127 21.975 24.638C21.9917 24.7633 22 24.884 22 25C22 25.1167 21.9917 25.2377 21.975 25.363C21.9583 25.4883 21.9333 25.6007 21.9 25.7L28.95 29.8C29.2333 29.55 29.55 29.3543 29.9 29.213C30.25 29.0717 30.6167 29.0007 31 29C31.8333 29 32.5417 29.2917 33.125 29.875C33.7083 30.4583 34 31.1667 34 32C34 32.8333 33.7083 33.5417 33.125 34.125C32.5417 34.7083 31.8333 35 31 35Z" fill="black" />
                                 </svg>
 
-                            </div>
+                          </button>
                             <button
-                                className="w-[50px] h-[50px] p-[10px] rounded-[12px] bg-white"
+                                className="w-[50px] h-[50px] p-[10px] shadow-xl rounded-[12px] bg-white"
                                 onClick={() => setQrModal(true)}
                             >
                                 <svg
