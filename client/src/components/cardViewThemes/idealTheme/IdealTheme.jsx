@@ -240,7 +240,7 @@ function IdealTheme({card, preview }) {
 
                                             </div>
                                             {personalDetails?.about ?
-                                                <div className='mt-[40px]'>
+                                                <div className='mt-[40px] mx-5'>
 
                                                     <p className='text-[14px] text-white font-normal leading-[15px] text-center'>About</p>
                                                     <p className='text-[14px] text-white font-normal leading-[15px] text-center'> {personalDetails?.about}</p>
@@ -280,15 +280,15 @@ function IdealTheme({card, preview }) {
                 {preview && !qrModal ?
 
 
-                    <FloatButton.Group className='shadow-xl'
+                    <FloatButton.Group className='shadow-xl fixed lg:right-[48%] right-[45%] bottom-10'
                         trigger="click"
                         color="black"
                         style={{
-                            right: "45%",
+                            // right: "45%",
                             color: "white",
-                            position: "fixed",
-                            bottom: 38,
-                            marginLeft: "-20px"
+                            // position: "fixed",
+                            // bottom: 38,
+                            // marginLeft: "-20px"
 
                         }}
                         icon={<MenuOutlined />}

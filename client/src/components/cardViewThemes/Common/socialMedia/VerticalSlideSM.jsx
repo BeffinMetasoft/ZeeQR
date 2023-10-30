@@ -245,7 +245,7 @@ function VerticalSlideSM({color,preview}) {
         id="slider"
         style={{ maxHeight: "300px" }}
       >
-        <div className="flex flex-col mx-5 gap-3  justify-center items-center">
+        <div className="flex flex-col mx-5 gap-3 mt-[35px] justify-center items-center">
           <SocialMedia data={data} />
         </div>
       </div>
