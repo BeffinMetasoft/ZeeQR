@@ -27,7 +27,7 @@ function CardDetailsViewPage() {
     const params = useParams()
     const [card, setCard] = useState('')
     const [pre, setPre] = useState(true)
-    const [cardData,setCardData] = useContext(CardContext)
+    const [cardData, setCardData] = useContext(CardContext)
 
 
     useEffect(() => {
@@ -104,16 +104,15 @@ function CardDetailsViewPage() {
                 },
                 socialMediaDetails: {
                     facebook: data?.facebook,
-                    instagram: data?.whatsappNumber,
-                    whatsappNumber: data?.linkedin,
-                    linkedin: data?.instagram,
+                    instagram: data?.instagram,
+                    whatsappNumber: data?.whatsappNumber,
+                    linkedin: data?.linkedin,
                     twitter: data?.twitter,
-                    youtube: data?.skype,
-                    skype: data?.tikto,
-                    snapchat: data?.youtube,
-                    tiktok: data?.snapcha,
+                    youtube: data?.youtube,
+                    skype: data?.skype,
+                    snapchat: data?.snapchat,
+                    tiktok: data?.tiktok,
                     companyProfile: data?.companyProfile,
-
                 },
                 websiteDetails: {
                     websiteName: data?.websiteName,
@@ -207,28 +206,28 @@ function CardDetailsViewPage() {
                                             card.theme === 'antique' ?
                                                 <AntiqueTheme card={card} preview={'preview'} key={card._id} />
                                                 :
-                                            card.theme === 'digital' ?
-                                                <DigitalTheme1 card={card} preview={'preview'} key={card._id} />
-                                                :
-                                            card.theme === 'epic' ?
-                                                <EpicTheme card={card} preview={'preview'} key={card._id} />
-                                                :
-                                            card.theme === 'iconic' ?
-                                                <IconicTheme card={card} preview={'preview'} key={card._id} />
-                                                :
-                                            card.theme === 'ideal' ?
-                                                <IdealTheme card={card} preview={'preview'} key={card._id} />
-                                                :
-                                            card.theme === 'tech' ?
-                                                <TechTheme card={card} preview={'preview'} key={card._id} />
-                                                :
-                                            card.theme === 'ultra' ?
-                                                <UltraTheme card={card} preview={'preview'} key={card._id} />
-                                                :
-                                            card.theme === 'vex' ?
-                                                <VexTheme card={card} preview={'preview'} key={card._id} />
-                                                :
-                                                <ClassicTheme card={card} key={card._id} />
+                                                card.theme === 'digital' ?
+                                                    <DigitalTheme1 card={card} preview={'preview'} key={card._id} />
+                                                    :
+                                                    card.theme === 'epic' ?
+                                                        <EpicTheme card={card} preview={'preview'} key={card._id} />
+                                                        :
+                                                        card.theme === 'iconic' ?
+                                                            <IconicTheme card={card} preview={'preview'} key={card._id} />
+                                                            :
+                                                            card.theme === 'ideal' ?
+                                                                <IdealTheme card={card} preview={'preview'} key={card._id} />
+                                                                :
+                                                                card.theme === 'tech' ?
+                                                                    <TechTheme card={card} preview={'preview'} key={card._id} />
+                                                                    :
+                                                                    card.theme === 'ultra' ?
+                                                                        <UltraTheme card={card} preview={'preview'} key={card._id} />
+                                                                        :
+                                                                        card.theme === 'vex' ?
+                                                                            <VexTheme card={card} preview={'preview'} key={card._id} />
+                                                                            :
+                                                                            <ClassicTheme card={card} key={card._id} />
                         )
 
                         :

@@ -89,7 +89,7 @@ function VexTheme({ preview }) {
 
   return (
     <div className="flex justify-center">
-      <div className="relative w-100">
+      <div className="relative ">
 
         <div className="digitalcontainer4 fixed h-screen overflow-auto scrollbar-hide " style={imageStyle}>
 

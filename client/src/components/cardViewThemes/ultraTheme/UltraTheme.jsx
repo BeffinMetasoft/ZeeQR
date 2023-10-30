@@ -68,7 +68,7 @@ function UltraTheme({ preview }) {
             )}
           </div>
           <div
-            className={`absolute transition-all ease-in-out min-w-fit w-100  max-w-[380px]  ${isExpanded ? " top-[0px] " : " top-[270px]"
+            className={`absolute transition-all ease-in-out min-w-fit w-[100%]  max-w-[380px]  ${isExpanded ? " top-[0px] " : " top-[270px]"
               }`}
           >
             <div className="ultrathemedetails">

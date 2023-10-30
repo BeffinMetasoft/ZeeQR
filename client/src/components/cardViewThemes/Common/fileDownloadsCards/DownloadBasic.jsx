@@ -9,7 +9,7 @@ function DownloadBasic({ files, fileName, preview, color }) {
 
       {fileName?.fileName1 ? (
         <Link
-          to={`${preview ? file1?.fileUrl : ""}`}
+          to={`${preview ? file1 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
 
@@ -39,7 +39,7 @@ function DownloadBasic({ files, fileName, preview, color }) {
       )}
       {fileName?.fileName2 ? (
         <Link
-          to={`${preview ? file2?.fileUrl : ""}`}
+          to={`${preview ? file2 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
 
@@ -67,7 +67,7 @@ function DownloadBasic({ files, fileName, preview, color }) {
       )}
       {fileName?.fileName3 ? (
         <Link
-          to={`${preview ? file3?.fileUrl : ""}`}
+          to={`${preview ? file3 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
 
@@ -95,7 +95,7 @@ function DownloadBasic({ files, fileName, preview, color }) {
       )}
       {fileName?.fileName4 ? (
         <Link
-          to={`${preview ? file4?.fileUrl : ""}`}
+          to={`${preview ? file4 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
 
