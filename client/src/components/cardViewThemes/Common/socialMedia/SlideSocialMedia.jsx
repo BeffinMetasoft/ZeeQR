@@ -251,7 +251,7 @@ function SlideSocialMedia({preview,color}) {
       id="slider"
       style={{ width: "320px" }}
     >
-      <div className="flex gap-4 mx-6 ml-16 justify-center items-center ">
+      <div className="flex gap-4 mx-6 ml-20 justify-center items-center ">
         <SocialMedia data={data} />
       </div>
     </div>
