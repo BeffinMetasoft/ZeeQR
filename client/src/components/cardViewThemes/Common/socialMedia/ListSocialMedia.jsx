@@ -236,7 +236,9 @@ function ListSocialMedia({ preview, theme }) {
         WhatsAppIcon: (
             <Link
                 className="  p-[6px] "
-                to={`${preview ? socialMediaDetails?.whatsappNumber : ""}`}
+                to={`https://wa.me/+${
+            preview ? socialMediaDetails?.whatsappNumber : ""
+          }?text=Hi%2C`}
                 target={`${preview ? "_blank" : ""}`}
             >
                 <div className=" flex gap-3  bg-white p-[6px] rounded-[8px] justify-between">

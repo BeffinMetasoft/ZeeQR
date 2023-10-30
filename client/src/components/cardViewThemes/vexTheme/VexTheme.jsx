@@ -227,7 +227,7 @@ function VexTheme({ preview }) {
               {SocialMediaImageCheck ?
                 <div className="bg-gradient-to-b from-[#383B42] to-[#000000] w-1/2 max-h-[438px] rounded-[22px] flex items-center justify-center ">
                   <div className="flex items-center justify-center ">
-                    <VerticalSlideSM />
+                    <VerticalSlideSM preview={preview}/>
                   </div>
                 </div>
                 : ''
