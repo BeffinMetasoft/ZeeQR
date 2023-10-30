@@ -125,7 +125,7 @@ function UltraTheme({ preview }) {
         { preview && !qrModal ?
 
 
-          <FloatButton.Group
+          <FloatButton.Group className="shadow-xl"
             trigger="click"
             color="black share_button"
             style={{

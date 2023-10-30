@@ -85,7 +85,7 @@ function IdealTheme({card, preview }) {
                     <div className="digitalcontainer_banner6 relative h-screen overflow-auto scrollbar-hide  "
                         style={imageStyle}
                     >
-                        <div className=' w-[360px]'>
+                        <div className=' w-[400px]'>
 
                             {/* {profileImage[0]?.thumbUrl &&
                                 profileImage[0]?.status !== "removed" ? (
@@ -280,11 +280,11 @@ function IdealTheme({card, preview }) {
                 {preview && !qrModal ?
 
 
-                    <FloatButton.Group
+                    <FloatButton.Group className='shadow-xl'
                         trigger="click"
                         color="black"
                         style={{
-                            right: "50%",
+                            right: "45%",
                             color: "white",
                             position: "fixed",
                             bottom: 38,

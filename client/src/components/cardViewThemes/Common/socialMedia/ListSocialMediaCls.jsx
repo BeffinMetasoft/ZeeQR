@@ -241,7 +241,9 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         WhatsAppIcon: (
             <Link
                 className="  p-[6px] "
-                to={`${preview ? socialMediaDetails?.whatsappNumber : ""}`}
+                to={`https://wa.me/+${
+            preview ? socialMediaDetails?.whatsappNumber : ""
+          }?text=Hi%2C`}
                 target={`${preview ? "_blank" : ""}`}
             >
                 <div className=" flex gap-3   p-[16px] rounded-[8px] justify-between items-center"

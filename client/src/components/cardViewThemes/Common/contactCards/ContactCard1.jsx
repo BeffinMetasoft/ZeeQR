@@ -136,7 +136,7 @@ function ContactCard1({ preview, Textcolor, Iconcolor, BtIColor, controls} ) {
                             <Link to={`${preview ? contactDetails?.locationUrl : ""}`}
                                 target={`${preview ? "_blank" : ""}`}
                             >
-                                <button className="bg-white w-[50px] h-[40px] p-[13px] rounded-[23px]">
+                                <button className="w-[50px] h-[40px] p-[13px] rounded-[23px]" style={{ color: `${BtIColor}`, backgroundColor: `${Iconcolor}` }}>
                                     <svg
                                         width="20"
                                         height="20"
@@ -146,7 +146,7 @@ function ContactCard1({ preview, Textcolor, Iconcolor, BtIColor, controls} ) {
                                     >
                                         <path
                                             d="M18.2463 3.36842C18.6355 2.35759 17.6421 1.36426 16.6313 1.75342L2.46798 7.20009C1.33465 7.63509 1.42465 9.26676 2.59798 9.57509L8.44048 11.1126C8.54764 11.1407 8.6454 11.1968 8.72374 11.2752C8.80208 11.3535 8.85819 11.4513 8.88631 11.5584L10.4238 17.4001C10.7321 18.5743 12.3638 18.6634 12.7988 17.5309L18.2463 3.36842Z"
-                                            fill="black"
+                                            fill="white"
                                         />
                                     </svg>
                                 </button>{" "}

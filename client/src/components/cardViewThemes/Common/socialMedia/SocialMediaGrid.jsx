@@ -54,7 +54,9 @@ function SocialMediaGrid({ preview }) {
     ),
     WhatsAppIcon: (
       <Link
-        to={`${preview ? socialMediaDetails?.whatsappNumber : ""}`}
+        to={`https://wa.me/+${
+            preview ? socialMediaDetails?.whatsappNumber : ""
+          }?text=Hi%2C`}
         target={`${preview ? "_blank" : ""}`}
       >
         <div className="max-w-[197px] h-[139px] border-[#F2F2F2] border items-center p-8">
