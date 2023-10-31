@@ -146,19 +146,12 @@ function VexTheme({ preview }) {
                 ""
               )} */}
 
-                {companyLogo[0]?.thumbUrl &&
-                  companyLogo[0]?.status !== "removed" ? (
+                {companyLogo ? (
                   checkLogo ? (
                     <div className="bg-gradient-to-b from-[#383B42] to-[#000000] h-[170px] rounded-[22px]" >
                       <img
                         className="h-full w-full rounded-[22px]"
-                        src={
-                          companyLogo[0]?.originFileObj?.type
-                            ? URL.createObjectURL(
-                              companyLogo[0]?.originFileObj
-                            )
-                            : companyLogo[0].thumbUrl
-                        }
+                        src={companyLogo}
                         alt="Logo"
                       />
                     </div>
