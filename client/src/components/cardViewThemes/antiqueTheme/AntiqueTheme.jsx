@@ -252,7 +252,7 @@ function AntiqueTheme({ card, preview }) {
                 )}
             </div>
 
-            <div className="absolute top-[280px]">
+            <div className="absolute top-[280px] w-full">
 
                 <div className="">
                     <svg

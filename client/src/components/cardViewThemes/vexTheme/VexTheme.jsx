@@ -415,7 +415,7 @@ function VexTheme({ preview }) {
 
         </div>
         {preview ?
-          <div className='absolute bottom-5 lg:left-[45%] left-[25%]  flex items-center gap-2 justify-center my-2 '>
+          <div className='fixed bottom-5 lg:left-[45%] left-[25%]  flex items-center gap-2 justify-center my-2 '>
 
             <div >
               <Link to={`${preview ? vCard : ''}`}>
