@@ -301,7 +301,7 @@ function IdealTheme({card, preview }) {
                             icon={<QrcodeOutlined />}
                             onClick={() => setQrModal(true)}
                         />
-                        <Link to={contactDetails?.locationUrl}>
+                        <Link to={contactDetails?.locationUrl} target={`${preview ? "_blank" : ""}`}>
                             <FloatButton icon={<FaLocationArrow />} />
                         </Link>
 
