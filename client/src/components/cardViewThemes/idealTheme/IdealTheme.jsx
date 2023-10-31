@@ -161,7 +161,7 @@ function IdealTheme({card, preview }) {
                                         <p className='text-3xl text-white mb-1 font-bold text-center'>
                                             {personalDetails?.name ? personalDetails.name : ""}
                                         </p>
-                                        <p className='text-sm text-white font-semibold text-center'>
+                                        <p className='text-sm text-white mt-5 font-semibold text-center'>
                                             {personalDetails?.companyDesignation ? personalDetails.companyDesignation : ""}
                                         </p>
                                     </div>
@@ -172,8 +172,8 @@ function IdealTheme({card, preview }) {
                                                 <div>
 
 
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>Call</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>
+                                                    <p className='text-[14px] text-white font-normal mt-5 leading-[15px] text-center'>Call</p>
+                                                    <p className='text-[14px] text-white font-normal mt-3 leading-[15px] text-center'>
                                                         <Link to={preview ? `tel:+${personalDetails?.phone}` : ""} >
                                                             <p>
                                                                 + {personalDetails?.phone ? personalDetails.phone : ""}
@@ -187,8 +187,8 @@ function IdealTheme({card, preview }) {
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>Email</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>
+                                                    <p className='text-[14px] text-white font-normal mt-5 leading-[15px] text-center'>Email</p>
+                                                    <p className='text-[14px] text-white font-normal mt-3 leading-[15px] text-center'>
                                                         <Link onClick={preview ? shareMail : ""}>
                                                             {personalDetails?.email
                                                                 ? personalDetails.email
@@ -205,8 +205,8 @@ function IdealTheme({card, preview }) {
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>Location</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>
+                                                    <p className='text-[14px] text-white font-normal mt-5 leading-[15px] text-center'>Location</p>
+                                                    <p className='text-[14px] text-white font-normal mt-3 leading-[15px] text-center'>
                                                         <Link
                                                             to={`${preview ? contactDetails?.locationUrl : ""
                                                                 }`}
@@ -284,11 +284,11 @@ function IdealTheme({card, preview }) {
                         trigger="click"
                         color="black"
                         style={{
-                            // right: "45%",
+                            left: "50%",
                             color: "white",
-                            // position: "fixed",
-                            // bottom: 38,
-                            // marginLeft: "-20px"
+                            position: "fixed",
+                            bottom: 38,
+                            marginLeft: "-20px"
 
                         }}
                         icon={<MenuOutlined />}
@@ -301,7 +301,7 @@ function IdealTheme({card, preview }) {
                             icon={<QrcodeOutlined />}
                             onClick={() => setQrModal(true)}
                         />
-                        <Link to={contactDetails?.locationUrl}>
+                        <Link to={contactDetails?.locationUrl} target={`${preview ? "_blank" : ""}`}>
                             <FloatButton icon={<FaLocationArrow />} />
                         </Link>
 
