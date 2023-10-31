@@ -105,11 +105,11 @@ function DigitalTheme1({card, preview }) {
 
           <div className="flex ">
             <div className="w-[65px] bg-gray-200 pl-4" >
-              <ul className="text-[30px]  mt-3 sticky top-0 pt-6">
+              <ul className="text-[30px]  sticky top-0 ">
                 <li
                   className={`mb-2 w-[49px] h-[60px] ${activeTab === 1
-                    ? "font-bold text-black border-r-4 border-[#FF0000] "
-                    : "text-[#AFAFAF] "
+                    ? "font-bold text-black border-r-4  flex items-center border-[#FF0000] "
+                    : "text-[#AFAFAF]  flex items-center "
                     }`}
                   onClick={() => handleTabClick(1)}
                 >
@@ -119,8 +119,8 @@ function DigitalTheme1({card, preview }) {
                 {SocialMediaImageCheck ? (
                   <li
                     className={`mb-2 w-[49px] h-[60px] ${activeTab === 2
-                      ? "font-bold text-black border-r-4   border-[#FF0000]"
-                      : "text-[#AFAFAF]"
+                      ? "font-bold text-black  flex items-center border-r-4   border-[#FF0000]"
+                      : "text-[#AFAFAF]  flex items-center"
                       }`}
                     onClick={() => handleTabClick(2)}
                   >
@@ -133,8 +133,8 @@ function DigitalTheme1({card, preview }) {
                 {website[0]?.websiteName ? (
                   <li
                     className={`mb-2 w-[49px] h-[60px] ${activeTab === 3
-                      ? "font-bold text-black border-r-4 border-[#FF0000]"
-                      : "text-[#AFAFAF]"
+                      ? "font-bold text-black border-r-4  flex items-center border-[#FF0000]"
+                      : "text-[#AFAFAF]  flex items-center"
                       }`}
                     onClick={() => handleTabClick(3)}
                   >
@@ -146,8 +146,8 @@ function DigitalTheme1({card, preview }) {
                 {review[0]?.reviewName ? (
                   <li
                     className={`mb-2 w-[49px] h-[60px] ${activeTab === 4
-                      ? "font-bold text-black border-r-4 border-[#FF0000]"
-                      : "text-[#AFAFAF]"
+                      ? "font-bold text-black border-r-4  flex items-center border-[#FF0000]"
+                      : "text-[#AFAFAF]  flex items-center"
                       }`}
                     onClick={() => handleTabClick(4)}
                   >
@@ -159,8 +159,8 @@ function DigitalTheme1({card, preview }) {
                 {fileName?.fileName1 || fileName?.fileName2 || fileName?.fileName3 || fileName?.fileName4 ? (
                   <li
                     className={`mb-2 w-[49px] h-[60px] ${activeTab === 5
-                      ? "font-bold text-black border-r-4 border-[#FF0000]"
-                      : "text-[#AFAFAF]"
+                      ? "font-bold text-black  flex items-center border-r-4 border-[#FF0000]"
+                      : "text-[#AFAFAF]  flex items-center"
                       }`}
                     onClick={() => handleTabClick(5)}
                   >
@@ -172,8 +172,8 @@ function DigitalTheme1({card, preview }) {
                 {HighlightImageCheck ? 
                     <li
                       className={`mb-2 w-[49px] h-[60px] ${activeTab === 6
-                        ? "font-bold text-black border-r-4 border-[#FF0000]"
-                        : "text-[#AFAFAF]"
+                        ? "font-bold text-black  flex items-center border-r-4 border-[#FF0000]"
+                        : "text-[#AFAFAF]  flex items-center"
                         }`}
                       onClick={() => handleTabClick(6)}
                     >
@@ -325,7 +325,7 @@ function DigitalTheme1({card, preview }) {
             </div>
             {preview ? (
               <div className="flex justify-center gap-[20px] fixed top-[90%] left-[54%]   ">
-                <button className="w-[50px] h-[50px] p-[15px] rounded-[12px]  bg-white" onClick={handleShare}>
+                <button className="w-[50px] h-[50px] p-[15px] shadow-xl rounded-[12px]  bg-white" onClick={handleShare}>
                   <svg
                     width="22"
                     height="22"
@@ -340,7 +340,7 @@ function DigitalTheme1({card, preview }) {
                   </svg>
                 </button>
                 <button
-                  className="w-[50px] h-[50px] p-[10px] rounded-[12px] bg-white"
+                  className="w-[50px] h-[50px] p-[10px] shadow-xl rounded-[12px] bg-white"
                   onClick={() => setQrModal(true)}
                 >
                   <svg
