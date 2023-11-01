@@ -6,7 +6,7 @@ function GridDownloads({ files, fileName, preview }) {
     <div className="grid grid-cols-2 items-center">
       {fileName?.fileName1 ? (
         <Link
-          to={`${preview ? files.file1?.websiteUrl : ""}`}
+          to={`${preview ? files.file1 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="max-w-[197px] h-[139px] border-[#F2F2F2] border items-center p-8">
@@ -24,7 +24,7 @@ function GridDownloads({ files, fileName, preview }) {
       )}
       {fileName?.fileName2 ? (
         <Link
-          to={`${preview ? files.file2?.fileUrl : ""}`}
+          to={`${preview ? files.file2 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="max-w-[197px] h-[139px] border-[#F2F2F2] border items-center p-8">
@@ -42,7 +42,7 @@ function GridDownloads({ files, fileName, preview }) {
       )}
       {fileName?.fileName3 ? (
         <Link
-          to={`${preview ? files.file3?.websiteUrl : ""}`}
+          to={`${preview ? files.file3 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="max-w-[197px] h-[139px] border-[#F2F2F2] border items-center p-8">
@@ -60,7 +60,7 @@ function GridDownloads({ files, fileName, preview }) {
       )}
       {fileName?.fileName4 ? (
         <Link
-          to={`${preview ? files.file4?.websiteUrl : ""}`}
+          to={`${preview ? files.file4 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="max-w-[197px] h-[139px] border-[#F2F2F2] border items-center p-8">

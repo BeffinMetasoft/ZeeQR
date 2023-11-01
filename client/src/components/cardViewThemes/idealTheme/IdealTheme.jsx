@@ -85,7 +85,7 @@ function IdealTheme({card, preview }) {
                     <div className="digitalcontainer_banner6 relative h-screen overflow-auto scrollbar-hide  "
                         style={imageStyle}
                     >
-                        <div className=' w-[360px]'>
+                        <div className=' w-[400px]'>
 
                             {/* {profileImage[0]?.thumbUrl &&
                                 profileImage[0]?.status !== "removed" ? (
@@ -161,7 +161,7 @@ function IdealTheme({card, preview }) {
                                         <p className='text-3xl text-white mb-1 font-bold text-center'>
                                             {personalDetails?.name ? personalDetails.name : ""}
                                         </p>
-                                        <p className='text-sm text-white font-semibold text-center'>
+                                        <p className='text-sm text-white mt-5 font-semibold text-center'>
                                             {personalDetails?.companyDesignation ? personalDetails.companyDesignation : ""}
                                         </p>
                                     </div>
@@ -172,8 +172,8 @@ function IdealTheme({card, preview }) {
                                                 <div>
 
 
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>Call</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>
+                                                    <p className='text-[14px] text-white font-normal mt-5 leading-[15px] text-center'>Call</p>
+                                                    <p className='text-[14px] text-white font-normal mt-3 leading-[15px] text-center'>
                                                         <Link to={preview ? `tel:+${personalDetails?.phone}` : ""} >
                                                             <p>
                                                                 + {personalDetails?.phone ? personalDetails.phone : ""}
@@ -187,8 +187,8 @@ function IdealTheme({card, preview }) {
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>Email</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>
+                                                    <p className='text-[14px] text-white font-normal mt-5 leading-[15px] text-center'>Email</p>
+                                                    <p className='text-[14px] text-white font-normal mt-3 leading-[15px] text-center'>
                                                         <Link onClick={preview ? shareMail : ""}>
                                                             {personalDetails?.email
                                                                 ? personalDetails.email
@@ -205,8 +205,8 @@ function IdealTheme({card, preview }) {
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>Location</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'>
+                                                    <p className='text-[14px] text-white font-normal mt-5 leading-[15px] text-center'>Location</p>
+                                                    <p className='text-[14px] text-white font-normal mt-3 leading-[15px] text-center'>
                                                         <Link
                                                             to={`${preview ? contactDetails?.locationUrl : ""
                                                                 }`}
@@ -240,7 +240,7 @@ function IdealTheme({card, preview }) {
 
                                             </div>
                                             {personalDetails?.about ?
-                                                <div className='mt-[40px]'>
+                                                <div className='mt-[40px] mx-5'>
 
                                                     <p className='text-[14px] text-white font-normal leading-[15px] text-center'>About</p>
                                                     <p className='text-[14px] text-white font-normal leading-[15px] text-center'> {personalDetails?.about}</p>
@@ -280,11 +280,11 @@ function IdealTheme({card, preview }) {
                 {preview && !qrModal ?
 
 
-                    <FloatButton.Group
+                    <FloatButton.Group className='shadow-xl fixed lg:right-[48%] right-[45%] bottom-10'
                         trigger="click"
                         color="black"
                         style={{
-                            right: "50%",
+                            left: "50%",
                             color: "white",
                             position: "fixed",
                             bottom: 38,
@@ -301,7 +301,7 @@ function IdealTheme({card, preview }) {
                             icon={<QrcodeOutlined />}
                             onClick={() => setQrModal(true)}
                         />
-                        <Link to={contactDetails?.locationUrl}>
+                        <Link to={contactDetails?.locationUrl} target={`${preview ? "_blank" : ""}`}>
                             <FloatButton icon={<FaLocationArrow />} />
                         </Link>
 

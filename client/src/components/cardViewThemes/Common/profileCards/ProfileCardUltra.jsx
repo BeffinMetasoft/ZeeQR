@@ -25,15 +25,10 @@ function ProfileCardUltra({ preview }) {
     <div className="flex gap-2 m-[15px]">
       {checkProfile ? (
         <div className="rounded-[8px] overflow-hidden">
-          {profileImage[0]?.thumbUrl &&
-          profileImage[0]?.status !== "removed" ? (
+          {profileImage ? (
             <img
               className="w-[150px] m-w-[150px] rounded-[8px]"
-              src={
-                profileImage[0]?.originFileObj?.type
-                  ? URL.createObjectURL(profileImage[0]?.originFileObj)
-                  : profileImage[0].thumbUrl
-              }
+              src={profileImage}
               alt=""
             />
           ) : (

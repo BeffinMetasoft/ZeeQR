@@ -7,7 +7,7 @@ function Downloads({ files, fileName, preview ,theme}) {
     <div>
       {fileName?.fileName1 ? (
         <Link
-          to={`${preview ? file1?.fileUrl : ""}`}
+          to={`${preview ? file1 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="flex gap-3 mt-2 bg-white  p-2 rounded-[8px] justify-between">
@@ -56,7 +56,7 @@ function Downloads({ files, fileName, preview ,theme}) {
 
       {fileName?.fileName2 ? (
         <Link
-          to={`${preview ? file2?.fileUrl : ""}`}
+          to={`${preview ? file2 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="flex gap-3 mt-2 bg-white  p-2 rounded-[8px] justify-between">
@@ -105,7 +105,7 @@ function Downloads({ files, fileName, preview ,theme}) {
 
       {fileName?.fileName3 ? (
         <Link
-          to={`${preview ? file3?.fileUrl : ""}`}
+          to={`${preview ? file3 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="flex gap-3 mt-2 bg-white  p-2 rounded-[8px] justify-between">
@@ -154,7 +154,7 @@ function Downloads({ files, fileName, preview ,theme}) {
 
       {fileName?.fileName4 ? (
         <Link
-          to={`${preview ? file4?.fileUrl : ""}`}
+          to={`${preview ? file4 : ""}`}
           target={`${preview ? "_blank" : ""}`}
         >
           <div className="flex gap-3 mt-2 bg-white  p-2 rounded-[8px] justify-between">

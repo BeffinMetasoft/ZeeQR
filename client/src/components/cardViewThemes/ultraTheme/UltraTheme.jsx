@@ -68,7 +68,7 @@ function UltraTheme({ preview }) {
             )}
           </div>
           <div
-            className={`absolute transition-all ease-in-out min-w-fit w-100  max-w-[380px]  ${isExpanded ? " top-[0px] " : " top-[270px]"
+            className={`absolute transition-all ease-in-out min-w-fit w-[100%]  max-w-[380px]  ${isExpanded ? " top-[0px] " : " top-[270px]"
               }`}
           >
             <div className="ultrathemedetails">
@@ -125,7 +125,7 @@ function UltraTheme({ preview }) {
         { preview && !qrModal ?
 
 
-          <FloatButton.Group
+          <FloatButton.Group className="shadow-xl"
             trigger="click"
             color="black share_button"
             style={{
@@ -146,7 +146,7 @@ function UltraTheme({ preview }) {
               icon={<QrcodeOutlined />}
               onClick={() => setQrModal(true)}
             />
-            <Link to={contactDetails?.locationUrl}>
+            <Link to={contactDetails?.locationUrl} target={`${preview ? "_blank" : ""}`}>
               <FloatButton icon={<FaLocationArrow />} />
             </Link>
 

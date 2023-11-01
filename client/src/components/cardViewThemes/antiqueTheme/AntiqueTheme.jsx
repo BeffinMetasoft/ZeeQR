@@ -252,7 +252,7 @@ function AntiqueTheme({ card, preview }) {
                 )}
             </div>
 
-            <div className="absolute top-[280px]">
+            <div className="absolute top-[280px] w-full">
 
                 <div className="">
                     <svg
@@ -441,7 +441,7 @@ function AntiqueTheme({ card, preview }) {
 
                                         <MdReviews color={'#5A5A5A'} className="w-[20px] m-auto" />
                                     </div>
-                                    <span className="font-medium text-left  text-[#5A5A5A] leading-[15px]">
+                                    <span className="font-medium text-left text-lg text-[#5A5A5A] leading-[15px]">
                                         Review
                                     </span>{" "}
                                 </div>
@@ -471,7 +471,7 @@ function AntiqueTheme({ card, preview }) {
 
                                         <FaFileDownload color={'#5A5A5A'} className="w-[20px] m-auto" />
                                     </div>
-                                    <span className="font-medium text-left  text-[#5A5A5A] leading-[15px]">
+                                    <span className="font-medium text-left text-lg text-[#5A5A5A] leading-[15px]">
                                         Downloads
                                     </span>{" "}
                                 </div>
@@ -499,8 +499,8 @@ function AntiqueTheme({ card, preview }) {
                                     onClick={toggleSection5}
                                 >
                                     <div className="flex gap-3">
-                                        <div className=" border border-2 border flex   border rounded-[50%]">
-                                            <svg width="18" height="18" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <div className="flex items-center w-8 h-8 border border-2 border flex justify-items-center  border rounded-[50%]">
+                                            <svg width="18" height="18" viewBox="0 0 14 14" fill="none" className="w-[20px] m-auto" xmlns="http://www.w3.org/2000/svg">
                                                 <g clip-path="url(#clip0_213_1088)">
                                                     <path d="M10.5 4.66667C10.5 4.97609 10.3771 5.27283 10.1583 5.49162C9.93952 5.71042 9.64277 5.83333 9.33335 5.83333C9.02393 5.83333 8.72719 5.71042 8.5084 5.49162C8.2896 5.27283 8.16669 4.97609 8.16669 4.66667C8.16669 4.35725 8.2896 4.0605 8.5084 3.84171C8.72719 3.62292 9.02393 3.5 9.33335 3.5C9.64277 3.5 9.93952 3.62292 10.1583 3.84171C10.3771 4.0605 10.5 4.35725 10.5 4.66667Z" fill="#5A5A5A" />
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M6.96676 0.729004H7.03326C8.38017 0.729004 9.43542 0.729004 10.2591 0.839837C11.1014 0.953004 11.7664 1.18984 12.2885 1.71134C12.8106 2.23342 13.0468 2.89842 13.16 3.74134C13.2708 4.56442 13.2708 5.61967 13.2708 6.96659V7.01792C13.2708 8.1315 13.2708 9.04267 13.2102 9.78467C13.1495 10.5313 13.0253 11.1538 12.7464 11.6718C12.6239 11.8998 12.4723 12.1046 12.2885 12.2883C11.7664 12.8104 11.1014 13.0467 10.2585 13.1598C9.43542 13.2707 8.38017 13.2707 7.03326 13.2707H6.96676C5.61984 13.2707 4.56459 13.2707 3.74092 13.1598C2.89859 13.0467 2.23359 12.8098 1.71151 12.2883C1.24892 11.8258 1.00976 11.25 0.883172 10.5348C0.757755 9.83309 0.735005 8.95984 0.730338 7.876C0.729172 7.60009 0.729172 7.30842 0.729172 7.00042V6.96659C0.729172 5.61967 0.729172 4.56442 0.840005 3.74075C0.953172 2.89842 1.19001 2.23342 1.71151 1.71134C2.23359 1.18925 2.89859 0.953004 3.74151 0.839837C4.56459 0.729004 5.61984 0.729004 6.96676 0.729004ZM3.85759 1.70667C3.11209 1.807 2.66234 1.99834 2.33042 2.33025C1.99792 2.66275 1.80717 3.11192 1.70684 3.858C1.60534 4.61634 1.60417 5.61267 1.60417 6.99984V7.49217L2.18809 6.98059C2.44429 6.75646 2.7761 6.63809 3.11631 6.64947C3.45651 6.66084 3.77968 6.8011 4.02034 7.04184L6.52284 9.54434C6.71703 9.73849 6.97349 9.85793 7.24708 9.88161C7.52066 9.9053 7.79383 9.83173 8.01851 9.67384L8.19234 9.55134C8.51649 9.32357 8.90833 9.21252 9.30379 9.23636C9.69924 9.2602 10.0749 9.41752 10.3693 9.68259L12.0202 11.1683C12.187 10.8195 12.2856 10.361 12.3381 9.71409C12.3953 9.01117 12.3958 8.135 12.3958 6.99984C12.3958 5.61267 12.3947 4.61634 12.2932 3.858C12.1928 3.11192 12.0015 2.66217 11.6696 2.32967C11.3371 1.99775 10.8879 1.807 10.1418 1.70667C9.38351 1.60517 8.38717 1.604 7.00001 1.604C5.61284 1.604 4.61592 1.60517 3.85759 1.70667Z" fill="#5A5A5A" />
@@ -513,7 +513,7 @@ function AntiqueTheme({ card, preview }) {
                                             </svg>
 
                                         </div>
-                                        <span className="font-medium text-left  text-[#5A5A5A] leading-[15px]">
+                                        <span className="font-medium text-left text-lg text-[#5A5A5A] leading-[15px]">
                                             Media
                                         </span>{" "}
                                     </div>
@@ -538,9 +538,9 @@ function AntiqueTheme({ card, preview }) {
                 </div>
 
                 {preview ? (
-                    <div className="flex justify-center gap-[20px] fixed top-[90%]  items-center lg:left-[41%] left-[30%] ">
+                    <div className="flex justify-center gap-[20px]  fixed top-[90%]  items-center  lg:left-[45%] left-[20%] ">
                         <Link className="" to={`${preview ? vCard : ''}`}>
-                            <button className="w-[50px] h-[50px] p-[15px] rounded-[12px]  bg-white">
+                            <button className="w-[50px] h-[50px] p-[15px] shadow-xl rounded-[12px]  bg-white">
                                 <svg
                                     width="18"
                                     height="18"
@@ -559,7 +559,7 @@ function AntiqueTheme({ card, preview }) {
                             <Link to={`${preview ? contactDetails?.locationUrl : ""}`}
                                 target={`${preview ? "_blank" : ""}`}
                             >
-                                <button className="w-[50px] h-[50px] p-[10px] rounded-[12px] bg-white">
+                                <button className="w-[50px] shadow-xl h-[50px] p-[10px] rounded-[12px] bg-white">
                                     <div className="flex items-center justify-center">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M18.2463 3.36842C18.6355 2.35759 17.6421 1.36426 16.6313 1.75342L2.46798 7.20009C1.33465 7.63509 1.42465 9.26676 2.59798 9.57509L8.44048 11.1126C8.54764 11.1407 8.6454 11.1968 8.72374 11.2752C8.80208 11.3535 8.85819 11.4513 8.88631 11.5584L10.4238 17.4001C10.7321 18.5743 12.3638 18.6634 12.7988 17.5309L18.2463 3.36842Z" fill="black" />
@@ -570,7 +570,7 @@ function AntiqueTheme({ card, preview }) {
                         ) : (
                             ""
                         )}
-                        <button className="w-[50px] h-[50px] p-[10px] rounded-[12px] bg-white" onClick={() => setQrModal(true)} >
+                        <button className="w-[50px] h-[50px] shadow-xl p-[10px] rounded-[12px] bg-white" onClick={() => setQrModal(true)} >
                             <svg
                                 width="34"
                                 height="34"
@@ -584,7 +584,7 @@ function AntiqueTheme({ card, preview }) {
                                 />
                             </svg>
                         </button>
-                        <button className="w-[50px] h-[50px] p-[10px] rounded-[12px] bg-white" onClick={handleShare}>
+                        <button className="w-[50px] h-[50px] shadow-xl p-[10px] rounded-[12px] bg-white" onClick={handleShare}>
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 22C17.1667 22 16.4583 21.7083 15.875 21.125C15.2917 20.5417 15 19.8333 15 19C15 18.8833 15.0083 18.7623 15.025 18.637C15.0417 18.5117 15.0667 18.3993 15.1 18.3L8.05 14.2C7.76667 14.45 7.45 14.646 7.1 14.788C6.75 14.93 6.38333 15.0007 6 15C5.16667 15 4.45833 14.7083 3.875 14.125C3.29167 13.5417 3 12.8333 3 12C3 11.1667 3.29167 10.4583 3.875 9.875C4.45833 9.29167 5.16667 9 6 9C6.38333 9 6.75 9.071 7.1 9.213C7.45 9.355 7.76667 9.55067 8.05 9.8L15.1 5.7C15.0667 5.6 15.0417 5.48767 15.025 5.363C15.0083 5.23833 15 5.11733 15 5C15 4.16667 15.2917 3.45833 15.875 2.875C16.4583 2.29167 17.1667 2 18 2C18.8333 2 19.5417 2.29167 20.125 2.875C20.7083 3.45833 21 4.16667 21 5C21 5.83333 20.7083 6.54167 20.125 7.125C19.5417 7.70833 18.8333 8 18 8C17.6167 8 17.25 7.92933 16.9 7.788C16.55 7.64667 16.2333 7.45067 15.95 7.2L8.9 11.3C8.93333 11.4 8.95833 11.5127 8.975 11.638C8.99167 11.7633 9 11.884 9 12C9 12.1167 8.99167 12.2377 8.975 12.363C8.95833 12.4883 8.93333 12.6007 8.9 12.7L15.95 16.8C16.2333 16.55 16.55 16.3543 16.9 16.213C17.25 16.0717 17.6167 16.0007 18 16C18.8333 16 19.5417 16.2917 20.125 16.875C20.7083 17.4583 21 18.1667 21 19C21 19.8333 20.7083 20.5417 20.125 21.125C19.5417 21.7083 18.8333 22 18 22Z" fill="black" />
                             </svg>
