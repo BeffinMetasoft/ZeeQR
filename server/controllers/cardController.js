@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const fs = require('fs');
 const { expiryDate } = require("../helpers/expiryDate");
 const { checkExpiry } = require("../helpers/checkExpiry");
+const ReviewQR = require("../model/reviewQrModel");
 
 
 
@@ -108,9 +109,59 @@ const addLocations = async (req, res, next) => {
   }
 };
 
+/* -------------------------------------------------------------------------- */
+/*                         reviewQr interface details                         */
+/* -------------------------------------------------------------------------- */
+
+const reviewQrDetails = async (req, res, next) => {
+  try {
+    const review = await ReviewQR.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
+
+    // console.log(review, 'cardsssssdsdsdsdsdsd');
+
+    if (review.expire) {
+
+      const cardExpiry = await checkExpiry(review)
+      if (cardExpiry === "notExpired") {
+
+        if (review?.userID?.adminID) {
+          const exp = await expiryDate(review.userID.adminID);
+
+          if (exp === "notExpired") {
+            res.status(200).json({ success: true, review, message: "Single Booked Card" });
+          } else {
+            res.status(498).json({ success: false, message: "Admin expired" });
+          }
+        } else {
+          res.status(200).json({ success: true, review, message: "Single Booked Card" });
+        }
+      } else {
+        // console.log('0987654321');
+        res.status(498).json({ success: false, message: "Profile Card Expired, Please Contact Admin" });
+      }
+    } else {
+      // console.log('1234567');
+      if (review?.userID?.adminID) {
+        const exp = await expiryDate(review.userID.adminID);
+
+        if (exp === "notExpired") {
+          res.status(200).json({ success: true, review, message: "Single Booked Card" });
+        } else {
+          res.status(498).json({ success: false, message: "Admin expired" });
+        }
+      } else {
+        res.status(200).json({ success: true, review, message: "Single Booked Card" });
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    next(error)
+  }
+}
 
 module.exports = {
 
   getSingleCard,
-  addLocations
+  addLocations,
+  reviewQrDetails
 };
