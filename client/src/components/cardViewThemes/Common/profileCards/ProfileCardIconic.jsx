@@ -46,7 +46,7 @@ function ProfileCardIconic({ preview,Highlightcolor }) {
         </div>
       </div>
       <div className="pl-5 pr-5">
-        <p className="text-black font-normal mt-5 leading-5  text-[14px]">
+        <p className="text-black font-normal mt-5 leading-5  text-[14px] whitespace-pre-line">
           {personalDetails?.about}
         </p>
       </div>

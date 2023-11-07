@@ -340,7 +340,7 @@ function VexTheme({ preview }) {
                   </p>
                 </div>
 
-                <p className="text-[14px] text-white font-medium text-left">
+                <p className="text-[14px] text-white font-medium text-left whitespace-pre-line">
                   {personalDetails?.about}
                 </p>
               </div>

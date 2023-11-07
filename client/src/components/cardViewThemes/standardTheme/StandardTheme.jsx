@@ -221,7 +221,7 @@ function StandardTheme({ card, preview }) {
                     &nbsp; &nbsp; &nbsp;{" "}
                   </p>
                 </div>
-                <div className="about ">{card?.about}</div>
+                <div className="about whitespace-pre-line">{card?.about}</div>
               </div>
             ) : (
               ""

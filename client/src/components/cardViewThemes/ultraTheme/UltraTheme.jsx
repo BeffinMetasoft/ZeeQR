@@ -94,7 +94,7 @@ function UltraTheme({ preview }) {
                           <p className="text-[#000000] text-[16px] font-semibold mt-5">
                             About
                           </p>
-                          <p className="text-[#000000] text-[12px] font-medium">
+                          <p className="text-[#000000] text-[12px] font-medium whitespace-pre-line">
                             {personalDetails?.about}
                           </p>
                         </div>
