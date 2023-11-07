@@ -243,7 +243,7 @@ function IdealTheme({card, preview }) {
                                                 <div className='mt-[40px] mx-5'>
 
                                                     <p className='text-[14px] text-white font-normal leading-[15px] text-center'>About</p>
-                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center'> {personalDetails?.about}</p>
+                                                    <p className='text-[14px] text-white font-normal leading-[15px] text-center whitespace-pre-line'> {personalDetails?.about}</p>
 
                                                 </div>
                                                 : ''}

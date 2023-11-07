@@ -108,7 +108,7 @@ function TechTheme({ preview }) {
                                     ? personalDetails.companyDesignation
                                     : ""}
                             </p>
-                            <p className=" text-[#5A5A5A] font-[14px]  break-words font-normal leading-5 text-center pl-2 pr-2 mt-3">
+                            <p className=" text-[#5A5A5A] font-[14px]  break-words font-normal leading-5 text-center pl-2 pr-2 mt-3 whitespace-pre-line">
                                 {personalDetails?.about}
                             </p>
 
