@@ -899,7 +899,7 @@ function ClassicTheme2({ card, preview }) {
               }}
             >
               <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me'}</h2>
-              <p>{card?.about}</p>
+              <p className="whitespace-pre-line">{card?.about}</p>
             </div>
           ) : (
             ""

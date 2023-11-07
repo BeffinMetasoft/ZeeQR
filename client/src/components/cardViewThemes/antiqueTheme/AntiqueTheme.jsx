@@ -316,7 +316,7 @@ function AntiqueTheme({ card, preview }) {
                                     <p className="text-[16px] font-semibold leadning-[21px] text-left text-[#5A5A5A]">
                                         Bio
                                     </p>
-                                    <p className="text-[#5A5A5A] font-[14px]  break-words font-normal leading-5 text-left ">
+                                    <p className="text-[#5A5A5A] font-[14px]  break-words font-normal leading-5 text-left whitespace-pre-line">
                                         {personalDetails?.about}
                                     </p>
                                 </div>
