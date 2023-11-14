@@ -963,7 +963,7 @@ function ClassicTheme2({ card, preview }) {
               </Link>
               : ''
             }
-            <h3>Location</h3>
+            <h3>{card?.addressHeadline ? card?.addressHeadline : 'Location'}</h3>
             <Link
               style={{
                 color: `${Textcolor ? Textcolor : ""}`,
