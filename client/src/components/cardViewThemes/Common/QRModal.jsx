@@ -38,9 +38,8 @@ function QRModal({handleClose}) {
                 >
                   <div className="userDetails">
                     <figure>
-                      {profileImage[0]?.thumbUrl &&
-                      profileImage[0]?.status !== "removed" ? (
-                        <img src={profileImage[0].thumbUrl} alt="" />
+                      {profileImage ? (
+                        <img src={profileImage} alt="" />
                       ) : (
                         <img src={defaultProfileImage} alt="" />
                       )}
@@ -54,7 +53,7 @@ function QRModal({handleClose}) {
                         {" "}
                         {personalDetails?.companyDesignation
                           ? personalDetails.companyDesignation
-                          : "Designation"}
+                          : ""}
                       </p>
                     </div>
                     <img

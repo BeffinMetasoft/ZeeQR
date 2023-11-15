@@ -548,7 +548,7 @@ function EpicTheme({ card,preview }) {
                         }
 
                         {preview ? (
-                            <div className="flex justify-center gap-[20px] fixed top-[90%] items-center left-[38%] lg:left-[45%]   ">
+                            <div className="flex justify-center gap-[20px] fixed top-[90%] items-center left-[36%] lg:left-[45%]   ">
                                 <button
                                     onClick={handleShare}
                                     className="w-[50px] h-[50px] p-[10px] rounded-[12px]   "
