@@ -47,7 +47,7 @@ button {
   min-height: 170px;
 }
 
-.previewContainerdigital .details .summary ::-webkit-details-marker {
+details summary ::-webkit-details-marker {
   display: none;
 }
 
