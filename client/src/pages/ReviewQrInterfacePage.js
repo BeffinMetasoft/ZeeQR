@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { addReviewLocation, reviewQrInterface } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
+import axios from '../api/Axios'
 
 
 function ReviewQrInterfacePage() {
