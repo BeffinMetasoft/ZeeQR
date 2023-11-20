@@ -7,6 +7,7 @@ const fs = require('fs');
 const { expiryDate } = require("../helpers/expiryDate");
 const { checkExpiry } = require("../helpers/checkExpiry");
 const ReviewQR = require("../model/reviewQrModel");
+const ContactCard = require("../model/contactCardModel");
 
 
 
@@ -159,9 +160,147 @@ const reviewQrDetails = async (req, res, next) => {
   }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                           add review QR Location                           */
+/* -------------------------------------------------------------------------- */
+const addReviewCardLocations = async (req, res, next) => {
+  try {
+    const locationData = {
+      ip: req.body.ip,
+      city: req.body.city,
+      region: req.body.region,
+      country: req.body.country_name,
+      count: 1
+    }
+    const card = await ReviewQR.findOne({ _id: req.params.id })
+
+
+    await card.updateOne({ $inc: { "tapCount": 1 } });
+
+    const ExistLocation = card.location.filter(loc => loc.ip === locationData.ip && loc.city === locationData.city && loc.region === locationData.region && loc.country === locationData.country);
+
+    if (ExistLocation.length > 0) {
+      const query = { _id: card._id };
+      const updateDocument = {
+        $inc: { "location.$[i].count": 1 }
+      };
+      const options = {
+        arrayFilters: [
+          {
+            "i.ip": locationData.ip,
+            "i.city": locationData.city,
+            "i.region": locationData.region,
+            "i.country": locationData.country,
+          }
+        ]
+      };
+      await ReviewQR.updateOne(query, updateDocument, options);
+
+    } else {
+      await card.updateOne(
+        { $push: { location: locationData } }
+      )
+    }
+
+    res.status(200).json({ success: true, message: "location added" });
+
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+/* -------------------------------------------------------------------------- */
+/*                       contact card interface details                       */
+/* -------------------------------------------------------------------------- */
+
+const contactCardDetails = async (req, res, next) => {
+  try {
+    const card = await ContactCard.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
+
+    // console.log(card, 'cardsssssdsdsdsdsdsd');
+
+    const cardExpiry = await checkExpiry(card)
+    if (cardExpiry === "notExpired") {
+
+      if (card?.userID?.adminID) {
+        const exp = await expiryDate(card.userID._id);
+
+        if (exp === "notExpired") {
+          res.status(200).json({ success: true, card, message: "Single Booked Card" });
+        } else {
+          res.status(498).json({ success: false, message: "Admin expired" });
+        }
+      } else {
+        res.status(200).json({ success: true, card, message: "Single Booked Card" });
+      }
+    } else {
+      // console.log('0987654321');
+      res.status(498).json({ success: false, message: "Profile Card Expired, Please Contact Admin" });
+    }
+
+  } catch (error) {
+    console.log(error);
+    next(error)
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                         add conatact card location                         */
+/* -------------------------------------------------------------------------- */
+const addContactCardLocations = async (req, res, next) => {
+  try {
+    const locationData = {
+      ip: req.body.ip,
+      city: req.body.city,
+      region: req.body.region,
+      country: req.body.country_name,
+      count: 1
+    }
+    const card = await ContactCard.findOne({ _id: req.params.id })
+
+
+    await card.updateOne({ $inc: { "tapCount": 1 } });
+
+    const ExistLocation = card.location.filter(loc => loc.ip === locationData.ip && loc.city === locationData.city && loc.region === locationData.region && loc.country === locationData.country);
+
+    if (ExistLocation.length > 0) {
+      const query = { _id: card._id };
+      const updateDocument = {
+        $inc: { "location.$[i].count": 1 }
+      };
+      const options = {
+        arrayFilters: [
+          {
+            "i.ip": locationData.ip,
+            "i.city": locationData.city,
+            "i.region": locationData.region,
+            "i.country": locationData.country,
+          }
+        ]
+      };
+      await ContactCard.updateOne(query, updateDocument, options);
+
+    } else {
+      await card.updateOne(
+        { $push: { location: locationData } }
+      )
+    }
+
+    res.status(200).json({ success: true, message: "location added" });
+
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 module.exports = {
 
   getSingleCard,
   addLocations,
-  reviewQrDetails
+  reviewQrDetails,
+  addReviewCardLocations,
+  contactCardDetails,
+  addContactCardLocations
 };
