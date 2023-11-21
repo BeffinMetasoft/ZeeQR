@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { addReviewLocation, reviewQrInterface } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
-import axios from '../api/Axios'
+import axios from 'axios'
 
 
 function ReviewQrInterfacePage() {
@@ -17,7 +17,7 @@ function ReviewQrInterfacePage() {
                     setReview(false)
                     const liveLocation = await axios.get('https://ipapi.co/json')
                     await addReviewLocation(data.review._id, liveLocation.data)
-                    
+
                     window.location.href = data?.review?.reviewUrl
                     
                 } else {
