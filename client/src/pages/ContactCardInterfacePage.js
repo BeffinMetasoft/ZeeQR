@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import logo from '../assests/zeeqr-black.svg'
 import { addContactCardLocation, contactCardInterface } from '../api/UserRequest'
-import axios from 'axios'
+import axios from '../api/Axios'
 
 
 function ContactCardInterfacePage() {
