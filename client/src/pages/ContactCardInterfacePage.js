@@ -1,39 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { addReviewLocation, reviewQrInterface } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
+import { addContactCardLocation, contactCardInterface } from '../api/UserRequest'
 import axios from 'axios'
 
 
-function ReviewQrInterfacePage() {
+function ContactCardInterfacePage() {
     const params = useParams()
-    const [review, setReview] = useState(false)
+    const [contact, setContact] = useState(false)
+
     useEffect(() => {
-        const getReviewQRDetails = async () => {
+        const getContactDetails = async () => {
             try {
-                const { data } = await reviewQrInterface(params.id)
+                const { data } = await contactCardInterface(params.id)
                 // console.log(data);
                 if (data.success) {
-                    setReview(false)
+                    setContact(false)
                     const liveLocation = await axios.get('https://ipapi.co/json')
-                    await addReviewLocation(data.review._id, liveLocation.data)
-
-                    window.location.href = data?.review?.reviewUrl
+                    await addContactCardLocation(data.card._id, liveLocation.data)
                     
+                    window.location.href = data?.card?.vCard
+
                 } else {
-                    setReview(true)
+                    setContact(true)
                 }
-                
             } catch (error) {
-                // console.log(error);
-                setReview(true)
+                console.log(error);
+                setContact(true)
             }
         }
-        getReviewQRDetails()
+        getContactDetails()
     }, [])
     return (
         <div>
-            {review ?
+            {contact ?
                 <div className='w-full h-screen flex flex-col items-center justify-center'>
                     <img src={logo} alt="" />
                     <h1 className='font-bold mt-2'>This card is not valid/card has expired!</h1>
@@ -48,4 +48,4 @@ function ReviewQrInterfacePage() {
     )
 }
 
-export default ReviewQrInterfacePage
+export default ContactCardInterfacePage
