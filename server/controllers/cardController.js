@@ -173,7 +173,8 @@ const addReviewCardLocations = async (req, res, next) => {
       city: req.body.city,
       region: req.body.region,
       country: req.body.country_name,
-      count: 1
+      count: 1,
+      timeLog: [Date.now()],
     }
     const card = await ReviewQR.findOne({ _id: req.params.id })
 
@@ -185,7 +186,8 @@ const addReviewCardLocations = async (req, res, next) => {
     if (ExistLocation.length > 0) {
       const query = { _id: card._id };
       const updateDocument = {
-        $inc: { "location.$[i].count": 1 }
+        $inc: { "location.$[i].count": 1 },
+        $push: { "location.$[i].timeLog": Date.now() }
       };
       const options = {
         arrayFilters: [
@@ -258,7 +260,8 @@ const addContactCardLocations = async (req, res, next) => {
       city: req.body.city,
       region: req.body.region,
       country: req.body.country_name,
-      count: 1
+      count: 1,
+      timeLog: [Date.now()],
     }
     const card = await ContactCard.findOne({ _id: req.params.id })
 
@@ -270,7 +273,8 @@ const addContactCardLocations = async (req, res, next) => {
     if (ExistLocation.length > 0) {
       const query = { _id: card._id };
       const updateDocument = {
-        $inc: { "location.$[i].count": 1 }
+        $inc: { "location.$[i].count": 1 },
+        $push: { "location.$[i].timeLog": Date.now() }
       };
       const options = {
         arrayFilters: [
