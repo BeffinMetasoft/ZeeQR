@@ -26,9 +26,18 @@ const ReviewQrSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    location: {
-        type: Array,
-    },
+    location: [
+        {
+            ip:String,
+            city:String,
+            region:String,
+            country:String,
+            count:Number,
+            timeLog:[
+               { type:Date}
+            ]
+        }
+    ],
     createdDate: {
         type: Date,
         default: Date.now()
