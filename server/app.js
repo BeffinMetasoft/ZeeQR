@@ -8,7 +8,7 @@ const cors = require('cors')
 const path = require('path')
 
 app.use(cors({
-    origin: process.env.FRONT_END_PORT,
+    origin:  [process.env.FRONT_END_PORT,process.env.FRONT_END_PORT1,process.env.FRONT_END_PORT2],
     credentials: true, //access-control-allow-credentials:true
   }))
 app.use(express.json())
