@@ -1,7 +1,9 @@
 import axios from '../api/Axios'
 
 
-export const cardProfile = (id) => axios.post(`/profileView/${id}`)  //profile view interface
+export const cardProfile = (id,path) => axios.post(`/profileView/${id}`,path )  //profile view interface
+
+// export const RouteBasicCardProfile = (id,path) => axios.post(`/profile/${id}`,path)  // Route basic profile view interface
 
 export const reviewQrInterface = (id) => axios.get(`/reviewQr-interface/${id}`)  //  review QR card
 

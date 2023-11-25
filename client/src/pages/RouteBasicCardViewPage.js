@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { addLocation, cardProfile } from '../api/UserRequest'
+import { RouteBasicCardProfile, addLocation, } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
 import zeeqrLoder from '../assests/Zeeqr Loading.gif'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
@@ -23,7 +23,7 @@ import VexTheme from '../components/cardViewThemes/vexTheme/VexTheme'
 
 const metaDecorator = require('../data/metaDecorator.json')
 
-function CardDetailsViewPage() {
+function RouteBasicCardViewPage() {
     const params = useParams()
     const [card, setCard] = useState('')
     const [pre, setPre] = useState(true)
@@ -34,12 +34,13 @@ function CardDetailsViewPage() {
 
         const getDetails = async () => {
             try {
-                // console.log(params.id, '11111111111');
+                // console.log(params, '11111111111');
+                // console.log(window.location.href);
                 // console.log(liveLocation,'qwertyuio');
                 const path = {
                     url: window.location.href
                 }
-                const { data } = await cardProfile(params.id,path)
+                const { data } = await RouteBasicCardProfile(params.id, path)
                 // console.log(data, 'dataaaaaaaaaaa');
                 if (data.success) {
                     if (data?.card?.companyLogo) {
@@ -250,4 +251,4 @@ function CardDetailsViewPage() {
     )
 }
 
-export default CardDetailsViewPage
+export default RouteBasicCardViewPage
