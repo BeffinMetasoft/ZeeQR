@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { addLocation, cardProfile } from '../api/UserRequest'
 import logo from '../assests/zeeqr-black.svg'
-import zeeqrLoder from '../assests/Zeeqr Loading.gif'
+// import zeeqrLoder from '../assests/Zeeqr Loading.gif'
 import ClassicTheme from '../components/cardDetailView1/classicTheme/ClassicTheme'
 import { Helmet } from "react-helmet";
 
@@ -20,6 +20,8 @@ import IdealTheme from '../components/cardViewThemes/idealTheme/IdealTheme'
 import TechTheme from '../components/cardViewThemes/techTheme/TechTheme'
 import UltraTheme from '../components/cardViewThemes/ultraTheme/UltraTheme'
 import VexTheme from '../components/cardViewThemes/vexTheme/VexTheme'
+import { Spin } from 'antd'
+import { LoadingOutlined } from '@ant-design/icons'
 
 const metaDecorator = require('../data/metaDecorator.json')
 
@@ -174,7 +176,22 @@ function CardDetailsViewPage() {
 
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>
-                    <img src={card?.companyLogo ? card.companyLogo : zeeqrLoder} alt="" />
+                    {/* <img src={card?.companyLogo ? card.companyLogo : zeeqrLoder} alt="" /> */}
+                    {card?.companyLogo ?
+                        <img src={card.companyLogo} alt='' />
+                        :
+                        <Spin
+                            indicator={
+                                <LoadingOutlined
+                                    style={{
+                                        fontSize: 60,
+                                    }}
+                                    spin
+                                />
+                            }
+                        />
+                    }
+
 
                 </div>
                 :
