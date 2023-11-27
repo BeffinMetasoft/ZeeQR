@@ -198,6 +198,7 @@ function CardDetailsViewPage() {
                                 <LoadingOutlined
                                     style={{
                                         fontSize: 60,
+                                        color:'black'
                                     }}
                                     spin
                                 />
