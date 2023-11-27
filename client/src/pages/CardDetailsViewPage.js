@@ -171,17 +171,7 @@ function CardDetailsViewPage() {
 
     return (
         <div>
-            <Helmet>
-                <title>{card?.name}</title>
-                <meta name="description" content={card?.companyDesignation} />
-                <link rel="icon" type="image/png" sizes="32x32" href={card.profileImage} />
-                <link rel="icon" type="image/png" sizes="16x16" href={card.profileImage} />
-                <meta property="og:title" class="notranslate" content={card.name} />
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content={metaDecorator.hostname + window.location.pathname + window.location.search} />
-                <meta property="og:description" class="notranslate" content={card.companyDesignation} />
-                <meta property="og:image" content={card.profileImage} />
-            </Helmet>
+
             {pre ?
                 <div className='w-full h-screen flex items-center justify-center'>
                     <img src={card?.companyLogo ? card.companyLogo : zeeqrLoder} alt="" />
@@ -243,6 +233,18 @@ function CardDetailsViewPage() {
 
                 )
             }
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>{card?.name}</title>
+                <meta name="description" content={card?.companyDesignation} />
+                <link rel="icon" type="image/png" sizes="32x32" href={card.profileImage} />
+                <link rel="icon" type="image/png" sizes="16x16" href={card.profileImage} />
+                <meta property="og:title" class="notranslate" content={card.name} />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={metaDecorator.hostname + window.location.pathname + window.location.search} />
+                <meta property="og:description" class="notranslate" content={card.companyDesignation} />
+                <meta property="og:image" content={card.profileImage} />
+            </Helmet>
         </div>
     )
 }
