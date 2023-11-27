@@ -15,8 +15,10 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const cardRouter = require('./routes/cardRouter')
+const domainWiseRouter = require('./routes/domainWiseRouter')
 
 app.use('/api', cardRouter)
+app.use('/domain/api', domainWiseRouter)
 
 
 
