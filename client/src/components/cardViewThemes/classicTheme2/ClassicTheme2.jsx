@@ -71,7 +71,7 @@ function ClassicTheme2({ card, preview }) {
   const Textcolor = card?.textColor ? card?.textColor : "";;
   const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "";
   const BgColor = card?.bgColor ? card?.bgColor : "";
-  const BtIColor = card?.btIconColor ? card?.btIconColor : "";
+  const BtIColor = card?.btIconColor ? card?.btIconColor : "#ffffff";
 
   const shareMail = (e) => {
     window.location = `mailto:${card?.email}`;
