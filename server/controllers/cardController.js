@@ -8,6 +8,7 @@ const { expiryDate } = require("../helpers/expiryDate");
 const { checkExpiry } = require("../helpers/checkExpiry");
 const ReviewQR = require("../model/reviewQrModel");
 const ContactCard = require("../model/contactCardModel");
+const Admin = require("../model/adminModel");
 
 
 
@@ -54,6 +55,66 @@ const getSingleCard = async (req, res, next) => {
         res.status(200).json({ success: true, card, message: "Single Booked Card" });
       }
     }
+
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
+const getParticularRouteCard = async (req, res, next) => {
+  try {
+
+    // console.log(req.body);
+    const { url } = req.body
+    const splitArray = url?.split("/profile-view/");
+    const domain = splitArray[0]
+    // console.log(domain, 'domain');
+
+    const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
+    const admin = await Admin.findOne({ _id: card?.userID?.adminID })
+    // console.log(admin, 'admin');
+    // console.log(admin.domain, 'admin domain');
+
+    if (admin?.domain === domain) {
+      if (card?.expire) {
+
+        const cardExpiry = await checkExpiry(card)
+        if (cardExpiry === "notExpired") {
+
+          if (card?.userID?.adminID) {
+            const exp = await expiryDate(card.userID.adminID);
+
+            if (exp === "notExpired") {
+              res.status(200).json({ success: true, card, message: "Single Booked Card" });
+            } else {
+              res.status(498).json({ success: false, message: "Admin expired" });
+            }
+          } else {
+            res.status(200).json({ success: true, card, message: "Single Booked Card" });
+          }
+        } else {
+          res.status(498).json({ success: false, message: "Profile Card Expired, Please Contact Admin" });
+        }
+      } else {
+        // console.log('1234567');
+
+        if (card?.userID?.adminID) {
+          const exp = await expiryDate(card.userID.adminID);
+
+          if (exp === "notExpired") {
+            res.status(200).json({ success: true, card, message: "Single Booked Card" });
+          } else {
+            res.status(498).json({ success: false, message: "Admin expired" });
+          }
+        } else {
+          res.status(200).json({ success: true, card, message: "Single Booked Card" });
+        }
+      }
+    } else {
+      res.status(498).json({ success: false, message: "Un authorised route" });
+    }
+
 
   } catch (error) {
     console.log(error);
@@ -309,5 +370,6 @@ module.exports = {
   reviewQrDetails,
   addReviewCardLocations,
   contactCardDetails,
-  addContactCardLocations
+  addContactCardLocations,
+  getParticularRouteCard
 };

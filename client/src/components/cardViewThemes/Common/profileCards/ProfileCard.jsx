@@ -52,7 +52,7 @@ function ProfileCard({ Highlightcolor, Textcolor,profileCardColor,theme }) {
                                 array[1]?.length > 12 ||
                                 array[2]?.length > 12
                                 ? "20px"
-                                : ""
+                                : (personalDetails?.nameSize ? `${personalDetails?.nameSize}px`: "") 
                                 }`,
                         }}
                     >
@@ -62,6 +62,7 @@ function ProfileCard({ Highlightcolor, Textcolor,profileCardColor,theme }) {
                     <p
                         style={{
                             color: `${profileCardColor ? "black" : Textcolor ? Textcolor : ""}`,
+                            fontSize:  `${personalDetails?.designationSize ? personalDetails?.designationSize +'px'  : ""}`
                         }}
                     >
                         {personalDetails?.companyDesignation

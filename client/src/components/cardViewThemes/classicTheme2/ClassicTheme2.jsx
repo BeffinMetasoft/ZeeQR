@@ -803,8 +803,8 @@ function ClassicTheme2({ card, preview }) {
                     fontSize: `${array[0]?.length > 12 ||
                       array[1]?.length > 12 ||
                       array[2]?.length > 12
-                      ? "20px"
-                      : ""
+                      ?  "20px" 
+                      :(card?.nameSize ? `${card?.nameSize}px`: "") 
                       }`,
                   }}
                 >
@@ -814,6 +814,7 @@ function ClassicTheme2({ card, preview }) {
                 <p
                   style={{
                     color: `${card?.pfCardColor ? "black" : Textcolor ? Textcolor : ""}`,
+                    fontSize:  `${card?.designationSize ? card?.designationSize +'px'  : ""}`
                   }}
                 >
                   {card?.companyDesignation}

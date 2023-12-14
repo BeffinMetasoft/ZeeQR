@@ -8,15 +8,17 @@ const cors = require('cors')
 const path = require('path')
 
 app.use(cors({
-    origin: process.env.FRONT_END_PORT,
+    origin:  [process.env.FRONT_END_PORT,process.env.FRONT_END_PORT1,process.env.FRONT_END_PORT2],
     credentials: true, //access-control-allow-credentials:true
   }))
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const cardRouter = require('./routes/cardRouter')
+const domainWiseRouter = require('./routes/domainWiseRouter')
 
 app.use('/api', cardRouter)
+app.use('/domain/api', domainWiseRouter)
 
 
 

@@ -8,6 +8,7 @@ import Error404Page from './pages/Error404Page';
 import Card from './components/store/CardContext';
 import ReviewQrInterfacePage from './pages/ReviewQrInterfacePage';
 import ContactCardInterfacePage from './pages/ContactCardInterfacePage';
+// import RouteBasicCardViewPage from './pages/RouteBasicCardViewPage';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/profile-view/:id' element={<CardDetailsViewPage />} />
+          {/* <Route path='/profile/:id' element={<RouteBasicCardViewPage />} /> */}
           <Route path='/reviewQR/:id' element={<ReviewQrInterfacePage />} />
           <Route path='/contact-card/:id' element={<ContactCardInterfacePage />} />
 

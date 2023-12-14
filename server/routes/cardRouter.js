@@ -1,9 +1,10 @@
 const router = require('express').Router()
 const { getSingleCard, addLocations, reviewQrDetails, contactCardDetails, addContactCardLocations, addReviewCardLocations } = require('../controllers/cardController')
+const { verifyDomain } = require('../middleware/verify_domain')
 
 
 
-router.post('/profileView/:id', getSingleCard)   //profile view interface
+router.post('/profileView/:id',verifyDomain, getSingleCard)   //profile view interface
 router.get('/reviewQr-interface/:id', reviewQrDetails)   //interface view
 router.get('/contactCard-interface/:id', contactCardDetails)   //contact interface view
 

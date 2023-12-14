@@ -38,6 +38,9 @@ const AdminSchema = mongoose.Schema({
     },
     expiryDate: {
         type: Number
+    },
+    domain: {
+        type: String
     }
    
    
