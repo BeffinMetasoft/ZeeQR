@@ -69,7 +69,7 @@ const getParticularRouteCard = async (req, res, next) => {
     const { url } = req.body
     const splitArray = url?.split("/profile-view/");
     const domain = splitArray[0]
-    console.log(domain, 'domain');
+    // console.log(domain, 'domain');
 
     const card = await CardModel.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
     const admin = await Admin.findOne({ _id: card?.userID?.adminID })

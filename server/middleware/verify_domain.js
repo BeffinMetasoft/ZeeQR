@@ -9,12 +9,12 @@ const verifyDomain = async (req, res, next) => {
         const { url } = req.body
         const splitArray = url?.split("/profile-view/");
         const domain = splitArray[0]
-        console.log(domain, 'domain');
+        // console.log(domain, 'domain');
 
         const card = await Card.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
         const admin = await Admin.findOne({ _id: card?.userID?.adminID })
         // console.log(admin, 'admin');
-        console.log(process.env.FRONT_END_MAIN_DOMAIN,'domainasssssssssssssssss');
+        // console.log(process.env.FRONT_END_MAIN_DOMAIN,'domainasssssssssssssssss');
         if (domain === process.env.FRONT_END_MAIN_DOMAIN) {
             // console.log('aaaaaaaaaaaaaaaaaaaaaa');
             if (card?.userID?.adminID) {
