@@ -71,7 +71,7 @@ function ClassicTheme2({ card, preview }) {
   const Textcolor = card?.textColor ? card?.textColor : "";;
   const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "";
   const BgColor = card?.bgColor ? card?.bgColor : "";
-  const BtIColor = card?.btIconColor ? card?.btIconColor : "";
+  const BtIColor = card?.btIconColor ? card?.btIconColor : "#ffffff";
 
   const shareMail = (e) => {
     window.location = `mailto:${card?.email}`;
@@ -81,7 +81,7 @@ function ClassicTheme2({ card, preview }) {
   const shareMail2 = (e) => {
     window.location = `mailto:${card?.secondaryEmail}`;
     e.preventDefault();
-};
+  };
 
   const array = card?.name ? card?.name?.split(" ") : "";
 
@@ -803,8 +803,8 @@ function ClassicTheme2({ card, preview }) {
                     fontSize: `${array[0]?.length > 12 ||
                       array[1]?.length > 12 ||
                       array[2]?.length > 12
-                      ?  "20px" 
-                      :(card?.nameSize ? `${card?.nameSize}px`: "") 
+                      ? "20px"
+                      : (card?.nameSize ? `${card?.nameSize}px` : "")
                       }`,
                   }}
                 >
@@ -814,7 +814,7 @@ function ClassicTheme2({ card, preview }) {
                 <p
                   style={{
                     color: `${card?.pfCardColor ? "black" : Textcolor ? Textcolor : ""}`,
-                    fontSize:  `${card?.designationSize ? card?.designationSize +'px'  : ""}`
+                    fontSize: `${card?.designationSize ? card?.designationSize + 'px' : ""}`
                   }}
                 >
                   {card?.companyDesignation}
@@ -922,7 +922,7 @@ function ClassicTheme2({ card, preview }) {
                 {/* <img src={phoneiconw} alt="" /> */}
                 <BiMobileAlt size={25} color={BtIColor ? BtIColor : 'white'} />
               </span>{" "}
-              Contact Me
+              {card?.contactHeadline ? card?.contactHeadline : 'Contact Me'}
             </h2>
             <h3>Call</h3>
             <Link
