@@ -106,6 +106,9 @@ function CardDetailsViewPage() {
                     secondaryPhone: data?.secondaryPhone,
                     email: data?.email,
                     secondaryEmail: data?.secondaryEmail,
+                    nameSize:data?.nameSize,
+                    designationSize:data?.designationSize 
+
                 },
                 socialMediaDetails: {
                     facebook: data?.facebook,
