@@ -39,6 +39,8 @@ const defaultProfileImage =
 
 function ClassicTheme2({ card, preview }) {
 
+  const headlines = card?.headlines
+
 
   const [qrModal, setQrModal] = useState(false);
 
@@ -899,7 +901,8 @@ function ClassicTheme2({ card, preview }) {
                 backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
               }}
             >
-              <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me'}</h2>
+              {/* <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me'}</h2> */}
+              <h2> {headlines?.aboutHeadline ? headlines?.aboutHeadline : 'About Me'}</h2>
               <p className="whitespace-pre-line">{card?.about}</p>
             </div>
           ) : (
@@ -922,7 +925,8 @@ function ClassicTheme2({ card, preview }) {
                 {/* <img src={phoneiconw} alt="" /> */}
                 <BiMobileAlt size={25} color={BtIColor ? BtIColor : 'white'} />
               </span>{" "}
-              {card?.contactHeadline ? card?.contactHeadline : 'Contact Me'}
+              {/* {card?.contactHeadline ? card?.contactHeadline : 'Contact Me'} */}
+              {headlines?.contactHeadline ? headlines?.contactHeadline : 'Contact Me'}
             </h2>
             <h3>Call</h3>
             <Link
@@ -964,7 +968,8 @@ function ClassicTheme2({ card, preview }) {
               </Link>
               : ''
             }
-            <h3>{card?.addressHeadline ? card?.addressHeadline : 'Location'}</h3>
+            {/* <h3>{card?.addressHeadline ? card?.addressHeadline : 'Location'}</h3> */}
+            <h3>{headlines?.addressHeadline ? headlines?.addressHeadline : 'Location'}</h3>
             <Link
               style={{
                 color: `${Textcolor ? Textcolor : ""}`,
@@ -1019,7 +1024,9 @@ function ClassicTheme2({ card, preview }) {
                       marginBottom: "15px",
                     }}
                   >
-                    <h4>Social Media</h4>
+                    {/* <h4>Social Media</h4> */}
+                    <h4>{headlines?.socialMediaHeadline ? headlines?.socialMediaHeadline : 'Social Media'}</h4>
+
                   </div>
                   <div>
                     {card?.SMediaPostion?.pos1 === "facebook"
@@ -1460,7 +1467,8 @@ function ClassicTheme2({ card, preview }) {
                 backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
               }}
             >
-              <h4 >Website</h4>
+              {/* <h4 >Website</h4> */}
+              <h4>{headlines?.websiteHeadline ? headlines?.websiteHeadline : 'Website'}</h4>
               {card?.websiteName &&
                 card?.websiteUrl ?
                 <div className="social-media2 ">
@@ -1528,7 +1536,8 @@ function ClassicTheme2({ card, preview }) {
                   color: `${Textcolor ? Textcolor : ""}`,
                   backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
                 }}>
-                <h4>Review</h4>
+                {/* <h4>Review</h4> */}
+                <h4>{headlines?.reviewHeadline ? headlines?.reviewHeadline : 'Review'}</h4>
                 {card?.reviews?.map((review) => (
                   <div className="social-media2" >
                     <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`} className="mb-5">
@@ -1556,7 +1565,10 @@ function ClassicTheme2({ card, preview }) {
 
               <h4 style={{
                 color: `${Textcolor ? Textcolor : ""}`,
-              }}>Downloads</h4>
+              }}>
+                {/* Downloads */}
+                {headlines?.filesHeadline ? headlines?.filesHeadline : 'Downloads'}
+                </h4>
 
               {(card?.files?.file1?.fileName) ?
                 <div className="social-media2" >
