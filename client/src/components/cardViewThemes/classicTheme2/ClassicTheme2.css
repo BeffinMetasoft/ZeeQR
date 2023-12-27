@@ -21,9 +21,9 @@ button {
     position: absolute;
     width: 100%;
     background: #f4f4f4;
-    box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
-    -moz-box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
-    -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.05);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
 }
 
 .previewWrap2 .bannerImage2 img {
@@ -119,7 +119,7 @@ button {
     color: #000;
     margin-bottom: 5px;
     word-wrap: break-word;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 
 .previewContainer2 .user p {
@@ -173,7 +173,8 @@ button {
     padding-bottom: 10px;
     border-bottom: solid 1px #D9D9D9;
 }
-.previewContainer2 h4{
+
+.previewContainer2 h4 {
     font-weight: 600;
     font-size: 27px;
     line-height: 33px;
@@ -184,10 +185,11 @@ button {
     justify-content: center;
     align-items: center;
     margin-bottom: 16px;
-    padding:4px 0 14px;
+    padding: 4px 0 14px;
     border-bottom: solid 1px #D9D9D9;
 }
-.previewContainer2 h2 span{
+
+.previewContainer2 h2 span {
     width: 44px;
     height: 44px;
     display: flex;
@@ -199,7 +201,7 @@ button {
     background: #1D1D1F;
 }
 
-.websiteIcon{
+.websiteIcon {
     width: 44px;
     height: 44px;
     display: flex;
@@ -210,6 +212,7 @@ button {
     -webkit-border-radius: 44px;
     /* background: #1D1D1F; */
 }
+
 /* 
 .previewContainer2 h2:after {
     position: absolute;
@@ -260,8 +263,9 @@ button {
     margin: 0;
     padding: 0;
 }
-.previewContainer2 .contactOptions2 .social-media2 a{
-    padding:0 ;
+
+.previewContainer2 .contactOptions2 .social-media2 a {
+    padding: 0;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -275,17 +279,20 @@ button {
     width: 100%;
     /* background: url('../../../assests/img/more_icon.svg') no-repeat right center; */
 }
-.previewContainer2 .contactOptions2 .social-media2 a img{
+
+.previewContainer2 .contactOptions2 .social-media2 a img {
     width: 43px;
     height: 43px;
 }
-.previewContainer2 .social-media2 h5{
+
+.previewContainer2 .social-media2 h5 {
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
     color: #000000;
 }
-.previewContainer2 .social-media2 h5 span{
+
+.previewContainer2 .social-media2 h5 span {
     display: block;
     font-size: 12px;
     line-height: 15px;
@@ -293,6 +300,17 @@ button {
     font-weight: 400;
 
 }
+
+.previewContainer2 .contactOptionsTittle {
+    /* margin-bottom: 13px; */
+    background: #FFFFFF;
+    padding: 16px 24px;
+    /* height: 100px; */
+    /* border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px */
+}
+
 .previewContainer2 .contactOptions2 {
     margin-bottom: 13px;
     background: #FFFFFF;
@@ -302,14 +320,14 @@ button {
     -webkit-border-radius: 10px
 }
 
-.previewContainer2 .contactOptions2 h3{
+.previewContainer2 .contactOptions2 h3 {
     font-weight: 500;
     font-size: 24px;
-    line-height: 28px;    
+    line-height: 28px;
 }
 
 .previewContainer2 .contactOptions2 a {
-    padding:0 0 10px 0;
+    padding: 0 0 10px 0;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -322,7 +340,7 @@ button {
     gap: 10px;
 }
 
-.previewContainer2 a.blk-btn{
+.previewContainer2 a.blk-btn {
     height: 40px;
     display: inline-flex;
     align-items: center;
@@ -331,7 +349,7 @@ button {
     background: #1D1D1F;
     font-size: 12px;
     line-height: 14px;
-    color: #FFFFFF; 
+    color: #FFFFFF;
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 40px;
@@ -389,13 +407,15 @@ button {
     justify-content: space-between;
     margin-bottom: 20px
 }
-.previewContainer2 .photoGrid img{
+
+.previewContainer2 .photoGrid img {
     object-fit: cover;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     margin: 0;
 }
+
 .qr-code1 {
     position: fixed;
     z-index: 10;
@@ -415,7 +435,8 @@ button {
     -webkit-border-radius: 41px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
 }
-.share{
+
+.share {
     position: fixed;
     z-index: 10;
     display: flex;
@@ -434,11 +455,13 @@ button {
     -webkit-border-radius: 41px;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
 }
-.share img{
+
+.share img {
     width: 75%;
     margin-bottom: 4px;
 }
-.addToContact{
+
+.addToContact {
     width: 150px;
     height: 60px;
     position: fixed;
@@ -450,9 +473,11 @@ button {
     -moz-border-radius: 60px;
     -webkit-border-radius: 60px;
 }
-.addToContact img{
+
+.addToContact img {
     width: 100%;
 }
+
 .previewContainer2 .photoGrid figure {
     min-width: calc(50% - 11px);
     height: 164px;
@@ -498,10 +523,12 @@ button {
     text-decoration: none;
     color: #fff
 }
-.popup-container{
+
+.popup-container {
     background: #EFEFEF;
 }
-.popup-container .close-popup{
+
+.popup-container .close-popup {
     width: 45px;
     height: 45px;
     display: flex;
@@ -514,11 +541,12 @@ button {
     -webkit-border-radius: 40px;
 }
 
-.popup-container .userDetails{
+.popup-container .userDetails {
     padding: 30px;
     width: 100%;
 }
-.popup-container .userDetails figure{
+
+.popup-container .userDetails figure {
     width: 140px;
     height: 140px;
     margin: 0 auto 10px;
@@ -527,34 +555,40 @@ button {
     -moz-border-radius: 140px;
     -webkit-border-radius: 140px;
 }
-.popup-container .userDetails .user{
+
+.popup-container .userDetails .user {
     text-align: center;
     margin-bottom: 20px;
 }
-.popup-container .userDetails .user h1{
+
+.popup-container .userDetails .user h1 {
     font-weight: 600;
     font-size: 27.88px;
     line-height: 34px;
     color: #000;
     margin-bottom: 4px;
 }
-.popup-container .userDetails .user p{
+
+.popup-container .userDetails .user p {
     color: #525252;
     font-weight: 600;
     font-size: 14px;
 
 }
-.popup-container .my-qr-code{
+
+.popup-container .my-qr-code {
     margin: 0 auto 30px;
 }
-.popup-container .my-qr-download{
+
+.popup-container .my-qr-download {
     cursor: pointer;
     padding: 5px;
     text-align: center;
     width: 200px;
     margin: 0 auto 30px;
 }
-.addToHomeClassic2{
+
+.addToHomeClassic2 {
     height: 44px;
     width: 100%;
     display: flex;
@@ -571,15 +605,17 @@ button {
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
 }
-.addtoHomeImage{
+
+.addtoHomeImage {
     max-width: 80%;
     border-radius: 13px;
     -moz-border-radius: 13px;
     -webkit-border-radius: 13px;
-    margin:20px auto 0;
+    margin: 20px auto 0;
 }
-.popup-container .userDetails figure img{
+
+.popup-container .userDetails figure img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    }
+}
