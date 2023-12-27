@@ -9,6 +9,7 @@ const { checkExpiry } = require("../helpers/checkExpiry");
 const ReviewQR = require("../model/reviewQrModel");
 const ContactCard = require("../model/contactCardModel");
 const Admin = require("../model/adminModel");
+const Languages = require("../model/languageModel");
 
 
 
@@ -363,6 +364,25 @@ const addContactCardLocations = async (req, res, next) => {
   }
 };
 
+/* -------------------------------------------------------------------------- */
+/*                                get language                                */
+/* -------------------------------------------------------------------------- */
+const getLanguages = async (req, res, next) => {
+  console.log('hello hai');
+  try {
+    const { lng } = req.params;
+    const languageDetails = await Languages.findOne({ languageCode: lng ? lng : 'en' })
+
+    // const languageData = languages[lng] || languages['en'];
+    const languageData = languageDetails?.languageDatas
+    // console.log(languageData, 'qwrty');
+    res.json(languageData);
+  } catch (error) {
+    next(error)
+  }
+
+}
+
 module.exports = {
 
   getSingleCard,
@@ -371,5 +391,6 @@ module.exports = {
   addReviewCardLocations,
   contactCardDetails,
   addContactCardLocations,
-  getParticularRouteCard
+  getParticularRouteCard,
+  getLanguages
 };

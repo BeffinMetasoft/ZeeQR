@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { getSingleCard, addLocations, reviewQrDetails, contactCardDetails, addContactCardLocations, addReviewCardLocations } = require('../controllers/cardController')
+const { getSingleCard, addLocations, reviewQrDetails, contactCardDetails, addContactCardLocations, addReviewCardLocations, getLanguages } = require('../controllers/cardController')
 const { verifyDomain } = require('../middleware/verify_domain')
 
 
@@ -12,6 +12,7 @@ router.post('/add-location/:id', addLocations)   //add business card location
 router.post('/addReview-location/:id', addReviewCardLocations)   //add review card location
 router.post('/addContactCard-location/:id', addContactCardLocations)   //add contact card location
 
+router.get('/language/:lng', getLanguages) // get languages
 
 
 module.exports = router

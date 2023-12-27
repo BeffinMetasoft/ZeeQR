@@ -9,6 +9,7 @@ import Card from './components/store/CardContext';
 import ReviewQrInterfacePage from './pages/ReviewQrInterfacePage';
 import ContactCardInterfacePage from './pages/ContactCardInterfacePage';
 // import RouteBasicCardViewPage from './pages/RouteBasicCardViewPage';
+import './i18n.js'
 
 
 function App() {
