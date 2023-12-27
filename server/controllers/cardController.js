@@ -368,7 +368,7 @@ const addContactCardLocations = async (req, res, next) => {
 /*                                get language                                */
 /* -------------------------------------------------------------------------- */
 const getLanguages = async (req, res, next) => {
-  console.log('hello hai');
+  // console.log('hello hai');
   try {
     const { lng } = req.params;
     const languageDetails = await Languages.findOne({ languageCode: lng ? lng : 'en' })
