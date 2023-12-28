@@ -26,6 +26,9 @@ import twitter from "../../../assests/img/twitter.png";
 import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
 import background from '../../../assests/img1/background.jpg'
+import { useTranslation } from 'react-i18next'
+// import { SocialMediaValid, HighlightImageValid } from "../Common/DivValidation";
+// import ListSocialMediaCls from "../Common/socialMedia/ListSocialMediaCls";
 
 // import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
 
@@ -87,6 +90,10 @@ function ClassicTheme2({ card, preview }) {
 
   const array = card?.name ? card?.name?.split(" ") : "";
 
+  // const SocialMediaImageCheck = SocialMediaValid();
+
+  const { t } = useTranslation()
+
   //--------------------------------------FaceBookIcon1-----------------------------------------------
 
   const FaceBookIcon1 = (
@@ -101,9 +108,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Facebook
+          {t('facebook', 'Facebook')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Facebook
+            {t('facebookText', 'Follow me on Facebook')}
           </span>
         </h5>
       </Link>
@@ -125,9 +132,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Instagram
+          {t('instagram', ' Instagram')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Instagram
+            {t('instagramText', 'Follow me on Instagram')}
           </span>
         </h5>
       </Link>
@@ -149,9 +156,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          WhatsApp
+          {t('whatsApp', ' WhatsApp')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on WhatsApp
+            {t('whatsAppText', ' Follow me on WhatsApp')}
           </span>
         </h5>
       </Link>
@@ -172,9 +179,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          LinkedIn
+          {t('linkedIn', ' LinkedIn')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on LinkedIn
+            {t('linkedInText', ' Follow me on LinkedIn')}
           </span>
         </h5>
       </Link>
@@ -195,9 +202,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Twitter
+          {t('x_twitter', ' X(Twitter)')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Twitter
+            {t('x_twitterText', '  Follow me on X(Twitter)')}
           </span>
         </h5>
       </Link>
@@ -218,9 +225,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          youtube
+          {t('youtube', ' Youtube')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Youtube
+            {t('youtubeText', ' Follow me on Youtube')}
           </span>
         </h5>
       </Link>
@@ -241,9 +248,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Skype
+          {t('skype', ' Skype')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Skype
+            {t('skypeText', '  Follow me on Skype')}
           </span>
         </h5>
       </Link>
@@ -264,9 +271,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Snapchat
+          {t('snapChat', ' SnapChat')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Snapchat
+            {t('snapChatText', ' Follow me on SnapChat')}
           </span>
         </h5>
       </Link>
@@ -287,9 +294,9 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Tiktok
+          {t('tikTok', ' TikTok')}
           <span style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8" }}>
-            Follow me on Tiktok
+            {t('tikTokText', ' Follow me on TikTok')}
           </span>
         </h5>
       </Link>
@@ -310,7 +317,7 @@ function ClassicTheme2({ card, preview }) {
             color: `${Textcolor ? Textcolor : ""}`,
           }}
         >
-          Company Profile
+          {t('companyProfile', ' Company Profile')}
         </h5>
       </Link>
       <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
@@ -340,7 +347,10 @@ function ClassicTheme2({ card, preview }) {
                   color: `${Textcolor ? Textcolor : ""}`,
                 }}
               >
-                Facebook <span>Follow me on Facebook</span>
+                {t('facebook', 'Facebook')}
+                <span>
+                  {t('facebookText', 'Follow me on Facebook')}
+                </span>
               </h5>
             </div>
           </Link>
@@ -369,14 +379,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              Instagram
+              {t('instagram', ' Instagram')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on Instagram
+                {t('instagramText', 'Follow me on Instagram')}
               </span>
             </h5>
           </Link>
@@ -406,14 +416,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              WhatsApp
+              {t('whatsApp', ' WhatsApp')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on WhatsApp
+                {t('whatsAppText', ' Follow me on WhatsApp')}
               </span>
             </h5>
           </Link>
@@ -442,14 +452,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              LinkedIn
+              {t('linkedIn', ' LinkedIn')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on LinkedIn
+                {t('linkedInText', ' Follow me on LinkedIn')}
               </span>
             </h5>
           </Link>
@@ -479,14 +489,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              Twitter
+              {t('x_twitter', ' X(Twitter)')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on Twitter
+                {t('x_twitterText', '  Follow me on X(Twitter)')}
               </span>
             </h5>
           </Link>
@@ -515,14 +525,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              youtube
+              {t('youtube', ' Youtube')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on Youtube
+                {t('youtubeText', ' Follow me on Youtube')}
               </span>
             </h5>
           </Link>
@@ -551,14 +561,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              Skype
+              {t('skype', ' Skype')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on Skype
+                {t('skypeText', '  Follow me on Skype')}
               </span>
             </h5>
           </Link>
@@ -587,14 +597,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              Snapchat
+              {t('snapChat', ' SnapChat')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on Snapchat
+                {t('snapChatText', ' Follow me on SnapChat')}
               </span>
             </h5>
           </Link>
@@ -623,14 +633,14 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              Tiktok
+              {t('tikTok', ' TikTok')}
               <span
                 style={{
                   color: `${Textcolor ? Textcolor : ""}`,
                   opacity: ".8",
                 }}
               >
-                Follow me on Tiktok
+                {t('tikTokText', ' Follow me on TikTok')}
               </span>
             </h5>
           </Link>
@@ -659,7 +669,7 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}
             >
-              Company Profile
+              {t('companyProfile', ' Company Profile')}
             </h5>
           </Link>
           <IoIosArrowForward size={23} color={Textcolor ? Textcolor : 'black'} />
@@ -685,6 +695,8 @@ function ClassicTheme2({ card, preview }) {
     backgroundPosition: "center 150px",
     backgroundImage: `url(${background})`,
   };
+
+
 
   //------------------------------------------------------------------------------------------------------
   return (
@@ -736,10 +748,10 @@ function ClassicTheme2({ card, preview }) {
               style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}
             >
               <p
-                className="w-12 ml-6 my-2 text-white text-sm"
+                className="w-12 ml-6 my-2 text-white text-xs"
                 style={{ color: `${BtIColor ? BtIColor : "white"}` }}
               >
-                Add to Contacts
+                {t('addToContact', 'Add to Contacts')}
               </p>
               <div
                 className="ml-6 rounded-full   my-2 p-2 w-10 h-10"
@@ -902,7 +914,7 @@ function ClassicTheme2({ card, preview }) {
               }}
             >
               {/* <h2>About {card?.aboutHeadline ? card?.aboutHeadline : 'Me'}</h2> */}
-              <h2> {headlines?.aboutHeadline ? headlines?.aboutHeadline : 'About Me'}</h2>
+              <h2> {headlines?.aboutHeadline ? headlines?.aboutHeadline : t('about', 'About Me')}</h2>
               <p className="whitespace-pre-line">{card?.about}</p>
             </div>
           ) : (
@@ -926,9 +938,9 @@ function ClassicTheme2({ card, preview }) {
                 <BiMobileAlt size={25} color={BtIColor ? BtIColor : 'white'} />
               </span>{" "}
               {/* {card?.contactHeadline ? card?.contactHeadline : 'Contact Me'} */}
-              {headlines?.contactHeadline ? headlines?.contactHeadline : 'Contact Me'}
+              {headlines?.contactHeadline ? headlines?.contactHeadline : t('contact', 'Contact Me')}
             </h2>
-            <h3>Call</h3>
+            <h3>{t('call', 'Call')}</h3>
             <Link
               style={{
                 color: `${Textcolor ? Textcolor : ""}`,
@@ -948,7 +960,7 @@ function ClassicTheme2({ card, preview }) {
               </Link>
               : ''
             }
-            <h3>Email</h3>
+            <h3>{t('email', 'Email')}</h3>
             <Link
               style={{
                 color: `${Textcolor ? Textcolor : ""}`,
@@ -969,7 +981,7 @@ function ClassicTheme2({ card, preview }) {
               : ''
             }
             {/* <h3>{card?.addressHeadline ? card?.addressHeadline : 'Location'}</h3> */}
-            <h3>{headlines?.addressHeadline ? headlines?.addressHeadline : 'Location'}</h3>
+            <h3>{headlines?.addressHeadline ? headlines?.addressHeadline : t('address', 'Location')}</h3>
             <Link
               style={{
                 color: `${Textcolor ? Textcolor : ""}`,
@@ -991,7 +1003,7 @@ function ClassicTheme2({ card, preview }) {
                 {/* <img src={arrowIcon} alt="" /> */}
                 <BsCursor size={16} color={BtIColor ? BtIColor : 'white'} />
 
-                Direction
+                {t('direction', 'Direction')}
               </Link>
             ) : (
               ""
@@ -1024,8 +1036,7 @@ function ClassicTheme2({ card, preview }) {
                       marginBottom: "15px",
                     }}
                   >
-                    {/* <h4>Social Media</h4> */}
-                    <h4>{headlines?.socialMediaHeadline ? headlines?.socialMediaHeadline : 'Social Media'}</h4>
+                    <h4>{headlines?.socialMediaHeadline ? headlines?.socialMediaHeadline : t('socialMedia', 'Social Media')}</h4>
 
                   </div>
                   <div>
@@ -1456,6 +1467,40 @@ function ClassicTheme2({ card, preview }) {
             ""
           )}
 
+          {/* -----------------------------------------------------social media---------------------------------------------------------------- */}
+
+          {/* {SocialMediaImageCheck ? (
+            <div className="relative min-h-[100px]">
+              <div
+                className="contactOptionsTittle w-full absolute top-0  rounded-t-lg"
+                style={{
+                  backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+                }}
+              >
+                <div className="social-media2" style={{ display: "block" }}>
+                  <div
+                    style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                      // marginBottom: "15px",
+                    }}
+                  >
+                    <h4>{headlines?.socialMediaHeadline ? headlines?.socialMediaHeadline : t('socialMedia', 'Social Media')}</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="h-[70px]">
+
+              </div>
+              <div>
+
+                <ListSocialMediaCls preview={preview} Hgcolor={Highlightcolor} Textcolor={Textcolor} />
+              </div>
+
+            </div>
+          ) : (
+            ""
+          )} */}
+
           {/*  --------------------------------- website --------------------------------  */}
 
           {card?.websiteName ||
@@ -1468,7 +1513,7 @@ function ClassicTheme2({ card, preview }) {
               }}
             >
               {/* <h4 >Website</h4> */}
-              <h4>{headlines?.websiteHeadline ? headlines?.websiteHeadline : 'Website'}</h4>
+              <h4>{headlines?.websiteHeadline ? headlines?.websiteHeadline : t('website', 'Website')}</h4>
               {card?.websiteName &&
                 card?.websiteUrl ?
                 <div className="social-media2 ">
@@ -1537,7 +1582,7 @@ function ClassicTheme2({ card, preview }) {
                   backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
                 }}>
                 {/* <h4>Review</h4> */}
-                <h4>{headlines?.reviewHeadline ? headlines?.reviewHeadline : 'Review'}</h4>
+                <h4>{headlines?.reviewHeadline ? headlines?.reviewHeadline : t('review', 'Review')}</h4>
                 {card?.reviews?.map((review) => (
                   <div className="social-media2" >
                     <Link to={review?.reviewUrl} target={`${preview ? "_blank" : ''}`} className="mb-5">
@@ -1567,8 +1612,8 @@ function ClassicTheme2({ card, preview }) {
                 color: `${Textcolor ? Textcolor : ""}`,
               }}>
                 {/* Downloads */}
-                {headlines?.filesHeadline ? headlines?.filesHeadline : 'Downloads'}
-                </h4>
+                {headlines?.filesHeadline ? headlines?.filesHeadline : t('files', 'Downloads')}
+              </h4>
 
               {(card?.files?.file1?.fileName) ?
                 <div className="social-media2" >
@@ -1779,7 +1824,7 @@ function ClassicTheme2({ card, preview }) {
                         alt=""
                       />
                       <p className="my-qr-download" onClick={handleDownload}>
-                        Download QR Code
+                        {t('downloadQR', 'Download QR Code')}
                       </p>
                       {!showResults ? (
                         <div
@@ -1790,7 +1835,7 @@ function ClassicTheme2({ card, preview }) {
                             backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
                           }}
                         >
-                          Add to Home Screen
+                          {t('addHomeScreen', 'Add to Home Screen')}
                           <BsPlus className="mr-5" size={23} color={BtIColor ? BtIColor : 'white'} />
 
                         </div>

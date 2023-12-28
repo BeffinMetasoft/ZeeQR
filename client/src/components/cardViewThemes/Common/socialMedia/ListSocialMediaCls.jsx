@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SocialMedia from './SocialMedia'
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { IoIosArrowForward } from 'react-icons/io';
+import { CardContext } from '../../../store/CardContext';
+import { useTranslation } from 'react-i18next'
+
 
 function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
-    const {
+    const [cardData] = useContext(CardContext)
 
-        SMediaPostion, socialMediaDetails
-    } = useSelector((state) => state.cardReducer);
+    const { socialMediaDetails } = cardData;
 
     const Highlightcolor = Hgcolor ? Hgcolor : 'white'
+
+    const {t}= useTranslation()
+
 
     /* -------------------------------- svg icons ------------------------------- */
     //--------------------------------------FacebookSvg-----------------------------------------------
@@ -193,12 +197,12 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}
                             >
-                                Facebook
+                                {t('facebook','Facebook')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}
                             >
-                                Follow me on Facebook
+                                {t('facebookText','Follow me on Facebook')} 
                             </p>
                         </div>
                     </div>
@@ -214,7 +218,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                 to={`${preview ? socialMediaDetails?.instagram : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
-                <div className=" flex gap-3  p-[16px] rounded-[8px] justify-between items-center"
+                <div className=" flex gap-3  p-[16px] rounded-[8px] my-0 justify-between items-center"
                     style={{ backgroundColor: `${Highlightcolor ? Highlightcolor : ""}` }}
                 >
                     <div className="w-full flex gap-3 rounded-[8px] ">
@@ -224,12 +228,12 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}
                             >
-                                Instagram
+                               {t('instagram',' Instagram')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}
                             >
-                                Follow me on Instagram
+                                {t('instagramText','Follow me on Instagram')}
                             </p>
                         </div>
                     </div>
@@ -254,11 +258,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
-                                WhatsApp
+                               {t('whatsApp',' WhatsApp')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on WhatsApp
+                               {t('whatsAppText',' Follow me on WhatsApp')}
                             </p>
                         </div>
                     </div>
@@ -281,11 +285,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
-                                LinkedIn
+                               {t('linkedIn',' LinkedIn')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on LinkedIn
+                                {t('linkedInText',' Follow me on LinkedIn')}
                             </p>
                         </div>
                     </div>
@@ -308,11 +312,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
-                                X(Twitter)
+                               {t('x_twitter',' X(Twitter)')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on X(Twitter)
+                               {t('x_twitterText','  Follow me on X(Twitter)')}
                             </p>
                         </div>
                     </div>
@@ -335,11 +339,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
-                                Youtube
+                                 {t('youtube',' Youtube')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on Youtube
+                                {t('youtubeText',' Follow me on Youtube')}
                             </p>
                         </div>
                     </div>
@@ -361,10 +365,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
 
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
-                                style={{ color: `${Textcolor ? Textcolor : ""}`, }}>Skype</p>
+                                style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
+                                    {t('skype',' Skype')} </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on Skype
+                                {t('skypeText','  Follow me on Skype')}
                             </p>
                         </div>
                     </div>
@@ -386,11 +391,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
-                                SnapChat
+                                {t('SnapChat',' SnapChat')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on SnapChat
+                               {t('snapChatText',' Follow me on SnapChat')}
                             </p>
                         </div>
                     </div>
@@ -412,10 +417,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
 
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
-                                style={{ color: `${Textcolor ? Textcolor : ""}`, }}>TikTok</p>
+                                style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
+                                    {t('tikTok',' TikTok')}</p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                Follow me on TikTok
+                                 {t('tikTokText',' Follow me on TikTok')}
                             </p>
                         </div>
                     </div>
@@ -438,11 +444,11 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
                         <div className=" h-[50px] flex flex-col justify-center ">
                             <p className="text-[14px] font-semibold text-left mb-1"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, }}>
-                                Company Profile
+                                {t('companyProfile',' Company Profile')}
                             </p>
                             <p className="text-[14px] font-normal text-left mb-0"
                                 style={{ color: `${Textcolor ? Textcolor : ""}`, opacity: ".8", }}>
-                                View Company Profile
+                                 {t('companyProfileText',' View Company Profile')}
                             </p>
                         </div>
                     </div>

@@ -22,6 +22,8 @@ import UltraTheme from '../components/cardViewThemes/ultraTheme/UltraTheme'
 import VexTheme from '../components/cardViewThemes/vexTheme/VexTheme'
 import { Spin } from 'antd'
 import { LoadingOutlined } from '@ant-design/icons'
+import { useTranslation } from 'react-i18next'
+
 
 const metaDecorator = require('../data/metaDecorator.json')
 
@@ -30,6 +32,7 @@ function CardDetailsViewPage() {
     const [card, setCard] = useState('')
     const [pre, setPre] = useState(true)
     const [cardData, setCardData] = useContext(CardContext)
+    const { i18n } = useTranslation()
 
 
     useEffect(() => {
@@ -57,6 +60,7 @@ function CardDetailsViewPage() {
 
                     setCard(data.card)
                     cardDetails(data.card)
+                    i18n.changeLanguage(data?.card?.language)
                     document.title = data.card.name
                     document.getElementsByTagName("META")[2].content = data.card.companyDesignation
 
