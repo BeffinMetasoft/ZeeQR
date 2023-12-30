@@ -126,6 +126,7 @@ function CardDetailsViewPage() {
                     tiktok: data?.tiktok,
                     companyProfile: data?.companyProfile,
                 },
+                socialMedias:data?.socialMedias,
                 websiteDetails: {
                     websiteName: data?.websiteName,
                     websiteUrl: data?.websiteUrl,

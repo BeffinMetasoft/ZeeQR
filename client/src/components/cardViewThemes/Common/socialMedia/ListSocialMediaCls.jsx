@@ -183,7 +183,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
 
         FaceBookIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.facebook : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -214,7 +214,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         InstagramIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.instagram : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -244,7 +244,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         WhatsAppIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`https://wa.me/+${
             preview ? socialMediaDetails?.whatsappNumber : ""
           }?text=Hi%2C`}
@@ -273,7 +273,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         LinkedInIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.linkedin : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -300,7 +300,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         TwitterIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.twitter : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -327,7 +327,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         YoutubeIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.youtube : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -354,7 +354,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         SkypeIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.youtube : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -379,7 +379,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         SnapChatIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.snapchat : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -406,7 +406,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         TikTokIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.tiktok : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -432,7 +432,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
         CompanyProfileIcon: (
             <Link
-                className="  p-[6px] "
+                className=" "
                 to={`${preview ? socialMediaDetails?.companyProfile : ""}`}
                 target={`${preview ? "_blank" : ""}`}
             >
@@ -460,7 +460,7 @@ function ListSocialMediaCls({ preview, Hgcolor, Textcolor }) {
         ),
     };
     return (
-        <div>
+        <div className="flex flex-col gap-3 mb-4 relative" >
             <SocialMedia data={data} />
         </div>
     )

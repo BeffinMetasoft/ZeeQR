@@ -27,8 +27,9 @@ import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
 import background from '../../../assests/img1/background.jpg'
 import { useTranslation } from 'react-i18next'
-// import { SocialMediaValid, HighlightImageValid } from "../Common/DivValidation";
-// import ListSocialMediaCls from "../Common/socialMedia/ListSocialMediaCls";
+import { SocialMediaValid, HighlightImageValid } from "../Common/DivValidation";
+import ListSocialMediaCls from "../Common/socialMedia/ListSocialMediaCls";
+import ListSocialMediaClassic from "../Common/socialMedia/ListSocialMediaClassic";
 
 // import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
 
@@ -74,7 +75,7 @@ function ClassicTheme2({ card, preview }) {
 
   const Highlightcolor = card?.colorCode ? card?.colorCode : "";
   const Textcolor = card?.textColor ? card?.textColor : "";;
-  const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "";
+  const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "#000000";
   const BgColor = card?.bgColor ? card?.bgColor : "";
   const BtIColor = card?.btIconColor ? card?.btIconColor : "#ffffff";
 
@@ -90,7 +91,7 @@ function ClassicTheme2({ card, preview }) {
 
   const array = card?.name ? card?.name?.split(" ") : "";
 
-  // const SocialMediaImageCheck = SocialMediaValid();
+  const SocialMediaImageCheck = SocialMediaValid();
 
   const { t } = useTranslation()
 
@@ -1012,7 +1013,7 @@ function ClassicTheme2({ card, preview }) {
 
           {/* ------------------------------------------------------------------------------------------------------------------------------- */}
 
-          {(card?.facebook && card?.SMediaPostion?.pos1) ||
+          {/* {(card?.facebook && card?.SMediaPostion?.pos1) ||
             (card?.whatsappNumber && card?.SMediaPostion?.pos1) ||
             (card?.linkedin && card?.SMediaPostion?.pos1) ||
             (card?.instagram && card?.SMediaPostion?.pos1) ||
@@ -1465,11 +1466,11 @@ function ClassicTheme2({ card, preview }) {
             </div>
           ) : (
             ""
-          )}
+          )} */}
 
           {/* -----------------------------------------------------social media---------------------------------------------------------------- */}
 
-          {/* {SocialMediaImageCheck ? (
+          {SocialMediaImageCheck ? (
             <div className="relative min-h-[100px]">
               <div
                 className="contactOptionsTittle w-full absolute top-0  rounded-t-lg"
@@ -1491,15 +1492,19 @@ function ClassicTheme2({ card, preview }) {
               <div className="h-[70px]">
 
               </div>
-              <div>
+              <div >
+                {(card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                  <ListSocialMediaClassic key={card._id} preview={preview} Hgcolor={Highlightcolor} Textcolor={Textcolor} />
+                  :
+                  <ListSocialMediaCls key={card._id} preview={preview} Hgcolor={Highlightcolor} Textcolor={Textcolor} />
+                }
 
-                <ListSocialMediaCls preview={preview} Hgcolor={Highlightcolor} Textcolor={Textcolor} />
               </div>
 
             </div>
           ) : (
             ""
-          )} */}
+          )}
 
           {/*  --------------------------------- website --------------------------------  */}
 
