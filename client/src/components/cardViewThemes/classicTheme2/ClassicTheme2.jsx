@@ -1470,7 +1470,7 @@ function ClassicTheme2({ card, preview }) {
 
           {/* -----------------------------------------------------social media---------------------------------------------------------------- */}
 
-          {SocialMediaImageCheck ? (
+          {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ? (
             <div className="relative min-h-[100px]">
               <div
                 className="contactOptionsTittle w-full absolute top-0  rounded-t-lg"

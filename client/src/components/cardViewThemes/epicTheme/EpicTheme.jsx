@@ -13,16 +13,17 @@ import ListSocialMedia from "../Common/socialMedia/ListSocialMedia";
 import { SocialMediaValid, HighlightImageValid } from "../Common/DivValidation";
 import QRModal from "../Common/qrModals/QRModal";
 import { CardContext } from "../../store/CardContext";
+import ListSocialMedias from "../Common/socialMedia/ListSocialMedias";
 
 
-function EpicTheme({ card,preview }) {
+function EpicTheme({ card, preview }) {
     const defaultBackgroundImage =
         "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg";
 
     const [cardData] = useContext(CardContext)
 
     const {
-       
+
         backgroundImage,
         website,
         review,
@@ -40,8 +41,8 @@ function EpicTheme({ card,preview }) {
 
 
 
-    const Textcolor =  card?.textColor ? card?.textColor : "#FFFFFF";
-    const Iconcolor =  card?.iconBgColor ? card?.iconBgColor : "#FFFFFF";
+    const Textcolor = card?.textColor ? card?.textColor : "#FFFFFF";
+    const Iconcolor = card?.iconBgColor ? card?.iconBgColor : "#FFFFFF";
     const BgColor = card?.bgColor ? card?.bgColor : "#000000";
     const Highlightcolor = card?.colorCode ? card?.colorCode : "#2D2D2D";
     const BtIColor = card?.btIconColor ? card?.btIconColor : "#000000";
@@ -52,7 +53,7 @@ function EpicTheme({ card,preview }) {
     const HighlightImageCheck = HighlightImageValid();
 
     const [qrModal, setQrModal] = useState(false);
- 
+
 
 
     // const [isExpanded, setIsExpanded] = useState(false);
@@ -108,7 +109,7 @@ function EpicTheme({ card,preview }) {
         }
     };
 
-  
+
 
     const rightArrow = (
         <svg
@@ -203,7 +204,7 @@ function EpicTheme({ card,preview }) {
                         </div>
 
                         {checkPfCard ? (
-                            
+
                             <ProfileCard Highlightcolor={Highlightcolor} Textcolor={Textcolor} />
                         ) : (
                             ""
@@ -249,7 +250,7 @@ function EpicTheme({ card,preview }) {
                                         </summary>
 
                                         {contactExpand && (
-                                           
+
                                             <ContactCard1 preview={preview} Textcolor={Textcolor} Iconcolor={Iconcolor} BtIColor={BtIColor} />
                                         )}
 
@@ -259,7 +260,7 @@ function EpicTheme({ card,preview }) {
                         </div>
 
                         {/* --------------------------------- social ---------------------------------  */}
-                        {SocialMediaImageCheck ? (
+                        {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ? (
                             <div className="mt-5">
                                 <div
                                     className="  w-full   h-full text-white p-[8px]  flex rounded-[12px] justify-between"
@@ -317,7 +318,11 @@ function EpicTheme({ card,preview }) {
                                         {socialMediaExpand && (
 
                                             // <SocialMedia data={data} />
-                                            <ListSocialMedia preview={preview} />
+                                            (card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                                                <ListSocialMedias preview={preview} />
+                                                :
+                                                <ListSocialMedia preview={preview} />
+
                                         )}
                                     </details>
                                 </div>
@@ -595,7 +600,7 @@ function EpicTheme({ card,preview }) {
                         )}
 
                     </div>
-                    
+
                     {qrModal ? <QRModal handleClose={handleClose} Highlightcolor={Highlightcolor} Textcolor={Textcolor} Iconcolor={Iconcolor} BtIColor={BtIColor} /> : null}
 
                 </section>

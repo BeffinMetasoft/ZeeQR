@@ -24,6 +24,9 @@ import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
+import ListSocialMediaClassic from "../Common/socialMedia/ListSocialMediaClassic";
+import ListSocialMediaCls from "../Common/socialMedia/ListSocialMediaCls";
+import { SocialMediaValid } from "../Common/DivValidation";
 
 
 
@@ -36,7 +39,8 @@ const defaultProfileImage =
 
 function ClassicTheme({ card, preview }) {
 
-
+  const SocialMediaImageCheck = SocialMediaValid();
+  const headlines = card?.headlines
 
   const [qrModal, setQrModal] = useState(false);
 
@@ -66,6 +70,8 @@ function ClassicTheme({ card, preview }) {
   };
 
   const Highlightcolor = card?.colorCode ? card?.colorCode : "";
+  const Textcolor = card?.textColor ? card?.textColor : "";;
+  
   // console.log(Highlightcolor, 'qwertyuiop');
 
   const shareMail = (e) => {
@@ -663,7 +669,7 @@ function ClassicTheme({ card, preview }) {
 
           {/* ------------------------------------------------------------------------------------------------------------------------------- */}
 
-          {(card?.facebook && card?.SMediaPostion?.pos1) ||
+          {/* {(card?.facebook && card?.SMediaPostion?.pos1) ||
             (card?.whatsappNumber && card?.SMediaPostion?.pos1) ||
             (card?.linkedin && card?.SMediaPostion?.pos1) ||
             (card?.instagram && card?.SMediaPostion?.pos1) ||
@@ -1110,6 +1116,44 @@ function ClassicTheme({ card, preview }) {
                                     ? CompanyProfileIcon
                                     : ""
                                   : ""}
+
+            </div>
+          ) : (
+            ""
+          )} */}
+
+          {/* -----------------------------------------------------social media---------------------------------------------------------------- */}
+
+          {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ? (
+            <div className="relative min-h-[100px]">
+              <div
+                className="contactOptionsTittle w-full absolute top-0  rounded-t-lg"
+                style={{
+                  backgroundColor: `${Highlightcolor ? Highlightcolor : ""}`,
+                }}
+              >
+                <div className="social-media2" style={{ display: "block" }}>
+                  <div
+                    style={{
+                      color: `${Textcolor ? Textcolor : ""}`,
+                      // marginBottom: "15px",
+                    }}
+                  >
+                    <h4>{headlines?.socialMediaHeadline ? headlines?.socialMediaHeadline : 'Social Media'}</h4>
+                  </div>
+                </div>
+              </div>
+              <div className="h-[70px]">
+
+              </div>
+              <div >
+                {(card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                  <ListSocialMediaClassic key={card._id} preview={preview} Hgcolor={Highlightcolor} Textcolor={Textcolor} />
+                  :
+                  <ListSocialMediaCls key={card._id} preview={preview} Hgcolor={Highlightcolor} Textcolor={Textcolor} />
+                }
+
+              </div>
 
             </div>
           ) : (
