@@ -14,6 +14,7 @@ import ListSocialMedia from "../Common/socialMedia/ListSocialMedia";
 import { HighlightImageValid, SocialMediaValid } from "../Common/DivValidation";
 import { UserOutlined } from '@ant-design/icons';
 import { CardContext } from "../../store/CardContext";
+import ListSocialMedias from "../Common/socialMedia/ListSocialMedias";
 
 
 const defaultBackgroundImage = "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg";
@@ -358,7 +359,7 @@ function AntiqueTheme({ card, preview }) {
 
                         )}
                     </div>
-                    {SocialMediaImageCheck ? (
+                    {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ? (
                         <div className=" border-b border-[#EBEBEB]   p-4 ">
                             <div
                                 className="flex items-center justify-between cursor-pointer"
@@ -389,6 +390,9 @@ function AntiqueTheme({ card, preview }) {
                             </div>
                             {section3Open && (
                                 // <SocialMedia data={data} />
+                                (card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                                <ListSocialMedias preview={preview} theme={'antique'}  />
+                                :
                                 <ListSocialMedia preview={preview} theme={'antique'}  />
                             )}
                         </div>

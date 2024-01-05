@@ -16,12 +16,13 @@ import ListSocialMedia from "../Common/socialMedia/ListSocialMedia";
 import { HighlightImageValid, SocialMediaValid } from "../Common/DivValidation";
 import QRModal from "../Common/qrModals/QRModal";
 import { CardContext } from "../../store/CardContext";
+import ListSocialMedias from "../Common/socialMedia/ListSocialMedias";
 const defaultBackgroundImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg";
 const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
-function DigitalTheme1({card, preview }) {
+function DigitalTheme1({ card, preview }) {
   const [cardData] = useContext(CardContext)
   const {
     backgroundImage,
@@ -42,9 +43,9 @@ function DigitalTheme1({card, preview }) {
   // const BgColor = card?.bgColor ? card?.bgColor : "";
   const BtIColor = card?.btIconColor ? card?.btIconColor : "#000000";
 
-  
 
-  
+
+
 
   const SocialMediaImageCheck = SocialMediaValid();
   const HighlightImageCheck = HighlightImageValid();
@@ -68,14 +69,14 @@ function DigitalTheme1({card, preview }) {
     setShowResults(false);
   };
 
- 
+
 
 
   const handleTabClick = (tabNumber) => {
     setActiveTab(tabNumber);
   };
 
-  
+
 
 
 
@@ -116,7 +117,7 @@ function DigitalTheme1({card, preview }) {
                   <IoMdCall className="" />
                 </li>
 
-                {SocialMediaImageCheck ? (
+                {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ? (
                   <li
                     className={`mb-2 w-[49px] h-[60px] ${activeTab === 2
                       ? "font-bold text-black  flex items-center border-r-4   border-[#FF0000]"
@@ -169,17 +170,17 @@ function DigitalTheme1({card, preview }) {
                 ) : (
                   ""
                 )}
-                {HighlightImageCheck ? 
-                    <li
-                      className={`mb-2 w-[49px] h-[60px] ${activeTab === 6
-                        ? "font-bold text-black  flex items-center border-r-4 border-[#FF0000]"
-                        : "text-[#AFAFAF]  flex items-center"
-                        }`}
-                      onClick={() => handleTabClick(6)}
-                    >
-                      <RiGalleryLine />
-                    </li>
-                   :   ""
+                {HighlightImageCheck ?
+                  <li
+                    className={`mb-2 w-[49px] h-[60px] ${activeTab === 6
+                      ? "font-bold text-black  flex items-center border-r-4 border-[#FF0000]"
+                      : "text-[#AFAFAF]  flex items-center"
+                      }`}
+                    onClick={() => handleTabClick(6)}
+                  >
+                    <RiGalleryLine />
+                  </li>
+                  : ""
                 }
                 {/* <li
                   className={`mb-2 w-[49px] h-[60px] ${
@@ -201,7 +202,7 @@ function DigitalTheme1({card, preview }) {
               {/* ------------------------------- Basic Info ------------------------------- */}
               {activeTab === 1 && (
                 <div className="ml-3">
-                  
+
                   <ContactCard1 preview={preview} Textcolor={Textcolor} Iconcolor={Iconcolor} BtIColor={BtIColor} />
 
                 </div>
@@ -213,7 +214,11 @@ function DigitalTheme1({card, preview }) {
 
                     <div className=" mx-2 ">
                       {/* <SocialMedia data={data} /> */}
-                      <ListSocialMedia preview={preview} />
+                      {(card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                        <ListSocialMedias preview={preview} />
+                        :
+                        <ListSocialMedia preview={preview} />
+                      }
                     </div>
 
                   )}
@@ -224,7 +229,11 @@ function DigitalTheme1({card, preview }) {
 
                     <div className=" mx-2 ">
                       {/* <SocialMedia data={data} /> */}
-                      <ListSocialMedia preview={preview} />
+                      {(card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                        <ListSocialMedias preview={preview} />
+                        :
+                        <ListSocialMedia preview={preview} />
+                      }
                     </div>
 
                   )}
@@ -363,7 +372,7 @@ function DigitalTheme1({card, preview }) {
 
           </div>
         </div>
-        
+
         {qrModal ? <QRModal handleClose={handleClose} Highlightcolor={Highlightcolor} Textcolor={Textcolor} /> : null}
 
       </div>

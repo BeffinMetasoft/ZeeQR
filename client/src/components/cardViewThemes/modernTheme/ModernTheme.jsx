@@ -16,9 +16,12 @@ import tiktok from "../../../assests/img1/tiktok-white.svg";
 import skype from "../../../assests/img1/skype-white.svg";
 import youtube from "../../../assests/img1/youtube-white.svg";
 import snapchat from "../../../assests/img1/snapchat-white.svg";
-import leftarrow from "../../../assests/img1/left_arrow.svg";
-import arrow from "../../../assests/img/more_icon.svg";
+// import leftarrow from "../../../assests/img1/left_arrow.svg";
+// import arrow from "../../../assests/img/more_icon.svg";
 import companypfImage from "../../../assests/img1/companyProfile_wht.svg";
+import SlideSocialMediaStd from "../Common/socialMedia/SlideSocialMediaStd";
+import SlideSocialMediaStandard from "../Common/socialMedia/SlideSocialMediaStandard";
+import { SocialMediaValid } from "../Common/DivValidation";
 
 const defaultBackgroundImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultBackground.jpg";
@@ -26,7 +29,7 @@ const defaultProfileImage =
   "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
 function ModernTheme({ card, preview }) {
-  
+
 
   const [qrModal, setQrModal] = useState(false);
 
@@ -54,8 +57,10 @@ function ModernTheme({ card, preview }) {
     let url = card?.QRCode;
     saveAs(url, card?.name);
   };
+  const SocialMediaImageCheck = SocialMediaValid();
 
-  const Highlightcolor = card?.colorCode;
+
+  const Highlightcolor = card?.colorCode ? card?.colorCode : 'linear-gradient(90deg, #FE4F32 0%, #DD2474 100%)';
 
   const shareMail = (e) => {
     window.location = `mailto:${card?.email}`;
@@ -273,126 +278,126 @@ function ModernTheme({ card, preview }) {
         </div>
         {/* <div className="btnrelativeModern"> */}
 
-          <div className="previewContainerModern">
+        <div className="previewContainerModern">
 
-            <div
-              className={`buttons  ${preview
-                  // ? "md:w-[450px]  bottom-0 z-10  md:left-[500px]"
-                  ? "w-[280px] md:w-[350px] fixed bottom-0 z-10 "
-                  : " md:w-[310px] fixed ml-4 z-10"
-                }    `}
-              style={{ marginBottom: `${preview ? "24px" : ""}` }}
+          <div
+            className={`buttons  ${preview
+              // ? "md:w-[450px]  bottom-0 z-10  md:left-[500px]"
+              ? "w-[280px] md:w-[350px] fixed bottom-0 z-10 "
+              : " md:w-[310px] fixed ml-4 z-10"
+              }    `}
+            style={{ marginBottom: `${preview ? "24px" : ""}` }}
+          >
+            <Link
+              className="addTo"
+              to={`${preview ? card?.vCard : ""}`}
+              style={{
+                background: `${Highlightcolor
+                  ? Highlightcolor
+                  : "linear-gradient(90deg, #FE4F32 0%, #DD2474 100%)"
+                  }`,
+              }}
             >
-              <Link
-                className="addTo"
-                to={`${preview ? card?.vCard : ""}`}
-                style={{
-                  background: `${Highlightcolor
-                      ? Highlightcolor
-                      : "linear-gradient(90deg, #FE4F32 0%, #DD2474 100%)"
-                    }`,
-                }}
-              >
-                Add to contacts
-              </Link>
-              <Link onClick={preview ? handleShare : ""}>
-                <img src={share} alt="" />
-                Share it{" "}
-              </Link>
-            </div>
-            <div className="header">
-              {/* <img src={logo} alt="logo zeeqr" />
+              Add to contacts
+            </Link>
+            <Link onClick={preview ? handleShare : ""}>
+              <img src={share} alt="" />
+              Share it{" "}
+            </Link>
+          </div>
+          <div className="header">
+            {/* <img src={logo} alt="logo zeeqr" />
                           <Link className="btn" to={"hhttps://zeeqr.com/"} target="_blank">Get your card</Link>  */}
-            </div>
-            <div className="logo" />
-            {card?.checkPfCard ? (
+          </div>
+          <div className="logo" />
+          {card?.checkPfCard ? (
+            <div
+              className="userDetails"
+              style={{
+                background: `${Highlightcolor
+                  ? Highlightcolor
+                  : "linear-gradient(90deg, #FE4F32 0%, #DD2474 100%)"
+                  }`,
+              }}
+            >
               <div
-                className="userDetails"
+                className="text"
+
                 style={{
-                  background: `${Highlightcolor
-                    ? Highlightcolor
-                    : "linear-gradient(90deg, #FE4F32 0%, #DD2474 100%)"
+                  width: `${!card?.checkLogo ? "max-content" : ""}`,
+                  padding: `${!card?.checkLogo ? "10px 0 10px 20px" : " 0 0 0 20px"
+                    }`,
+                  color: "white",
+                  fontWeight: "bold",
+                  paddingLeft: "20px",
+                  fontSize: `${array[0]?.length > 12 ||
+                    array[1]?.length > 12 ||
+                    array[2]?.length > 12
+                    ? "20px"
+                    : "25px"
                     }`,
                 }}
               >
+                {card?.name}
                 <div
                   className="text"
-                  
+                  style={{ fontSize: "15px", fontWeight: "bold" }}
+                >
+                  {card?.companyDesignation
+                  }
+                </div>
+              </div>
+
+
+              {card?.checkLogo ? (
+                <div className="companyLogo">
+                  {card?.companyLogo ? (
+                    <img
+                      className="w-16"
+                      src={
+                        card?.companyLogo
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    <img src={defaultBackgroundImage} alt="" />
+                  )}
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          ) : (
+            ""
+          )}
+
+
+
+
+          {card?.about ? (
+            <div className={`${!card?.checkPfCard ? "mt-20" : ""} `}>
+              <div className="flex">
+                <h2>About {card?.aboutHeadline ? card?.aboutHeadline : ''}</h2>
+                <p
                   style={{
-                    width: `${!card?.checkLogo ? "max-content" : ""}`,
-                    padding: `${!card?.checkLogo ? "10px 0 10px 20px" : " 0 0 0 20px"
+                    borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "#e71545"
                       }`,
-                    color: "white",
-                    fontWeight: "bold",
-                    paddingLeft: "20px",
-                    fontSize: `${array[0]?.length > 12 ||
-                      array[1]?.length > 12 ||
-                      array[2]?.length > 12
-                      ? "20px"
-                      : "25px"
-                      }`,
+                    height: "4px",
+                    marginTop: "18px",
                   }}
                 >
-                  {card?.name}
-                  <div
-                    className="text"
-                    style={{ fontSize: "15px", fontWeight: "bold" }}
-                  >
-                    {card?.companyDesignation
-                    }
-                  </div>
-                </div>
-
-                
-                {card?.checkLogo ? (
-                  <div className="companyLogo">
-                    {card?.companyLogo ? (
-                      <img
-                        className="w-16"
-                        src={
-                          card?.companyLogo
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      <img src={defaultBackgroundImage} alt="" />
-                    )}
-                  </div>
-                ) : (
-                  ""
-                )}
+                  &nbsp; &nbsp; &nbsp;{" "}
+                </p>
               </div>
-            ) : (
-              ""
-            )}
+              <div className="about whitespace-pre-line">{card?.about}</div>
+            </div>
+          ) : (
+            ""
+          )}
 
+          {/* ----------------------------------------------------------------------------------- */}
 
-
-
-            {card?.about ? (
-              <div className={`${!card?.checkPfCard ? "mt-20" : ""} `}>
-                <div className="flex">
-                  <h2>About {card?.aboutHeadline ? card?.aboutHeadline : '' }</h2>
-                  <p
-                    style={{
-                      borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "#e71545"
-                        }`,
-                      height: "4px",
-                      marginTop: "18px",
-                    }}
-                  >
-                    &nbsp; &nbsp; &nbsp;{" "}
-                  </p>
-                </div>
-                <div className="about whitespace-pre-line">{card?.about}</div>
-              </div>
-            ) : (
-              ""
-            )}
-
-            {/* ----------------------------------------------------------------------------------- */}
-
-            {(card?.facebook && card?.SMediaPostion?.pos1) ||
+          {/* {(card?.facebook && card?.SMediaPostion?.pos1) ||
               (card?.whatsappNumber && card?.SMediaPostion?.pos1) ||
               (card?.linkedin && card?.SMediaPostion?.pos1) ||
               (card?.instagram && card?.SMediaPostion?.pos1) ||
@@ -853,129 +858,209 @@ function ModernTheme({ card, preview }) {
               </div>
             ) : (
               " "
-            )}
-            {/* ----------------------------------------------------------------------------------- */}
+            )} */}
+
+          {SocialMediaImageCheck || (socialMedias && socialMedias.length !== '0') ?
+            <>
+              <div className="flex">
+                <h2>Social media links</h2>
+                <p
+                  style={{
+                    borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "black"
+                      }`,
+                    height: "4px",
+                    marginTop: "18px",
+                  }}
+                >
+                  &nbsp; &nbsp; &nbsp;{" "}
+                </p>
+              </div>
+              {/* <SlideSocialMediaStd preview={preview} color={'white'} Highlightcolor={Highlightcolor} /> */}
+              {(card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                <SlideSocialMediaStandard preview={preview} color={'white'} Highlightcolor={Highlightcolor} theme={'modern'} />
+                :
+                <SlideSocialMediaStd preview={preview} color={'white'} Highlightcolor={Highlightcolor} theme={'modern'} />
+              }
+            </>
+            :
+            ""
+          }
+          {/* ----------------------------------------------------------------------------------- */}
 
 
 
-            <div
-              className={`flex ${!card?.checkPfCard &&
-                !card?.about &&
-                !card?.SMediaPostion?.pos1
-                ? "mt-20"
-                : ""
-                } `}
+          <div
+            className={`flex ${!card?.checkPfCard &&
+              !card?.about &&
+              !card?.SMediaPostion?.pos1
+              ? "mt-20"
+              : ""
+              } `}
+          >
+            <h2>Contact Info</h2>
+            <p
+              style={{
+                borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "##e71545"
+                  }`,
+                height: "4px",
+                marginTop: "18px",
+              }}
             >
-              <h2>Contact Info</h2>
-              <p
-                style={{
-                  borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "##e71545"
-                    }`,
-                  height: "4px",
-                  marginTop: "18px",
-                }}
+              &nbsp; &nbsp; &nbsp;{" "}
+            </p>
+          </div>
+          <div className="contactOptions">
+            <Link to={preview ? `tel:+${card?.phone}` : ""}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-phone"
+                viewBox="0 0 16 16"
               >
-                &nbsp; &nbsp; &nbsp;{" "}
-              </p>
-            </div>
-            <div className="contactOptions">
-              <Link to={preview ? `tel:+${card?.phone}` : ""}>
+                {" "}
+                <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />{" "}
+                <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />{" "}
+              </svg>
+              +
+              {card?.phone
+              }
+            </Link>
+            <Link onClick={preview ? shareMail : ""}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-envelope-open"
+                viewBox="0 0 13 20"
+              >
+                {" "}
+                <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z" />{" "}
+              </svg>
+              {card?.email
+              }
+            </Link>
+            {card?.locationUrl ? (
+              <Link
+                to={`${preview ? card?.locationUrl : ""}`}
+                target={`${preview ? "_blank" : ""}`}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-phone"
-                  viewBox="0 0 16 16"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
                 >
-                  {" "}
-                  <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />{" "}
-                  <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />{" "}
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M18 16.016c1.245.529 2 1.223 2 1.984 0 1.657-3.582 3-8 3s-8-1.343-8-3c0-.76.755-1.456 2-1.984"
+                  />
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M11.262 17.675 12 17l-.738.675zm1.476 0 .005-.005.012-.014.045-.05.166-.186a38.19 38.19 0 0 0 2.348-2.957c.642-.9 1.3-1.92 1.801-2.933.49-.99.885-2.079.885-3.086C18 4.871 15.382 2 12 2S6 4.87 6 8.444c0 1.007.395 2.096.885 3.086.501 1.013 1.16 2.033 1.8 2.933a38.153 38.153 0 0 0 2.515 3.143l.045.05.012.014.005.005a1 1 0 0 0 1.476 0zM12 17l.738.674L12 17zm0-11a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                +
-                {card?.phone
+                {card?.address
                 }
               </Link>
-              <Link onClick={preview ? shareMail : ""}>
+            ) : (
+              <Link>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="25"
-                  height="25"
-                  fill="currentColor"
-                  class="bi bi-envelope-open"
-                  viewBox="0 0 13 20"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 24 24"
+                  fill="none"
                 >
-                  {" "}
-                  <path d="M8.47 1.318a1 1 0 0 0-.94 0l-6 3.2A1 1 0 0 0 1 5.4v.817l5.75 3.45L8 8.917l1.25.75L15 6.217V5.4a1 1 0 0 0-.53-.882l-6-3.2ZM15 7.383l-4.778 2.867L15 13.117V7.383Zm-.035 6.88L8 10.082l-6.965 4.18A1 1 0 0 0 2 15h12a1 1 0 0 0 .965-.738ZM1 13.116l4.778-2.867L1 7.383v5.734ZM7.059.435a2 2 0 0 1 1.882 0l6 3.2A2 2 0 0 1 16 5.4V14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5.4a2 2 0 0 1 1.059-1.765l6-3.2Z" />{" "}
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M18 16.016c1.245.529 2 1.223 2 1.984 0 1.657-3.582 3-8 3s-8-1.343-8-3c0-.76.755-1.456 2-1.984"
+                  />
+                  <path
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    d="M11.262 17.675 12 17l-.738.675zm1.476 0 .005-.005.012-.014.045-.05.166-.186a38.19 38.19 0 0 0 2.348-2.957c.642-.9 1.3-1.92 1.801-2.933.49-.99.885-2.079.885-3.086C18 4.871 15.382 2 12 2S6 4.87 6 8.444c0 1.007.395 2.096.885 3.086.501 1.013 1.16 2.033 1.8 2.933a38.153 38.153 0 0 0 2.515 3.143l.045.05.012.014.005.005a1 1 0 0 0 1.476 0zM12 17l.738.674L12 17zm0-11a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                {card?.email
+                {card?.address
                 }
               </Link>
-              {card?.locationUrl ? (
+            )}
+          </div>
+
+
+          {card?.websiteImage ||
+            card?.websiteName ||
+            card?.websiteUrl ? (
+            <div>
+              <div className="flex">
+                <h2>Website</h2>
+                <p
+                  style={{
+                    borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "#e71545"
+                      }`,
+                    height: "4px",
+                    marginTop: "18px",
+                  }}
+                >
+                  &nbsp; &nbsp; &nbsp;{" "}
+                </p>
+              </div>
+              <div className="otherLinks">
                 <Link
-                  to={`${preview ? card?.locationUrl : ""}`}
+                  to={`${preview ? card?.websiteUrl : ""}`}
                   target={`${preview ? "_blank" : ""}`}
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="30"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M18 16.016c1.245.529 2 1.223 2 1.984 0 1.657-3.582 3-8 3s-8-1.343-8-3c0-.76.755-1.456 2-1.984"
-                    />
-                    <path
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      d="M11.262 17.675 12 17l-.738.675zm1.476 0 .005-.005.012-.014.045-.05.166-.186a38.19 38.19 0 0 0 2.348-2.957c.642-.9 1.3-1.92 1.801-2.933.49-.99.885-2.079.885-3.086C18 4.871 15.382 2 12 2S6 4.87 6 8.444c0 1.007.395 2.096.885 3.086.501 1.013 1.16 2.033 1.8 2.933a38.153 38.153 0 0 0 2.515 3.143l.045.05.012.014.005.005a1 1 0 0 0 1.476 0zM12 17l.738.674L12 17zm0-11a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  {card?.address
-                  }
+                  <figure>
+                    {card?.websiteImage ? (
+                      <img
+                        src={
+                          card?.websiteImage
+                        }
+                        alt=""
+                      />
+                    ) : (
+                      <img src={defaultBackgroundImage} alt="" />
+                    )}
+                  </figure>
+                  <figcaption>
+                    {card?.websiteName
+                      ? card.websiteName
+                      : "ZEEQR"}
+                  </figcaption>
                 </Link>
-              ) : (
-                <Link>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="30"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M18 16.016c1.245.529 2 1.223 2 1.984 0 1.657-3.582 3-8 3s-8-1.343-8-3c0-.76.755-1.456 2-1.984"
-                    />
-                    <path
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                      d="M11.262 17.675 12 17l-.738.675zm1.476 0 .005-.005.012-.014.045-.05.166-.186a38.19 38.19 0 0 0 2.348-2.957c.642-.9 1.3-1.92 1.801-2.933.49-.99.885-2.079.885-3.086C18 4.871 15.382 2 12 2S6 4.87 6 8.444c0 1.007.395 2.096.885 3.086.501 1.013 1.16 2.033 1.8 2.933a38.153 38.153 0 0 0 2.515 3.143l.045.05.012.014.005.005a1 1 0 0 0 1.476 0zM12 17l.738.674L12 17zm0-11a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  {card?.address
-                  }
-                </Link>
-              )}
+              </div>
             </div>
+          ) : (
+            ""
+          )}
 
 
-            {card?.websiteImage ||
-              card?.websiteName ||
-              card?.websiteUrl ? (
+
+          {(card?.highlightPhotos[0].highlightPhotos1) ||
+            (card?.highlightPhotos[0].highlightPhotos2) ||
+            (card?.highlightPhotos[0].highlightPhotos3) ||
+            (card?.highlightPhotos[0].highlightPhotos4) ||
+            (card?.highlightPhotos[0].highlightPhotos5) ||
+            (card?.highlightPhotos[0].highlightPhotos6) ||
+            (card?.highlightPhotos[0].highlightPhotos7) ||
+            (card?.highlightPhotos[0].highlightPhotos8) ? (
+            card?.checkHighlight ? (
               <div>
                 <div className="flex">
-                  <h2>Website</h2>
+                  <h2>Gallery</h2>
                   <p
                     style={{
                       borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "#e71545"
@@ -987,186 +1072,132 @@ function ModernTheme({ card, preview }) {
                     &nbsp; &nbsp; &nbsp;{" "}
                   </p>
                 </div>
-                <div className="otherLinks">
-                  <Link
-                    to={`${preview ? card?.websiteUrl : ""}`}
-                    target={`${preview ? "_blank" : ""}`}
-                  >
-                    <figure>
-                      {card?.websiteImage ? (
-                        <img
-                          src={
-                            card?.websiteImage
-                          }
-                          alt=""
-                        />
-                      ) : (
-                        <img src={defaultBackgroundImage} alt="" />
-                      )}
-                    </figure>
-                    <figcaption>
-                      {card?.websiteName
-                        ? card.websiteName
-                        : "ZEEQR"}
-                    </figcaption>
-                  </Link>
+                <div className="photoGridModern">
+                  {card?.highlightPhotos[0].highlightPhotos1 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos1
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos2 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos2
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos3 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos3
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos4 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos4
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos5 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos5
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos6 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos6
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos7 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos7
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
+                  {card?.highlightPhotos[0].highlightPhotos8 ? (
+                    <img
+                      className="mb-4"
+                      src={
+                        card?.highlightPhotos[0].highlightPhotos8
+                      }
+                      alt=""
+                    />
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
             ) : (
               ""
-            )}
+            )
+          ) : (
+            ""
+          )}
 
 
-
-            {(card?.highlightPhotos[0].highlightPhotos1) ||
-              (card?.highlightPhotos[0].highlightPhotos2) ||
-              (card?.highlightPhotos[0].highlightPhotos3) ||
-              (card?.highlightPhotos[0].highlightPhotos4) ||
-              (card?.highlightPhotos[0].highlightPhotos5) ||
-              (card?.highlightPhotos[0].highlightPhotos6) ||
-              (card?.highlightPhotos[0].highlightPhotos7) ||
-              (card?.highlightPhotos[0].highlightPhotos8) ? (
-              card?.checkHighlight ? (
-                <div>
-                  <div className="flex">
-                    <h2>Gallery</h2>
-                    <p
-                      style={{
-                        borderBottom: `3px solid ${Highlightcolor ? Highlightcolor : "#e71545"
-                          }`,
-                        height: "4px",
-                        marginTop: "18px",
-                      }}
-                    >
-                      &nbsp; &nbsp; &nbsp;{" "}
-                    </p>
-                  </div>
-                  <div className="photoGridModern">
-                    {card?.highlightPhotos[0].highlightPhotos1 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos1
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos2 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos2
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos3 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos3
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos4 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos4
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos5 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos5
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos6 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos6
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos7 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos7
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                    {card?.highlightPhotos[0].highlightPhotos8 ? (
-                      <img
-                        className="mb-4"
-                        src={
-                          card?.highlightPhotos[0].highlightPhotos8
-                        }
-                        alt=""
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </div>
-                </div>
-              ) : (
-                ""
-              )
-            ) : (
-              ""
-            )}
-
-
-          </div>
-          <div className="footer flex flex-col items-center">
-            {preview ? (
-              <>
-                <p>
-                  Powered by{" "}
-                  <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                  ZEEQR
-                  </Link>
-                </p>
+        </div>
+        <div className="footer flex flex-col items-center">
+          {preview ? (
+            <>
+              <p>
+                Powered by{" "}
                 <Link to={"hhttps://zeeqr.com/"} target="_blank">
-                  {" "}
-                  <img className="w-18" src={ftLogo} alt="" />
+                  ZEEQR
                 </Link>
-              </>
-            ) : (
-              <>
-                <p>
-                  Powered by <Link> ZEEQR</Link>
-                </p>
-                <Link>
-                  {" "}
-                  <img className="w-18" src={ftLogo} alt="" />
-                </Link>
-              </>
-            )}
-          </div>
+              </p>
+              <Link to={"hhttps://zeeqr.com/"} target="_blank">
+                {" "}
+                <img className="w-18" src={ftLogo} alt="" />
+              </Link>
+            </>
+          ) : (
+            <>
+              <p>
+                Powered by <Link> ZEEQR</Link>
+              </p>
+              <Link>
+                {" "}
+                <img className="w-18" src={ftLogo} alt="" />
+              </Link>
+            </>
+          )}
+        </div>
         {/* </div> */}
       </section>
 
