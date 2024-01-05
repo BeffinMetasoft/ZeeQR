@@ -237,7 +237,7 @@ function StandardTheme({ card, preview }) {
 
             {/* ------------------------------------------------------------------------------------------------------------------------------- */}
             {/* ------------------------------------------------------------------ social media------------------------------------------------------------- */}
-            {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== '0') ?
+            {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ?
               <>
                 <div className="flex">
                   <h2>Social media links</h2>
