@@ -27,7 +27,7 @@ import tiktok from "../../../assests/img1/tiktok.png";
 import companypfImage from "../../../assests/img1/companyProfile_clss.svg";
 import background from '../../../assests/img1/background.jpg'
 import { useTranslation } from 'react-i18next'
-import { SocialMediaValid, HighlightImageValid } from "../Common/DivValidation";
+import { SocialMediaValid } from "../Common/DivValidation";
 import ListSocialMediaCls from "../Common/socialMedia/ListSocialMediaCls";
 import ListSocialMediaClassic from "../Common/socialMedia/ListSocialMediaClassic";
 

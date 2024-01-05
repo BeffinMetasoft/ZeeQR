@@ -8,7 +8,7 @@ function SlideSocialMediaStandard({ preview, color, Highlightcolor,theme}) {
 
     const iconColor = color ? color : 'black'
     const BgColor = Highlightcolor !== '#000000' ? Highlightcolor : '#efefef'
-    console.log(Highlightcolor,'----------------------');
+    // console.log(Highlightcolor,'----------------------');
 
     const [cardData] = useContext(CardContext)
 

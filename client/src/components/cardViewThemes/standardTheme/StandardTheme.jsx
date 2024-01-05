@@ -4,23 +4,27 @@ import "./StandardTheme.css";
 import { saveAs } from "file-saver";
 import ftLogo from "../../../assests/img/footer_logo.svg";
 import share from "../../../assests/img/share_icon.svg";
-import linkedin from "../../../assests/img/in_icon.svg";
-import insta from "../../../assests/img/ig_icon.svg";
-import fb from "../../../assests/img/fb_icon.svg";
-import twitter from "../../../assests/img/twt_icon.svg";
-import whatsapp from "../../../assests/img/wha_icon.svg";
+
+// import linkedin from "../../../assests/img/in_icon.svg";
+// import insta from "../../../assests/img/ig_icon.svg";
+// import fb from "../../../assests/img/fb_icon.svg";
+// import twitter from "../../../assests/img/twt_icon.svg";
+// import whatsapp from "../../../assests/img/wha_icon.svg";
+
 import phn from "../../../assests/img/phone_icon.svg";
 import mail from "../../../assests/img/mail_icon.svg";
 import loc from "../../../assests/img/loc_icon.svg";
 import { BsQrCodeScan } from "react-icons/bs";
 import addtoHome from "../../../assests/img1/addtoHome.jpg";
-import arrow from "../../../assests/img/more_icon.svg";
-import leftarrow from "../../../assests/img1/left_arrow.svg";
-import skype from "../../../assests/img1/skype_std.svg";
-import youtube from "../../../assests/img1/youtube_std1.svg";
-import snapchat from "../../../assests/img1/snapchat_std.svg";
-import tiktok from "../../../assests/img1/tiktok.svg";
-import companypfImage from "../../../assests/img1/companyProfile.svg";
+
+// import arrow from "../../../assests/img/more_icon.svg";
+// import leftarrow from "../../../assests/img1/left_arrow.svg";
+// import skype from "../../../assests/img1/skype_std.svg";
+// import youtube from "../../../assests/img1/youtube_std1.svg";
+// import snapchat from "../../../assests/img1/snapchat_std.svg";
+// import tiktok from "../../../assests/img1/tiktok.svg";
+// import companypfImage from "../../../assests/img1/companyProfile.svg";
+
 import SlideSocialMediaStd from "../Common/socialMedia/SlideSocialMediaStd";
 import SlideSocialMediaStandard from "../Common/socialMedia/SlideSocialMediaStandard";
 import { SocialMediaValid } from "../Common/DivValidation";
