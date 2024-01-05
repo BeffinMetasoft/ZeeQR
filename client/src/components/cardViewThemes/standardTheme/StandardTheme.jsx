@@ -74,14 +74,14 @@ function StandardTheme({ card, preview }) {
   };
 
 
-  const slideLeft = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 100;
-  };
-  const slideRight = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 100;
-  };
+  // const slideLeft = () => {
+  //   var slider = document.getElementById("slider");
+  //   slider.scrollLeft = slider.scrollLeft - 100;
+  // };
+  // const slideRight = () => {
+  //   var slider = document.getElementById("slider");
+  //   slider.scrollLeft = slider.scrollLeft + 100;
+  // };
 
   const array = card?.name ? card?.name?.split(" ") : "";
   let color
