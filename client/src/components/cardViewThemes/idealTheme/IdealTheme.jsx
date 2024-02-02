@@ -12,9 +12,10 @@ import WebsiteUltra from '../Common/websiteCards/WebsiteUltra';
 import ReviewCardUltra from '../Common/reviewCards/ReviewCardUltra';
 import DownloadCardUltra from '../Common/fileDownloadsCards/DownloadCardUltra';
 import { CardContext } from '../../store/CardContext';
+import SlideSocialMedias from '../Common/socialMedia/SlideSocialMedias';
 
 
-function IdealTheme({card, preview }) {
+function IdealTheme({ card, preview }) {
     const defaultProfileImage =
         "https://zeeqr-files.s3.ap-south-1.amazonaws.com/assets/defaultProfile.jpg";
 
@@ -27,7 +28,7 @@ function IdealTheme({card, preview }) {
         review,
         contactDetails,
         vCard,
-        
+
     } = cardData
 
     // const [showResults, setShowResults] = useState(false);
@@ -234,8 +235,14 @@ function IdealTheme({card, preview }) {
                                                     </Link>
                                                 </div>
                                                 <div className='mt-5 px-2'>
-                                                    {SocialMediaImageCheck ? <SlideSocialMedia preview={preview} color={'white'} /> : ""}
-
+                                                    {SocialMediaImageCheck || (card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                                                        ((card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                                                            <SlideSocialMedias preview={preview} color={'white'} />
+                                                            :
+                                                            <SlideSocialMedia preview={preview} color={'white'} />
+                                                        )
+                                                        : ""
+                                                    }
                                                 </div>
 
                                             </div>

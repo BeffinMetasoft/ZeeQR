@@ -11,7 +11,8 @@ import SocialMediaGrid from "../Common/socialMedia/SocialMediaGrid";
 import ProfileCardIconic from "../Common/profileCards/ProfileCardIconic";
 import ContactCardIconic from "../Common/contactCards/ContactCardIconic";
 import { CardContext } from "../../store/CardContext";
-function IconicTheme({ card,preview }) {
+import SocialMediaIconicGrid from "../Common/socialMedia/SocialMediaIconicGrid";
+function IconicTheme({ card, preview }) {
   const [cardData] = useContext(CardContext)
   const {
     backgroundImage,
@@ -19,7 +20,7 @@ function IconicTheme({ card,preview }) {
     review,
     fileName,
     files,
-    
+
   } = cardData
 
   const Highlightcolor = card?.colorCode ? card?.colorCode : "";
@@ -44,7 +45,7 @@ function IconicTheme({ card,preview }) {
     }
   };
 
- 
+
 
   return (
     <div className="iconictheme relative ">
@@ -68,7 +69,13 @@ function IconicTheme({ card,preview }) {
           <TabMenu activeTab={activeTab} handleTabClick={handleTabClick} Highlightcolor={Highlightcolor} />
           <>
             {activeTab === 1 && <ContactCardIconic preview={preview} Highlightcolor={Highlightcolor} />}
-            {activeTab === 2 && <SocialMediaGrid preview={preview} />}
+            {activeTab === 2 &&
+              ((card?.socialMedias && card?.socialMedias?.length !== 0) ?
+                <SocialMediaIconicGrid preview={preview} />
+                :
+                <SocialMediaGrid preview={preview} />
+              )
+            }
             {activeTab === 3 && (
               <div className="grid  grid-cols-2 items-center">
                 {" "}

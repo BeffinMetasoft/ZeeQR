@@ -20,12 +20,13 @@ import ReviewCardUltra from "../Common/reviewCards/ReviewCardUltra";
 import DownloadCardUltra from "../Common/fileDownloadsCards/DownloadCardUltra";
 import ContactCardUltra from "../Common/contactCards/ContactCardUltra";
 import { CardContext } from "../../store/CardContext";
+import SlideSocialMedias from "../Common/socialMedia/SlideSocialMedias";
 
 function UltraTheme({ preview }) {
   const [cardData] = useContext(CardContext)
 
-  const { backgroundImage, personalDetails,website,review, contactDetails } = cardData
-  
+  const { backgroundImage, personalDetails, socialMedias, website, review, contactDetails } = cardData
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [qrModal, setQrModal] = useState(false);
 
@@ -87,7 +88,14 @@ function UltraTheme({ preview }) {
                 <div className="info more-info">
                   {isExpanded && (
                     <div>
-                      {SocialMediaImageCheck ? <SlideSocialMedia preview={preview} /> : ""}
+                      {SocialMediaImageCheck || (socialMedias && socialMedias?.length !== 0) ?
+                        ((socialMedias && socialMedias?.length !== 0) ?
+                          <SlideSocialMedias preview={preview} />
+                          :
+                          <SlideSocialMedia preview={preview} />
+                        )
+                        : ""
+                      }
 
                       {personalDetails?.about ? (
                         <div className="text-center m-[15px] ">
@@ -102,8 +110,8 @@ function UltraTheme({ preview }) {
                         ""
                       )}
                       <WebsiteUltra website={website} preview={preview} />
-                      <ReviewCardUltra review={review} preview={preview}  />
-                      <DownloadCardUltra preview={preview}  />
+                      <ReviewCardUltra review={review} preview={preview} />
+                      <DownloadCardUltra preview={preview} />
 
                       <div className="text-center m-[15px] mb-0">
                         <p className="text-[#000000] text-[14px] font-semibold">
@@ -122,14 +130,14 @@ function UltraTheme({ preview }) {
             </div>
           </div>
         </div>
-        { preview && !qrModal ?
+        {preview && !qrModal ?
 
 
           <FloatButton.Group className="shadow-xl"
             trigger="click"
             color="black share_button"
             style={{
-              left: "50%", 
+              left: "50%",
               color: "white",
               position: "fixed",
               bottom: 20,
@@ -153,9 +161,9 @@ function UltraTheme({ preview }) {
           </FloatButton.Group>
 
           : ""}
-      {qrModal ? <QRModal handleClose={handleClose} /> : null}
+        {qrModal ? <QRModal handleClose={handleClose} /> : null}
       </div>
-      
+
     </>
   );
 }

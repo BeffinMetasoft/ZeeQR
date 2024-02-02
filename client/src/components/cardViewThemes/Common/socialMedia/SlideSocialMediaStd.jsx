@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SocialMedia from './SocialMedia';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { CardContext } from '../../../store/CardContext';
 
 function SlideSocialMediaStd({ preview, color, Highlightcolor }) {
 
@@ -10,10 +10,9 @@ function SlideSocialMediaStd({ preview, color, Highlightcolor }) {
     const iconColor = color ? color : 'black'
     const BgColor = Highlightcolor !== '#000000' ? Highlightcolor : '#efefef'
 
-    const {
+    const [cardData] = useContext(CardContext)
 
-        SMediaPostion, socialMediaDetails
-    } = useSelector((state) => state.cardReducer);
+    const {SMediaPostion, socialMediaDetails } = cardData;
 
     const slideLeft = () => {
         var slider = document.getElementById("slider");
