@@ -35,12 +35,15 @@ const UserSchema = mongoose.Schema({
     },
     block: {
         type: Boolean,
-       default:false
+        default: false
     },
-  
-   
+    domain: {
+        type: String
+    } 
+
+
 })
 mongoose.set('strictQuery', false);
 
-const User = mongoose.model('User',UserSchema)
-module.exports= User
+const User = mongoose.model('User', UserSchema)
+module.exports = User

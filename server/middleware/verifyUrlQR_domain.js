@@ -46,13 +46,16 @@ const verifyUrlQRDomain = async (req, res, next) => {
             }
         } else {
             const user = await User.findOne({ _id: card?.userID?._id })
+            // console.log(user,'ooo');
             if (domain === process.env.FRONT_END_MAIN_DOMAIN) {
                 // console.log('aaaaaaaaaaaaaaaaaaaaaa');
                 if (card?.userID) {
-                    // const admin = await Admin.findOne({ _id: card?.userID?.adminID })
-                    // console.log(admin.domain, 'admin domain');
+                    console.log('bbbbbbbbbbbbbbbbb');
                     if (user?.domain) {
+                        // console.log(user?.domain,'cccccccccccc');
+                        // console.log(domain,'cccccccccccc1111');
                         if (user?.domain === domain) {
+                            // console.log('dddddddddddd');
                             next()
                         } else {
                             throw createError.Unauthorized("Un Authorized Route")
