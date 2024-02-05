@@ -10,6 +10,7 @@ import ReviewQrInterfacePage from './pages/ReviewQrInterfacePage';
 import ContactCardInterfacePage from './pages/ContactCardInterfacePage';
 // import RouteBasicCardViewPage from './pages/RouteBasicCardViewPage';
 import './i18n.js'
+import RedirectionQRInterfacePage from './pages/RedirectionQRInterfacePage.js';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           {/* <Route path='/profile/:id' element={<RouteBasicCardViewPage />} /> */}
           <Route path='/reviewQR/:id' element={<ReviewQrInterfacePage />} />
           <Route path='/contact-card/:id' element={<ContactCardInterfacePage />} />
+          <Route path='/url/:id' element={<RedirectionQRInterfacePage />} />
 
           <Route path='*' element={<Error404Page />} />
         </Routes>
