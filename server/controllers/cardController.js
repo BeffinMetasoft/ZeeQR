@@ -10,6 +10,7 @@ const ReviewQR = require("../model/reviewQrModel");
 const ContactCard = require("../model/contactCardModel");
 const Admin = require("../model/adminModel");
 const Languages = require("../model/languageModel");
+const RedirectionQR = require("../model/redirectionQrModel");
 
 
 
@@ -364,6 +365,109 @@ const addContactCardLocations = async (req, res, next) => {
   }
 };
 
+
+/* -------------------------------------------------------------------------- */
+/*                         redirectionQr interface details                         */
+/* -------------------------------------------------------------------------- */
+
+const redirectioQrDetails = async (req, res, next) => {
+  try {
+    const redirectionQR = await RedirectionQR.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
+
+    // console.log(redirectionQR, 'cardsssssdsdsdsdsdsd');
+
+    if (redirectionQR?.expire) {
+
+      const cardExpiry = await checkExpiry(redirectionQR)
+      if (cardExpiry === "notExpired") {
+
+        if (redirectionQR?.userID?.adminID) {
+          const exp = await expiryDate(redirectionQR.userID.adminID);
+
+          if (exp === "notExpired") {
+            res.status(200).json({ success: true, redirectionQR, message: "Single Booked Card" });
+          } else {
+            res.status(498).json({ success: false, message: "Admin expired" });
+          }
+        } else {
+          res.status(200).json({ success: true, redirectionQR, message: "Single Booked Card" });
+        }
+      } else {
+        // console.log('0987654321');
+        res.status(498).json({ success: false, message: "Profile Card Expired, Please Contact Admin" });
+      }
+    } else {
+      // console.log('1234567');
+      if (redirectionQR?.userID?.adminID) {
+        const exp = await expiryDate(redirectionQR.userID.adminID);
+
+        if (exp === "notExpired") {
+          res.status(200).json({ success: true, redirectionQR, message: "Single Booked Card" });
+        } else {
+          res.status(498).json({ success: false, message: "Admin expired" });
+        }
+      } else {
+        res.status(200).json({ success: true, redirectionQR, message: "Single Booked Card" });
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    next(error)
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                           add Redirection QR Location                           */
+/* -------------------------------------------------------------------------- */
+const addRedirectionQrLocations = async (req, res, next) => {
+  try {
+    const locationData = {
+      ip: req.body.ip,
+      city: req.body.city,
+      region: req.body.region,
+      country: req.body.country_name,
+      count: 1,
+      timeLog: [Date.now()],
+    }
+    const card = await RedirectionQR.findOne({ _id: req.params.id })
+
+
+    await card.updateOne({ $inc: { "tapCount": 1 } });
+
+    const ExistLocation = card.location.filter(loc => loc.ip === locationData.ip && loc.city === locationData.city && loc.region === locationData.region && loc.country === locationData.country);
+
+    if (ExistLocation.length > 0) {
+      const query = { _id: card._id };
+      const updateDocument = {
+        $inc: { "location.$[i].count": 1 },
+        $push: { "location.$[i].timeLog": Date.now() }
+      };
+      const options = {
+        arrayFilters: [
+          {
+            "i.ip": locationData.ip,
+            "i.city": locationData.city,
+            "i.region": locationData.region,
+            "i.country": locationData.country,
+          }
+        ]
+      };
+      await RedirectionQR.updateOne(query, updateDocument, options);
+
+    } else {
+      await card.updateOne(
+        { $push: { location: locationData } }
+      )
+    }
+
+    res.status(200).json({ success: true, message: "location added" });
+
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 /* -------------------------------------------------------------------------- */
 /*                                get language                                */
 /* -------------------------------------------------------------------------- */
@@ -391,6 +495,8 @@ module.exports = {
   addReviewCardLocations,
   contactCardDetails,
   addContactCardLocations,
+  redirectioQrDetails,
+  addRedirectionQrLocations,
   getParticularRouteCard,
   getLanguages
 };
