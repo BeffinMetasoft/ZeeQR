@@ -11,11 +11,11 @@ const verifyUrlQRDomain = async (req, res, next) => {
         const { url } = req.body
         const splitArray = url?.split("/url/");
         const domain = splitArray[0]
-        console.log(domain, 'domain');
+        // console.log(domain, 'domain');
 
         const card = await RedirectionQR.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
         const admin = await Admin.findOne({ _id: card?.userID?.adminID })
-        console.log(admin, 'admin');
+        // console.log(admin, 'admin');
         // console.log(process.env.FRONT_END_MAIN_DOMAIN,'domainasssssssssssssssss');
         if (admin) {
             if (domain === process.env.FRONT_END_MAIN_DOMAIN) {
@@ -46,14 +46,14 @@ const verifyUrlQRDomain = async (req, res, next) => {
             }
         } else {
             const user = await User.findOne({ _id: card?.userID?._id })
-            console.log(user,'ooo');
+            // console.log(user,'ooo');
             if (domain === process.env.FRONT_END_MAIN_DOMAIN) {
                 // console.log('aaaaaaaaaaaaaaaaaaaaaa');
                 if (card?.userID) {
-                    console.log('bbbbbbbbbbbbbbbbb');
+                    // console.log('bbbbbbbbbbbbbbbbb');
                     if (user?.domain) {
-                        console.log(user?.domain, 'cccccccccccc');
-                        console.log(domain, 'cccccccccccc1111');
+                        // console.log(user?.domain, 'cccccccccccc');
+                        // console.log(domain, 'cccccccccccc1111');
                         if (user?.domain === domain) {
                             // console.log('dddddddddddd');
                             next()
