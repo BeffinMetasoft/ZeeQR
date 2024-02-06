@@ -36,6 +36,7 @@ function RedirectionQRInterfacePage() {
             } catch (error) {
                 // console.log(error);
                 setRedirectionQR(true)
+                setLoader(false)
             }
         }
         getRedirectionQRDetails()
