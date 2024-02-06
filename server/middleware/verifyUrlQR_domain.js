@@ -6,14 +6,47 @@ const RedirectionQR = require('../model/redirectionQrModel')
 const User = require('../model/userModel')
 // import Card from "../model/cardModel";
 
+function getBaseUrl(url) {
+    const urlObject = new URL(url);
+    return urlObject.origin;
+}
+function getUrlParts(url) {
+    const urlObject = new URL(url);
+    const baseUrl = urlObject.origin;
+    const remainingPart = url.substring(baseUrl.length);
+    const includesUrl = remainingPart.includes("/url/");
+    return {
+        baseUrl: baseUrl,
+        remainingPart: remainingPart,
+        remainingPartLength: remainingPart.length,
+        includesUrl: includesUrl
+    };
+}
+
+
 const verifyUrlQRDomain = async (req, res, next) => {
     try {
         const { url } = req.body
-        const splitArray = url?.split("/url/");
-        const domain = splitArray[0]
-        // console.log(domain, 'domain');
+        // console.log(url, 'qwerty');
+        // console.log(req.params.id,'params');
 
-        const card = await RedirectionQR.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
+        // const splitArray = url?.split("/url/");
+        // console.log(splitArray);
+        // const domain = splitArray[0]
+        const urlParts = getUrlParts(url);
+        const domain = urlParts.baseUrl
+        // console.log(domain, 'domain');
+        // console.log(urlParts.includesUrl, 'domain');
+
+        let card
+        if (urlParts.includesUrl) {
+
+            card = await RedirectionQR.findOne({ $and: [{ _id: req.params.id }, { status: "active" }] }).populate("userID");
+        } else {
+            card = await RedirectionQR.findOne({ $and: [{ shortUrl: req.params.id }, { status: "active" }] }).populate("userID");
+
+        }
+
         const admin = await Admin.findOne({ _id: card?.userID?.adminID })
         // console.log(admin, 'admin');
         // console.log(process.env.FRONT_END_MAIN_DOMAIN,'domainasssssssssssssssss');
@@ -78,6 +111,7 @@ const verifyUrlQRDomain = async (req, res, next) => {
         }
 
     } catch (error) {
+        console.log(error, 'qwer');
         res.status(error.status || 500).json({ success: false, message: error.message || "Something went wrong" })
 
     }

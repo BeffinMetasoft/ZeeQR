@@ -11,6 +11,7 @@ import ContactCardInterfacePage from './pages/ContactCardInterfacePage';
 // import RouteBasicCardViewPage from './pages/RouteBasicCardViewPage';
 import './i18n.js'
 import RedirectionQRInterfacePage from './pages/RedirectionQRInterfacePage.js';
+import DynamicQRInterfacePage from './pages/DynamicQRInterfacePage.js';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/reviewQR/:id' element={<ReviewQrInterfacePage />} />
           <Route path='/contact-card/:id' element={<ContactCardInterfacePage />} />
           <Route path='/url/:id' element={<RedirectionQRInterfacePage />} />
+          <Route path='/:id' element={<DynamicQRInterfacePage />} />
 
           <Route path='*' element={<Error404Page />} />
         </Routes>

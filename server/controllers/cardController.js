@@ -415,6 +415,53 @@ const redirectioQrDetails = async (req, res, next) => {
     next(error)
   }
 }
+const dynamicQrDetails = async (req, res, next) => {
+  try {
+    const dynamicQR = await RedirectionQR.findOne({ $and: [{ shortUrl: req.params.id }, { status: "active" }] }).populate("userID");
+
+    // console.log(redirectionQR, 'cardsssssdsdsdsdsdsd');
+
+    if (dynamicQR?.expire) {
+
+      const cardExpiry = await checkExpiry(dynamicQR)
+      if (cardExpiry === "notExpired") {
+
+        if (dynamicQR?.userID?.adminID) {
+          const exp = await expiryDate(dynamicQR.userID.adminID);
+
+          if (exp === "notExpired") {
+            res.status(200).json({ success: true, dynamicQR, message: "Single Booked Card" });
+          } else {
+            res.status(498).json({ success: false, message: "Admin expired" });
+          }
+        } else {
+          res.status(200).json({ success: true, dynamicQR, message: "Single Booked Card" });
+        }
+      } else {
+        // console.log('0987654321');
+        res.status(498).json({ success: false, message: "Profile Card Expired, Please Contact Admin" });
+      }
+    } else {
+      // console.log('1234567');
+      if (dynamicQR?.userID?.adminID) {
+        const exp = await expiryDate(dynamicQR.userID.adminID);
+
+        if (exp === "notExpired") {
+          res.status(200).json({ success: true, dynamicQR, message: "Single Booked Card" });
+        } else {
+          res.status(498).json({ success: false, message: "Admin expired" });
+        }
+      } else {
+        res.status(200).json({ success: true, dynamicQR, message: "Single Booked Card" });
+      }
+    }
+  } catch (error) {
+    console.log(error);
+    next(error)
+  }
+}
+
+
 
 /* -------------------------------------------------------------------------- */
 /*                           add Redirection QR Location                           */
@@ -496,6 +543,7 @@ module.exports = {
   contactCardDetails,
   addContactCardLocations,
   redirectioQrDetails,
+  dynamicQrDetails,
   addRedirectionQrLocations,
   getParticularRouteCard,
   getLanguages

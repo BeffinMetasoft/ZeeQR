@@ -6,6 +6,10 @@ const RedirectionQrSchema = new mongoose.Schema({
         type: String,
         required: [true, "URL is required"],
     },
+    shortUrl: {
+        type: String,
+        required: [true, "short URL is required"],
+    },
     QRCode: {
         type: String,
         required: [true, "QRCode is required"],
