@@ -449,6 +449,9 @@ function ClassicTheme({ card, preview }) {
       </div>
     </div>
   );
+
+  const getWhatsappNumber = card?.socialMedias?.filter((item)=>item.platform === 'Whatsapp') 
+const whatsappNumber = (card?.socialMedias && card?.socialMedias?.length !== 0) ?  getWhatsappNumber[0].link : card?.whatsappNumber
   //------------------------------------------------------------------------------------------------------
   return (
     <div>
@@ -567,7 +570,7 @@ function ClassicTheme({ card, preview }) {
             </Link>
             {preview ? (
               <Link
-                to={`https://wa.me/+${card?.whatsappNumber}?text=Hi%2C`}
+                to={`https://wa.me/+${whatsappNumber}?text=Hi%2C`}
                 target="_blank"
               >
                 <img src={whatsappiconw} alt="" />
