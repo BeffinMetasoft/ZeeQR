@@ -697,7 +697,8 @@ function ClassicTheme2({ card, preview }) {
     backgroundImage: `url(${background})`,
   };
 
-
+const getWhatsappNumber = card?.socialMedias?.filter((item)=>item.platform === 'Whatsapp') 
+const whatsappNumber = card.socialMedias ?  getWhatsappNumber[0].link : card?.whatsappNumber
 
   //------------------------------------------------------------------------------------------------------
   return (
@@ -896,7 +897,7 @@ function ClassicTheme2({ card, preview }) {
               style={{
                 backgroundColor: `${Iconcolor ? Iconcolor : ""}`,
               }}
-              to={preview ? `https://wa.me/+${card?.whatsappNumber}?text=Hi%2C` : ""}
+              to={preview ? `https://wa.me/+${whatsappNumber}?text=Hi%2C` : ""}
               target={preview ? "_blank" : ""}
             >
               {/* <img src={whatsappiconw} alt="" /> */}
