@@ -205,7 +205,8 @@ function ListSocialMediaClassic({ preview, Hgcolor, Textcolor }) {
                 return (
                     <Link
                         className=""
-                        to={`${preview ? media?.link : ""}`}
+                        // to={`${preview ? media?.link : ""}`}
+                        to={`${preview ? (media.platform === 'Whatsapp' ? `https://wa.me/+${media?.link}?text=Hi%2C` : media?.link) : ""}`}
                         target={`${preview ? "_blank" : ""}`}
                     >
                         <div className=" flex gap-3  p-[16px] rounded-[8px] justify-between items-center"
