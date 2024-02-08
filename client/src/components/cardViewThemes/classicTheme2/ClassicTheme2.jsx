@@ -698,7 +698,7 @@ function ClassicTheme2({ card, preview }) {
   };
 
 const getWhatsappNumber = card?.socialMedias?.filter((item)=>item.platform === 'Whatsapp') 
-const whatsappNumber = card.socialMedias ?  getWhatsappNumber[0].link : card?.whatsappNumber
+const whatsappNumber = (card?.socialMedias && card?.socialMedias?.length !== 0) ?  getWhatsappNumber[0].link : card?.whatsappNumber
 
   //------------------------------------------------------------------------------------------------------
   return (
