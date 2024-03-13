@@ -11,6 +11,7 @@ const ContactCard = require("../model/contactCardModel");
 const Admin = require("../model/adminModel");
 const Languages = require("../model/languageModel");
 const RedirectionQR = require("../model/redirectionQrModel");
+const SharedContacts = require("../model/sharedContactsModel");
 
 
 
@@ -415,6 +416,10 @@ const redirectioQrDetails = async (req, res, next) => {
     next(error)
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                 Dynamic Url                                */
+/* -------------------------------------------------------------------------- */
 const dynamicQrDetails = async (req, res, next) => {
   try {
     const dynamicQR = await RedirectionQR.findOne({ $and: [{ shortUrl: req.params.id }, { status: "active" }] }).populate("userID");
@@ -460,7 +465,6 @@ const dynamicQrDetails = async (req, res, next) => {
     next(error)
   }
 }
-
 
 
 /* -------------------------------------------------------------------------- */
@@ -534,6 +538,26 @@ const getLanguages = async (req, res, next) => {
 
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                Save Contact                                */
+/* -------------------------------------------------------------------------- */
+const saveContacts = async (req, res, next) => {
+  try {
+    const newContact = new SharedContacts({
+
+      userID: req.params.id,
+      contactDetails: req.body
+    });
+
+    const contact = await newContact.save();
+    res.status(200).json({ success: true, message: "Contact Shared Sucessfully" });
+  } catch (error) {
+    console.log(error);
+    next(error)
+  }
+}
+
+
 module.exports = {
 
   getSingleCard,
@@ -546,5 +570,6 @@ module.exports = {
   dynamicQrDetails,
   addRedirectionQrLocations,
   getParticularRouteCard,
-  getLanguages
+  getLanguages,
+  saveContacts
 };

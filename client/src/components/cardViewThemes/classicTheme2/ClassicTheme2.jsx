@@ -30,6 +30,7 @@ import { useTranslation } from 'react-i18next'
 import { SocialMediaValid } from "../Common/DivValidation";
 import ListSocialMediaCls from "../Common/socialMedia/ListSocialMediaCls";
 import ListSocialMediaClassic from "../Common/socialMedia/ListSocialMediaClassic";
+import ExchangeContact from "../Common/exchangeContactModal/ExchangeContact";
 
 // import downloadIcon from '../../../assests/img1/download-circled-outline.svg'
 
@@ -700,6 +701,30 @@ function ClassicTheme2({ card, preview }) {
   const getWhatsappNumber = card?.socialMedias?.filter((item) => item?.platform === 'Whatsapp')
   const whatsappNumber = (card?.socialMedias && card?.socialMedias?.length !== 0) ? (getWhatsappNumber[0]?.link ? getWhatsappNumber[0]?.link : '') : card?.whatsappNumber
 
+
+  const exchangeButton = (
+    <Link
+      className="exchangeContact flex"
+      style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}
+    >
+      <p
+        className="w-12 ml-6 my-3 text-white text-xs"
+        style={{ color: `${BtIColor ? BtIColor : "white"}` }}
+      >
+        {/* {t('addToContact', '')} */}
+        {card?.exchangeContact.buttonName}
+        {/* أضف إلى جهات الاتصال */}
+      </p>
+      <div
+        className="ml-6 rounded-full   my-2 p-2 w-10 h-10"
+        src=""
+        alt=""
+        style={{ backgroundColor: `${Highlightcolor ? Highlightcolor : "white"}` }}
+      >
+        <BsUpload size={22} color={Iconcolor ? Iconcolor : 'black'} />
+      </div>
+    </Link>
+  )
   //------------------------------------------------------------------------------------------------------
   return (
     <div>
@@ -744,26 +769,29 @@ function ClassicTheme2({ card, preview }) {
                     }`}} className="addToContact" to={`${vCard}`}>
               <img src={addIcon} alt="" />
             </Link> */}
-            <Link
-              className="addToContact flex"
-              to={`${card?.vCard}`}
-              style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}
-            >
-              <p
-                className="w-12 ml-6 my-2 text-white text-xs"
-                style={{ color: `${BtIColor ? BtIColor : "white"}` }}
+            <div>
+              <Link
+                className="addToContact flex"
+                to={`${card?.vCard}`}
+                style={{ backgroundColor: `${Iconcolor ? Iconcolor : "black"}` }}
               >
-                {t('addToContact', 'Add to Contacts')}
-              </p>
-              <div
-                className="ml-6 rounded-full   my-2 p-2 w-10 h-10"
-                src=""
-                alt=""
-                style={{ backgroundColor: `${Highlightcolor ? Highlightcolor : "white"}` }}
-              >
-                <BsPlus size={23} color={Iconcolor ? Iconcolor : 'black'} />
-              </div>
-            </Link>
+                <p
+                  className="w-12 ml-6 my-3 text-white text-xs"
+                  style={{ color: `${BtIColor ? BtIColor : "white"}` }}
+                >
+                  {t('addToContact', 'Add to Contacts')}
+                </p>
+                <div
+                  className="ml-6 rounded-full   my-2 p-2 w-10 h-10"
+                  src=""
+                  alt=""
+                  style={{ backgroundColor: `${Highlightcolor ? Highlightcolor : "white"}` }}
+                >
+                  <BsPlus size={23} color={Iconcolor ? Iconcolor : 'black'} />
+                </div>
+              </Link>
+              <ExchangeContact customButton={exchangeButton} details={card?.exchangeContact} cardId={card._id} />
+            </div>
           </>
         ) : (
           ""
@@ -1891,6 +1919,13 @@ function ClassicTheme2({ card, preview }) {
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
+
+
+
+      {/* ----------------------------------  exchange contact ---------------------------------  */}
+
+
+
     </div>
   );
 }

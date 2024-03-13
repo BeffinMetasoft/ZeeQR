@@ -13,6 +13,8 @@ export const redirectionQrInterface = (id,path) => axios.post(`/redirectionQr-in
 
 export const dynamicQrInterface = (id,path) => axios.post(`/dynamicQr-interface/${id}`,path)  //  dynamicQr interface
 
+export const shareContacts = (id,data) => axios.post(`/share-contact/${id}`,data)  // share contacts
+
 
 export const addLocation = (id, liveLocation) => axios.post(`/add-location/${id}`, liveLocation)  //add business card location
 

@@ -466,6 +466,18 @@ button {
     height: 60px;
     position: fixed;
     right: 27px;
+    bottom: 100px;
+    z-index: 10;
+    box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+}
+.exchangeContact {
+    width: 150px;
+    height: 60px;
+    position: fixed;
+    right: 27px;
     bottom: 27px;
     z-index: 10;
     box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
